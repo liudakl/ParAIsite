@@ -1,10 +1,10 @@
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 from itertools import chain
 from torch.optim import Optimizer
 import torch
 import warnings
 import numpy as np
-
+from typing import Callable, Dict
 RNG_SEED = 42
 torch.manual_seed(RNG_SEED)
 
@@ -116,6 +116,8 @@ class SWA(Optimizer):
         self.optimizer = optimizer
 
         self.defaults = self.optimizer.defaults
+        self._optimizer_step_pre_hooks: Dict[int, Callable] = OrderedDict()
+        self._optimizer_step_post_hooks: Dict[int, Callable] = OrderedDict()
         self.param_groups = self.optimizer.param_groups
         self.state = defaultdict(dict)
         self.opt_state = self.optimizer.state

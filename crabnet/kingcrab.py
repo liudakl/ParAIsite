@@ -59,7 +59,7 @@ class Embedder(nn.Module):
         elem_dir = 'data/element_properties'
         # # Choose what element information the model receives
         mat2vec = f'{elem_dir}/mat2vec.csv'  # element embedding
-        # mat2vec = f'{elem_dir}/onehot.csv'  # onehot encoding (atomic number)
+        #mat2vec = f'{elem_dir}/onehot.csv'  # onehot encoding (atomic number)
         # mat2vec = f'{elem_dir}/random_200.csv'  # random vec for elements
 
         cbfv = pd.read_csv(mat2vec, index_col=0).values
@@ -272,11 +272,7 @@ class combined_models (nn.Module):
 	def forward (self, src, frac):
 				
 		output = self.pretrained.encoder(src, frac)
-		
-		print(output.shape)
-		mask = (src == 0).unsqueeze(-1).repeat(1, 1, self.out_dims)
-        
-                
+		mask = (src == 0).unsqueeze(-1).repeat(1, 1, self.out_dims)               
 		output = self.pretrained.output_nn(output)  # simple linear
         
         

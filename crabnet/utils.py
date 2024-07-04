@@ -418,12 +418,10 @@ class Scaler():
         self.std = state_dict['std']
 
 class ownStandardScaler():
-   
-   
-    
+      
     def __init__(self, data):
-        self.ownscalerX = StandardScaler()
-        self.ownscalerY = StandardScaler()
+        
+        self.ownscalerY = StandardScaler().fit(self.normalizeY(torch.tensor(data, dtype=torch.float32)).reshape(-1,1))
    
     def normalizeY(self, data):       
         data_norm = torch.log10(data +1)
@@ -431,37 +429,22 @@ class ownStandardScaler():
         return data_norm
 
     def scaleY(self, data):
-        data_scaled = self.ownscalerY.fit_transform(data.reshape(-1,1))
-        #data_scaled = data_scaled.reshape(data.shape[0],)
+        data_scaled = self.ownscalerY.transform(data.reshape(-1,1))
         data_scaled = torch.as_tensor(data_scaled)
         return data_scaled
 
     def unscaleY(self, data_scaled):
-         
-        # load my scaler Y
+        #print("data_scaled:",data_scaled)    
         data_scaled = data_scaled.reshape(-1,1)       
         data = self.ownscalerY.inverse_transform(data_scaled.detach().cpu().numpy())
         return data
    
-    def unnormalizeY(self, data_norm):           
+    def unnormalizeY(self, data_norm): 
+        #print("data_norm: ",data_norm)          
         data = 10**(data_norm)-1
         data = torch.tensor(data, dtype=torch.float32)
         return data   
    
-    def scaleX (self, data):
-        data = data.detach().cpu().numpy()
-        data_scaled = self.ownscalerX.fit_transform(data.reshape(-1,1))
-        data_scaled = data_scaled.reshape(data.shape[0],data.shape[1],1)
-        data_scaled = torch.as_tensor(data_scaled)
-        return data_scaled
-
-  
-    def unscaleX(self, data_scaled):
-   	# load my own scaler X 
-        #data_scaled = data_scaled.detach().numpy()
-        data = self.ownscalerX.transform(data_scaled)
-        data = torch.tensor(data, dtype=torch.float32)
-        return data
         
 
 
@@ -676,7 +659,8 @@ class EDM_CsvLoader():
         pred_loader = DataLoader(pred_dataset,
                                  batch_size=self.batch_size,
                                  pin_memory=self.pin_memory,
-                                 shuffle=shuffle)
+                                 shuffle=True)
+        
         return pred_loader
 
 

@@ -65,7 +65,6 @@ class Model():
 
     def load_data(self, file_name, batch_size=2**9, train=False):
         self.batch_size = batch_size
-        
         inference = not train
         data_loaders = EDM_CsvLoader(csv_data=file_name,
                                      batch_size=batch_size,
@@ -73,7 +72,7 @@ class Model():
                                      inference=inference,
                                      verbose=self.verbose,
                                      drop_unary=self.drop_unary,
-                                     scale=self.scale, shuffle=True)
+                                     scale=self.scale)
         print(f'loading data with up to {data_loaders.n_elements:0.0f} '
               f'elements in the formula')
 
@@ -82,7 +81,6 @@ class Model():
 
         data_loader = data_loaders.get_data_loaders(inference=inference)
         y = data_loader.dataset.data[1]
-        
         if train:
             self.train_len = len(y)
             if self.classification:
@@ -262,10 +260,8 @@ class Model():
         # print(f'training speed: {datalen/dt:0.3f}')
         return loss 
     def fit(self, epochs=None, checkin=None, losscurve=False, nrun = None):
-        if nrun is None:
-            nrun = 1
-        
-        #for ii in range (1,nrun+1):
+        if nrun is None: 
+            nrun = 1 
         assert_train_str = 'Please Load Training Data (self.train_loader)'
         assert_val_str = 'Please Load Validation Data (self.data_loader)'
         assert self.train_loader is not None, assert_train_str
@@ -298,7 +294,9 @@ class Model():
         self.step_count = 0
         #self.criterion = RobustL1
         self.criterion = nn.L1Loss()
-
+        if self.classification:
+            print("Using BCE loss for classification task")
+            self.criterion =nn.L1Loss() #BCEWithLogitsLoss
         base_optim = Lamb(params=self.model.parameters())
         optimizer = Lookahead(base_optimizer=base_optim)
         self.optimizer = SWA(optimizer)
@@ -316,8 +314,12 @@ class Model():
         self.xswa = []
         self.yswa = []
         self.discard_n = 3
-        #print("fit")    
-        res = []
+        #print("fit")
+        
+        best_mae = np.inf 
+        best_mape= np.inf 
+        res = [] 
+
         for epoch in range(epochs):
             self.epoch = epoch
             self.epochs = epochs
@@ -327,9 +329,14 @@ class Model():
             self.lr_list.append(self.optimizer.param_groups[0]['lr'])
 
             ##################################
-
+            # Force evaluate dataset so that we can capture it in the hook
+            # here we are using the train_loader, but we can also use
+            # general data_loader
             if self.capture_every == 'epoch':
+                # print('capturing every epoch!')
+                # print(f'data_loader size: {len(self.data_loader.dataset)}')
                 self.capture_flag = True
+                # (act, pred, formulae, uncert)
                 self.act_v, self.pred_v, _ = self.predict2(self.data_loader)
                 self.capture_flag = False
             ##################################
@@ -371,7 +378,6 @@ class Model():
                     if (self.epoch+1) % (self.epochs_step * 2) == 0:
                         self.xswa.append(self.epoch)
                         self.yswa.append(mae_v)
-
 
                 if losscurve:
                     plt.figure(figsize=(8, 5))
@@ -416,11 +422,11 @@ class Model():
                     plt.plot(self.xswa, self.yswa,
                              'o', ms=12, mfc='none', label='SWA point')
                 plt.ylim(0, 2 * np.mean(self.loss_curve['val']))
-                plt.title('run = %s'%(nrun))
+                plt.title(f'{self.model_name}')
                 plt.xlabel('epochs')
                 plt.ylabel('MAE')
                 plt.legend()
-                #plt.savefig(f'figures/lc_data/{self.model_name}_lc.png')
+                plt.savefig(f'figures/lc_data/{self.model_name}_lc.png')
 
             #if self.optimizer.discard_count >= self.discard_n:
             #    print(f'Discarded: {self.optimizer.discard_count}/'
@@ -430,11 +436,185 @@ class Model():
             #    break
 
         if not (self.optimizer.discard_count >= self.discard_n):
-            self.optimizer.swap_swa_sgd()    
+            self.optimizer.swap_swa_sgd()
+        else:
+            for ii in range (1, nrun):
+                assert_train_str = 'Please Load Training Data (self.train_loader)'
+                assert_val_str = 'Please Load Validation Data (self.data_loader)'
+                assert self.train_loader is not None, assert_train_str
+                assert self.data_loader is not None, assert_val_str
+                self.loss_curve = {}
+                self.loss_curve['train'] = []
+                self.loss_curve['val'] = []
         
+                # change epochs_step
+                # self.epochs_step = 10
+                self.epochs_step = 1
+                self.step_size = self.epochs_step * len(self.train_loader)
+                print(f'stepping every {self.step_size} training passes,',
+                      f'cycling lr every {self.epochs_step} epochs')
+                if epochs is None:
+                    n_iterations = 1e4
+                    epochs = int(n_iterations / len(self.data_loader))
+                    print(f'running for {epochs} epochs')
+                if checkin is None:
+                    checkin = self.epochs_step * 2
+                    print(f'checkin at {self.epochs_step*2} '
+                          f'epochs to match lr scheduler')
+                if epochs % (self.epochs_step * 2) != 0:
+                    # updated_epochs = epochs - epochs % (self.epochs_step * 2)
+                    # print(f'epochs not divisible by {self.epochs_step * 2}, '
+                    #       f'updating epochs to {updated_epochs} for learning')
+                    updated_epochs = epochs
+                    epochs = updated_epochs
         
+                self.step_count = 0
+                #self.criterion = RobustL1
+                self.criterion = nn.L1Loss()
+                if self.classification:
+                    print("Using BCE loss for classification task")
+                    self.criterion =nn.L1Loss() #BCEWithLogitsLoss
+                base_optim = Lamb(params=self.model.parameters())
+                optimizer = Lookahead(base_optimizer=base_optim)
+                self.optimizer = SWA(optimizer)
+        
+                lr_scheduler = CyclicLR(self.optimizer,
+                                        base_lr=1e-4,
+                                        max_lr=6e-3,
+                                        cycle_momentum=False,
+                                        step_size_up=self.step_size)
+        
+                self.swa_start = 2  # start at (n/2) cycle (lr minimum)
+                self.lr_scheduler = lr_scheduler
+                self.stepping = True
+                self.lr_list = []
+                self.xswa = []
+                self.yswa = []
+                self.discard_n = 3
+                #print("fit")
+                
+                best_mae = np.inf 
+                best_mape= np.inf 
+                res = [] 
+        
+                for epoch in range(epochs):
+                    self.epoch = epoch
+                    self.epochs = epochs
+                    ti = time()
+                    self.train2()
+                    # print(f'epoch time: {(time() - ti):0.3f}')
+                    self.lr_list.append(self.optimizer.param_groups[0]['lr'])
+        
+                    ##################################
+                    # Force evaluate dataset so that we can capture it in the hook
+                    # here we are using the train_loader, but we can also use
+                    # general data_loader
+                    if self.capture_every == 'epoch':
+                        # print('capturing every epoch!')
+                        # print(f'data_loader size: {len(self.data_loader.dataset)}')
+                        self.capture_flag = True
+                        # (act, pred, formulae, uncert)
+                        self.act_v, self.pred_v, _ = self.predict2(self.data_loader)
+                        self.capture_flag = False
+                    ##################################
+        
+                    if (epoch+1) % checkin == 0 or epoch == epochs - 1 or epoch == 0:
+                        ti = time()
+                        with torch.no_grad():
+                            act_t, pred_t, _ = self.predict2(self.train_loader)
+                        dt = time() - ti
+                        datasize = len(act_t)
+                        # print(f'inference speed: {datasize/dt:0.3f}')
+                        #print(act_t, pred_t)
+                        mae_t = mean_absolute_error(act_t, pred_t)
+                        mape_t = mean_absolute_percentage_error(act_t, pred_t)
+                        
+                        self.loss_curve['train'].append(mae_t)
+                        with torch.no_grad():
+                            act_v, pred_v, _ = self.predict2(self.data_loader)
+                            
+                        mae_v = mean_absolute_error(act_v, pred_v)
+                        mape_v = mean_absolute_percentage_error(act_v, pred_v)
+                        
+                        #if mae_v <= best_mae:
+                            #best_mae = mae_v                
+                        res.append({"run": nrun, "ep": epoch+1, "l1_loss": loss, "mae_t": mae_t[epoch], "mae_v": mae_v[epoch], "mape_t": mape_t[epoch], "mape_v": mape_v[epoch]})
+                        print("epochs:", epoch ,"mae_t = ", mae_t, "; mape_t = ", mape_t, "mae_v = ", mae_v, "; mape_v = ", mape_v)
+                        self.loss_curve['val'].append(mae_v)
+                        epoch_str = f'Epoch: {epoch}/{epochs} ---'
+                        train_str = f'train mae: {self.loss_curve["train"][-1]:0.3g}'
+                        val_str = f'val mae: {self.loss_curve["val"][-1]:0.3g}'
+                        if self.classification:
+                            train_auc = roc_auc_score(act_t, pred_t)
+                            val_auc = roc_auc_score(act_v, pred_v)
+                            train_str = f'train auc: {train_auc:0.3f}'
+                            val_str = f'val auc: {val_auc:0.3f}'
+                        print(epoch_str, train_str, val_str)
+        
+                        if self.epoch >= (self.epochs_step * self.swa_start - 1):
+                            if (self.epoch+1) % (self.epochs_step * 2) == 0:
+                                self.xswa.append(self.epoch)
+                                self.yswa.append(mae_v)
+        
+                        #if losscurve:
+                        #    plt.figure(figsize=(8, 5))
+                        #    xval = np.arange(len(self.loss_curve['val'])) * checkin - 1
+                        #    xval[0] = 0
+                        #    plt.plot(xval, self.loss_curve['train'],
+                        #             'o-', label='train_mae')
+                        #    plt.plot(xval, self.loss_curve['val'],
+                        #             's--', label='val_mae')
+                        #    plt.plot(self.xswa, self.yswa,
+                        #             'o', ms=12, mfc='none', label='SWA point')
+                        #    plt.ylim(0, 2 * np.mean(self.loss_curve['val']))
+                        #    plt.title(f'{self.model_name}')
+                        #    plt.xlabel('epochs')
+                        #    plt.ylabel('MAE')
+                        #    plt.legend()
+                        #    plt.show()
+        
+                    if (epoch == epochs-1 or
+                        self.optimizer.discard_count >= self.discard_n):
+                        # save output df for stats tracking
+                        xval = np.arange(len(self.loss_curve['val'])) * checkin - 1
+                        xval[0] = 0
+                        tval = self.loss_curve['train']
+                        vval = self.loss_curve['val']
+                        os.makedirs('figures/lc_data', exist_ok=True)
+                        df_loss = pd.DataFrame([xval, tval, vval]).T
+                        df_loss.columns = ['epoch', 'train loss', 'val loss']
+                        df_loss['swa'] = ['n'] * len(xval)
+                        df_loss.loc[df_loss['epoch'].isin(self.xswa), 'swa'] = 'y'
+                        df_loss.to_csv(f'figures/lc_data/{self.model_name}_lc.csv',
+                                       index=False)
+        
+                        # save output learning curve plot
+                        plt.figure(figsize=(8, 5))
+                        xval = np.arange(len(self.loss_curve['val'])) * checkin - 1
+                        xval[0] = 0
+                        plt.plot(xval, self.loss_curve['train'],
+                                 'o-', label='train_mae')
+                        plt.plot(xval, self.loss_curve['val'], 's--', label='val_mae')
+                        if self.epoch >= (self.epochs_step * self.swa_start - 1):
+                            plt.plot(self.xswa, self.yswa,
+                                     'o', ms=12, mfc='none', label='SWA point')
+                        plt.ylim(0, 2 * np.mean(self.loss_curve['val']))
+                        plt.title(f'{self.model_name}')
+                        plt.xlabel('epochs')
+                        plt.ylabel('MAE')
+                        plt.legend()
+                        plt.savefig(f'figures/lc_data/{self.model_name}_lc.png')
+        
+                    #if self.optimizer.discard_count >= self.discard_n:
+                    #    print(f'Discarded: {self.optimizer.discard_count}/'
+                    #          f'{self.discard_n} weight updates, '
+                    #          f'early-stopping now 🙅🛑')
+                    #    self.optimizer.swap_swa_sgd()
+                    #    break
+        
+                if not (self.optimizer.discard_count >= self.discard_n):
+                    self.optimizer.swap_swa_sgd()
             
-             
         return res
     def predict2(self, loader):
         len_dataset = len(loader.dataset)
