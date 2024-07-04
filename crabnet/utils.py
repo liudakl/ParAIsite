@@ -644,7 +644,6 @@ class EDM_CsvLoader():
                                       scale=scale))
         self.n_train = len(self.main_data[0])
         self.n_elements = self.main_data[0].shape[1]//2
-        print("#")
         self.batch_size = batch_size
         self.pin_memory = pin_memory
         self.shuffle = shuffle

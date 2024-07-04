@@ -79,6 +79,7 @@ class Model():
 
         # update n_elements after loading dataset
         self.n_elements = data_loaders.n_elements
+        
 
         data_loader = data_loaders.get_data_loaders(inference=inference)
         y = data_loader.dataset.data[1]
@@ -355,17 +356,19 @@ class Model():
                 #if mae_v <= best_mae:
                     #best_mae = mae_v                
                 res.append({"run": nrun, "ep": epoch+1, "l1_loss": loss.item(), "mae_t": mae_t, "mae_v": mae_v, "mape_t": mape_t, "mape_v": mape_v})
-                print("epochs:", epoch ,"mae_t = ", mae_t, "; mape_t = ", mape_t, "mae_v = ", mae_v, "; mape_v = ", mape_v)
+                #print("epochs:", epoch ,"mae_t = ", mae_t, "; mape_t = ", mape_t, "mae_v = ", mae_v, "; mape_v = ", mape_v)
                 self.loss_curve['val'].append(mae_v)
                 epoch_str = f'Epoch: {epoch}/{epochs} ---'
                 train_str = f'train mae: {self.loss_curve["train"][-1]:0.3g}'
                 val_str = f'val mae: {self.loss_curve["val"][-1]:0.3g}'
+                train_mape_str = f'train mape: {mape_t:0.3g}'
+                val_mape_str = f'val mape: {mape_v:0.3g}'
                 if self.classification:
                     train_auc = roc_auc_score(act_t, pred_t)
                     val_auc = roc_auc_score(act_v, pred_v)
                     train_str = f'train auc: {train_auc:0.3f}'
                     val_str = f'val auc: {val_auc:0.3f}'
-                print(epoch_str, train_str, val_str)
+                print(epoch_str, train_str, val_str,train_mape_str,val_mape_str)
 
                 if self.epoch >= (self.epochs_step * self.swa_start - 1):
                     if (self.epoch+1) % (self.epochs_step * 2) == 0:
@@ -406,20 +409,19 @@ class Model():
                                index=False)
 
                 # save output learning curve plot
-                plt.figure(figsize=(8, 5))
-                xval = np.arange(len(self.loss_curve['val'])) * checkin - 1
-                xval[0] = 0
-                plt.plot(xval, self.loss_curve['train'],
-                         'o-', label='train_mae')
-                plt.plot(xval, self.loss_curve['val'], 's--', label='val_mae')
-                if self.epoch >= (self.epochs_step * self.swa_start - 1):
-                    plt.plot(self.xswa, self.yswa,
-                             'o', ms=12, mfc='none', label='SWA point')
-                plt.ylim(0, 2 * np.mean(self.loss_curve['val']))
-                plt.title('run = %s'%(nrun))
-                plt.xlabel('epochs')
-                plt.ylabel('MAE')
-                plt.legend()
+        plt.figure(figsize=(8, 5))
+        xval = np.arange(len(self.loss_curve['val'])) * checkin - 1
+        xval[0] = 0
+        plt.plot(xval, self.loss_curve['train'],'o-', label='train_mae')
+        plt.plot(xval, self.loss_curve['val'], 's--', label='val_mae')
+        if self.epoch >= (self.epochs_step * self.swa_start - 1):
+            plt.plot(self.xswa, self.yswa,'o', ms=12, mfc='none', label='SWA point')
+        plt.ylim(0, 2 * np.mean(self.loss_curve['val']))
+        plt.title('run = %s'%(nrun))
+        plt.xlabel('epochs')
+        plt.ylabel('MAE')
+        plt.legend()
+        plt.show()      
                 #plt.savefig(f'figures/lc_data/{self.model_name}_lc.png')
 
             #if self.optimizer.discard_count >= self.discard_n:
