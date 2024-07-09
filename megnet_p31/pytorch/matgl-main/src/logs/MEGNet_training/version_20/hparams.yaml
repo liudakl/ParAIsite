@@ -1,0 +1,10 @@
+include_line_graph: false
+data_mean: 0.0
+data_std: 1.0
+loss: mse_loss
+optimizer: null
+scheduler: null
+lr: 0.001
+decay_steps: 1000
+decay_alpha: 0.01
+sync_dist: false

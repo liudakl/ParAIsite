@@ -138,6 +138,15 @@ class MEGNet(nn.Module, IOMixIn):
         self.edge_s2s = EdgeSet2Set(dim_blocks_out, **s2s_kwargs)
         self.node_s2s = Set2Set(dim_blocks_out, **s2s_kwargs)
 
+        #self.output_proj = MLP(
+            # S2S cats q_star to output producing double the dim
+        #    dims=[2 * 2 * dim_blocks_out + dim_blocks_out, *hidden_layer_sizes_output, 1],
+        #    activation=activation,
+        #    activate_last=False,
+        #)
+        
+        
+        
         self.output_proj = MLP(
             # S2S cats q_star to output producing double the dim
             dims=[2 * 2 * dim_blocks_out + dim_blocks_out, *hidden_layer_sizes_output, 1],
@@ -187,7 +196,8 @@ class MEGNet(nn.Module, IOMixIn):
         if self.dropout:
             vec = self.dropout(vec)  # pylint: disable=E1102
 
-        output = self.output_proj(vec)
+        #output = self.output_proj(vec)
+        output =  vec 
         if self.is_classification:
             output = torch.sigmoid(output)
 
@@ -221,3 +231,110 @@ class MEGNet(nn.Module, IOMixIn):
         bond_vec, bond_dist = compute_pair_vector_and_distance(g)
         g.edata["edge_attr"] = self.bond_expansion(bond_dist)
         return self(g=g, state_attr=state_attr).detach()
+        
+        
+        
+        
+class combined_models (nn.Module): 
+    def __init__(self, pretrained_model,MLP,dim_node_embedding: int = 16,
+    dim_edge_embedding: int = 100,
+    dim_state_embedding: int = 2,
+    ntypes_state: int | None = None,
+    nblocks: int = 3,
+    hidden_layer_sizes_input: tuple[int, ...] = (64, 32),
+    hidden_layer_sizes_conv: tuple[int, ...] = (64, 64, 32),
+    hidden_layer_sizes_output: tuple[int, ...] = (32, 16),
+    nlayers_set2set: int = 1,
+    niters_set2set: int = 2,
+    activation_type: str = "softplus2",
+    is_classification: bool = False,
+    include_state: bool = True,
+    dropout: float = 0.0,
+    element_types: tuple[str, ...] = DEFAULT_ELEMENTS,
+    bond_expansion: BondExpansion | None = None,
+    cutoff: float = 4.0,
+    gauss_width: float = 0.5):
+        super(combined_models, self).__init__()
+        self.pretrained = pretrained_model
+        self.MLP = MLP 
+        self.pretrained.bond_expansion = bond_expansion or BondExpansion(
+            rbf_type="Gaussian", initial=0.0, final=cutoff + 1.0, num_centers=dim_edge_embedding, width=gauss_width
+        )
+    
+    def predict_structure(
+        self,
+        structure,
+        state_attr: torch.Tensor | None = None,
+        graph_converter: GraphConverter | None = None,
+    ):
+        """Convenience method to directly predict property from structure.
+
+        Args:
+            structure: An input crystal/molecule.
+            state_attr (torch.tensor): Graph attributes
+            graph_converter: Object that implements a get_graph_from_structure.
+
+        Returns:
+            output (torch.tensor): output property
+        """
+        if graph_converter is None:
+            from matgl.ext.pymatgen import Structure2Graph
+
+            graph_converter = Structure2Graph(element_types=self.pretrained.element_types, cutoff=self.pretrained.cutoff)
+        g, lat, state_attr_default = graph_converter.get_graph(structure)
+        g.edata["pbc_offshift"] = torch.matmul(g.edata["pbc_offset"], lat[0])
+        g.ndata["pos"] = g.ndata["frac_coords"] @ lat[0]
+        if state_attr is None:
+            state_attr = torch.tensor(state_attr_default)
+        bond_vec, bond_dist = compute_pair_vector_and_distance(g)
+        g.edata["edge_attr"] = self.pretrained.bond_expansion(bond_dist)
+        return self(g=g, state_attr=state_attr).detach()    
+    
+		
+    def forward(self, g: dgl.DGLGraph, state_attr: torch.Tensor | None = None, **kwargs):
+        """Forward pass of MEGnet. Executes all blocks.
+
+        Args:
+            g (dgl.DGLGraph): DGL graphs
+            state_attr (torch.Tensor): State attributes
+            **kwargs: For future flexibility. Not used at the moment.
+
+        Returns:
+            Prediction
+        """
+        node_attr = g.ndata["node_type"]
+        bond_vec, bond_dist = compute_pair_vector_and_distance(g)
+        g.edata["bond_vec"] = bond_vec
+        g.edata["bond_dist"] = bond_dist
+        edge_attr = self.pretrained.bond_expansion(g.edata["bond_dist"])
+        node_feat, edge_feat, state_feat = self.pretrained.embedding(node_attr, edge_attr, state_attr)
+        edge_feat = self.pretrained.edge_encoder(edge_feat)
+        node_feat = self.pretrained.node_encoder(node_feat)
+        state_feat = self.pretrained.state_encoder(state_feat)
+
+        for block in self.pretrained.blocks:
+            output = block(g, edge_feat, node_feat, state_feat)
+            edge_feat, node_feat, state_feat = output
+
+        node_vec = self.pretrained.node_s2s(g, node_feat)
+        edge_vec = self.pretrained.edge_s2s(g, edge_feat)
+
+        node_vec = torch.squeeze(node_vec)
+        edge_vec = torch.squeeze(edge_vec)
+        state_feat = torch.squeeze(state_feat)
+
+        vec = torch.hstack([node_vec, edge_vec, state_feat])
+
+        if self.pretrained.dropout:
+            vec = self.pretrained.dropout(vec)  # pylint: disable=E1102
+
+        
+        output =  vec
+        
+        #output = self.pretrained.output_proj(vec)
+        output = self.MLP(output)
+        
+        
+
+        return torch.squeeze(output)
+ 	

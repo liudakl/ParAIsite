@@ -24,3 +24,7 @@ embedding_layer_loaded = [i for i in model_pretrained.layers if i.name.startswit
 embedding_loaded = embedding_layer_loaded.get_weights()[0]
 
 model_new = MEGNetModel_D4(100, 2, nvocal=95, embedding_dim=16)
+embedding_layer_new = [i for i, j in enumerate(model_new.layers) if j.name.startswith('atom_embedding')][0]
+model_new.layers[embedding_layer_new].set_weights([embedding_loaded])
+model_new.layers[embedding_layer_new].trainable = False
+
