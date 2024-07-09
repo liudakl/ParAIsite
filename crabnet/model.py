@@ -305,8 +305,8 @@ class Model():
         self.optimizer = SWA(optimizer)
 
         lr_scheduler = CyclicLR(self.optimizer,
-                                base_lr=1e-4,
-                                max_lr=6e-3,
+                                base_lr=1e-7,
+                                max_lr=1e-4,
                                 cycle_momentum=False,
                                 step_size_up=self.step_size)
 
@@ -319,6 +319,11 @@ class Model():
         self.discard_n = 3
         #print("fit")    
         res = []
+        #with torch.no_grad():
+        #    act_t, pred_t, _ = self.predict2(self.train_loader)
+        #    print(act_t,pred_t)
+        #mae_t = mean_absolute_error(act_t, pred_t)
+        #print("#### => Before train ::: ", mae_t)
         for epoch in range(epochs):
             self.epoch = epoch
             self.epochs = epochs

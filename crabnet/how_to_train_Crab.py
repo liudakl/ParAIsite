@@ -27,14 +27,14 @@ trained_crab_model.model.load_state_dict(network['weights'])
 
 ### ============  Create combined model: MLP + Crabnet ============ ###
 
-new_model = Model(combined_models(pretrained_model=trained_crab_model.model,MLP=MLP(128,10,0,0,0,1)).to(compute_device))
+new_model = Model(combined_models(pretrained_model=trained_crab_model.model,MLP=MLP(128,60,300,220,340,1)).to(compute_device))
 
 
  ### ============ Data preparation part  ============ ###
 
 
 batch_size = 8
-dataset    = 'L96' 
+dataset    = 'mix_143' 
 
 if dataset == 'L96':
     
@@ -76,7 +76,6 @@ val_data   = data_path + "/val.csv"
 epochs = 500
 
 
-
 results = [] 
 
 for ii in range(1,10):
@@ -86,7 +85,8 @@ for ii in range(1,10):
         train_df, val_df = train_test_split(SetToUse, test_size=0.2, random_state=ii,shuffle=True)
         train_df.to_csv('%s'%(train_data),index=False,header=True )
         val_df.to_csv('%s'%(val_data),index=False,header=True )
-
+        
+    new_model = Model(combined_models(pretrained_model=trained_crab_model.model,MLP=MLP(128,60,300,220,340,1)).to(compute_device))    
     new_model.load_data(train_data, batch_size=batch_size, train=True)
     new_model.load_data(val_data, batch_size=batch_size)
     res=new_model.fit(epochs=epochs, losscurve=False, nrun=ii)

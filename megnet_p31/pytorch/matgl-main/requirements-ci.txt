@@ -1,0 +1,9 @@
+pytest
+pytest-cov
+coverage
+coveralls
+mypy
+types-tabulate
+pre-commit
+ruff
+black

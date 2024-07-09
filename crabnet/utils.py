@@ -437,6 +437,7 @@ class ownStandardScaler():
         #print("data_scaled:",data_scaled)    
         data_scaled = data_scaled.reshape(-1,1)       
         data = self.ownscalerY.inverse_transform(data_scaled.detach().cpu().numpy())
+        #data = torch.tensor(data, dtype=torch.float32)
         return data
    
     def unnormalizeY(self, data_norm): 

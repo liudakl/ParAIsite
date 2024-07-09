@@ -8,6 +8,8 @@ models/*
 
 crabnet/models/* 
 
+crabnet/*
+
 # figures/lc_data/*.png
 figures/*.eps
 *.npz
@@ -150,3 +152,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+
+
+megnet_p31/pytorch/matgl-main/src/*.json
+megnet_p31/keras/pretrained_models/* 
