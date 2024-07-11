@@ -1,0 +1,3 @@
+val_Total_Loss,val_mape,epoch,step,train_Total_Loss,train_mape
+0.6029842495918274,1.7166868448257446,0,9,,
+,,0,9,0.8093794584274292,4.217706680297852

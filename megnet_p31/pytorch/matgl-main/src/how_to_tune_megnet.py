@@ -73,21 +73,29 @@ thermal_conduct = SetToUse.TC.to_list()
 elem_list = get_element_list(structure)
 converter = Structure2Graph(element_types=elem_list, cutoff=4.0)
 
+
+######     Model setup    ########
+####   Load Pre trained model and combinde with the new one    ######
+
 mp_dataset = MGLDataset(
     structures=structure,
     labels={"TC": thermal_conduct},
     converter=converter,
 )
 
-train_data, val_data = split_dataset(
+best_mapes = [] 
+
+for nRuns in range (1,10):
+    
+    train_data, val_data = split_dataset(
     mp_dataset,
     frac_list=[0.8, 0.2],
     shuffle=True,
-    random_state=42,
+    random_state=nRuns,
 )
 
 
-train_loader, val_loader = MGLDataLoader(
+    train_loader, val_loader = MGLDataLoader(
     train_data=train_data,
     val_data=val_data,
     batch_size=8,
@@ -95,35 +103,52 @@ train_loader, val_loader = MGLDataLoader(
 )
 
 
-scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scalerY')
-
-#train_loader = mp_dataset
-
-######     Model setup    ########
-####   Load Pre trained model and combinde with the new one    ######
-
-
-model_megnet = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
-mod_mlp = MLP (160,20,20,0,0,1)
-new_model = combined_models(pretrained_model=model_megnet.model,MLP=mod_mlp)
-lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler)
-
+    scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scalerY')
+    
+    
+    best_mape = np.inf
+    model_megnet = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
+    mod_mlp = MLP (160,200,100,100,0,1)
+    new_model = combined_models(pretrained_model=model_megnet.model,MLP=mod_mlp)
+    lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler)
 
 #####   Training #######
 
 
-logger = CSVLogger("logs", name="MEGNet_training")
-trainer = pl.Trainer(max_epochs=100, accelerator="cpu", logger=logger)
-trainer.fit(model=lit_module, train_dataloaders=train_loader, val_dataloaders=val_loader)
+    logger = CSVLogger("logs", name="MEGNet_training_%s"%(nRuns))
+    trainer = pl.Trainer(max_epochs=50, accelerator="cpu", logger=logger)
+    trainer.fit(model=lit_module, train_dataloaders=train_loader, val_dataloaders=val_loader)
 
 
+    metrics = pd.read_csv("logs/MEGNet_training_%s/version_0/metrics.csv"%(nRuns))
 
+    x1 = metrics["train_mape"].dropna().reset_index().drop(columns='index')
+    x2 = metrics["val_mape"].dropna().reset_index().drop(columns='index')
 
-for fn in ("dgl_graph.bin", "lattice.pt", "dgl_line_graph.bin", "state_attr.pt", "labels.json"):
-    try:
-        os.remove(fn)
-    except FileNotFoundError:
-        pass
+    y = range(len(x1))
+
+    plt.figure(figsize=(10, 5))
+    plt.plot(y, x1, label='Train MAPE')
+    plt.plot(y, x2, label='Validation MAPE')
+    plt.xlabel('Epochs')
+    plt.ylabel('MAPE')
+    plt.title('run = %s'%(nRuns))
+    plt.legend()
+    plt.show()
+    
+    min_mape_val = x2.val_mape.min()
+    
+    if min_mape_val < best_mape:
+        best_mape = min_mape_val
+        best_mapes.append(best_mape)
+
+    for fn in ("dgl_graph.bin", "lattice.pt", "dgl_line_graph.bin", "state_attr.pt", "labels.json"):
+        try:
+            os.remove(fn)
+        except FileNotFoundError:
+            pass
+
+#os.remove("logs/MEGNet_training/version_0/metrics.csv")
 
 #shutil.rmtree("logs")
 
