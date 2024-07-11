@@ -1,0 +1,1008 @@
+Full Formula (Ag1 Br1)
+Reduced Formula: AgBr
+abc   :   4.090144   4.090145   4.090146
+angles:  60.000013  60.000005  59.999996
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a    b    c    magmom
+---  ----  ---  ---  ---  --------
+  0  Ag    0    0    0          -0
+  1  Br    0.5  0.5  0.5         0 
+Full Formula (Ag1 Cl1)
+Reduced Formula: AgCl
+abc   :   3.921138   3.921137   3.921137
+angles:  60.000001  60.000006  60.000009
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a     b    c    magmom
+---  ----  ---  ----  ---  --------
+  0  Ag    0    -0    0          -0
+  1  Cl    0.5   0.5  0.5        -0 
+Full Formula (Ba1 O1)
+Reduced Formula: BaO
+abc   :   3.946210   3.946209   3.946210
+angles:  59.999992  59.999996  59.999993
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b     c    magmom
+---  ----  ----  ----  ----  --------
+  0  Ba    -0    -0    -0           0
+  1  O      0.5   0.5   0.5        -0 
+Full Formula (Ba1 S1)
+Reduced Formula: BaS
+abc   :   4.561793   4.561794   4.561795
+angles:  60.000008  60.000007  60.000010
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b    c    magmom
+---  ----  ----  ----  ---  --------
+  0  Ba    -0    -0    0          -0
+  1  S      0.5   0.5  0.5         0 
+Full Formula (Ba1 Se1)
+Reduced Formula: BaSe
+abc   :   4.714452   4.714453   4.714454
+angles:  60.000009  60.000005  60.000003
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a    b    c    magmom
+---  ----  ---  ---  ---  --------
+  0  Ba    0    0    0          -0
+  1  Se    0.5  0.5  0.5         0 
+Full Formula (Ba1 Te1)
+Reduced Formula: BaTe
+abc   :   5.013273   5.013274   5.013273
+angles:  60.000003  59.999999  60.000004
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b     c    magmom
+---  ----  ----  ----  ----  --------
+  0  Ba    -0    -0    -0           0
+  1  Te     0.5   0.5   0.5         0 
+Full Formula (Ca1 O1)
+Reduced Formula: CaO
+abc   :   3.399141   3.399141   3.399140
+angles:  60.000011  60.000009  60.000009
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b    c    magmom
+---  ----  ----  ----  ---  --------
+  0  Ca    -0    -0    0           0
+  1  O      0.5   0.5  0.5        -0 
+Full Formula (Ca1 S1)
+Reduced Formula: CaS
+abc   :   4.033866   4.033867   4.033867
+angles:  59.999994  59.999989  59.999983
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a    b    c    magmom
+---  ----  ----  ---  ---  --------
+  0  Ca    -0    0    0           0
+  1  S      0.5  0.5  0.5        -0 
+Full Formula (Ca1 Se1)
+Reduced Formula: CaSe
+abc   :   4.200550   4.200551   4.200551
+angles:  60.000013  60.000007  60.000006
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a    b    c    magmom
+---  ----  ----  ---  ---  --------
+  0  Ca    -0    0    0           0
+  1  Se     0.5  0.5  0.5         0 
+Full Formula (Ca1 Te1)
+Reduced Formula: CaTe
+abc   :   4.519621   4.519621   4.519621
+angles:  59.999990  59.999985  59.999995
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a     b    c    magmom
+---  ----  ---  ----  ---  --------
+  0  Ca    0    -0    0           0
+  1  Te    0.5   0.5  0.5         0 
+Full Formula (Cd1 O1)
+Reduced Formula: CdO
+abc   :   3.338949   3.338948   3.338948
+angles:  59.999984  59.999994  59.999998
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a     b    c    magmom
+---  ----  ---  ----  ---  --------
+  0  Cd    0    -0    0           0
+  1  O     0.5   0.5  0.5        -0 
+Full Formula (Cs1 F1)
+Reduced Formula: CsF
+abc   :   4.251323   4.251323   4.251323
+angles:  60.000008  60.000009  60.000000
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a    b     c    magmom
+---  ----  ---  ---  ----  --------
+  0  Cs    0    0    -0          -0
+  1  F     0.5  0.5   0.5         0 
+Full Formula (K1 Br1)
+Reduced Formula: KBr
+abc   :   4.659184   4.659185   4.659184
+angles:  60.000008  60.000002  60.000012
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b    c    magmom
+---  ----  ----  ----  ---  --------
+  0  K     -0    -0    0           0
+  1  Br     0.5   0.5  0.5         0 
+Full Formula (K1 Cl1)
+Reduced Formula: KCl
+abc   :   4.443277   4.443277   4.443277
+angles:  59.999999  59.999999  59.999995
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a    b     c    magmom
+---  ----  ----  ---  ----  --------
+  0  K     -0    0    -0           0
+  1  Cl     0.5  0.5   0.5        -0 
+Full Formula (K1 F1)
+Reduced Formula: KF
+abc   :   3.753908   3.753907   3.753907
+angles:  60.000005  60.000013  60.000021
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a    b     c    magmom
+---  ----  ----  ---  ----  --------
+  0  K     -0    0    -0          -0
+  1  F      0.5  0.5   0.5        -0 
+Full Formula (K1 H1)
+Reduced Formula: KH
+abc   :   4.011061   4.011061   4.011061
+angles:  60.000012  60.000014  60.000008
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a     b     c    magmom
+---  ----  ---  ----  ----  --------
+  0  K     0    -0    -0           0
+  1  H     0.5   0.5   0.5         0 
+Full Formula (K1 I1)
+Reduced Formula: KI
+abc   :   5.009760   5.009760   5.009761
+angles:  60.000008  60.000011  59.999996
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a     b     c    magmom
+---  ----  ---  ----  ----  --------
+  0  K     0    -0    -0           0
+  1  I     0.5   0.5   0.5         0 
+Full Formula (Li1 Br1)
+Reduced Formula: LiBr
+abc   :   3.850466   3.850467   3.850466
+angles:  59.999993  59.999986  59.999987
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a     b    c    magmom
+---  ----  ---  ----  ---  --------
+  0  Li    0    -0    0           0
+  1  Br    0.5   0.5  0.5        -0 
+Full Formula (Li1 Cl1)
+Reduced Formula: LiCl
+abc   :   3.595103   3.595103   3.595104
+angles:  60.000009  60.000011  60.000005
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b    c    magmom
+---  ----  ----  ----  ---  --------
+  0  Li    -0    -0    0          -0
+  1  Cl     0.5   0.5  0.5         0 
+Full Formula (Li1 F1)
+Reduced Formula: LiF
+abc   :   2.887419   2.887419   2.887419
+angles:  59.999994  59.999989  59.999997
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a    b    c    magmom
+---  ----  ---  ---  ---  --------
+  0  Li    0    0    0           0
+  1  F     0.5  0.5  0.5        -0 
+Full Formula (Li1 H1)
+Reduced Formula: LiH
+abc   :   2.840616   2.840617   2.840617
+angles:  60.000006  60.000004  60.000012
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a    b    c    magmom
+---  ----  ---  ---  ---  --------
+  0  Li    0    0    0          -0
+  1  H     0.5  0.5  0.5         0 
+Full Formula (Li1 I1)
+Reduced Formula: LiI
+abc   :   4.220265   4.220264   4.220264
+angles:  59.999992  59.999996  59.999984
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b    c    magmom
+---  ----  ----  ----  ---  --------
+  0  Li    -0    -0    0          -0
+  1  I      0.5   0.5  0.5         0 
+Full Formula (Mg1 O1)
+Reduced Formula: MgO
+abc   :   2.965608   2.965608   2.965607
+angles:  59.999992  59.999992  59.999988
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a    b     c    magmom
+---  ----  ---  ---  ----  --------
+  0  Mg    0    0    -0           0
+  1  O     0.5  0.5   0.5        -0 
+Full Formula (Na1 Br1)
+Reduced Formula: NaBr
+abc   :   4.188254   4.188254   4.188252
+angles:  60.000003  60.000005  60.000001
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a    b    c    magmom
+---  ----  ----  ---  ---  --------
+  0  Na    -0    0    0           0
+  1  Br     0.5  0.5  0.5         0 
+Full Formula (Na1 Cl1)
+Reduced Formula: NaCl
+abc   :   3.951403   3.951402   3.951402
+angles:  59.999985  59.999991  59.999997
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a    b    c    magmom
+---  ----  ---  ---  ---  --------
+  0  Na    0    0    0          -0
+  1  Cl    0.5  0.5  0.5         0 
+Full Formula (Na1 F1)
+Reduced Formula: NaF
+abc   :   3.232742   3.232742   3.232744
+angles:  59.999996  59.999994  60.000015
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b    c    magmom
+---  ----  ----  ----  ---  --------
+  0  Na    -0    -0    0          -0
+  1  F      0.5   0.5  0.5         0 
+Full Formula (Na1 H1)
+Reduced Formula: NaH
+abc   :   3.374911   3.374910   3.374910
+angles:  59.999980  59.999987  59.999995
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a    b    c    magmom
+---  ----  ---  ---  ---  --------
+  0  Na    0    0    0           0
+  1  H     0.5  0.5  0.5        -0 
+Full Formula (Na1 I1)
+Reduced Formula: NaI
+abc   :   4.551868   4.551867   4.551868
+angles:  60.000012  60.000019  60.000006
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a     b    c    magmom
+---  ----  ---  ----  ---  --------
+  0  Na    0    -0    0          -0
+  1  I     0.5   0.5  0.5        -0 
+Full Formula (Pb1 Se1)
+Reduced Formula: PbSe
+abc   :   4.371084   4.371084   4.371085
+angles:  60.000003  60.000007  60.000010
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a    b    c    magmom
+---  ----  ---  ---  ---  --------
+  0  Pb    0    0    0           0
+  1  Se    0.5  0.5  0.5         0 
+Full Formula (Te1 Pb1)
+Reduced Formula: TePb
+abc   :   4.625747   4.625747   4.625747
+angles:  59.999999  59.999996  59.999987
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b    c    magmom
+---  ----  ----  ----  ---  --------
+  0  Te    -0    -0    0          -0
+  1  Pb     0.5   0.5  0.5        -0 
+Full Formula (Rb1 Br1)
+Reduced Formula: RbBr
+abc   :   4.887452   4.887452   4.887452
+angles:  59.999996  59.999998  60.000013
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a     b     c    magmom
+---  ----  ---  ----  ----  --------
+  0  Rb    0    -0    -0          -0
+  1  Br    0.5   0.5   0.5        -0 
+Full Formula (Rb1 Cl1)
+Reduced Formula: RbCl
+abc   :   4.679219   4.679219   4.679219
+angles:  60.000002  60.000000  60.000006
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a     b     c    magmom
+---  ----  ---  ----  ----  --------
+  0  Rb    0    -0    -0          -0
+  1  Cl    0.5   0.5   0.5        -0 
+Full Formula (Rb1 F1)
+Reduced Formula: RbF
+abc   :   3.982626   3.982626   3.982626
+angles:  59.999999  59.999999  60.000009
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b    c    magmom
+---  ----  ----  ----  ---  --------
+  0  Rb    -0    -0    0           0
+  1  F      0.5   0.5  0.5        -0 
+Full Formula (Rb1 H1)
+Reduced Formula: RbH
+abc   :   4.248412   4.248413   4.248412
+angles:  60.000002  59.999996  60.000003
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a    b     c    magmom
+---  ----  ----  ---  ----  --------
+  0  Rb     0.5  0.5   0.5        -0
+  1  H     -0    0    -0           0 
+Full Formula (Rb1 I1)
+Reduced Formula: RbI
+abc   :   5.220099   5.220099   5.220098
+angles:  60.000001  60.000003  60.000015
+pbc   :       True       True       True
+Sites (2)
+  #  SP      a     b     c    magmom
+---  ----  ---  ----  ----  --------
+  0  Rb    0    -0    -0          -0
+  1  I     0.5   0.5   0.5         0 
+Full Formula (Sr1 O1)
+Reduced Formula: SrO
+abc   :   3.654023   3.654023   3.654024
+angles:  59.999990  59.999988  59.999989
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b    c    magmom
+---  ----  ----  ----  ---  --------
+  0  Sr     0.5   0.5  0.5        -0
+  1  O     -0    -0    0          -0 
+Full Formula (Ag2 I2)
+Reduced Formula: AgI
+abc   :   4.658557   4.658556   7.552739
+angles:  90.000000  90.000000 119.999989
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Ag    0.333333  0.666667  0.000984         0
+  1  Ag    0.666667  0.333333  0.500984         0
+  2  I     0.333333  0.666667  0.378916        -0
+  3  I     0.666667  0.333333  0.878916        -0 
+Full Formula (Al2 As2)
+Reduced Formula: AlAs
+abc   :   4.002394   4.002394   6.577805
+angles:  90.000000  90.000000 119.999999
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Al    0.333333  0.666667  0.000683         0
+  1  Al    0.666667  0.333333  0.500683         0
+  2  As    0.333333  0.666667  0.375317        -0
+  3  As    0.666667  0.333333  0.875317        -0 
+Full Formula (Al2 N2)
+Reduced Formula: AlN
+abc   :   3.128588   3.128588   5.016955
+angles:  90.000000  90.000000 119.999997
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Al    0.666667  0.333333  0.499287         0
+  1  Al    0.333333  0.666667  0.999287         0
+  2  N     0.666667  0.333333  0.880713        -0
+  3  N     0.333333  0.666667  0.380713        -0 
+Full Formula (Al2 P2)
+Reduced Formula: AlP
+abc   :   3.863483   3.863483   6.341443
+angles:  90.000000  90.000000 119.999991
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Al    0.333333  0.666667  6.9e-05          0
+  1  Al    0.666667  0.333333  0.500069         0
+  2  P     0.333333  0.666667  0.374931        -0
+  3  P     0.666667  0.333333  0.874931        -0 
+Full Formula (Al2 Sb2)
+Reduced Formula: AlSb
+abc   :   4.361821   4.361818   7.175697
+angles:  90.000037  89.999979 120.000098
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Al    0.666666  0.333333  0.500378        -0
+  1  Al    0.333334  0.666668  0.000378        -0
+  2  Sb    0.666667  0.333334  0.874722         0
+  3  Sb    0.333334  0.666666  0.374722         0 
+Full Formula (B2 As2)
+Reduced Formula: BAs
+abc   :   3.390934   3.390934   5.609546
+angles:  90.000000  90.000000 120.000000
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  B     0.666667  0.333333  0.874676         0
+  1  B     0.333333  0.666667  0.374676         0
+  2  As    0.666667  0.333333  0.500323         0
+  3  As    0.333333  0.666667  0.000323         0 
+Full Formula (Be2 O2)
+Reduced Formula: BeO
+abc   :   2.694277   2.694276   4.376019
+angles:  90.000000  90.000000 119.999988
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b        c    magmom
+---  ----  --------  --------  -------  --------
+  0  Be    0.333333  0.666667  0.00016         0
+  1  Be    0.666667  0.333333  0.50016         0
+  2  O     0.333333  0.666667  0.37734        -0
+  3  O     0.666667  0.333333  0.87734        -0 
+Full Formula (Be2 Te2)
+Reduced Formula: BeTe
+abc   :   3.996637   3.996637   6.586771
+angles:  90.000000  90.000000 119.999985
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a        b         c    magmom
+---  ----  --------  -------  --------  --------
+  0  Be    0         0        0.000433         0
+  1  Be    0.333334  0.66667  0.500431         0
+  2  Te    0         0        0.374568         0
+  3  Te    0.333334  0.66667  0.874569         0 
+Full Formula (B2 N2)
+Reduced Formula: BN
+abc   :   2.553939   2.553939   4.226855
+angles:  90.000000  90.000000 119.999979
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  B     0.333333  0.666667  0.499724        -0
+  1  B     0.666667  0.333333  0.999724        -0
+  2  N     0.333333  0.666667  0.125276        -0
+  3  N     0.666667  0.333333  0.625276        -0 
+Full Formula (B2 P2)
+Reduced Formula: BP
+abc   :   3.188314   3.188317   5.290074
+angles:  90.000000  90.000000 119.999967
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  B     0.666668  0.333338  0.500407        -0
+  1  B     0.333332  0.666662  0.000407        -0
+  2  P     0.666666  0.333329  0.874593         0
+  3  P     0.333334  0.666671  0.374593         0 
+Full Formula (Cd2 S2)
+Reduced Formula: CdS
+abc   :   4.168838   4.168838   6.779617
+angles:  90.000000  90.000000 120.000001
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Cd    0.666667  0.333333  0.500224        -0
+  1  Cd    0.333333  0.666667  0.000224        -0
+  2  S     0.666667  0.333333  0.876776         0
+  3  S     0.333333  0.666667  0.376776         0 
+Full Formula (Cd2 Se2)
+Reduced Formula: CdSe
+abc   :   4.346086   4.346085   7.089840
+angles:  90.000000  90.000000 120.000000
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b          c    magmom
+---  ----  --------  --------  ---------  --------
+  0  Cd    0.666667  0.333333   0.499953         0
+  1  Cd    0.333333  0.666667  -4.7e-05          0
+  2  Se    0.666667  0.333333   0.875907        -0
+  3  Se    0.333333  0.666667   0.375907        -0 
+Full Formula (Cd2 Te2)
+Reduced Formula: CdTe
+abc   :   4.633267   4.633267   7.602432
+angles:  90.000000  90.000000 120.000000
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Cd    0.333333  0.666667  0.000365         0
+  1  Cd    0.666667  0.333333  0.500365         0
+  2  Te    0.333333  0.666667  0.374635        -0
+  3  Te    0.666667  0.333333  0.874635        -0 
+Full Formula (Cu2 Cl2)
+Reduced Formula: CuCl
+abc   :   3.781069   3.781069   6.217189
+angles:  90.000000  90.000000 119.999975
+pbc   :       True       True       True
+Sites (4)
+  #  SP            a          b         c    magmom
+---  ----  ---------  ---------  --------  --------
+  0  Cu    -0         -0         0.374124         0
+  1  Cu     0.333334   0.666665  0.874124         0
+  2  Cl     0         -0         0.000876        -0
+  3  Cl     0.333334   0.666665  0.500875        -0 
+Full Formula (Cu2 H2)
+Reduced Formula: CuH
+abc   :   2.823567   2.823567   4.558838
+angles:  90.000000  90.000000 120.000016
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Cu    0.666667  0.333333  0.498322         0
+  1  Cu    0.333333  0.666667  0.998322         0
+  2  H     0.666667  0.333333  0.876678         0
+  3  H     0.333333  0.666667  0.376678         0 
+Full Formula (Cu2 I2)
+Reduced Formula: CuI
+abc   :   4.243697   4.243697   6.988356
+angles:  90.000000  90.000000 119.999996
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Cu    0.333333  0.666667  0.372679         0
+  1  Cu    0.666667  0.333333  0.872679         0
+  2  I     0.333333  0.666667  0.002321         0
+  3  I     0.666667  0.333333  0.502321         0 
+Full Formula (Ga2 As2)
+Reduced Formula: GaAs
+abc   :   3.993590   3.993591   6.586109
+angles:  90.000000  90.000000 120.000004
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Ga    0.333333  0.666667  0.999984         0
+  1  Ga    0.666667  0.333333  0.499984         0
+  2  As    0.333333  0.666667  0.374016        -0
+  3  As    0.666667  0.333333  0.874016        -0 
+Full Formula (Ga2 N2)
+Reduced Formula: GaN
+abc   :   3.188930   3.188931   5.192357
+angles:  90.000000  90.000000 120.000000
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Ga    0.666667  0.333333  0.499084        -0
+  1  Ga    0.333333  0.666667  0.999084        -0
+  2  N     0.666667  0.333333  0.875916         0
+  3  N     0.333333  0.666667  0.375916         0 
+Full Formula (Ga2 P2)
+Reduced Formula: GaP
+abc   :   3.841720   3.841718   6.332933
+angles:  90.000000  90.000000 119.999990
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Ga    0.666667  0.333333  0.500054        -0
+  1  Ga    0.333333  0.666667  5.4e-05         -0
+  2  P     0.666667  0.333333  0.873946         0
+  3  P     0.333333  0.666667  0.373946         0 
+Full Formula (Ga2 Sb2)
+Reduced Formula: GaSb
+abc   :   4.319593   4.321445   7.132965
+angles:  90.000000  90.000000 119.985806
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Ga    0.666413  0.332827  0.500683        -0
+  1  Ga    0.333587  0.667173  0.000683        -0
+  2  Sb    0.666797  0.333594  0.874217         0
+  3  Sb    0.333203  0.666406  0.374217         0 
+Full Formula (In2 As2)
+Reduced Formula: InAs
+abc   :   4.311296   4.311503   7.088786
+angles:  90.000000  90.000000 119.998408
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  In    0.666678  0.333356  0.500588        -0
+  1  In    0.333322  0.666644  0.000588        -0
+  2  As    0.666637  0.333274  0.874912         0
+  3  As    0.333363  0.666726  0.374912         0 
+Full Formula (In2 N2)
+Reduced Formula: InN
+abc   :   3.550622   3.550621   5.732559
+angles:  90.000000  90.000000 120.000010
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  In    0.666667  0.333333  0.500477        -0
+  1  In    0.333333  0.666667  0.000477        -0
+  2  N     0.666667  0.333333  0.879523         0
+  3  N     0.333333  0.666667  0.379523         0 
+Full Formula (In2 P2)
+Reduced Formula: InP
+abc   :   4.168109   4.168109   6.839990
+angles:  90.000000  90.000000 119.999956
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  In    0         0         0.000196        -0
+  1  In    0.333334  0.666667  0.500196        -0
+  2  P     0         0         0.374805         0
+  3  P     0.333334  0.666667  0.874804         0 
+Full Formula (In2 Sb2)
+Reduced Formula: InSb
+abc   :   4.625095   4.622648   7.616298
+angles:  90.000000  90.000000 120.017530
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  In    0.668118  0.336237  0.488149        -0
+  1  In    0.331882  0.663763  0.988149        -0
+  2  Sb    0.665502  0.331003  0.861851         0
+  3  Sb    0.334498  0.668997  0.361851         0 
+Full Formula (Mg2 Te2)
+Reduced Formula: MgTe
+abc   :   4.590203   4.590203   7.437806
+angles:  90.000000  90.000000 120.000007
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Mg    0.333333  0.666667  0.995991         0
+  1  Mg    0.666667  0.333333  0.495991         0
+  2  Te    0.333333  0.666667  0.374009        -0
+  3  Te    0.666667  0.333333  0.874009        -0 
+Full Formula (Si2 C2)
+Reduced Formula: SiC
+abc   :   3.073513   3.073514   5.045248
+angles:  90.000000  90.000000 120.000002
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Si    0.333333  0.666667  0.499602        -0
+  1  Si    0.666667  0.333333  0.999602        -0
+  2  C     0.333333  0.666667  0.875398        -0
+  3  C     0.666667  0.333333  0.375398        -0 
+Full Formula (Zn2 S2)
+Reduced Formula: ZnS
+abc   :   3.805796   3.805797   6.237982
+angles:  90.000000  90.000000 120.000012
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b        c    magmom
+---  ----  --------  --------  -------  --------
+  0  Zn    0.333333  0.666667  0.00014        -0
+  1  Zn    0.666667  0.333333  0.50014        -0
+  2  S     0.333333  0.666667  0.37486         0
+  3  S     0.666667  0.333333  0.87486         0 
+Full Formula (Zn2 Se2)
+Reduced Formula: ZnSe
+abc   :   3.996839   3.996838   6.569554
+angles:  90.000000  90.000000 120.000006
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Zn    0.333333  0.666667  0.000521         0
+  1  Zn    0.666667  0.333333  0.500521         0
+  2  Se    0.333333  0.666667  0.374479        -0
+  3  Se    0.666667  0.333333  0.874479        -0 
+Full Formula (Zn2 Te2)
+Reduced Formula: ZnTe
+abc   :   4.308040   4.308039   7.108674
+angles:  90.000000  90.000000 120.000002
+pbc   :       True       True       True
+Sites (4)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Zn    0.333333  0.666667  0.001035        -0
+  1  Zn    0.666667  0.333333  0.501035        -0
+  2  Te    0.333333  0.666667  0.373965         0
+  3  Te    0.666667  0.333333  0.873965         0 
+Full Formula (Ag1 I1)
+Reduced Formula: AgI
+abc   :   4.641584   4.641584   4.641585
+angles:  60.000002  60.000007  59.999999
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a      b     c    magmom
+---  ----  -----  -----  ----  --------
+  0  Ag    -0     -0     0            0
+  1  I      0.25   0.25  0.25        -0 
+Full Formula (Al1 As1)
+Reduced Formula: AlAs
+abc   :   4.013398   4.013398   4.013397
+angles:  59.999996  59.999998  59.999997
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b     c    magmom
+---  ----  ----  ----  ----  --------
+  0  Al    0     0     0           -0
+  1  As    0.25  0.25  0.25         0 
+Full Formula (Al1 N1)
+Reduced Formula: AlN
+abc   :   3.088633   3.088633   3.088634
+angles:  59.999999  59.999996  59.999988
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b     c    magmom
+---  ----  ----  ----  ----  --------
+  0  Al    0     0     0            0
+  1  N     0.25  0.25  0.25        -0 
+Full Formula (Al1 P1)
+Reduced Formula: AlP
+abc   :   3.869972   3.869972   3.869973
+angles:  60.000003  60.000007  60.000001
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a      b     c    magmom
+---  ----  ----  -----  ----  --------
+  0  Al    0     -0     0           -0
+  1  P     0.25   0.25  0.25         0 
+Full Formula (Al1 Sb1)
+Reduced Formula: AlSb
+abc   :   4.373485   4.373485   4.373486
+angles:  60.000006  60.000009  59.999998
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a     b     c    magmom
+---  ----  -----  ----  ----  --------
+  0  Al    -0     0     0            0
+  1  Sb     0.25  0.25  0.25        -0 
+Full Formula (B1 As1)
+Reduced Formula: BAs
+abc   :   3.407727   3.407727   3.407727
+angles:  60.000000  60.000000  60.000000
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b     c    magmom
+---  ----  ----  ----  ----  --------
+  0  B     0.75  0.75  0.75        -0
+  1  As    0     0     0           -0 
+Full Formula (Be1 O1)
+Reduced Formula: BeO
+abc   :   2.685246   2.685245   2.685247
+angles:  59.999996  60.000003  60.000010
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a     b      c    magmom
+---  ----  -----  ----  -----  --------
+  0  Be    -0     0     -0           -0
+  1  O      0.25  0.25   0.25         0 
+Full Formula (Be1 S1)
+Reduced Formula: BeS
+abc   :   3.443824   3.443824   3.443824
+angles:  60.000026  60.000023  60.000024
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b     c    magmom
+---  ----  ----  ----  ----  --------
+  0  Be    0     0     0           -0
+  1  S     0.25  0.25  0.25         0 
+Full Formula (Be1 Se1)
+Reduced Formula: BeSe
+abc   :   3.654284   3.654283   3.654283
+angles:  59.999998  60.000009  60.000000
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b      c    magmom
+---  ----  ----  ----  -----  --------
+  0  Be    0     0     -0            0
+  1  Se    0.25  0.25   0.25         0 
+Full Formula (Be1 Te1)
+Reduced Formula: BeTe
+abc   :   4.004287   4.004288   4.004287
+angles:  60.000014  60.000010  60.000006
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a      b     c    magmom
+---  ----  ----  -----  ----  --------
+  0  Be    0     -0     0            0
+  1  Te    0.25   0.25  0.25        -0 
+Full Formula (B1 N1)
+Reduced Formula: BN
+abc   :   2.563971   2.563971   2.563971
+angles:  60.000000  60.000000  60.000000
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b     c    magmom
+---  ----  ----  ----  ----  --------
+  0  B     0     0     0            0
+  1  N     0.25  0.25  0.25        -0 
+Full Formula (B1 P1)
+Reduced Formula: BP
+abc   :   3.204710   3.204710   3.204711
+angles:  60.000009  60.000001  60.000002
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a     b      c    magmom
+---  ----  -----  ----  -----  --------
+  0  B     -0     0     -0           -0
+  1  P      0.25  0.25   0.25        -0 
+Full Formula (Cd1 S1)
+Reduced Formula: CdS
+abc   :   4.161964   4.161964   4.161965
+angles:  60.000004  60.000005  60.000007
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a     b     c    magmom
+---  ----  -----  ----  ----  --------
+  0  Cd    -0     0     0           -0
+  1  S      0.25  0.25  0.25         0 
+Full Formula (Cd1 Se1)
+Reduced Formula: CdSe
+abc   :   4.342020   4.342019   4.342019
+angles:  59.999996  60.000004  59.999990
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b      c    magmom
+---  ----  ----  ----  -----  --------
+  0  Cd    0     0     -0            0
+  1  Se    0.25  0.25   0.25        -0 
+Full Formula (Cd1 Te1)
+Reduced Formula: CdTe
+abc   :   4.641608   4.641609   4.641610
+angles:  60.000008  60.000003  60.000011
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a      b     c    magmom
+---  ----  ----  -----  ----  --------
+  0  Cd    0     -0     0            0
+  1  Te    0.25   0.25  0.25        -0 
+Full Formula (Cu1 Br1)
+Reduced Formula: CuBr
+abc   :   3.982804   3.982805   3.982803
+angles: 119.118866  91.533101 119.118841
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a    b     c    magmom
+---  ----  ----  ---  ----  --------
+  0  Cu    0.75  0.5  0.25        -0
+  1  Br    0     0    0            0 
+Full Formula (Cu1 Cl1)
+Reduced Formula: CuCl
+abc   :   3.764195   3.810594   3.764195
+angles:  90.000000  60.817226 120.408613
+pbc   :       True       True       True
+Sites (2)
+  #  SP           a         b         c    magmom
+---  ----  --------  --------  --------  --------
+  0  Cu    0.022613  0.011307  0.011307        -0
+  1  Cl    0.511387  0.755693  0.755693        -0 
+Full Formula (Ga1 As1)
+Reduced Formula: GaAs
+abc   :   4.065993   4.065993   4.065993
+angles:  59.999991  59.999992  59.999994
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b     c    magmom
+---  ----  ----  ----  ----  --------
+  0  Ga    0     0     0            0
+  1  As    0.25  0.25  0.25        -0 
+Full Formula (Ga1 N1)
+Reduced Formula: GaN
+abc   :   3.186930   3.186932   3.186932
+angles:  60.000003  59.999987  59.999995
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a      b     c    magmom
+---  ----  ----  -----  ----  --------
+  0  Ga    0     -0     0            0
+  1  N     0.25   0.25  0.25        -0 
+Full Formula (Ga1 P1)
+Reduced Formula: GaP
+abc   :   3.854881   3.854880   3.854881
+angles:  60.000001  60.000007  60.000004
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a      b     c    magmom
+---  ----  -----  -----  ----  --------
+  0  Ga    -0     -0     0            0
+  1  P      0.25   0.25  0.25         0 
+Full Formula (Ga1 Sb1)
+Reduced Formula: GaSb
+abc   :   4.339661   4.339661   4.339662
+angles:  60.000012  60.000014  59.999999
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a     b     c    magmom
+---  ----  -----  ----  ----  --------
+  0  Ga    -0     0     0            0
+  1  Sb     0.25  0.25  0.25        -0 
+Full Formula (In1 As1)
+Reduced Formula: InAs
+abc   :   4.318389   4.318388   4.318388
+angles:  60.000001  60.000005  59.999995
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a      b      c    magmom
+---  ----  ----  -----  -----  --------
+  0  In    0.25   0.25   0.25         0
+  1  As    0     -0     -0            0 
+Full Formula (In1 N1)
+Reduced Formula: InN
+abc   :   3.539346   3.539347   3.539346
+angles:  59.999993  59.999989  60.000008
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b      c    magmom
+---  ----  ----  ----  -----  --------
+  0  In    0     0     -0           -0
+  1  N     0.25  0.25   0.25         0 
+Full Formula (In1 P1)
+Reduced Formula: InP
+abc   :   4.174725   4.174725   4.174725
+angles:  59.999999  60.000000  60.000003
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a      b     c    magmom
+---  ----  -----  -----  ----  --------
+  0  In    -0     -0     0           -0
+  1  P      0.25   0.25  0.25         0 
+Full Formula (In1 Sb1)
+Reduced Formula: InSb
+abc   :   4.690396   4.690396   4.690396
+angles:  59.999999  59.999999  59.999995
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b     c    magmom
+---  ----  ----  ----  ----  --------
+  0  In    0     0     0            0
+  1  Sb    0.25  0.25  0.25         0 
+Full Formula (Mg1 Te1)
+Reduced Formula: MgTe
+abc   :   4.570737   4.570736   4.570737
+angles:  60.000001  60.000005  59.999999
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a     b      c    magmom
+---  ----  ----  ----  -----  --------
+  0  Mg    0     0     -0           -0
+  1  Te    0.25  0.25   0.25         0 
+Full Formula (Si1 C1)
+Reduced Formula: SiC
+abc   :   3.078739   3.078737   3.078738
+angles:  60.000003  60.000016  60.000010
+pbc   :       True       True       True
+Sites (2)
+  #  SP       a      b      c    magmom
+---  ----  ----  -----  -----  --------
+  0  Si    0.25   0.25   0.25         0
+  1  C     0     -0     -0           -0 
+Full Formula (Zn1 O1)
+Reduced Formula: ZnO
+abc   :   3.223354   3.223353   3.223353
+angles:  59.999992  60.000002  59.999997
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a     b     c    magmom
+---  ----  -----  ----  ----  --------
+  0  Zn    -0     0     0            0
+  1  O      0.25  0.25  0.25        -0 
+Full Formula (Zn1 S1)
+Reduced Formula: ZnS
+abc   :   3.809442   3.809444   3.809442
+angles:  60.000010  60.000000  59.999999
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a      b      c    magmom
+---  ----  -----  -----  -----  --------
+  0  Zn    -0     -0     -0           -0
+  1  S      0.25   0.25   0.25         0 
+Full Formula (Zn1 Se1)
+Reduced Formula: ZnSe
+abc   :   4.005679   4.005678   4.005679
+angles:  59.999997  60.000002  59.999996
+pbc   :       True       True       True
+Sites (2)
+  #  SP        a     b      c    magmom
+---  ----  -----  ----  -----  --------
+  0  Zn    -0     0     -0           -0
+  1  Se     0.25  0.25   0.25         0 

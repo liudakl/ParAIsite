@@ -288,6 +288,7 @@ class combined_models (nn.Module):
             state_attr = torch.tensor(state_attr_default)
         bond_vec, bond_dist = compute_pair_vector_and_distance(g)
         g.edata["edge_attr"] = self.pretrained.bond_expansion(bond_dist)
+        
         return self(g=g, state_attr=state_attr).detach()    
     
 		

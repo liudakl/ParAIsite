@@ -1,6 +1,7 @@
 """Utils for training MatGL models."""
 
 from __future__ import annotations
+import logging
 
 import math
 from typing import TYPE_CHECKING, Any, Literal
@@ -12,6 +13,8 @@ import torchmetrics
 from torch import nn
 
 from matgl.apps.pes import Potential
+
+
 
 if TYPE_CHECKING:
     import dgl
@@ -32,6 +35,7 @@ class MatglLightningModuleMixin:
         Returns:
            Total loss.
         """
+  
         results, batch_size = self.step(batch)  # type: ignore
         self.log_dict(  # type: ignore
             {f"train_{key}": val for key, val in results.items()},
@@ -74,6 +78,8 @@ class MatglLightningModuleMixin:
             batch: Data batch.
             batch_idx: Batch index.
         """
+        
+        
         torch.set_grad_enabled(True)
         results, batch_size = self.step(batch)  # type: ignore
         self.log_dict(  # type: ignore
@@ -88,6 +94,7 @@ class MatglLightningModuleMixin:
 
     def configure_optimizers(self):
         """Configure optimizers."""
+        
         if self.optimizer is None:
             optimizer = torch.optim.Adam(
                 self.parameters(),
@@ -109,6 +116,9 @@ class MatglLightningModuleMixin:
         ], [
             scheduler,
         ]
+        
+
+
 
     def on_test_model_eval(self, *args, **kwargs):
         """
@@ -132,8 +142,12 @@ class MatglLightningModuleMixin:
         Returns:
             Prediction
         """
+        
         torch.set_grad_enabled(True)
         return self.step(batch)
+
+      
+
 
 
 class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
@@ -148,6 +162,7 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         loss: str = "mse_loss",
         optimizer: Optimizer | None = None,
         scheduler=None,
+        scaler = None,
         lr: float = 0.001,
         decay_steps: int = 1000,
         decay_alpha: float = 0.01,
@@ -177,9 +192,16 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         self.include_line_graph = include_line_graph
         self.mae = torchmetrics.MeanAbsoluteError()
         self.rmse = torchmetrics.MeanSquaredError(squared=False)
+        self.mape = torchmetrics.MeanAbsolutePercentageError()
+        
+        self.scaler = scaler 
+        
+        
+                
         self.data_mean = data_mean
         self.data_std = data_std
         self.lr = lr
+       
         self.decay_steps = decay_steps
         self.decay_alpha = decay_alpha
         if loss == "mse_loss":
@@ -190,6 +212,18 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         self.scheduler = scheduler
         self.sync_dist = sync_dist
         self.save_hyperparameters(ignore=["model"])
+        
+        
+    def unlog10(self,data):
+        data_unlog10 = 10**(data)-1
+        data_unlog10 = torch.tensor(data_unlog10, dtype=torch.float32)
+        return data_unlog10    
+
+    def invTr(self,data):
+        data = data.reshape(-1,1)
+        data_scaled = self.scaler.inverse_transform(data.detach().cpu().numpy())
+        data_scaled = torch.tensor(data_scaled, dtype=torch.float32)
+        return data_scaled     
 
     def forward(
         self,
@@ -223,15 +257,27 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         Returns:
             results, batch_size
         """
+        
+        
+        
         if self.include_line_graph:
             g, lat, l_g, state_attr, labels = batch
             preds = self(g=g, lat=lat, l_g=l_g, state_attr=state_attr)
         else:
             g, lat, state_attr, labels = batch
             preds = self(g=g, lat=lat, state_attr=state_attr)
+       
+            
+          
         results = self.loss_fn(loss=self.loss, preds=preds, labels=labels)  # type: ignore
         batch_size = preds.numel()
+        
+        
+        
         return results, batch_size
+        
+        
+        
 
     def loss_fn(self, loss: nn.Module, labels: torch.Tensor, preds: torch.Tensor):
         """Args:
@@ -242,13 +288,36 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         Returns:
             {"Total_Loss": total_loss, "MAE": mae, "RMSE": rmse}
         """
-        scaled_pred = torch.reshape(preds * self.data_std + self.data_mean, labels.size())
-        total_loss = loss(labels, scaled_pred)
-        mae = self.mae(labels, scaled_pred)
-        rmse = self.rmse(labels, scaled_pred)
-        return {"Total_Loss": total_loss, "MAE": mae, "RMSE": rmse}
+        """
+        How it was:
+               
+        #scaled_pred = torch.reshape(preds * self.data_std + self.data_mean, labels.size())
+        #print("scaled_pred:",scaled_pred," vs. pred:", preds)       
+        #total_loss = loss(labels, scaled_pred)        
+        #mae = self.mae(labels, scaled_pred)
+        #rmse = self.rmse(labels, scaled_pred)
+        #mape = self.mape(labels, scaled_pred)
+        """
+        
+        total_loss = loss(labels, preds)
+                 
+        
+        
+        
+        labes_orig =  self.invTr(labels)
+        labes_orig =  self.unlog10(labes_orig)
+        
+        preds_orig =  self.invTr(preds)
+        preds_orig =  self.unlog10(preds_orig)    
+        
+        mape_unscaled = self.mape(labes_orig, preds_orig)
+        #mape_scaled = self.mape(labels, preds)
+        
+        return {"Total_Loss": total_loss, "mape": mape_unscaled}#, "mape_scaled": mape_scaled}
 
+   
 
+'''
 class PotentialLightningModule(MatglLightningModuleMixin, pl.LightningModule):
     """A PyTorch.LightningModule for training MatGL potentials.
 
@@ -310,6 +379,8 @@ class PotentialLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         assert force_weight >= 0, f"force_weight has to be >=0. Got {force_weight}!"
         assert stress_weight >= 0, f"stress_weight has to be >=0. Got {stress_weight}!"
         assert magmom_weight >= 0, f"magmom_weight has to be >=0. Got {magmom_weight}!"
+        
+        
 
         super().__init__(**kwargs)
 
@@ -544,3 +615,4 @@ def xavier_init(model: nn.Module, gain: float = 1.0, distribution: Literal["unif
                 param.data.normal_(0, bound**2)
         else:
             init_fn(param.data, gain=gain)
+'''            

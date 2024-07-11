@@ -14,7 +14,7 @@ from dgl.data import DGLDataset
 from dgl.data.utils import load_graphs, save_graphs
 from dgl.dataloading import GraphDataLoader
 from tqdm import trange
-
+from sklearn.preprocessing import StandardScaler
 import matgl
 from matgl.graph.compute import compute_pair_vector_and_distance, create_line_graph
 
@@ -72,6 +72,20 @@ def collate_fn_pes(batch, include_stress: bool = True, include_line_graph: bool 
         return g, torch.squeeze(lat), l_g, state_attr, e, f, s
     return g, torch.squeeze(lat), state_attr, e, f, s
 
+class normalisation():
+    def __init__(self, data):
+        self.scaler = StandardScaler()
+
+    def log10(self,data):
+        data_log = torch.log10(data +1)
+        data_log = data_log.detach().numpy()
+        return data_log    
+       
+    def stdScaler(self,data):
+        data_scaled = self.scaler.fit_transform(data.reshape(-1,1))
+        data_scaled = torch.as_tensor(data_scaled)
+        return data_scaled    
+
 
 def MGLDataLoader(
     train_data: dgl.data.utils.Subset,
@@ -105,9 +119,14 @@ def MGLDataLoader(
                     collate_fn = collate_fn_pes
                 else:
                     collate_fn = partial(collate_fn_pes, include_stress=True, include_magmom=True)
+                    
+                                      
 
     train_loader = GraphDataLoader(train_data, shuffle=True, collate_fn=collate_fn, **kwargs)
     val_loader = GraphDataLoader(val_data, shuffle=False, collate_fn=collate_fn, **kwargs)
+    
+   
+    
     if test_data is not None:
         test_loader = GraphDataLoader(test_data, shuffle=False, collate_fn=collate_fn, **kwargs)
         return train_loader, val_loader, test_loader
@@ -132,8 +151,8 @@ class MGLDataset(DGLDataset):
         labels: dict[str, list] | None = None,
         name: str = "MGLDataset",
         graph_labels: list[int | float] | None = None,
-        clear_processed: bool = False,
-        save_cache: bool = True,
+        clear_processed: bool = True,
+        save_cache: bool = False,
         raw_dir: str | None = None,
         save_dir: str | None = None,
     ):
@@ -173,8 +192,20 @@ class MGLDataset(DGLDataset):
         self.converter = converter
         self.structures = structures or []
         self.labels = labels or {}
+        
+        #print("labels_before:",self.labels ) 
+        
+        self.scaler = normalisation(self.labels['TC'])
+        self.labels['TC'] = self.scaler.log10(torch.as_tensor((self.labels['TC'])))
+        self.labels['TC'] = self.scaler.stdScaler(self.labels['TC'])
+        #print("labels_after:",self.labels )
+        torch.save(self.scaler.scaler,"/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scalerY")
+             
+        
+        
         for k, v in self.labels.items():
             self.labels[k] = v.tolist() if isinstance(v, np.ndarray) else v
+            
         self.threebody_cutoff = threebody_cutoff
         self.directed_line_graph = directed_line_graph
         self.graph_labels = graph_labels
@@ -232,7 +263,7 @@ class MGLDataset(DGLDataset):
         if self.include_line_graph:
             self.line_graphs = line_graphs
             return self.graphs, self.lattices, self.line_graphs, self.state_attr
-        return self.graphs, self.lattices, self.state_attr
+        return self.graphs, self.lattices, self.state_attr#,self.scaler.stdScaler
 
     def save(self):
         """Save dgl graphs and labels to self.save_path."""
