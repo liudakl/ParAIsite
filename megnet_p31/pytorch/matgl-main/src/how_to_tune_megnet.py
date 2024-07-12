@@ -120,8 +120,9 @@ for nRuns in range (1,maxRuns+1):
     plt.ylabel('MAPE')
     plt.title('run = %s'%(nRuns))
     plt.legend()
-    plt.show()
+    
     plt.savefig("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/results_plots/MAPE_for_run_%s.png"%(nRuns))
+    plt.show()
     min_mape_val = x2.val_mape.min()
     
     if min_mape_val < best_mape:
