@@ -265,7 +265,7 @@ class MGLDataset(DGLDataset):
         if self.include_line_graph:
             self.line_graphs = line_graphs
             return self.graphs, self.lattices, self.line_graphs, self.state_attr
-        return self.graphs, self.lattices, self.state_attr#,self.scaler.stdScaler
+        return self.graphs, self.lattices, self.state_attr
 
     def save(self):
         """Save dgl graphs and labels to self.save_path."""

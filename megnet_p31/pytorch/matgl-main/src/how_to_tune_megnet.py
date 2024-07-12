@@ -110,7 +110,7 @@ for nRuns in range (1,10):
     
     
     model_megnet = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
-    mod_mlp = MLP (160,350,350,350,0,1)
+    mod_mlp = MLP (160,350,350,350,350,1)
     new_model = combined_models(pretrained_model=model_megnet.model,MLP=mod_mlp)
     lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler)
 
@@ -151,7 +151,7 @@ for nRuns in range (1,10):
             pass
 
 for nRuns in range (1,10): 
-     os.rmdir("logs/MEGNet_training_%s"%(nRuns))
+    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 
 #shutil.rmtree("logs")
 
