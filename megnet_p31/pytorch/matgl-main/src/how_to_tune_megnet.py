@@ -36,18 +36,9 @@ import numpy as np
 import pickle 
 
 
-#!rm /home/lklochko/.dgl/MGLDataset/*
-# To suppress warnings for clearer output
+
 warnings.simplefilter("ignore")
 
-'''
-keyAPI = '0qnsciDAnjfIC8yrYYpz5bUmjgAZHH2p'
-mpr = MPRester(keyAPI)
-structure = []
-for i in SetToUse.mpd_id:
-
-
-'''
 SetToUse = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
 SetToUse.rename({'chemsys': 'formula','mpd_id':'ID','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1, inplace=True)
 SetToUse = SetToUse.reset_index(drop=True)
@@ -57,19 +48,9 @@ with open ('structures_L96.pkl', 'rb') as fp:
     structure = pickle.load(fp)
 
 
-# Setup their dataset: 
-
-'''    
-scaler = StandardScaler()
-thermal_conduct = np.array(SetToUse.TC.to_list())
-thermal_conduct_log =  np.log10(thermal_conduct +1)
-thermal_conduct_scaled = scaler.fit_transform(thermal_conduct_log.reshape(-1,1))
-thermal_conduct_scaled = thermal_conduct_scaled.tolist()
-'''    
+# Setup dataset: 
 
 thermal_conduct = SetToUse.TC.to_list()
-
-
 elem_list = get_element_list(structure)
 converter = Structure2Graph(element_types=elem_list, cutoff=4.0)
 
@@ -83,10 +64,14 @@ mp_dataset = MGLDataset(
     converter=converter,
 )
 
-best_mapes = [] 
 scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scalerY')
 
-for nRuns in range (1,10):
+
+best_mapes = [] 
+maxRuns = 10
+
+for nRuns in range (1,maxRuns+1):
+    best_mape = np.inf
     
     train_data, val_data = split_dataset(
     mp_dataset,
@@ -103,23 +88,22 @@ for nRuns in range (1,10):
     num_workers=0,
 )
 
-
-    
-    
-    best_mape = np.inf
-    
+ 
     
     model_megnet = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
     mod_mlp = MLP (160,350,350,350,350,1)
     new_model = combined_models(pretrained_model=model_megnet.model,MLP=mod_mlp)
     lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler)
 
-#####   Training #######
+#####   Training   #######
 
 
     logger = CSVLogger("logs", name="MEGNet_training_%s"%(nRuns),version=0)
     trainer = pl.Trainer(max_epochs=100, accelerator="cpu", logger=logger)
     trainer.fit(model=lit_module, train_dataloaders=train_loader, val_dataloaders=val_loader)
+
+#####   Plot Results  #######
+
 
 
     metrics = pd.read_csv("logs/MEGNet_training_%s/version_0/metrics.csv"%(nRuns))
@@ -137,7 +121,7 @@ for nRuns in range (1,10):
     plt.title('run = %s'%(nRuns))
     plt.legend()
     plt.show()
-    
+    plt.savefig("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/results_plots/MAPE_for_run_%s.png"%(nRuns))
     min_mape_val = x2.val_mape.min()
     
     if min_mape_val < best_mape:
@@ -150,13 +134,14 @@ for nRuns in range (1,10):
         except FileNotFoundError:
             pass
 
-for nRuns in range (1,10): 
+for nRuns in range (1,maxRuns+1): 
     shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 
 #shutil.rmtree("logs")
 
+print("\n###############################\n")
+print("best MAPE: %0.2f (%0.2f)\n"%(np.array(best_mapes).mean(),np.array(best_mapes).std()))
 print("###############################")
-print("best MAPE: %0.2f (%0.2f)"%(np.array(best_mapes).mean(),np.array(best_mapes).std()))
 
 
 
