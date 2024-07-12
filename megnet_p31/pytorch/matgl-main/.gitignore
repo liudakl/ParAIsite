@@ -29,3 +29,4 @@ env
 venv
 .conda
 src/logs/*
+megnet_p31/pytorch/matgl-main/src/*

@@ -155,6 +155,8 @@ for nRuns in range (1,10):
 
 #shutil.rmtree("logs")
 
+print("###############################")
+print("best MAPE: %0.2f (%0.2f)"%(np.array(best_mapes).mean(),np.array(best_mapes).std()))
 
 
 
