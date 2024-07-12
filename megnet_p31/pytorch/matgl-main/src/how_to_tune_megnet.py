@@ -84,6 +84,7 @@ mp_dataset = MGLDataset(
 )
 
 best_mapes = [] 
+scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scalerY')
 
 for nRuns in range (1,10):
     
@@ -103,20 +104,21 @@ for nRuns in range (1,10):
 )
 
 
-    scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scalerY')
     
     
     best_mape = np.inf
+    
+    
     model_megnet = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
-    mod_mlp = MLP (160,200,100,100,0,1)
+    mod_mlp = MLP (160,350,350,350,0,1)
     new_model = combined_models(pretrained_model=model_megnet.model,MLP=mod_mlp)
     lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler)
 
 #####   Training #######
 
 
-    logger = CSVLogger("logs", name="MEGNet_training_%s"%(nRuns))
-    trainer = pl.Trainer(max_epochs=50, accelerator="cpu", logger=logger)
+    logger = CSVLogger("logs", name="MEGNet_training_%s"%(nRuns),version=0)
+    trainer = pl.Trainer(max_epochs=100, accelerator="cpu", logger=logger)
     trainer.fit(model=lit_module, train_dataloaders=train_loader, val_dataloaders=val_loader)
 
 
@@ -128,8 +130,8 @@ for nRuns in range (1,10):
     y = range(len(x1))
 
     plt.figure(figsize=(10, 5))
-    plt.plot(y, x1, label='Train MAPE')
-    plt.plot(y, x2, label='Validation MAPE')
+    plt.plot(y, x1,'-o', label='Train MAPE')
+    plt.plot(y, x2, '-o', label='Validation MAPE')
     plt.xlabel('Epochs')
     plt.ylabel('MAPE')
     plt.title('run = %s'%(nRuns))
@@ -148,7 +150,8 @@ for nRuns in range (1,10):
         except FileNotFoundError:
             pass
 
-#os.remove("logs/MEGNet_training/version_0/metrics.csv")
+for nRuns in range (1,10): 
+     os.rmdir("logs/MEGNet_training_%s"%(nRuns))
 
 #shutil.rmtree("logs")
 
