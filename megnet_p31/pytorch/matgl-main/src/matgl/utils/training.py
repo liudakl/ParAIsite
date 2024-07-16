@@ -146,7 +146,19 @@ class MatglLightningModuleMixin:
         torch.set_grad_enabled(True)
         return self.step(batch)
 
-      
+
+class mape_LOSS(nn.Module):
+    def __init__(self,eps=1e-4):
+        super(mape_LOSS, self).__init__()
+        self.epsilon = eps
+        self.MAPE =  torchmetrics.MeanAbsolutePercentageError()
+
+    def forward(self, y_true, y_pred):
+        assert y_pred.shape == y_true.shape
+        
+        mape = self.MAPE (y_pred, y_true)
+        return mape #((y_pred-y_true).abs()/y_true.abs()).sum()/len(y_true)  #mape
+
 
 
 
@@ -207,7 +219,8 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         if loss == "mse_loss":
             self.loss = F.mse_loss
         else:
-            self.loss = F.l1_loss
+            #self.loss = F.l1_loss
+            self.loss  = mape_LOSS()
         self.optimizer = optimizer
         self.scheduler = scheduler
         self.sync_dist = sync_dist
@@ -299,320 +312,25 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         #mape = self.mape(labels, scaled_pred)
         """
         
-        total_loss = loss(labels, preds)
-                 
-        
+        total_loss = loss(labels,preds)
+       
+        #print("Labels_normalised:",labels)
+        #print("Preds_normalised:",preds)
         
         
         labes_orig =  self.invTr(labels)
-        labes_orig =  self.unlog10(labes_orig)
+        #labes_orig =  self.unlog10(labes_orig)
         
         preds_orig =  self.invTr(preds)
-        preds_orig =  self.unlog10(preds_orig)    
+        #preds_orig =  self.unlog10(preds_orig)    
         
-        mape_unscaled = self.mape(labes_orig, preds_orig)
+        #print("Labels_orig:",labes_orig)
+        #print("Preds_orig:",preds_orig)
+         
+        
+        mape_unscaled = self.mape(preds_orig,labes_orig) # it's reverse in torchmetrix
         #mape_scaled = self.mape(labels, preds)
         
         return {"Total_Loss": total_loss, "mape": mape_unscaled}#, "mape_scaled": mape_scaled}
 
-   
-
-'''
-class PotentialLightningModule(MatglLightningModuleMixin, pl.LightningModule):
-    """A PyTorch.LightningModule for training MatGL potentials.
-
-    This is slightly different from the ModelLightningModel due to the need to account for energy, forces and stress
-    losses.
-    """
-
-    def __init__(
-        self,
-        model,
-        element_refs: np.ndarray | None = None,
-        include_line_graph: bool = False,
-        energy_weight: float = 1.0,
-        force_weight: float = 1.0,
-        stress_weight: float = 0.0,
-        magmom_weight: float = 0.0,
-        data_mean: float = 0.0,
-        data_std: float = 1.0,
-        loss: str = "mse_loss",
-        loss_params: dict | None = None,
-        optimizer: Optimizer | None = None,
-        scheduler=None,
-        lr: float = 0.001,
-        decay_steps: int = 1000,
-        decay_alpha: float = 0.01,
-        sync_dist: bool = False,
-        allow_missing_labels: bool = False,
-        magmom_target: Literal["absolute", "symbreak"] | None = "absolute",
-        **kwargs,
-    ):
-        """
-        Init PotentialLightningModule with key parameters.
-
-        Args:
-            model: Which type of the model for training
-            element_refs: element offset for PES
-            include_line_graph: whether to include line graphs
-            energy_weight: relative importance of energy
-            force_weight: relative importance of force
-            stress_weight: relative importance of stress
-            magmom_weight: relative importance of additional magmom predictions.
-            data_mean: average of training data
-            data_std: standard deviation of training data
-            loss: loss function used for training
-            loss_params: parameters for loss function
-            optimizer: optimizer for training
-            scheduler: scheduler for training
-            lr: learning rate for training
-            decay_steps: number of steps for decaying learning rate
-            decay_alpha: parameter determines the minimum learning rate.
-            sync_dist: whether sync logging across all GPU workers or not
-            allow_missing_labels: Whether to allow missing labels or not.
-                These should be present in the dataset as torch.nans and will be skipped in computing the loss.
-            magmom_target: Whether to predict the absolute site-wise value of magmoms or adapt the loss function
-                to predict the signed value breaking symmetry. If None given the loss function will be adapted.
-            **kwargs: Passthrough to parent init.
-        """
-        assert energy_weight >= 0, f"energy_weight has to be >=0. Got {energy_weight}!"
-        assert force_weight >= 0, f"force_weight has to be >=0. Got {force_weight}!"
-        assert stress_weight >= 0, f"stress_weight has to be >=0. Got {stress_weight}!"
-        assert magmom_weight >= 0, f"magmom_weight has to be >=0. Got {magmom_weight}!"
-        
-        
-
-        super().__init__(**kwargs)
-
-        self.mae = torchmetrics.MeanAbsoluteError()
-        self.rmse = torchmetrics.MeanSquaredError(squared=False)
-        self.register_buffer("data_mean", torch.tensor(data_mean))
-        self.register_buffer("data_std", torch.tensor(data_std))
-
-        self.energy_weight = energy_weight
-        self.force_weight = force_weight
-        self.stress_weight = stress_weight
-        self.magmom_weight = magmom_weight
-        self.lr = lr
-        self.decay_steps = decay_steps
-        self.decay_alpha = decay_alpha
-        self.include_line_graph = include_line_graph
-
-        self.model = Potential(
-            model=model,
-            element_refs=element_refs,
-            calc_stresses=stress_weight != 0,
-            calc_magmom=magmom_weight != 0,
-            data_std=self.data_std,
-            data_mean=self.data_mean,
-        )
-        if loss == "mse_loss":
-            self.loss = F.mse_loss
-        elif loss == "huber_loss":
-            self.loss = F.huber_loss
-        else:
-            self.loss = F.l1_loss
-        self.loss_params = loss_params if loss_params is not None else {}
-        self.optimizer = optimizer
-        self.scheduler = scheduler
-        self.sync_dist = sync_dist
-        self.allow_missing_labels = allow_missing_labels
-        self.magmom_target = magmom_target
-        self.save_hyperparameters(ignore=["model"])
-
-    def on_load_checkpoint(self, checkpoint: dict[str, Any]):
-        """# noqa: D200
-        hacky hacky hack to add missing keys to the state dict when changes are made.
-        """
-        for key in self.state_dict():
-            if key not in checkpoint["state_dict"]:
-                checkpoint["state_dict"][key] = self.state_dict()[key]
-
-    def forward(
-        self,
-        g: dgl.DGLGraph,
-        lat: torch.Tensor,
-        l_g: dgl.DGLGraph | None = None,
-        state_attr: torch.Tensor | None = None,
-    ):
-        """Args:
-            g: dgl Graph
-            lat: lattice
-            l_g: Line graph
-            state_attr: State attr.
-
-        Returns:
-            energy, force, stress, hessian and optional site_wise
-        """
-        if self.include_line_graph:
-            if self.model.calc_magmom:
-                e, f, s, h, m = self.model(g=g, lat=lat, l_g=l_g, state_attr=state_attr)
-                return e, f, s, h, m
-            e, f, s, h = self.model(g=g, lat=lat, l_g=l_g, state_attr=state_attr)
-            return e, f, s, h
-        else:  # noqa: RET505
-            e, f, s, h = self.model(g=g, lat=lat, state_attr=state_attr)
-            return e, f, s, h
-
-    def step(self, batch: tuple):
-        """Args:
-            batch: Batch of training data.
-
-        Returns:
-            results, batch_size
-        """
-        preds: tuple
-        labels: tuple
-
-        torch.set_grad_enabled(True)
-        if self.include_line_graph:
-            if self.model.calc_magmom:
-                g, lat, l_g, state_attr, energies, forces, stresses, magmoms = batch
-                e, f, s, _, m = self(g=g, lat=lat, state_attr=state_attr, l_g=l_g)
-                preds = (e, f, s, m)
-                labels = (energies, forces, stresses, magmoms)
-            else:
-                g, lat, l_g, state_attr, energies, forces, stresses = batch
-                e, f, s, _ = self(g=g, lat=lat, state_attr=state_attr, l_g=l_g)
-                preds = (e, f, s)
-                labels = (energies, forces, stresses)
-        else:
-            g, lat, state_attr, energies, forces, stresses = batch
-            e, f, s, _ = self(g=g, lat=lat, state_attr=state_attr)
-            preds = (e, f, s)
-            labels = (energies, forces, stresses)
-
-        num_atoms = g.batch_num_nodes()
-        results = self.loss_fn(
-            loss=self.loss,  # type: ignore
-            preds=preds,
-            labels=labels,
-            num_atoms=num_atoms,
-        )
-        batch_size = preds[0].numel()
-
-        return results, batch_size
-
-    def loss_fn(
-        self,
-        loss: nn.Module,
-        labels: tuple,
-        preds: tuple,
-        num_atoms: int | None = None,
-    ):
-        """Compute losses for EFS.
-
-        Args:
-            loss: Loss function.
-            labels: Labels.
-            preds: Predictions
-            num_atoms: Number of atoms.
-
-        Returns::
-
-            {
-                "Total_Loss": total_loss,
-                "Energy_MAE": e_mae,
-                "Force_MAE": f_mae,
-                "Stress_MAE": s_mae,
-                "Magmom_MAE": m_mae,
-                "Energy_RMSE": e_rmse,
-                "Force_RMSE": f_rmse,
-                "Stress_RMSE": s_rmse,
-                "Magmom_RMSE": m_rmse
-            }
-
-        """
-        # labels and preds are (energy, force, stress, (optional) site_wise)
-        e_loss = self.loss(labels[0] / num_atoms, preds[0] / num_atoms, **self.loss_params)
-        f_loss = self.loss(labels[1], preds[1], **self.loss_params)
-
-        e_mae = self.mae(labels[0] / num_atoms, preds[0] / num_atoms)
-        f_mae = self.mae(labels[1], preds[1])
-
-        e_rmse = self.rmse(labels[0] / num_atoms, preds[0] / num_atoms)
-        f_rmse = self.rmse(labels[1], preds[1])
-
-        s_mae = torch.zeros(1)
-        s_rmse = torch.zeros(1)
-
-        m_mae = torch.zeros(1)
-        m_rmse = torch.zeros(1)
-
-        total_loss = self.energy_weight * e_loss + self.force_weight * f_loss
-
-        if self.model.calc_stresses:
-            s_loss = loss(labels[2], preds[2], **self.loss_params)
-            s_mae = self.mae(labels[2], preds[2])
-            s_rmse = self.rmse(labels[2], preds[2])
-            total_loss = total_loss + self.stress_weight * s_loss
-
-        if self.model.calc_magmom:
-            if self.allow_missing_labels:
-                valid_values = ~torch.isnan(labels[3])
-                labels_3 = labels[3][valid_values]
-                preds_3 = preds[3][valid_values]
-            else:
-                labels_3 = labels[3]
-                preds_3 = preds[3]
-
-            if len(labels_3) > 0:
-                if self.magmom_target == "symbreak":
-                    m_loss = torch.min(
-                        loss(labels_3, preds_3, **self.loss_params), loss(labels_3, -preds_3, **self.loss_params)
-                    )
-                    m_mae = torch.min(self.mae(labels_3, preds_3), self.mae(labels_3, -preds_3))
-                    m_rmse = torch.min(self.rmse(labels_3, preds_3), self.rmse(labels_3, -preds_3))
-                else:
-                    if self.magmom_target == "absolute":
-                        labels_3 = torch.abs(labels_3)
-
-                    m_loss = loss(labels_3, preds_3, **self.loss_params)
-                    m_mae = self.mae(labels_3, preds_3)
-                    m_rmse = self.rmse(labels_3, preds_3)
-
-                total_loss = total_loss + self.magmom_weight * m_loss
-            else:
-                m_mae = torch.zeros(1)
-                m_rmse = torch.zeros(1)
-
-        return {
-            "Total_Loss": total_loss,
-            "Energy_MAE": e_mae,
-            "Force_MAE": f_mae,
-            "Stress_MAE": s_mae,
-            "Magmom_MAE": m_mae,
-            "Energy_RMSE": e_rmse,
-            "Force_RMSE": f_rmse,
-            "Stress_RMSE": s_rmse,
-            "Magmom_RMSE": m_rmse,
-        }
-
-
-def xavier_init(model: nn.Module, gain: float = 1.0, distribution: Literal["uniform", "normal"] = "uniform") -> None:
-    """Xavier initialization scheme for the model.
-
-    Args:
-        model (nn.Module): The model to be Xavier-initialized.
-        gain (float): Gain factor. Defaults to 1.0.
-        distribution (Literal["uniform", "normal"], optional): Distribution to use. Defaults to "uniform".
-    """
-    if distribution == "uniform":
-        init_fn = nn.init.xavier_uniform_
-    elif distribution == "normal":
-        init_fn = nn.init.xavier_normal_
-    else:
-        raise ValueError(f"Invalid distribution: {distribution}")
-
-    for name, param in model.named_parameters():
-        if name.endswith(".bias"):
-            param.data.fill_(0)
-        elif param.dim() < 2:  # torch.nn.xavier only supports >= 2 dim tensors
-            bound = gain * math.sqrt(6) / math.sqrt(2 * param.shape[0])
-            if distribution == "uniform":
-                param.data.uniform_(-bound, bound)
-            else:
-                param.data.normal_(0, bound**2)
-        else:
-            init_fn(param.data, gain=gain)
-'''            
+          

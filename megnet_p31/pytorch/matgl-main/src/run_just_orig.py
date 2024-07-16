@@ -1,57 +1,40 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Created on Mon Jul 15 12:01:22 2024
 
-This is a temporary script file.
+@author: lklochko
 """
 
 from __future__ import annotations
 import pandas as pd 
+from pymatgen.ext.matproj import MPRester
 import os
 import shutil
 import warnings
+import zipfile
 import torch 
 
 import matplotlib.pyplot as plt
+import pandas as pd
 import lightning as pl
 
 from dgl.data.utils import split_dataset
+from pymatgen.core import Structure
 from pytorch_lightning.loggers import CSVLogger
+from tqdm import tqdm
 
 from matgl.ext.pymatgen import Structure2Graph, get_element_list
-from matgl.graph.data import MGLDataset, MGLDataLoader
+from matgl.graph.data import MGLDataset, MGLDataLoader, collate_fn_pes, collate_fn_graph
 from matgl.layers import BondExpansion
-from matgl.models import combined_models,MEGNet_changed
+from matgl.models import MEGNet,combined_models
+from matgl.utils.io import RemoteFile
 from matgl.utils.training import ModelLightningModule
 import matgl 
-from model_mlp import myMLP
+from model_mlp import MLP
+from sklearn.preprocessing import StandardScaler
 import numpy as np
 import pickle 
-
-
-
-def create_changed_megned_model () :
-    bond_expansion = BondExpansion(rbf_type="Gaussian", initial=0.0, final=5.0, num_centers=100, width=0.5)
-
-    model = MEGNet_changed(
-        dim_node_embedding=16,
-        dim_edge_embedding=100,
-        dim_state_embedding=2,
-        nblocks=3,
-        hidden_layer_sizes_input=(64, 32),
-        hidden_layer_sizes_conv=(64, 64, 32),
-        nlayers_set2set=1,
-        niters_set2set=2,
-        hidden_layer_sizes_output=(32, 16),
-        is_classification=False,
-        activation_type="softplus2",
-        bond_expansion=bond_expansion,
-        cutoff=4.0,
-        gauss_width=0.5,
-    )
-    
-    return model 
-    
 
 
 
@@ -82,19 +65,11 @@ mp_dataset = MGLDataset(
     converter=converter,
 )
 
-scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.minMaxscaler')
+scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scalerY')
 
 
 best_mapes = [] 
 maxRuns = 10
-maxEpochs = 100
-NN1 = 350
-NN2 = 350
-NN3 = 350
-NN4 = 0
-
-
-
 
 for nRuns in range (1,maxRuns+1):
     best_mape = np.inf
@@ -116,18 +91,14 @@ for nRuns in range (1,maxRuns+1):
 
  
     
-    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
-    model_megned_changed =  create_changed_megned_model() 
-    model_megned_changed.load_state_dict(megnet_loaded.state_dict(),strict=False)
-    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1)
-    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp)
-    lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler)
+    model_megnet = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
+    lit_module = ModelLightningModule(model=model_megnet,loss='l1_loss',lr=1e-3,scaler=scaler)
 
 #####   Training   #######
 
 
     logger = CSVLogger("logs", name="MEGNet_training_%s"%(nRuns),version=0)
-    trainer = pl.Trainer(max_epochs=maxEpochs, accelerator="cpu", logger=logger)
+    trainer = pl.Trainer(max_epochs=100, accelerator="cpu", logger=logger)
     trainer.fit(model=lit_module, train_dataloaders=train_loader, val_dataloaders=val_loader)
 
 #####   Plot Results  #######
@@ -151,25 +122,6 @@ for nRuns in range (1,maxRuns+1):
     
     plt.savefig("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/results_plots/MAPE_for_run_%s.png"%(nRuns))
     plt.show()
-    
-
-    x1 = metrics["train_Total_Loss"].dropna().reset_index().drop(columns='index')
-    x2 = metrics["val_Total_Loss"].dropna().reset_index().drop(columns='index')
-
-    y = range(len(x1))
-
-    plt.figure(figsize=(10, 5))
-    plt.plot(y, x1,'-o', label='Train MAPE')
-    plt.plot(y, x2, '-o', label='Validation MAPE')
-    plt.xlabel('Epochs')
-    plt.ylabel('MAPE')
-    plt.title('run = %s'%(nRuns))
-    plt.legend()
-    
-    plt.savefig("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/results_plots/LOSS_for_run_%s.png"%(nRuns))
-    plt.show()
-    
-    
     min_mape_val = x2.val_mape.min()
     
     if min_mape_val < best_mape:

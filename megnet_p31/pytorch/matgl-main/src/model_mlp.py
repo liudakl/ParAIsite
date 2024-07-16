@@ -4,12 +4,12 @@ import torch
 import torch.nn as nn
 
      
-class MLP(nn.Module):
+class myMLP(nn.Module):
     def __init__(self, inpuT_size, hs1, hs2, hs3,hs4, output_size):
         
         
         
-        super(MLP, self).__init__()       
+        super(myMLP, self).__init__()       
           
         self.hs2 = hs2
         self.hs3 = hs3

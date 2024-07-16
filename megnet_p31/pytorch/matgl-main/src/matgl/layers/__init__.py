@@ -13,6 +13,7 @@ from matgl.layers._core import (
     GatedMLP,
     GatedMLP_norm,
     MLP_norm,
+    MLP_last_layer,
     build_gated_equivariant_mlp,
 )
 from matgl.layers._embedding import EmbeddingBlock, NeighborEmbedding, TensorEmbedding
