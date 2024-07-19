@@ -14,7 +14,7 @@ from dgl.data import DGLDataset
 from dgl.data.utils import load_graphs, save_graphs
 from dgl.dataloading import GraphDataLoader
 from tqdm import trange
-from sklearn.preprocessing import StandardScaler,MinMaxScaler
+#from sklearn.preprocessing import StandardScaler,MinMaxScaler
 import matgl
 from matgl.graph.compute import compute_pair_vector_and_distance, create_line_graph
 
@@ -73,26 +73,6 @@ def collate_fn_pes(batch, include_stress: bool = True, include_line_graph: bool 
     return g, torch.squeeze(lat), state_attr, e, f, s
 
 
-
-
-class normalisation():
-    def __init__(self, data):
-        #self.scaler = StandardScaler()
-        self.scaler = MinMaxScaler()
-
-    def log10(self,data):
-        data_log = torch.log10(data +1)
-        data_log = data_log.detach().numpy()
-        return data_log    
-       
-    def Scaler(self,data):            
-        data_scaled = self.scaler.fit_transform(data.detach().numpy().reshape(-1,1))
-        data_scaled = torch.as_tensor(data_scaled)
-        return data_scaled    
-    
-
-
-
 def MGLDataLoader(
     train_data: dgl.data.utils.Subset,
     val_data: dgl.data.utils.Subset,
@@ -138,6 +118,74 @@ def MGLDataLoader(
         test_loader = GraphDataLoader(test_data, shuffle=False, collate_fn=collate_fn, **kwargs)
         return train_loader, val_loader, test_loader
     return train_loader, val_loader
+
+
+class normalisation():
+    def __init__(self):
+        self.mean = None
+        self.std = None
+
+    def fit(self, X):
+        """
+        Compute the mean and standard deviation to be used for later scaling.
+        
+        Args:
+            X (torch.Tensor): The data used to compute the mean and standard deviation.
+        """
+        self.mean = X.mean(0, keepdim=True)
+        self.std = X.std(0, unbiased=False, keepdim=True)
+
+    def transform(self, X):
+        """
+        Perform standardization by centering and scaling.
+        
+        Args:
+            X (torch.Tensor): The data to be transformed.
+        
+        Returns:
+            torch.Tensor: Transformed data.
+        """
+        if self.mean is None or self.std is None:
+            raise ValueError("The StandardScaler has not been fitted yet.")
+        return (X - self.mean) / self.std
+
+    def fit_transform(self, X):
+        """
+        Fit to data, then transform it.
+        
+        Args:
+            X (torch.Tensor): The data to be fitted and transformed.
+        
+        Returns:
+            torch.Tensor: Transformed data.
+        """
+        self.fit(X)
+        return self.transform(X)
+
+    
+           
+    
+    def log10(self,data):
+        data_log = torch.log10(data +1)
+        return data_log   
+        
+
+
+
+#class normalisation():
+#    def __init__(self, data):
+#        self.scaler = StandardScaler()
+        #self.scaler = MinMaxScaler()
+
+#    def log10(self,data):
+#        data_log = torch.log10(data +1)
+#        data_log = data_log.detach().numpy()
+#        return data_log    
+       
+#    def Scaler(self,data):            
+#        data_scaled = self.scaler.fit_transform(data.reshape(-1,1))
+#        data_scaled = torch.as_tensor(data_scaled)
+#        return data_scaled    
 
 
 class MGLDataset(DGLDataset):
@@ -201,15 +249,18 @@ class MGLDataset(DGLDataset):
         self.structures = structures or []
         self.labels = labels or {}
         
-        #print("labels_before:",self.labels ) 
         
-        self.scaler = normalisation(self.labels['TC'])
+        
+        #self.scaler = normalisation(self.labels['TC'])        
         #self.labels['TC'] = self.scaler.log10(torch.as_tensor((self.labels['TC'])))
-        self.labels['TC'] = self.scaler.Scaler(torch.as_tensor(self.labels['TC']))
-        #print("labels_after:",self.labels )
-        torch.save(self.scaler.scaler,"/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.minMaxscaler")
-             
+        #self.labels['TC'] = self.scaler.Scaler(torch.as_tensor(self.labels['TC']))
         
+        #torch.save(self.scaler.scaler,"/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler")
+        self.scaler = normalisation()
+        self.labels['TC'] = self.scaler.log10(torch.as_tensor((self.labels['TC'])))
+        self.labels['TC'] = self.scaler.fit_transform(torch.as_tensor((self.labels['TC'])))
+            
+        torch.save(self.scaler,"/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler")
         
         for k, v in self.labels.items():
             self.labels[k] = v.tolist() if isinstance(v, np.ndarray) else v

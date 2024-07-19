@@ -45,6 +45,7 @@ class MatglLightningModuleMixin:
             prog_bar=True,
             sync_dist=self.sync_dist,  # type: ignore
         )
+        #print(" ##########  In the training step: ",results)
 
         return results["Total_Loss"]
 
@@ -69,6 +70,8 @@ class MatglLightningModuleMixin:
             prog_bar=True,
             sync_dist=self.sync_dist,  # type: ignore
         )
+        
+        
         return results["Total_Loss"]
 
     def test_step(self, batch: tuple, batch_idx: int):
@@ -148,16 +151,17 @@ class MatglLightningModuleMixin:
 
 
 class mape_LOSS(nn.Module):
-    def __init__(self,eps=1e-4):
+    def __init__(self):
         super(mape_LOSS, self).__init__()
-        self.epsilon = eps
+        
         self.MAPE =  torchmetrics.MeanAbsolutePercentageError()
 
     def forward(self, y_true, y_pred):
         assert y_pred.shape == y_true.shape
         
         mape = self.MAPE (y_pred, y_true)
-        return mape #((y_pred-y_true).abs()/y_true.abs()).sum()/len(y_true)  #mape
+        
+        return mape #((y_pred-y_true).abs()/y_true.abs()).sum()/len(y_true)  
 
 
 
@@ -229,14 +233,20 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         
     def unlog10(self,data):
         data_unlog10 = 10**(data)-1
-        data_unlog10 = torch.tensor(data_unlog10, dtype=torch.float32)
+        #data_unlog10 = torch.tensor(data_unlog10, dtype=torch.float32)    
         return data_unlog10    
 
-    def invTr(self,data):
-        data = data.reshape(-1,1)
-        data_scaled = self.scaler.inverse_transform(data.detach().cpu().numpy())
-        data_scaled = torch.tensor(data_scaled, dtype=torch.float32)
-        return data_scaled     
+#    def invTr(self,data):
+#        data = data.reshape(-1,1)
+#        data_scaled = self.scaler.inverse_transform(data.detach().cpu().numpy())
+#        data_scaled = torch.tensor(data_scaled, dtype=torch.float32)
+#        return data_scaled
+        
+        
+    def inverse_transform(self, X):
+        if self.scaler.mean is None or self.scaler.std is None:
+            raise ValueError("The StandardScaler has not been fitted yet.")
+        return X * self.scaler.std + self.scaler.mean         
 
     def forward(
         self,
@@ -311,26 +321,19 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         #rmse = self.rmse(labels, scaled_pred)
         #mape = self.mape(labels, scaled_pred)
         """
+                
         
-        total_loss = loss(labels,preds)
-       
-        #print("Labels_normalised:",labels)
-        #print("Preds_normalised:",preds)
+        labels_orig =  self.inverse_transform(labels)
+        preds_orig =  self.inverse_transform(preds)
         
         
-        labes_orig =  self.invTr(labels)
-        #labes_orig =  self.unlog10(labes_orig)
+        labels_orig =  self.unlog10(labels_orig)
+        preds_orig =  self.unlog10(preds_orig)    
         
-        preds_orig =  self.invTr(preds)
-        #preds_orig =  self.unlog10(preds_orig)    
+                
+        total_loss = loss(labels_orig,preds_orig)
         
-        #print("Labels_orig:",labes_orig)
-        #print("Preds_orig:",preds_orig)
-         
         
-        mape_unscaled = self.mape(preds_orig,labes_orig) # it's reverse in torchmetrix
-        #mape_scaled = self.mape(labels, preds)
-        
-        return {"Total_Loss": total_loss, "mape": mape_unscaled}#, "mape_scaled": mape_scaled}
+        return {"Total_Loss": total_loss} 
 
           

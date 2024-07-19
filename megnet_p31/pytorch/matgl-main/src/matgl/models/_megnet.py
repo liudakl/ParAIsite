@@ -467,6 +467,38 @@ class MEGNet_changed(nn.Module, IOMixIn):
 
         self.is_classification = is_classification
         self.include_state_embedding = include_state
+        
+        
+    def predict_structure(
+            self,
+            structure,
+            state_attr: torch.Tensor | None = None,
+            graph_converter: GraphConverter | None = None,
+        ):
+            """Convenience method to directly predict property from structure.
+
+            Args:
+                structure: An input crystal/molecule.
+                state_attr (torch.tensor): Graph attributes
+                graph_converter: Object that implements a get_graph_from_structure.
+
+            Returns:
+                output (torch.tensor): output property
+            """
+            if graph_converter is None:
+                from matgl.ext.pymatgen import Structure2Graph
+
+                graph_converter = Structure2Graph(element_types=self.pretrained.element_types, cutoff=self.pretrained.cutoff)
+            g, lat, state_attr_default = graph_converter.get_graph(structure)
+            g.edata["pbc_offshift"] = torch.matmul(g.edata["pbc_offset"], lat[0])
+            g.ndata["pos"] = g.ndata["frac_coords"] @ lat[0]
+            if state_attr is None:
+                state_attr = torch.tensor(state_attr_default)
+            bond_vec, bond_dist = compute_pair_vector_and_distance(g)
+            g.edata["edge_attr"] = self.pretrained.bond_expansion(bond_dist)
+            
+            return self(g=g, state_attr=state_attr).detach()    
+    
 
     def forward(self, g: dgl.DGLGraph, state_attr: torch.Tensor | None = None, **kwargs):
         """Forward pass of MEGnet. Executes all blocks.

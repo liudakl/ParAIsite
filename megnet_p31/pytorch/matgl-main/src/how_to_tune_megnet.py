@@ -28,6 +28,7 @@ from model_mlp import myMLP
 import numpy as np
 import pickle 
 
+warnings.simplefilter("ignore")
 
 
 def create_changed_megned_model () :
@@ -51,19 +52,39 @@ def create_changed_megned_model () :
     )
     
     return model 
-    
+
+dataset_name = 'MIX'    
+
+if dataset_name == 'L96':
+    df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
+    df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
+    SetToUse = df1[['TC']].copy()
+elif dataset_name == 'HH_143':
+    df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
+    df2 = df2.reset_index(drop=True)
+    SetToUse = df2[['TC']].copy()
+else:
+    df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
+    df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
+
+    df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
+    df2 = df2.reset_index(drop=True)
+
+    df_1 = df1[['mpd_id','TC']]
+    df_2 = df2[['mpd_id','TC']]
+
+    SetToUse = pd.concat([df_1,df_2], ignore_index=True)
 
 
-
-warnings.simplefilter("ignore")
-
-SetToUse = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
-SetToUse.rename({'chemsys': 'formula','mpd_id':'ID','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1, inplace=True)
-SetToUse = SetToUse.reset_index(drop=True)
-
-
-with open ('structures_L96.pkl', 'rb') as fp:
+with open ('structures_%s.pkl'%(dataset_name), 'rb') as fp:
     structure = pickle.load(fp)
+
+try:
+    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler")
+except FileNotFoundError:
+    pass
+
+
 
 
 # Setup dataset: 
@@ -81,19 +102,28 @@ mp_dataset = MGLDataset(
     labels={"TC": thermal_conduct},
     converter=converter,
 )
-
-scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.minMaxscaler')
+scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler')
 
 
 best_mapes = [] 
-maxRuns = 10
-maxEpochs = 100
-NN1 = 350
+maxRuns = 9
+maxEpochs = 300
+NN1 = 500
 NN2 = 350
 NN3 = 350
 NN4 = 0
 
 
+
+
+
+for nRuns in range (1,maxRuns+1): 
+        try:
+            shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
+        except FileNotFoundError:
+            pass
+
+    
 
 
 for nRuns in range (1,maxRuns+1):
@@ -136,45 +166,31 @@ for nRuns in range (1,maxRuns+1):
 
     metrics = pd.read_csv("logs/MEGNet_training_%s/version_0/metrics.csv"%(nRuns))
 
-    x1 = metrics["train_mape"].dropna().reset_index().drop(columns='index')
-    x2 = metrics["val_mape"].dropna().reset_index().drop(columns='index')
-
-    y = range(len(x1))
-
-    plt.figure(figsize=(10, 5))
-    plt.plot(y, x1,'-o', label='Train MAPE')
-    plt.plot(y, x2, '-o', label='Validation MAPE')
-    plt.xlabel('Epochs')
-    plt.ylabel('MAPE')
-    plt.title('run = %s'%(nRuns))
-    plt.legend()
-    
-    plt.savefig("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/results_plots/MAPE_for_run_%s.png"%(nRuns))
-    plt.show()
-    
-
     x1 = metrics["train_Total_Loss"].dropna().reset_index().drop(columns='index')
     x2 = metrics["val_Total_Loss"].dropna().reset_index().drop(columns='index')
 
     y = range(len(x1))
 
     plt.figure(figsize=(10, 5))
-    plt.plot(y, x1,'-o', label='Train MAPE')
-    plt.plot(y, x2, '-o', label='Validation MAPE')
+    plt.plot(y, x1,'-o', label='Train LOSS')
+    plt.plot(y, x2, '-o', label='Validation LOSS')
     plt.xlabel('Epochs')
-    plt.ylabel('MAPE')
+    plt.ylabel('LOSS')
     plt.title('run = %s'%(nRuns))
     plt.legend()
     
     plt.savefig("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/results_plots/LOSS_for_run_%s.png"%(nRuns))
     plt.show()
-    
-    
-    min_mape_val = x2.val_mape.min()
+        
+    min_mape_val = x2.val_Total_Loss.min()
     
     if min_mape_val < best_mape:
         best_mape = min_mape_val
         best_mapes.append(best_mape)
+        
+    torch.save(new_model, "best_models/model_%s."%(dataset_name)+str(nRuns))    
+        
+    
 
     for fn in ("dgl_graph.bin", "lattice.pt", "dgl_line_graph.bin", "state_attr.pt", "labels.json"):
         try:
@@ -184,11 +200,20 @@ for nRuns in range (1,maxRuns+1):
 
 for nRuns in range (1,maxRuns+1): 
     shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
-
+try:
+    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler")
+except FileNotFoundError:
+    pass
 #shutil.rmtree("logs")
 
-print("\n###############################\n")
-print("best MAPE: %0.2f (%0.2f)\n"%(np.array(best_mapes).mean(),np.array(best_mapes).std()))
+print("\n###############################")
+print("#                             #")
+print("#                             #")
+print("#                             #")
+print("#   best MAPE: %0.2f (%0.2f)    #"%(np.array(best_mapes).mean(),np.array(best_mapes).std()))
+print("#                             #")
+print("#                             #")
+print("#                             #")
 print("###############################")
 
 
