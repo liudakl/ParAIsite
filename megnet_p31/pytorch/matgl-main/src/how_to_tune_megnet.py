@@ -53,17 +53,17 @@ def create_changed_megned_model () :
     
     return model 
 
-dataset_name = 'MIX'    
+dataset_name = 'HH143'    
 
 if dataset_name == 'L96':
     df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
     df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
     SetToUse = df1[['TC']].copy()
-elif dataset_name == 'HH_143':
+elif dataset_name == 'HH143':
     df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
     df2 = df2.reset_index(drop=True)
     SetToUse = df2[['TC']].copy()
-else:
+elif dataset_name == 'MIX':
     df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
     df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
 
@@ -108,7 +108,7 @@ scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/m
 best_mapes = [] 
 maxRuns = 9
 maxEpochs = 300
-NN1 = 500
+NN1 = 450
 NN2 = 350
 NN3 = 350
 NN4 = 0
@@ -201,6 +201,7 @@ for nRuns in range (1,maxRuns+1):
 for nRuns in range (1,maxRuns+1): 
     shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 try:
+    os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler.%s"%(dataset_name))
     os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler")
 except FileNotFoundError:
     pass
