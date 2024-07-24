@@ -2,7 +2,9 @@
 
 A brief description of what this project does and who it's for
 
-<img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/ParAIsite.png?raw=true" alt="Model" width="600" height="400">
+<div align="center">
+<img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/ParAIsite.png?raw=true" alt="Model" width="300" height="300">
+</div>
 
 
 ## Run Locally
