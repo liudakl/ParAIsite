@@ -1,6 +1,10 @@
-# Fine Tuning of Crabnet 
+# ParaIAsite 
 
 A brief description of what this project does and who it's for
+
+
+![Model](https://github.com/liudakl/fine_tuning_papers/blob/main/paper/ParAIsite.png)
+
 
 
 ## Run Locally
@@ -23,4 +27,3 @@ To run
   python3.10 how_to.py
 ```
 
-![Model](https://github.com/liudakl/fine_tuning_papers/blob/main/paper/ParAIsite.png){: width="50%"}
