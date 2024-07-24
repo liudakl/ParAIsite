@@ -5,9 +5,9 @@
 <img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/ParAIsite.png?raw=true" alt="Model" width="500" height="400">
 </div>
 
-<p style="text-align: justify;">
+<div style="text-align: justify;">
 In this study, we introduce parAIsite, a deep learning model designed for predicting thermal conductivity of materials. Despite the existence of large databases, accessing extensive thermal property data, such as thermal conductivity for various compounds, remains challenging. One effective approach for achieving precise predictions on small datasets is using the framework of Transfer Learning (TL). In TL, a pre-trained machine learning (ML) model on a large dataset can be fine-tuned (FT) on a smaller dataset. In our case, we utilized an existing MEGNET model pre-trained on X data, extracted the output layer, and inserted our multi-layer perceptron (MLP) model on top of it, making its output the input for our model. This innovative approach demonstrates the potential of parAIsite to significantly advance computational materials science by providing accurate thermal conductivity predictions.
-</p>
+</div>
 
 ## How to run ParAIsite
 
