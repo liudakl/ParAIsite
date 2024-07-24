@@ -23,4 +23,4 @@ To run
   python3.10 how_to.py
 ```
 
-![alt text](/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/ParAIsite.png)
+![Model](https://github.com/liudakl/fine_tuning_papers/blob/main/paper/ParAIsite.png)
