@@ -10,7 +10,13 @@ import pandas as pd
 import numpy as np 
 import torch 
 import pickle 
+import warnings 
 from sklearn.metrics import mean_absolute_percentage_error
+
+warnings.simplefilter("ignore")
+
+
+
 
 def unlog10(data):
         data_unlog10 = 10**(data)-1
@@ -22,7 +28,7 @@ def inverse_transform(scalerY,X):
         return X * scalerY.std + scalerY.mean    
 
 
-def return_dataset (dataset_name):
+def return_dataset (dataset_name, model_name):
     with open ('structures_%s.pkl'%(dataset_name), 'rb') as fp:
         structure = pickle.load(fp)
         
@@ -45,18 +51,20 @@ def return_dataset (dataset_name):
         df_2 = df2[['mpd_id','TC']]
 
         SetToUse = pd.concat([df_1,df_2], ignore_index=True)
-    scalerY = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler.%s'%(dataset_name))
+    elif dataset_name == 'material_project_database': 
+         print("add data")
+    scalerY = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler.%s'%(model_name))
     
     
     return   SetToUse, structure,scalerY
     
 
-dataset_name = 'L96'    
-test_on      = 'HH143'
+dataset_name = 'HH143'    
+test_on      = 'MIX'
 
 nRunsmax = 9
 
-SetToUse, structure, scalerY = return_dataset (dataset_name)
+SetToUse, structure, scalerY = return_dataset (dataset_name,test_on)
 
 
 print("Test DataSet %s on %s pre-trained models on %s"%(dataset_name,nRunsmax,test_on))
