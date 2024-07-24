@@ -23,4 +23,4 @@ To run
   python3.10 how_to.py
 ```
 
-![Model](https://github.com/liudakl/fine_tuning_papers/blob/main/paper/ParAIsite.png = 250x250)
+![Model](https://github.com/liudakl/fine_tuning_papers/blob/main/paper/ParAIsite.png){: width="50%"}
