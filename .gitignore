@@ -160,3 +160,5 @@ megnet_p31/pytorch/matgl-main/src/*.json
 megnet_p31/keras/pretrained_models/*
 crabnet* 
 crabnet/*
+nopush*
+nopush/*

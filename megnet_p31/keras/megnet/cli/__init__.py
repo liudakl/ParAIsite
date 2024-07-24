@@ -1,3 +1,0 @@
-"""
-command line tools
-"""
