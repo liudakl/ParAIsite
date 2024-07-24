@@ -1,4 +1,4 @@
-# ParAIsite 
+# ParAIsite: the Fine-Tuned Neural Network model for Predicting Thermal Conductivity
 
 
 <div align="center">
