@@ -2,7 +2,7 @@
 
 
 <div align="center">
-<img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/ParAIsite.png?raw=true" alt="Model" width="500" height="400">
+<img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/ParAIsite.png?raw=true" alt="Model" width="300" height="200">
 </div>
 
 <div style="text-align: justify;">
