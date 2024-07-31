@@ -6,98 +6,62 @@ Created on Mon Jul 22 11:56:39 2024
 @author: lklochko
 """
 from __future__ import annotations
-import pandas as pd 
-import numpy as np 
+import warnings
 import torch 
+from matgl.utils.training import ModelLightningModule
+import matgl 
+from model_mlp import myMLP
+import numpy as np
 import pickle 
-import warnings 
-from sklearn.metrics import mean_absolute_percentage_error
+from matgl.models import combined_models
+from custom_functions import return_dataset_test,create_changed_megned_model,mape_run_model
+
 
 warnings.simplefilter("ignore")
 
 
-
-
-def unlog10(data):
-        data_unlog10 = 10**(data)-1
-        return data_unlog10
+def restore_model (model_to_test,nRuns):
+    NN1 = 450
+    NN2 = 350
+    NN3 = 350
+    NN4 = 0
+    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
+    model_megned_changed =  create_changed_megned_model() 
+    model_megned_changed.load_state_dict(megnet_loaded.state_dict(),strict=False)
+    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1)
+    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp)
+    checkpoint_path = 'best_models/sample-%s_%s.ckpt'%(model_to_test,nRuns)
+    checkpoint = torch.load(checkpoint_path)
+    lit_module_loaded = ModelLightningModule(model=new_model,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
+    lit_module_loaded.load_state_dict(checkpoint['state_dict'])
+    model_best = lit_module_loaded.model
+    with open('best_models/val_idx_%s_%s.pkl'%(model_to_test,nRuns), 'rb') as f:
+        val_idx = pickle.load(f)
     
-def inverse_transform(scalerY,X):
-        if scalerY.mean is None or scalerY.std is None:
-            raise ValueError("The StandardScaler has not been fitted yet.")
-        return X * scalerY.std + scalerY.mean    
+    return model_best,val_idx
 
 
-def return_dataset (dataset_name, model_name):
-    with open ('structures_%s.pkl'%(dataset_name), 'rb') as fp:
-        structure = pickle.load(fp)
-        
-    if dataset_name == 'L96':
-        df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
-        df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
-        SetToUse = df1[['TC']].copy()
-    elif dataset_name == 'HH143':
-        df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
-        df2 = df2.reset_index(drop=True)
-        SetToUse = df2[['TC']].copy()
-    elif dataset_name == 'MIX':
-        df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
-        df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
-
-        df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
-        df2 = df2.reset_index(drop=True)
-
-        df_1 = df1[['mpd_id','TC']]
-        df_2 = df2[['mpd_id','TC']]
-
-        SetToUse = pd.concat([df_1,df_2], ignore_index=True)
-    elif dataset_name == 'material_project_database': 
-         print("add data")
-    scalerY = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler.%s'%(model_name))
-    
-    
-    return   SetToUse, structure,scalerY
-    
 
 dataset_name = 'HH143'    
-test_on      = 'MIX'
+model_to_test      = 'MIX'
 
 nRunsmax = 9
 
-SetToUse, structure, scalerY = return_dataset (dataset_name,test_on)
+SetToUse, structure, scaler = return_dataset_test (dataset_name,model_to_test)
 
 
-print("Test DataSet %s on %s pre-trained models on %s"%(dataset_name,nRunsmax,test_on))
+print("Test DataSet %s on %s pre-trained models on %s"%(dataset_name,nRunsmax,model_to_test))
     
 mapes_all = []
 for nRuns in range (1,nRunsmax+1):
-    model = torch.load('best_models/model_%s.%s'%(test_on,nRuns))
-    model.train(False)
-    y_pred = []
-    y_true = []
-    for idx in range(0,len(structure)):
-        preds = model.predict_structure(structure[idx])
-        preds_ivT =  inverse_transform(scalerY,preds)
-        tc_pred = unlog10(preds_ivT).item()
-        tc_true  = SetToUse.TC.iloc[idx]
-        
-        y_pred.append(tc_pred)
-        y_true.append(tc_true)
-    
-    y_pred = np.array(y_pred)
-    y_true = np.array(y_true)
-    mape_run = mean_absolute_percentage_error(y_true,y_pred)
+
+    new_model,val_idx = restore_model(model_to_test,nRuns)    
+    new_model.train(False)
+    mape_run =  mape_run_model (SetToUse, new_model, scaler, structure, val_idx, full_set=True)    
     mapes_all.append(mape_run)
     print("for model %s mape is %0.3f ;"%(nRuns,mape_run))
 
-print("\n###############################")
-print("#                             #")
-print("#                             #")
-print("#                             #")
 print("#between models MAPE: %0.2f (%0.2f)    #"%(np.array(mapes_all).mean(),np.array(mapes_all).std()))
-print("#                             #")
-print("#                             #")
-print("#                             #")
-print("###############################")
+
 
 

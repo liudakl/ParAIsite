@@ -235,7 +235,7 @@ class MEGNet(nn.Module, IOMixIn):
         
         
         
-class combined_models (nn.Module): 
+class combined_models (nn.Module, IOMixIn): 
     def __init__(self, pretrained_model,myMLP,dim_node_embedding: int = 16,
     dim_edge_embedding: int = 100,
     dim_state_embedding: int = 2,
