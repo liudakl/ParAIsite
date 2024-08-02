@@ -127,24 +127,26 @@ def mape_run_model (SetToUse, model, scaler, structure, val_idx, full_set=None):
     if full_set == None or full_set == False :        
         for idx in val_idx :#in range(0,len(structure)):
             preds = model.predict_structure(structure[idx])
-            preds_ivT =  inverse_transform(scaler,preds)
-            tc_pred = unlog10(preds_ivT).item()
-            tc_true  = SetToUse.TC.iloc[idx]
+            if ~preds.isnan():
+                preds_ivT =  inverse_transform(scaler,preds)
+                tc_pred = unlog10(preds_ivT).item()
+                tc_true  = SetToUse.TC.iloc[idx]
             
-            y_pred.append(tc_pred)
-            y_true.append(tc_true)        
+                y_pred.append(tc_pred)
+                y_true.append(tc_true)        
         y_pred = np.array(y_pred)
         y_true = np.array(y_true)
         
     elif full_set == True:
         for idx in  range(0,len(structure)):
             preds = model.predict_structure(structure[idx])
-            preds_ivT =  inverse_transform(scaler,preds)
-            tc_pred = unlog10(preds_ivT).item()
-            tc_true  = SetToUse.TC.iloc[idx]
+            if ~preds.isnan():
+                preds_ivT =  inverse_transform(scaler,preds)
+                tc_pred = unlog10(preds_ivT).item()
+                tc_true  = SetToUse.TC.iloc[idx]
             
-            y_pred.append(tc_pred)
-            y_true.append(tc_true)
+                y_pred.append(tc_pred)
+                y_true.append(tc_true)
         
         y_pred = np.array(y_pred)
         y_true = np.array(y_true)        

@@ -43,8 +43,8 @@ def restore_model (model_to_test,nRuns):
 
 
 
-dataset_name = 'MIX'    
-model_to_test      = 'MIX'
+dataset_name = 'AFLOW'    
+model_to_test      = 'AFLOW'
 
 nRunsmax = 9
 
@@ -58,7 +58,7 @@ for nRuns in range (1,nRunsmax+1):
 
     new_model,val_idx = restore_model(model_to_test,nRuns)    
     new_model.train(False)
-    mape_run =  mape_run_model (SetToUse, new_model, scaler, structure, val_idx, full_set=False)    
+    mape_run =  mape_run_model (SetToUse, new_model, scaler, structure, val_idx, full_set=True)    
     mapes_all.append(mape_run)
     print("for model %s mape is %0.3f ;"%(nRuns,mape_run))
 

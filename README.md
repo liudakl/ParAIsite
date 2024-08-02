@@ -114,6 +114,24 @@ Please keep in mind that you need to select in the script on which model and on 
 | MIX (full set)       | 0.35 (0.15)            |
 
 
+# ParAIsite trained on AFLOW Training and Testing Results:
+
+## Training Results
+| Dataset | Validation Error (Mean ± Std) |
+|---------|-------------------------------|
+| AFLOW     |   0.49 (0.02)                |
+
+
+## Testing Results
+| Tested on | Error (Mean ± Std)                |
+|-----------|-----------------------------------|
+| L96       |    0.82 (0.02)                   |
+| HH143     |       0.55 (0.04)                 |
+| MIX     |   0.66 (0.03)                |
+| AFLOW (full set)       |   0.34 (0.05)           |
+
+
+
 # ParAIsite (with additional training on AFLOW) Training and Testing Results:
 
 ## Training Results
