@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Li1Na1Te1   [ORC,ORC,oP12] (STD_PRIM doi
+data_Li1Na1Te1
+_pd_phase_name Li1Na1Te1
+_cell_length_a  4.6110750718
+_cell_length_b  7.6979056532
+_cell_length_c  8.3318020703
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Li1 1.0000000000 0.2500000000 0.1441627304 0.4272862424  Biso 1.0 Li
+Li2 1.0000000000 0.7500000000 0.3558372696 0.9272862424  Biso 1.0 Li
+Li3 1.0000000000 0.7500000000 0.8558372696 0.5727137576  Biso 1.0 Li
+Li4 1.0000000000 0.2500000000 0.6441627304 0.0727137576  Biso 1.0 Li
+Na5 1.0000000000 0.2500000000 0.0152088977 0.8117356167  Biso 1.0 Na
+Na6 1.0000000000 0.7500000000 0.4847911023 0.3117356167  Biso 1.0 Na
+Na7 1.0000000000 0.7500000000 0.9847911023 0.1882643833  Biso 1.0 Na
+Na8 1.0000000000 0.2500000000 0.5152088977 0.6882643833  Biso 1.0 Na
+Te9 1.0000000000 0.2500000000 0.2745060009 0.1057591853  Biso 1.0 Te
+Te10 1.0000000000 0.7500000000 0.2254939991 0.6057591853  Biso 1.0 Te
+Te11 1.0000000000 0.7500000000 0.7254939991 0.8942408147  Biso 1.0 Te
+Te12 1.0000000000 0.2500000000 0.7745060009 0.3942408147  Biso 1.0 Te

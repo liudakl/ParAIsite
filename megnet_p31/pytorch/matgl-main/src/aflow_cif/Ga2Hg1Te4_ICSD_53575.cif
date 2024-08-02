@@ -1,0 +1,32 @@
+# AFLOW.org Repositories
+# Ga2Hg1Te4   [BCT,BCT2,tI14] (STD_PRIM do
+data_Ga2Hg1Te4
+_pd_phase_name Ga2Hg1Te4
+_cell_length_a  7.4492834620
+_cell_length_b  7.4492834620
+_cell_length_c  7.4492834620
+_cell_angle_alpha  130.3587562888
+_cell_angle_beta  130.3587562888
+_cell_angle_gamma  72.8338817032
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ga1 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Ga
+Ga2 1.0000000000 0.2500000000 0.7500000000 0.5000000000  Biso 1.0 Ga
+Hg3 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Hg
+Te4 1.0000000000 0.1128337883 0.5836726065 0.9749629392  Biso 1.0 Te
+Te5 1.0000000000 0.6087096673 0.1378708491 0.0250370608  Biso 1.0 Te
+Te6 1.0000000000 0.8621291509 0.8871662117 0.4708388182  Biso 1.0 Te
+Te7 1.0000000000 0.4163273935 0.3912903327 0.5291611818  Biso 1.0 Te

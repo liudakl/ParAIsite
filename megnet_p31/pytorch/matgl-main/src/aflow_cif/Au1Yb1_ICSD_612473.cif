@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Au1Yb1 #62 - (Au1Yb1_ICSD_612473) - Au1Y
+data_Au1Yb1
+_pd_phase_name Au1Yb1
+_cell_length_a  4.6582114058
+_cell_length_b  5.9448630822
+_cell_length_c  7.4984597092
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Au1 1.0000000000 0.7500000000 0.3517844406 0.0420569906  Biso 1.0 Au
+Au2 1.0000000000 0.2500000000 0.8517844406 0.4579430094  Biso 1.0 Au
+Au3 1.0000000000 0.2500000000 0.6482155594 0.9579430094  Biso 1.0 Au
+Au4 1.0000000000 0.7500000000 0.1482155594 0.5420569906  Biso 1.0 Au
+Yb5 1.0000000000 0.7500000000 0.8601161852 0.1815709452  Biso 1.0 Yb
+Yb6 1.0000000000 0.2500000000 0.3601161852 0.3184290548  Biso 1.0 Yb
+Yb7 1.0000000000 0.2500000000 0.1398838148 0.8184290548  Biso 1.0 Yb
+Yb8 1.0000000000 0.7500000000 0.6398838148 0.6815709452  Biso 1.0 Yb

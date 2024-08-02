@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Cs1Cu1O2   [ORCC,ORCC,oS16] (STD_PRIM do
+data_Cs1Cu1O2
+_pd_phase_name Cs1Cu1O2
+_cell_length_a  6.6634108666
+_cell_length_b  6.6634108666
+_cell_length_c  5.4925536206
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  132.5208219957
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cs1 1.0000000000 0.6831541055 0.3168458945 0.7500000000  Biso 1.0 Cs
+Cs2 1.0000000000 0.3168458945 0.6831541055 0.2500000000  Biso 1.0 Cs
+Cu3 1.0000000000 0.9982137947 0.0017862053 0.7500000000  Biso 1.0 Cu
+Cu4 1.0000000000 0.0017862053 0.9982137947 0.2500000000  Biso 1.0 Cu
+O5 1.0000000000 0.8992570025 0.1007429975 0.0033391312  Biso 1.0 O
+O6 1.0000000000 0.1007429975 0.8992570025 0.5033391312  Biso 1.0 O
+O7 1.0000000000 0.8992570025 0.1007429975 0.4966608688  Biso 1.0 O
+O8 1.0000000000 0.1007429975 0.8992570025 0.9966608688  Biso 1.0 O

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Al3Ir1   [HEX,HEX,hP8] (STD_PRIM doi:10.
+data_Al3Ir1
+_pd_phase_name Al3Ir1
+_cell_length_a  4.2786442142
+_cell_length_b  4.2786442142
+_cell_length_c  7.7640965069
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Al1 1.0000000000 0.0000000000 0.0000000000 0.2500000000  Biso 1.0 Al
+Al2 1.0000000000 0.0000000000 0.0000000000 0.7500000000  Biso 1.0 Al
+Al3 1.0000000000 0.6666765859 0.3333531717 0.5786623996  Biso 1.0 Al
+Al4 1.0000000000 0.3333234141 0.6666468283 0.0786623996  Biso 1.0 Al
+Al5 1.0000000000 0.3333234141 0.6666468283 0.4213376004  Biso 1.0 Al
+Al6 1.0000000000 0.6666765859 0.3333531717 0.9213376004  Biso 1.0 Al
+Ir7 1.0000000000 0.6666768220 0.3333536439 0.2500000000  Biso 1.0 Ir
+Ir8 1.0000000000 0.3333231780 0.6666463561 0.7500000000  Biso 1.0 Ir

@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# Hg2Sr3   [TET,TET,tP10] (STD_PRIM doi:10
+data_Hg2Sr3
+_pd_phase_name Hg2Sr3
+_cell_length_a  8.9964247937
+_cell_length_b  8.9964247937
+_cell_length_c  4.5679883747
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Hg1 1.0000000000 0.3616749933 0.8616749933 0.0000000000  Biso 1.0 Hg
+Hg2 1.0000000000 0.6383250067 0.1383250067 0.0000000000  Biso 1.0 Hg
+Hg3 1.0000000000 0.1383250067 0.3616749933 0.0000000000  Biso 1.0 Hg
+Hg4 1.0000000000 0.8616749933 0.6383250067 0.0000000000  Biso 1.0 Hg
+Sr5 1.0000000000 0.1574420034 0.6574420034 0.5000000000  Biso 1.0 Sr
+Sr6 1.0000000000 0.8425579966 0.3425579966 0.5000000000  Biso 1.0 Sr
+Sr7 1.0000000000 0.3425579966 0.1574420034 0.5000000000  Biso 1.0 Sr
+Sr8 1.0000000000 0.6574420034 0.8425579966 0.5000000000  Biso 1.0 Sr
+Sr9 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Sr
+Sr10 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Sr

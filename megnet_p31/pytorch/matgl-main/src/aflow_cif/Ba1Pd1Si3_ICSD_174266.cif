@@ -1,0 +1,30 @@
+# AFLOW.org Repositories
+# Ba1Pd1Si3 #107 - (Ba1Pd1Si3_ICSD_174266)
+data_Ba1Pd1Si3
+_pd_phase_name Ba1Pd1Si3
+_cell_length_a  6.0267211904
+_cell_length_b  6.0267211904
+_cell_length_c  6.0267211904
+_cell_angle_alpha  136.9169019155
+_cell_angle_beta  136.9169019155
+_cell_angle_gamma  62.5659309807
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ba1 1.0000000000 0.3840414005 0.3840414005 0.0000000000  Biso 1.0 Ba
+Pd2 1.0000000000 0.7385276686 0.7385276686 0.0000000000  Biso 1.0 Pd
+Si3 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Si
+Si4 1.0000000000 0.6303399875 0.1303399875 0.5000000000  Biso 1.0 Si
+Si5 1.0000000000 0.1303399875 0.6303399875 0.5000000000  Biso 1.0 Si

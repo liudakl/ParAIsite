@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# C1Ca1O3   [ORCC,ORCC,oS20] (STD_PRIM doi
+data_C1Ca1O3
+_pd_phase_name C1Ca1O3
+_cell_length_a  4.0024801306
+_cell_length_b  4.0024801306
+_cell_length_c  8.5387642847
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  110.1586445164
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+C1 1.0000000000 0.9123852548 0.1962958801 0.2499999973  Biso 1.0 C
+C2 1.0000000000 0.1962802875 0.9123535047 0.7500000026  Biso 1.0 C
+Ca3 1.0000000000 0.5005960666 0.5005960666 0.4999977430  Biso 1.0 Ca
+Ca4 1.0000000000 0.5005960785 0.5005960785 0.0000000000  Biso 1.0 Ca
+O5 1.0000000000 0.7547359722 0.0923400093 0.3837988174  Biso 1.0 O
+O6 1.0000000000 0.0923675051 0.7547509453 0.6162129369  Biso 1.0 O
+O7 1.0000000000 0.0923675001 0.7547509429 0.8837870626  Biso 1.0 O
+O8 1.0000000000 0.7547359738 0.0923400085 0.1162011849  Biso 1.0 O
+O9 1.0000000000 0.2352720776 0.4198723804 0.2500000017  Biso 1.0 O
+O10 1.0000000000 0.4198632838 0.2353002910 0.7500000001  Biso 1.0 O

@@ -1,0 +1,36 @@
+# AFLOW.org Repositories
+# Ba1Nb4O6   [TET,TET,tP11] (STD_PRIM doi:
+data_Ba1Nb4O6
+_pd_phase_name Ba1Nb4O6
+_cell_length_a  4.2287434510
+_cell_length_b  4.2287434510
+_cell_length_c  8.2962987081
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ba1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Ba
+Nb2 1.0000000000 0.5000000000 0.0000000000 0.5000000000  Biso 1.0 Nb
+Nb3 1.0000000000 0.0000000000 0.5000000000 0.5000000000  Biso 1.0 Nb
+Nb4 1.0000000000 0.5000000000 0.5000000000 0.2534068473  Biso 1.0 Nb
+Nb5 1.0000000000 0.5000000000 0.5000000000 0.7465931527  Biso 1.0 Nb
+O6 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 O
+O7 1.0000000000 0.5000000000 0.0000000000 0.2431104051  Biso 1.0 O
+O8 1.0000000000 0.0000000000 0.5000000000 0.2431104051  Biso 1.0 O
+O9 1.0000000000 0.5000000000 0.0000000000 0.7568895949  Biso 1.0 O
+O10 1.0000000000 0.0000000000 0.5000000000 0.7568895949  Biso 1.0 O
+O11 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 O

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# La1Si1   [ORCC,ORCC,oS16] (STD_PRIM doi:
+data_La1Si1
+_pd_phase_name La1Si1
+_cell_length_a  7.1695446375
+_cell_length_b  7.1695446375
+_cell_length_c  6.6702345408
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  142.6504960519
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+La1 1.0000000000 0.5516159353 0.4483840647 0.7500000000  Biso 1.0 La
+La2 1.0000000000 0.4483840647 0.5516159353 0.2500000000  Biso 1.0 La
+La3 1.0000000000 0.2750493988 0.7249506012 0.7500000000  Biso 1.0 La
+La4 1.0000000000 0.7249506012 0.2750493988 0.2500000000  Biso 1.0 La
+Si5 1.0000000000 0.9086806063 0.0913193937 0.5636899169  Biso 1.0 Si
+Si6 1.0000000000 0.0913193937 0.9086806063 0.0636899169  Biso 1.0 Si
+Si7 1.0000000000 0.9086806063 0.0913193937 0.9363100831  Biso 1.0 Si
+Si8 1.0000000000 0.0913193937 0.9086806063 0.4363100831  Biso 1.0 Si

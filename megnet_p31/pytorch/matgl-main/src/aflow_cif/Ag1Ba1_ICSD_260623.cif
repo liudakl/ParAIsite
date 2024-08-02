@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Ag1Ba1   [ORC,ORC,oP8] (STD_PRIM doi:10.
+data_Ag1Ba1
+_pd_phase_name Ag1Ba1
+_cell_length_a  5.0510508702
+_cell_length_b  6.7605900833
+_cell_length_c  8.7800666192
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ag1 1.0000000000 0.7500000000 0.3805066374 0.0345629379  Biso 1.0 Ag
+Ag2 1.0000000000 0.2500000000 0.8805066374 0.4654370621  Biso 1.0 Ag
+Ag3 1.0000000000 0.2500000000 0.6194933626 0.9654370621  Biso 1.0 Ag
+Ag4 1.0000000000 0.7500000000 0.1194933626 0.5345629379  Biso 1.0 Ag
+Ba5 1.0000000000 0.7500000000 0.8687893043 0.1803416135  Biso 1.0 Ba
+Ba6 1.0000000000 0.2500000000 0.3687893043 0.3196583865  Biso 1.0 Ba
+Ba7 1.0000000000 0.2500000000 0.1312106957 0.8196583865  Biso 1.0 Ba
+Ba8 1.0000000000 0.7500000000 0.6312106957 0.6803416135  Biso 1.0 Ba

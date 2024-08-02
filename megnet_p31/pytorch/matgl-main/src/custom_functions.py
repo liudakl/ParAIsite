@@ -70,7 +70,11 @@ def return_dataset_train (dataset_name):
         df_2 = df2[['mpd_id','TC']]
 
         SetToUse = pd.concat([df_1,df_2], ignore_index=True)
-   
+    elif dataset_name == 'AFLOW':
+        with open('structures_scalers/TC_AFLOW.pkl', 'rb') as fp:
+            thermalCond  = pickle.load(fp)
+            SetToUse = pd.DataFrame(np.array(thermalCond),columns=['TC']) 
+        
     else:
         raise ValueError("Data has not been loaded. Chose dataset first.")
 
@@ -103,7 +107,14 @@ def return_dataset_test (dataset_name, model_name):
         df_2 = df2[['mpd_id','TC']]
 
         SetToUse = pd.concat([df_1,df_2], ignore_index=True)
-   
+
+    elif dataset_name == 'AFLOW':
+        with open('structures_scalers/TC_AFLOW.pkl', 'rb') as fp:
+            thermalCond  = pickle.load(fp)
+            SetToUse = pd.DataFrame(np.array(thermalCond),columns=['TC']) 
+    
+    else:
+        raise ValueError("Data has not been loaded. Chose dataset first.")    
     scalerY = torch.load('structures_scalers/torch.scaler.%s'%(model_name))
     
     

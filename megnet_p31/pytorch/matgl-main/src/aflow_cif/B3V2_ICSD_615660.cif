@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# B3V2   [ORCC,ORCC,oS20] (STD_PRIM doi:10
+data_B3V2
+_pd_phase_name B3V2
+_cell_length_a  9.3745046063
+_cell_length_b  9.3745046063
+_cell_length_c  2.9950556601
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  161.1548701687
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+B1 1.0000000000 0.9764131218 0.0235868782 0.7500000000  Biso 1.0 B
+B2 1.0000000000 0.0235868782 0.9764131218 0.2500000000  Biso 1.0 B
+B3 1.0000000000 0.8824940450 0.1175059550 0.7500000000  Biso 1.0 B
+B4 1.0000000000 0.1175059550 0.8824940450 0.2500000000  Biso 1.0 B
+B5 1.0000000000 0.1684552228 0.8315447772 0.7500000000  Biso 1.0 B
+B6 1.0000000000 0.8315447772 0.1684552228 0.2500000000  Biso 1.0 B
+V7 1.0000000000 0.5703715927 0.4296284073 0.7500000000  Biso 1.0 V
+V8 1.0000000000 0.4296284073 0.5703715927 0.2500000000  Biso 1.0 V
+V9 1.0000000000 0.2948784076 0.7051215924 0.7500000000  Biso 1.0 V
+V10 1.0000000000 0.7051215924 0.2948784076 0.2500000000  Biso 1.0 V

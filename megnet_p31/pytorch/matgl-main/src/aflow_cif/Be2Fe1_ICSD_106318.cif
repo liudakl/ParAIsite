@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Be2Fe1   [HEX,HEX,hP12] (STD_PRIM doi:10
+data_Be2Fe1
+_pd_phase_name Be2Fe1
+_cell_length_a  4.2930084177
+_cell_length_b  4.2930084177
+_cell_length_c  6.9593241791
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Be1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Be
+Be2 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Be
+Be3 1.0000000000 0.8305631242 0.6611368072 0.2500000000  Biso 1.0 Be
+Be4 1.0000000000 0.3388631928 0.1694368758 0.2500000000  Biso 1.0 Be
+Be5 1.0000000000 0.8305639558 0.1694360442 0.2500000000  Biso 1.0 Be
+Be6 1.0000000000 0.1694368758 0.3388631928 0.7500000000  Biso 1.0 Be
+Be7 1.0000000000 0.6611368072 0.8305631242 0.7500000000  Biso 1.0 Be
+Be8 1.0000000000 0.1694360442 0.8305639558 0.7500000000  Biso 1.0 Be
+Fe9 1.0000000000 0.3333228534 0.6666771466 0.0620428519  Biso 1.0 Fe
+Fe10 1.0000000000 0.6666771466 0.3333228534 0.5620428519  Biso 1.0 Fe
+Fe11 1.0000000000 0.6666771466 0.3333228534 0.9379571481  Biso 1.0 Fe
+Fe12 1.0000000000 0.3333228534 0.6666771466 0.4379571481  Biso 1.0 Fe

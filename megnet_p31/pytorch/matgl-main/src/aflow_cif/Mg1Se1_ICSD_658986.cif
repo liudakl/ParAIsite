@@ -1,0 +1,29 @@
+# AFLOW.org Repositories
+# Mg1Se1 #186 - (Mg1Se1_ICSD_658986) - Mg1
+data_Mg1Se1
+_pd_phase_name Mg1Se1
+_cell_length_a  4.2568546078
+_cell_length_b  4.2568546078
+_cell_length_c  6.8628000973
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Mg1 1.0000000000 0.6666592563 0.3333185127 0.9979809787  Biso 1.0 Mg
+Mg2 1.0000000000 0.3333407437 0.6666814873 0.4979809787  Biso 1.0 Mg
+Se3 1.0000000000 0.6666622496 0.3333244991 0.3770190213  Biso 1.0 Se
+Se4 1.0000000000 0.3333377504 0.6666755009 0.8770190213  Biso 1.0 Se

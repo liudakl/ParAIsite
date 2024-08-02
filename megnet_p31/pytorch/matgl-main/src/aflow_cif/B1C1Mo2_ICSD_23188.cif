@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# B1C1Mo2   [ORCC,ORCC,oS16] (STD_PRIM doi
+data_B1C1Mo2
+_pd_phase_name B1C1Mo2
+_cell_length_a  8.9401469427
+_cell_length_b  8.9401469427
+_cell_length_c  3.0825723689
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  159.8432590552
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+B1 1.0000000000 0.5277444797 0.4722555203 0.7500000000  Biso 1.0 B
+B2 1.0000000000 0.4722555203 0.5277444797 0.2500000000  Biso 1.0 B
+C3 1.0000000000 0.8087599046 0.1912400954 0.7500000000  Biso 1.0 C
+C4 1.0000000000 0.1912400954 0.8087599046 0.2500000000  Biso 1.0 C
+Mo5 1.0000000000 0.9281296462 0.0718703538 0.7500000000  Biso 1.0 Mo
+Mo6 1.0000000000 0.0718703538 0.9281296462 0.2500000000  Biso 1.0 Mo
+Mo7 1.0000000000 0.6851217560 0.3148782440 0.7500000000  Biso 1.0 Mo
+Mo8 1.0000000000 0.3148782440 0.6851217560 0.2500000000  Biso 1.0 Mo

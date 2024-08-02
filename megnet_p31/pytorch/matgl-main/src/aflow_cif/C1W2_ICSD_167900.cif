@@ -1,0 +1,34 @@
+# AFLOW.org Repositories
+# C1W2   [HEX,HEX,hP9] (STD_PRIM doi:10.10
+data_C1W2
+_pd_phase_name C1W2
+_cell_length_a  5.2765827383
+_cell_length_b  5.2765827383
+_cell_length_c  4.8028380208
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+C1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 C
+C2 1.0000000000 0.6666782539 0.3333572465 0.4999999979  Biso 1.0 C
+C3 1.0000000000 0.3333217461 0.6666427535 0.5000000021  Biso 1.0 C
+W4 1.0000000000 0.0000000000 0.6679668851 0.2476033340  Biso 1.0 W
+W5 1.0000000000 0.3320331992 0.3320331992 0.2476036502  Biso 1.0 W
+W6 1.0000000000 0.6679601660 0.0000000000 0.2476145996  Biso 1.0 W
+W7 1.0000000000 0.6679668008 0.6679668008 0.7523963498  Biso 1.0 W
+W8 1.0000000000 0.0000000000 0.3320331149 0.7523966660  Biso 1.0 W
+W9 1.0000000000 0.3320398340 0.0000000000 0.7523854004  Biso 1.0 W

@@ -1,0 +1,28 @@
+# AFLOW.org Repositories
+# Cd2La1   [HEX,HEX,hP3] (STD_PRIM doi:10.
+data_Cd2La1
+_pd_phase_name Cd2La1
+_cell_length_a  5.1595349421
+_cell_length_b  5.1595349421
+_cell_length_c  3.5561765122
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cd1 1.0000000000 0.6666289868 0.3332581257 0.5005667880  Biso 1.0 Cd
+Cd2 1.0000000000 0.3333710132 0.6667418743 0.4994332120  Biso 1.0 Cd
+La3 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 La

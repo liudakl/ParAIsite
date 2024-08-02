@@ -1,0 +1,34 @@
+# AFLOW.org Repositories
+# Ag1Er1Si1 #189 - (Ag1Er1Si1_ICSD_605116)
+data_Ag1Er1Si1
+_pd_phase_name Ag1Er1Si1
+_cell_length_a  7.0407475300
+_cell_length_b  7.0407475300
+_cell_length_c  4.1613997584
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ag1 1.0000000000 0.7508973915 0.7508973915 0.0000000000  Biso 1.0 Ag
+Ag2 1.0000000000 0.2491021195 0.0000000000 0.0000000000  Biso 1.0 Ag
+Ag3 1.0000000000 0.0000000000 0.2491012545 0.0000000000  Biso 1.0 Ag
+Er4 1.0000000000 0.4183131187 0.4183131187 0.5000000000  Biso 1.0 Er
+Er5 1.0000000000 0.5816875015 0.0000000000 0.5000000000  Biso 1.0 Er
+Er6 1.0000000000 0.0000000000 0.5816884625 0.5000000000  Biso 1.0 Er
+Si7 1.0000000000 0.3333332178 0.6666660381 0.0000000000  Biso 1.0 Si
+Si8 1.0000000000 0.6666667822 0.3333328203 0.0000000000  Biso 1.0 Si
+Si9 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Si

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# B1Tc3   [ORCC,ORCC,oS16] (STD_PRIM doi:1
+data_B1Tc3
+_pd_phase_name B1Tc3
+_cell_length_a  4.8696757280
+_cell_length_b  4.8696757280
+_cell_length_c  7.2395120563
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  144.8863238363
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+B1 1.0000000000 0.2563010591 0.7436989409 0.7500000000  Biso 1.0 B
+B2 1.0000000000 0.7436989409 0.2563010591 0.2500000000  Biso 1.0 B
+Tc3 1.0000000000 0.8645488102 0.1354511898 0.9393832009  Biso 1.0 Tc
+Tc4 1.0000000000 0.1354511898 0.8645488102 0.4393832009  Biso 1.0 Tc
+Tc5 1.0000000000 0.8645488102 0.1354511898 0.5606167991  Biso 1.0 Tc
+Tc6 1.0000000000 0.1354511898 0.8645488102 0.0606167991  Biso 1.0 Tc
+Tc7 1.0000000000 0.5751622488 0.4248377512 0.7500000000  Biso 1.0 Tc
+Tc8 1.0000000000 0.4248377512 0.5751622488 0.2500000000  Biso 1.0 Tc

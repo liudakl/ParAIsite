@@ -1,0 +1,30 @@
+# AFLOW.org Repositories
+# Co1Si3Th1   [BCT,BCT2,tI10] (STD_PRIM do
+data_Co1Si3Th1
+_pd_phase_name Co1Si3Th1
+_cell_length_a  5.6285220589
+_cell_length_b  5.6285220589
+_cell_length_c  5.6285220589
+_cell_angle_alpha  136.0809956152
+_cell_angle_beta  136.0809956152
+_cell_angle_gamma  63.8551395785
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Co1 1.0000000000 0.6646093476 0.6646093476 0.0000000000  Biso 1.0 Co
+Si2 1.0000000000 0.4233568667 0.4233568667 0.0000000000  Biso 1.0 Si
+Si3 1.0000000000 0.2603092521 0.7603092521 0.5000000000  Biso 1.0 Si
+Si4 1.0000000000 0.7603092521 0.2603092521 0.5000000000  Biso 1.0 Si
+Th5 1.0000000000 0.0064152814 0.0064152814 0.0000000000  Biso 1.0 Th

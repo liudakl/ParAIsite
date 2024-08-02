@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Sc1Te1   [HEX,HEX,hP8] (STD_PRIM doi:10.
+data_Sc1Te1
+_pd_phase_name Sc1Te1
+_cell_length_a  4.1747410222
+_cell_length_b  4.1747410222
+_cell_length_c  13.9810855098
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Sc1 1.0000000000 0.6666731451 0.3333462903 0.6197900514  Biso 1.0 Sc
+Sc2 1.0000000000 0.3333268549 0.6666537097 0.1197900514  Biso 1.0 Sc
+Sc3 1.0000000000 0.3333268549 0.6666537097 0.3802099486  Biso 1.0 Sc
+Sc4 1.0000000000 0.6666731451 0.3333462903 0.8802099486  Biso 1.0 Sc
+Te5 1.0000000000 0.6666681999 0.3333363998 0.2500000000  Biso 1.0 Te
+Te6 1.0000000000 0.3333318001 0.6666636002 0.7500000000  Biso 1.0 Te
+Te7 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Te
+Te8 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Te

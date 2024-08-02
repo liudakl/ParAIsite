@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Si1   [MCL,MCL,mP8] (STD_PRIM doi:10.101
+data_Si1
+_pd_phase_name Si1
+_cell_length_a  7.2163710561
+_cell_length_b  7.2163710561
+_cell_length_c  6.3624894570
+_cell_angle_alpha  83.4063026010
+_cell_angle_beta  83.4063026010
+_cell_angle_gamma  31.0661524567
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Si1 1.0000000000 0.0556758492 0.0556758492 0.1258852594  Biso 1.0 Si
+Si2 1.0000000000 0.9443241508 0.9443241508 0.8741147406  Biso 1.0 Si
+Si3 1.0000000000 0.5592141537 0.5592141537 0.3464064765  Biso 1.0 Si
+Si4 1.0000000000 0.4407858463 0.4407858463 0.6535935235  Biso 1.0 Si
+Si5 1.0000000000 0.2128732654 0.2128732654 0.9429254032  Biso 1.0 Si
+Si6 1.0000000000 0.7871267346 0.7871267346 0.0570745968  Biso 1.0 Si
+Si7 1.0000000000 0.7270593797 0.7270593797 0.4143352648  Biso 1.0 Si
+Si8 1.0000000000 0.2729406203 0.2729406203 0.5856647352  Biso 1.0 Si

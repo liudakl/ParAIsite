@@ -1,0 +1,32 @@
+# AFLOW.org Repositories
+# In2Te4Zn1   [BCT,BCT2,tI14] (STD_PRIM do
+data_In2Te4Zn1
+_pd_phase_name In2Te4Zn1
+_cell_length_a  7.6740729136
+_cell_length_b  7.6740729136
+_cell_length_c  7.6740729136
+_cell_angle_alpha  132.2336656052
+_cell_angle_beta  132.2336656052
+_cell_angle_gamma  69.8602269039
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+In1 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 In
+In2 1.0000000000 0.7500000000 0.2500000000 0.5000000000  Biso 1.0 In
+Te3 1.0000000000 0.3448195768 0.3962291571 0.4775178525  Biso 1.0 Te
+Te4 1.0000000000 0.9187113046 0.8673017242 0.5224821475  Biso 1.0 Te
+Te5 1.0000000000 0.6037708429 0.0812886954 0.9485904196  Biso 1.0 Te
+Te6 1.0000000000 0.1326982758 0.6551804232 0.0514095804  Biso 1.0 Te
+Zn7 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Zn

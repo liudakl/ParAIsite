@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Bi1Ir1Se1   [CUB,CUB,cP12] (STD_PRIM doi
+data_Bi1Ir1Se1
+_pd_phase_name Bi1Ir1Se1
+_cell_length_a  6.3683614995
+_cell_length_b  6.3683614995
+_cell_length_c  6.3683614995
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Bi1 1.0000000000 0.6306541504 0.6306541504 0.3693458496  Biso 1.0 Bi
+Bi2 1.0000000000 0.8693458496 0.3693458496 0.8693458496  Biso 1.0 Bi
+Bi3 1.0000000000 0.3693458496 0.1306541504 0.1306541504  Biso 1.0 Bi
+Bi4 1.0000000000 0.1306541504 0.8693458496 0.6306541504  Biso 1.0 Bi
+Ir5 1.0000000000 0.9856153890 0.9856153890 0.0143846110  Biso 1.0 Ir
+Ir6 1.0000000000 0.5143846110 0.0143846110 0.5143846110  Biso 1.0 Ir
+Ir7 1.0000000000 0.0143846110 0.4856153890 0.4856153890  Biso 1.0 Ir
+Ir8 1.0000000000 0.4856153890 0.5143846110 0.9856153890  Biso 1.0 Ir
+Se9 1.0000000000 0.3793338161 0.3793338161 0.6206661839  Biso 1.0 Se
+Se10 1.0000000000 0.1206661839 0.6206661839 0.1206661839  Biso 1.0 Se
+Se11 1.0000000000 0.6206661839 0.8793338161 0.8793338161  Biso 1.0 Se
+Se12 1.0000000000 0.8793338161 0.1206661839 0.3793338161  Biso 1.0 Se

@@ -1,0 +1,34 @@
+# AFLOW.org Repositories
+# In1Pt1Y1   [HEX,HEX,hP9] (STD_PRIM doi:1
+data_In1Pt1Y1
+_pd_phase_name In1Pt1Y1
+_cell_length_a  7.6241312683
+_cell_length_b  7.6241312683
+_cell_length_c  3.8879747131
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+In1 1.0000000000 0.0000000000 0.2581849924 0.0000000000  Biso 1.0 In
+In2 1.0000000000 0.7418150076 0.7418150076 0.0000000000  Biso 1.0 In
+In3 1.0000000000 0.2581951506 0.0000000000 0.0000000000  Biso 1.0 In
+Pt4 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Pt
+Pt5 1.0000000000 0.3333273670 0.6666530766 0.0000000000  Biso 1.0 Pt
+Pt6 1.0000000000 0.6666742905 0.3333469234 0.0000000000  Biso 1.0 Pt
+Y7 1.0000000000 0.0000000000 0.5928871038 0.5000000000  Biso 1.0 Y
+Y8 1.0000000000 0.4071128962 0.4071128962 0.5000000000  Biso 1.0 Y
+Y9 1.0000000000 0.5928836837 0.0000000000 0.5000000000  Biso 1.0 Y

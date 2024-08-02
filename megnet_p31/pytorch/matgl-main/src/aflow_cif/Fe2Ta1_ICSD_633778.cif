@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Fe2Ta1   [HEX,HEX,hP12] (STD_PRIM doi:10
+data_Fe2Ta1
+_pd_phase_name Fe2Ta1
+_cell_length_a  5.0383036608
+_cell_length_b  5.0383036608
+_cell_length_c  8.1258301943
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Fe1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Fe
+Fe2 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Fe
+Fe3 1.0000000000 0.3367776327 0.1684079786 0.2500000000  Biso 1.0 Fe
+Fe4 1.0000000000 0.8316303459 0.1684079786 0.2500000000  Biso 1.0 Fe
+Fe5 1.0000000000 0.8316108737 0.6632217474 0.2500000000  Biso 1.0 Fe
+Fe6 1.0000000000 0.6632223673 0.8315920214 0.7500000000  Biso 1.0 Fe
+Fe7 1.0000000000 0.1683696541 0.8315920214 0.7500000000  Biso 1.0 Fe
+Fe8 1.0000000000 0.1683891263 0.3367782526 0.7500000000  Biso 1.0 Fe
+Ta9 1.0000000000 0.6666483469 0.3332966937 0.9420722007  Biso 1.0 Ta
+Ta10 1.0000000000 0.3333516531 0.6667033063 0.4420722007  Biso 1.0 Ta
+Ta11 1.0000000000 0.3333516531 0.6667033063 0.0579277993  Biso 1.0 Ta
+Ta12 1.0000000000 0.6666483469 0.3332966937 0.5579277993  Biso 1.0 Ta

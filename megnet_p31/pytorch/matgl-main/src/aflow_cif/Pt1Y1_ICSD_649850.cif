@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Pt1Y1 #62 - (Pt1Y1_ICSD_649850) - Pt1Y1 
+data_Pt1Y1
+_pd_phase_name Pt1Y1
+_cell_length_a  4.4993130089
+_cell_length_b  5.5652276348
+_cell_length_c  7.0490781715
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Pt1 1.0000000000 0.7500000000 0.3437897238 0.0436396674  Biso 1.0 Pt
+Pt2 1.0000000000 0.2500000000 0.8437897238 0.4563603326  Biso 1.0 Pt
+Pt3 1.0000000000 0.2500000000 0.6562102762 0.9563603326  Biso 1.0 Pt
+Pt4 1.0000000000 0.7500000000 0.1562102762 0.5436396674  Biso 1.0 Pt
+Y5 1.0000000000 0.7500000000 0.8575452220 0.1829050461  Biso 1.0 Y
+Y6 1.0000000000 0.2500000000 0.3575452220 0.3170949539  Biso 1.0 Y
+Y7 1.0000000000 0.2500000000 0.1424547780 0.8170949539  Biso 1.0 Y
+Y8 1.0000000000 0.7500000000 0.6424547780 0.6829050461  Biso 1.0 Y

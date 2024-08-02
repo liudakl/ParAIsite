@@ -1,0 +1,31 @@
+# AFLOW.org Repositories
+# Hg1Pb1Sr1   [HEX,HEX,hP6] (STD_PRIM doi:
+data_Hg1Pb1Sr1
+_pd_phase_name Hg1Pb1Sr1
+_cell_length_a  5.1196073442
+_cell_length_b  5.1196073442
+_cell_length_c  8.2777058331
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Hg1 1.0000000000 0.6666553537 0.3333107075 0.9760889410  Biso 1.0 Hg
+Hg2 1.0000000000 0.3333446463 0.6666892925 0.4760889410  Biso 1.0 Hg
+Pb3 1.0000000000 0.6666773708 0.3333547415 0.3796718788  Biso 1.0 Pb
+Pb4 1.0000000000 0.3333226292 0.6666452585 0.8796718788  Biso 1.0 Pb
+Sr5 1.0000000000 0.0000000000 0.0000000000 0.1642391802  Biso 1.0 Sr
+Sr6 1.0000000000 0.0000000000 0.0000000000 0.6642391802  Biso 1.0 Sr

@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Ge1Ho1Mn1   [ORC,ORC,oP12] (STD_PRIM doi
+data_Ge1Ho1Mn1
+_pd_phase_name Ge1Ho1Mn1
+_cell_length_a  3.6348875104
+_cell_length_b  7.1490160846
+_cell_length_c  8.4074031657
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ge1 1.0000000000 0.2500000000 0.2679942996 0.6127578073  Biso 1.0 Ge
+Ge2 1.0000000000 0.7500000000 0.2320057004 0.1127578073  Biso 1.0 Ge
+Ge3 1.0000000000 0.7500000000 0.7320057004 0.3872421927  Biso 1.0 Ge
+Ge4 1.0000000000 0.2500000000 0.7679942996 0.8872421927  Biso 1.0 Ge
+Ho5 1.0000000000 0.2500000000 0.0454451740 0.3250679126  Biso 1.0 Ho
+Ho6 1.0000000000 0.7500000000 0.4545548260 0.8250679126  Biso 1.0 Ho
+Ho7 1.0000000000 0.7500000000 0.9545548260 0.6749320874  Biso 1.0 Ho
+Ho8 1.0000000000 0.2500000000 0.5454451740 0.1749320874  Biso 1.0 Ho
+Mn9 1.0000000000 0.2500000000 0.1226505510 0.9346202897  Biso 1.0 Mn
+Mn10 1.0000000000 0.7500000000 0.3773494490 0.4346202897  Biso 1.0 Mn
+Mn11 1.0000000000 0.7500000000 0.8773494490 0.0653797103  Biso 1.0 Mn
+Mn12 1.0000000000 0.2500000000 0.6226505510 0.5653797103  Biso 1.0 Mn

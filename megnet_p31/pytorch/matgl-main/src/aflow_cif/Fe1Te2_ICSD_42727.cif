@@ -1,0 +1,31 @@
+# AFLOW.org Repositories
+# Fe1Te2   [ORC,ORC,oP6] (STD_PRIM doi:10.
+data_Fe1Te2
+_pd_phase_name Fe1Te2
+_cell_length_a  3.9719193695
+_cell_length_b  5.3246307224
+_cell_length_c  6.3995442616
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Fe1 1.0000000000 0.9851366128 0.0000000000 0.0000000000  Biso 1.0 Fe
+Fe2 1.0000000000 0.4851366128 0.5000000000 0.5000000000  Biso 1.0 Fe
+Te3 1.0000000000 0.9856316936 0.2154355288 0.6322935370  Biso 1.0 Te
+Te4 1.0000000000 0.9856316936 0.7845644712 0.3677064630  Biso 1.0 Te
+Te5 1.0000000000 0.4856316936 0.7154355288 0.8677064630  Biso 1.0 Te
+Te6 1.0000000000 0.4856316936 0.2845644712 0.1322935370  Biso 1.0 Te

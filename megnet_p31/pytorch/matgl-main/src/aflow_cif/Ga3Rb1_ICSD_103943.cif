@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Ga3Rb1 #119 - (Ga3Rb1_ICSD_103943) - Ga3
+data_Ga3Rb1
+_pd_phase_name Ga3Rb1
+_cell_length_a  8.8307420211
+_cell_length_b  8.8307420211
+_cell_length_c  8.8307420211
+_cell_angle_alpha  137.5175349479
+_cell_angle_beta  137.5175349479
+_cell_angle_gamma  61.6427254405
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ga1 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Ga
+Ga2 1.0000000000 0.2229194149 0.4306075170 0.2076881022  Biso 1.0 Ga
+Ga3 1.0000000000 0.2229194149 0.0152313127 0.7923118978  Biso 1.0 Ga
+Ga4 1.0000000000 0.5693924830 0.7770805851 0.7923118978  Biso 1.0 Ga
+Ga5 1.0000000000 0.9847686873 0.7770805851 0.2076881022  Biso 1.0 Ga
+Ga6 1.0000000000 0.3916489957 0.6975647631 0.3059157674  Biso 1.0 Ga
+Ga7 1.0000000000 0.3916489957 0.0857332284 0.6940842326  Biso 1.0 Ga
+Ga8 1.0000000000 0.3024352369 0.6083510043 0.6940842326  Biso 1.0 Ga
+Ga9 1.0000000000 0.9142667716 0.6083510043 0.3059157674  Biso 1.0 Ga
+Rb10 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Rb
+Rb11 1.0000000000 0.8720579966 0.3720579966 0.5000000000  Biso 1.0 Rb
+Rb12 1.0000000000 0.6279420034 0.1279420034 0.5000000000  Biso 1.0 Rb

@@ -1,0 +1,30 @@
+# AFLOW.org Repositories
+# Bi1O2Y2 #139 - (Bi1O2Y2_ICSD_261432) - B
+data_Bi1O2Y2
+_pd_phase_name Bi1O2Y2
+_cell_length_a  7.3418886670
+_cell_length_b  7.3418886670
+_cell_length_c  7.3418886670
+_cell_angle_alpha  149.1958754360
+_cell_angle_beta  149.1958754360
+_cell_angle_gamma  44.1230670139
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Bi1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Bi
+O2 1.0000000000 0.7500000000 0.2500000000 0.5000000000  Biso 1.0 O
+O3 1.0000000000 0.2500000000 0.7500000000 0.5000000000  Biso 1.0 O
+Y4 1.0000000000 0.3315205085 0.3315205085 0.0000000000  Biso 1.0 Y
+Y5 1.0000000000 0.6684794915 0.6684794915 0.0000000000  Biso 1.0 Y

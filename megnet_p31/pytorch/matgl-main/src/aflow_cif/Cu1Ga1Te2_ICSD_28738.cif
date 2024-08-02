@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Cu1Ga1Te2 #122 - (Cu1Ga1Te2_ICSD_28738) 
+data_Cu1Ga1Te2
+_pd_phase_name Cu1Ga1Te2
+_cell_length_a  7.4547921622
+_cell_length_b  7.4547921622
+_cell_length_c  7.4547921622
+_cell_angle_alpha  131.6219132056
+_cell_angle_beta  131.6219132056
+_cell_angle_gamma  70.8268333701
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cu1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Cu
+Cu2 1.0000000000 0.2500000000 0.7500000000 0.5000000000  Biso 1.0 Cu
+Ga3 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Ga
+Ga4 1.0000000000 0.7500000000 0.2500000000 0.5000000000  Biso 1.0 Ga
+Te5 1.0000000000 0.6250000000 0.1150756120 0.9900756120  Biso 1.0 Te
+Te6 1.0000000000 0.1250000000 0.6349243880 0.0099243880  Biso 1.0 Te
+Te7 1.0000000000 0.3650756120 0.3750000000 0.4900756120  Biso 1.0 Te
+Te8 1.0000000000 0.8849243880 0.8750000000 0.5099243880  Biso 1.0 Te

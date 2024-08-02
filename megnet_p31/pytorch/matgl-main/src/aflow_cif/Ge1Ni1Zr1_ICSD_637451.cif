@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Ge1Ni1Zr1   [ORC,ORC,oP12] (STD_PRIM doi
+data_Ge1Ni1Zr1
+_pd_phase_name Ge1Ni1Zr1
+_cell_length_a  3.8938915027
+_cell_length_b  6.5758875377
+_cell_length_c  7.3591974914
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ge1 1.0000000000 0.2500000000 0.7673573619 0.3872358029  Biso 1.0 Ge
+Ge2 1.0000000000 0.7500000000 0.7326426381 0.8872358029  Biso 1.0 Ge
+Ge3 1.0000000000 0.7500000000 0.2326426381 0.6127641971  Biso 1.0 Ge
+Ge4 1.0000000000 0.2500000000 0.2673573619 0.1127641971  Biso 1.0 Ge
+Ni5 1.0000000000 0.2500000000 0.1401499274 0.4376076139  Biso 1.0 Ni
+Ni6 1.0000000000 0.7500000000 0.3598500726 0.9376076139  Biso 1.0 Ni
+Ni7 1.0000000000 0.7500000000 0.8598500726 0.5623923861  Biso 1.0 Ni
+Ni8 1.0000000000 0.2500000000 0.6401499274 0.0623923861  Biso 1.0 Ni
+Zr9 1.0000000000 0.2500000000 0.0173993772 0.8079940552  Biso 1.0 Zr
+Zr10 1.0000000000 0.7500000000 0.4826006228 0.3079940552  Biso 1.0 Zr
+Zr11 1.0000000000 0.7500000000 0.9826006228 0.1920059448  Biso 1.0 Zr
+Zr12 1.0000000000 0.2500000000 0.5173993772 0.6920059448  Biso 1.0 Zr

@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Cr1Nb1P1   [ORC,ORC,oP12] (STD_PRIM doi:
+data_Cr1Nb1P1
+_pd_phase_name Cr1Nb1P1
+_cell_length_a  3.6114541012
+_cell_length_b  6.4055713310
+_cell_length_c  7.6511536015
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cr1 1.0000000000 0.2500000000 0.1450426968 0.4389009392  Biso 1.0 Cr
+Cr2 1.0000000000 0.7500000000 0.3549573032 0.9389009392  Biso 1.0 Cr
+Cr3 1.0000000000 0.7500000000 0.8549573032 0.5610990608  Biso 1.0 Cr
+Cr4 1.0000000000 0.2500000000 0.6450426968 0.0610990608  Biso 1.0 Cr
+Nb5 1.0000000000 0.2500000000 0.0367602206 0.8246085018  Biso 1.0 Nb
+Nb6 1.0000000000 0.7500000000 0.4632397794 0.3246085018  Biso 1.0 Nb
+Nb7 1.0000000000 0.7500000000 0.9632397794 0.1753914982  Biso 1.0 Nb
+Nb8 1.0000000000 0.2500000000 0.5367602206 0.6753914982  Biso 1.0 Nb
+P9 1.0000000000 0.2500000000 0.7595166642 0.3670400922  Biso 1.0 P
+P10 1.0000000000 0.7500000000 0.7404833358 0.8670400922  Biso 1.0 P
+P11 1.0000000000 0.7500000000 0.2404833358 0.6329599078  Biso 1.0 P
+P12 1.0000000000 0.2500000000 0.2595166642 0.1329599078  Biso 1.0 P

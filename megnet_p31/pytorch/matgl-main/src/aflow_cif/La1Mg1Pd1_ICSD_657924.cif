@@ -1,0 +1,34 @@
+# AFLOW.org Repositories
+# La1Mg1Pd1 #189 - (La1Mg1Pd1_ICSD_657924)
+data_La1Mg1Pd1
+_pd_phase_name La1Mg1Pd1
+_cell_length_a  7.8127689902
+_cell_length_b  7.8127689902
+_cell_length_c  4.1582473801
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+La1 1.0000000000 0.0000000000 0.4154179083 0.5000000000  Biso 1.0 La
+La2 1.0000000000 0.5845820917 0.5845820917 0.5000000000  Biso 1.0 La
+La3 1.0000000000 0.4154193997 0.0000000000 0.5000000000  Biso 1.0 La
+Mg4 1.0000000000 0.0000000000 0.7643316924 0.0000000000  Biso 1.0 Mg
+Mg5 1.0000000000 0.2356683076 0.2356683076 0.0000000000  Biso 1.0 Mg
+Mg6 1.0000000000 0.7643365444 0.0000000000 0.0000000000  Biso 1.0 Mg
+Pd7 1.0000000000 0.6666768901 0.3333531252 0.0000000000  Biso 1.0 Pd
+Pd8 1.0000000000 0.3333237649 0.6666468748 0.0000000000  Biso 1.0 Pd
+Pd9 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Pd

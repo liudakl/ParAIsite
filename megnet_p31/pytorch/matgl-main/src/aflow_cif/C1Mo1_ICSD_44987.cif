@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# C1Mo1   [HEX,HEX,hP12] (STD_PRIM doi:10.
+data_C1Mo1
+_pd_phase_name C1Mo1
+_cell_length_a  3.0803893284
+_cell_length_b  3.0803893284
+_cell_length_c  15.4699354640
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+C1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 C
+C2 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 C
+C3 1.0000000000 0.6666750306 0.3333500612 0.6661869424  Biso 1.0 C
+C4 1.0000000000 0.3333249694 0.6666499388 0.1661869424  Biso 1.0 C
+C5 1.0000000000 0.3333249694 0.6666499388 0.3338130576  Biso 1.0 C
+C6 1.0000000000 0.6666750306 0.3333500612 0.8338130576  Biso 1.0 C
+Mo7 1.0000000000 0.0000000000 0.0000000000 0.2500000000  Biso 1.0 Mo
+Mo8 1.0000000000 0.0000000000 0.0000000000 0.7500000000  Biso 1.0 Mo
+Mo9 1.0000000000 0.6666910481 0.3333820962 0.0763510773  Biso 1.0 Mo
+Mo10 1.0000000000 0.3333089519 0.6666179038 0.5763510773  Biso 1.0 Mo
+Mo11 1.0000000000 0.3333089519 0.6666179038 0.9236489227  Biso 1.0 Mo
+Mo12 1.0000000000 0.6666910481 0.3333820962 0.4236489227  Biso 1.0 Mo

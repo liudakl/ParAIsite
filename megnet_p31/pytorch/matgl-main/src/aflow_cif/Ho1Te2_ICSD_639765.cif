@@ -1,0 +1,31 @@
+# AFLOW.org Repositories
+# Ho1Te2 #129.2 - (Ho1Te2_ICSD_639765) - H
+data_Ho1Te2
+_pd_phase_name Ho1Te2
+_cell_length_a  4.4400186243
+_cell_length_b  4.4400186243
+_cell_length_c  8.8449033913
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ho1 1.0000000000 0.2500000000 0.2500000000 0.2705827776  Biso 1.0 Ho
+Ho2 1.0000000000 0.7500000000 0.7500000000 0.7294172224  Biso 1.0 Ho
+Te3 1.0000000000 0.7500000000 0.2500000000 0.0000000000  Biso 1.0 Te
+Te4 1.0000000000 0.2500000000 0.7500000000 0.0000000000  Biso 1.0 Te
+Te5 1.0000000000 0.2500000000 0.2500000000 0.6280636913  Biso 1.0 Te
+Te6 1.0000000000 0.7500000000 0.7500000000 0.3719363087  Biso 1.0 Te

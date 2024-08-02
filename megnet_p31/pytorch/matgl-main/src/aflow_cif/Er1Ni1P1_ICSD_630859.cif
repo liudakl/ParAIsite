@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Er1Ni1P1   [HEX,HEX,hP12] (STD_PRIM doi:
+data_Er1Ni1P1
+_pd_phase_name Er1Ni1P1
+_cell_length_a  3.8847846865
+_cell_length_b  3.8847846865
+_cell_length_c  14.9793374662
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Er1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Er
+Er2 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Er
+Er3 1.0000000000 0.0000000000 0.0000000000 0.2500000000  Biso 1.0 Er
+Er4 1.0000000000 0.0000000000 0.0000000000 0.7500000000  Biso 1.0 Er
+Ni5 1.0000000000 0.3333526025 0.6666473975 0.1278928700  Biso 1.0 Ni
+Ni6 1.0000000000 0.6666473975 0.3333526025 0.6278928700  Biso 1.0 Ni
+Ni7 1.0000000000 0.6666473975 0.3333526025 0.8721071300  Biso 1.0 Ni
+Ni8 1.0000000000 0.3333526025 0.6666473975 0.3721071300  Biso 1.0 Ni
+P9 1.0000000000 0.3333409960 0.6666590040 0.6225938027  Biso 1.0 P
+P10 1.0000000000 0.6666590040 0.3333409960 0.1225938027  Biso 1.0 P
+P11 1.0000000000 0.6666590040 0.3333409960 0.3774061973  Biso 1.0 P
+P12 1.0000000000 0.3333409960 0.6666590040 0.8774061973  Biso 1.0 P

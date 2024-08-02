@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Pd1Y1Zn1   [ORC,ORC,oP12] (STD_PRIM doi:
+data_Pd1Y1Zn1
+_pd_phase_name Pd1Y1Zn1
+_cell_length_a  4.0807476481
+_cell_length_b  7.0517217574
+_cell_length_c  8.1745840719
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Pd1 1.0000000000 0.2500000000 0.2531407967 0.6173873922  Biso 1.0 Pd
+Pd2 1.0000000000 0.7500000000 0.2468592033 0.1173873922  Biso 1.0 Pd
+Pd3 1.0000000000 0.7500000000 0.7468592033 0.3826126078  Biso 1.0 Pd
+Pd4 1.0000000000 0.2500000000 0.7531407967 0.8826126078  Biso 1.0 Pd
+Y5 1.0000000000 0.2500000000 0.0470646139 0.3107325682  Biso 1.0 Y
+Y6 1.0000000000 0.7500000000 0.4529353861 0.8107325682  Biso 1.0 Y
+Y7 1.0000000000 0.7500000000 0.9529353861 0.6892674318  Biso 1.0 Y
+Y8 1.0000000000 0.2500000000 0.5470646139 0.1892674318  Biso 1.0 Y
+Zn9 1.0000000000 0.2500000000 0.6350493032 0.5646250294  Biso 1.0 Zn
+Zn10 1.0000000000 0.7500000000 0.8649506968 0.0646250294  Biso 1.0 Zn
+Zn11 1.0000000000 0.7500000000 0.3649506968 0.4353749706  Biso 1.0 Zn
+Zn12 1.0000000000 0.2500000000 0.1350493032 0.9353749706  Biso 1.0 Zn

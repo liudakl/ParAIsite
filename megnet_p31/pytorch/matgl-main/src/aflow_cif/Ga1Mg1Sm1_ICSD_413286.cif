@@ -1,0 +1,34 @@
+# AFLOW.org Repositories
+# Ga1Mg1Sm1                               
+data_Ga1Mg1Sm1
+_pd_phase_name Ga1Mg1Sm1
+_cell_length_a  7.3975783633
+_cell_length_b  7.3975783633
+_cell_length_c  4.4881906464
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ga1 1.0000000000 0.6666739973 0.3333498851 0.5000000000  Biso 1.0 Ga
+Ga2 1.0000000000 0.3333241122 0.6666501149 0.5000000000  Biso 1.0 Ga
+Ga3 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Ga
+Mg4 1.0000000000 0.0000000000 0.7561399930 0.5000000000  Biso 1.0 Mg
+Mg5 1.0000000000 0.2438600070 0.2438600070 0.5000000000  Biso 1.0 Mg
+Mg6 1.0000000000 0.7561366227 0.0000000000 0.5000000000  Biso 1.0 Mg
+Sm7 1.0000000000 0.0000000000 0.4238666540 0.0000000000  Biso 1.0 Sm
+Sm8 1.0000000000 0.5761333460 0.5761333460 0.0000000000  Biso 1.0 Sm
+Sm9 1.0000000000 0.4238679657 0.0000000000 0.0000000000  Biso 1.0 Sm

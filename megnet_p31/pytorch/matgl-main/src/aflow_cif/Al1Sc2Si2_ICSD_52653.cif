@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# Al1Sc2Si2   [TET,TET,tP10] (STD_PRIM doi
+data_Al1Sc2Si2
+_pd_phase_name Al1Sc2Si2
+_cell_length_a  6.6539132511
+_cell_length_b  6.6539132511
+_cell_length_c  4.0777014664
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Al1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Al
+Al2 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Al
+Sc3 1.0000000000 0.1762913559 0.6762913559 0.5000000000  Biso 1.0 Sc
+Sc4 1.0000000000 0.8237086441 0.3237086441 0.5000000000  Biso 1.0 Sc
+Sc5 1.0000000000 0.3237086441 0.1762913559 0.5000000000  Biso 1.0 Sc
+Sc6 1.0000000000 0.6762913559 0.8237086441 0.5000000000  Biso 1.0 Sc
+Si7 1.0000000000 0.3738489653 0.8738489653 0.0000000000  Biso 1.0 Si
+Si8 1.0000000000 0.6261510347 0.1261510347 0.0000000000  Biso 1.0 Si
+Si9 1.0000000000 0.1261510347 0.3738489653 0.0000000000  Biso 1.0 Si
+Si10 1.0000000000 0.8738489653 0.6261510347 0.0000000000  Biso 1.0 Si

@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# As1Ni1S1   [CUB,CUB,cP12] (STD_PRIM doi:
+data_As1Ni1S1
+_pd_phase_name As1Ni1S1
+_cell_length_a  5.6844632034
+_cell_length_b  5.6844632034
+_cell_length_c  5.6844632034
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+As1 1.0000000000 0.6198103378 0.6198103378 0.3801896622  Biso 1.0 As
+As2 1.0000000000 0.8801896622 0.3801896622 0.8801896622  Biso 1.0 As
+As3 1.0000000000 0.3801896622 0.1198103378 0.1198103378  Biso 1.0 As
+As4 1.0000000000 0.1198103378 0.8801896622 0.6198103378  Biso 1.0 As
+Ni5 1.0000000000 0.9934200523 0.9934200523 0.0065799477  Biso 1.0 Ni
+Ni6 1.0000000000 0.5065799477 0.0065799477 0.5065799477  Biso 1.0 Ni
+Ni7 1.0000000000 0.0065799477 0.4934200523 0.4934200523  Biso 1.0 Ni
+Ni8 1.0000000000 0.4934200523 0.5065799477 0.9934200523  Biso 1.0 Ni
+S9 1.0000000000 0.3837903013 0.3837903013 0.6162096987  Biso 1.0 S
+S10 1.0000000000 0.1162096987 0.6162096987 0.1162096987  Biso 1.0 S
+S11 1.0000000000 0.6162096987 0.8837903013 0.8837903013  Biso 1.0 S
+S12 1.0000000000 0.8837903013 0.1162096987 0.3837903013  Biso 1.0 S

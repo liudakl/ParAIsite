@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# In1Rb1Te2   [BCT,BCT1,tI16] (STD_PRIM do
+data_In1Rb1Te2
+_pd_phase_name In1Rb1Te2
+_cell_length_a  7.4061494987
+_cell_length_b  7.4061494987
+_cell_length_c  7.4061494987
+_cell_angle_alpha  104.9521863233
+_cell_angle_beta  104.9521863233
+_cell_angle_gamma  118.9452887072
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+In1 1.0000000000 0.7500000000 0.2500000000 0.5000000000  Biso 1.0 In
+In2 1.0000000000 0.2500000000 0.7500000000 0.5000000000  Biso 1.0 In
+Rb3 1.0000000000 0.2500000000 0.2500000000 0.0000000000  Biso 1.0 Rb
+Rb4 1.0000000000 0.7500000000 0.7500000000 0.0000000000  Biso 1.0 Rb
+Te5 1.0000000000 0.8311689887 0.3311689887 0.1623379774  Biso 1.0 Te
+Te6 1.0000000000 0.1688310113 0.6688310113 0.8376620226  Biso 1.0 Te
+Te7 1.0000000000 0.3311689887 0.1688310113 0.5000000000  Biso 1.0 Te
+Te8 1.0000000000 0.6688310113 0.8311689887 0.5000000000  Biso 1.0 Te

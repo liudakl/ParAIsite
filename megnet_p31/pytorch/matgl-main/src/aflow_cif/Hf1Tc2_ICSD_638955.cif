@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Hf1Tc2   [HEX,HEX,hP12] (STD_PRIM doi:10
+data_Hf1Tc2
+_pd_phase_name Hf1Tc2
+_cell_length_a  5.2163839906
+_cell_length_b  5.2163839906
+_cell_length_c  8.6905020401
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Hf1 1.0000000000 0.3333184558 0.6666815442 0.0625313125  Biso 1.0 Hf
+Hf2 1.0000000000 0.6666815442 0.3333184558 0.5625313125  Biso 1.0 Hf
+Hf3 1.0000000000 0.6666815442 0.3333184558 0.9374686875  Biso 1.0 Hf
+Hf4 1.0000000000 0.3333184558 0.6666815442 0.4374686875  Biso 1.0 Hf
+Tc5 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Tc
+Tc6 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Tc
+Tc7 1.0000000000 0.8279559509 0.6559370681 0.2500000000  Biso 1.0 Tc
+Tc8 1.0000000000 0.3440629319 0.1720440491 0.2500000000  Biso 1.0 Tc
+Tc9 1.0000000000 0.8279711349 0.1720288651 0.2500000000  Biso 1.0 Tc
+Tc10 1.0000000000 0.1720440491 0.3440629319 0.7500000000  Biso 1.0 Tc
+Tc11 1.0000000000 0.6559370681 0.8279559509 0.7500000000  Biso 1.0 Tc
+Tc12 1.0000000000 0.1720288651 0.8279711349 0.7500000000  Biso 1.0 Tc

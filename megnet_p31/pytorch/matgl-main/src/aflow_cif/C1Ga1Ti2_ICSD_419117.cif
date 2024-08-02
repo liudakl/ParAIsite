@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# C1Ga1Ti2   [HEX,HEX,hP8] (STD_PRIM doi:1
+data_C1Ga1Ti2
+_pd_phase_name C1Ga1Ti2
+_cell_length_a  3.1202840670
+_cell_length_b  3.1202840670
+_cell_length_c  13.5190886277
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+C1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 C
+C2 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 C
+Ga3 1.0000000000 0.6666483717 0.3333241859 0.2500000000  Biso 1.0 Ga
+Ga4 1.0000000000 0.3333516283 0.6666758141 0.7500000000  Biso 1.0 Ga
+Ti5 1.0000000000 0.3333485815 0.6666742908 0.0866766586  Biso 1.0 Ti
+Ti6 1.0000000000 0.6666514185 0.3333257092 0.5866766586  Biso 1.0 Ti
+Ti7 1.0000000000 0.6666514185 0.3333257092 0.9133233414  Biso 1.0 Ti
+Ti8 1.0000000000 0.3333485815 0.6666742908 0.4133233414  Biso 1.0 Ti

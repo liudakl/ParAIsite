@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# Ni1Sc1Si3   [ORCC,ORCC,oS20] (STD_PRIM d
+data_Ni1Sc1Si3
+_pd_phase_name Ni1Sc1Si3
+_cell_length_a  10.5610389234
+_cell_length_b  10.5610389234
+_cell_length_c  3.8383984537
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  158.9534177020
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ni1 1.0000000000 0.3837285366 0.6162714634 0.5000000000  Biso 1.0 Ni
+Ni2 1.0000000000 0.6076558265 0.3923441735 0.5000000000  Biso 1.0 Ni
+Sc3 1.0000000000 0.1648558558 0.8351441442 0.0000000000  Biso 1.0 Sc
+Sc4 1.0000000000 0.8260722084 0.1739277916 0.0000000000  Biso 1.0 Sc
+Si5 1.0000000000 0.2776873055 0.7223126945 0.5000000000  Biso 1.0 Si
+Si6 1.0000000000 0.7137503090 0.2862496910 0.5000000000  Biso 1.0 Si
+Si7 1.0000000000 0.4391181127 0.5608818873 0.0000000000  Biso 1.0 Si
+Si8 1.0000000000 0.5522743102 0.4477256898 0.0000000000  Biso 1.0 Si
+Si9 1.0000000000 0.0525271134 0.9474728866 0.5000000000  Biso 1.0 Si
+Si10 1.0000000000 0.9389304220 0.0610695780 0.5000000000  Biso 1.0 Si

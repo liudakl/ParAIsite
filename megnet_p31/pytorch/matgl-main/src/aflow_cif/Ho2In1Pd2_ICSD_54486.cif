@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# Ho2In1Pd2   [TET,TET,tP10] (STD_PRIM doi
+data_Ho2In1Pd2
+_pd_phase_name Ho2In1Pd2
+_cell_length_a  7.6997371072
+_cell_length_b  7.6997371072
+_cell_length_c  3.6736217199
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ho1 1.0000000000 0.1735865795 0.6735865795 0.5000000000  Biso 1.0 Ho
+Ho2 1.0000000000 0.8264134205 0.3264134205 0.5000000000  Biso 1.0 Ho
+Ho3 1.0000000000 0.3264134205 0.1735865795 0.5000000000  Biso 1.0 Ho
+Ho4 1.0000000000 0.6735865795 0.8264134205 0.5000000000  Biso 1.0 Ho
+In5 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 In
+In6 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 In
+Pd7 1.0000000000 0.3713601051 0.8713601051 0.0000000000  Biso 1.0 Pd
+Pd8 1.0000000000 0.6286398949 0.1286398949 0.0000000000  Biso 1.0 Pd
+Pd9 1.0000000000 0.1286398949 0.3713601051 0.0000000000  Biso 1.0 Pd
+Pd10 1.0000000000 0.8713601051 0.6286398949 0.0000000000  Biso 1.0 Pd

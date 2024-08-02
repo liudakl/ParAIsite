@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# C2Cr1Sc1   [HEX,HEX,hP8] (STD_PRIM doi:1
+data_C2Cr1Sc1
+_pd_phase_name C2Cr1Sc1
+_cell_length_a  3.4438580605
+_cell_length_b  3.4438580605
+_cell_length_c  8.9720651691
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+C1 1.0000000000 0.6666772241 0.3333544482 0.6650158780  Biso 1.0 C
+C2 1.0000000000 0.3333227759 0.6666455518 0.1650158780  Biso 1.0 C
+C3 1.0000000000 0.3333227759 0.6666455518 0.3349841220  Biso 1.0 C
+C4 1.0000000000 0.6666772241 0.3333544482 0.8349841220  Biso 1.0 C
+Cr5 1.0000000000 0.6666524033 0.3333048066 0.2500000000  Biso 1.0 Cr
+Cr6 1.0000000000 0.3333475967 0.6666951934 0.7500000000  Biso 1.0 Cr
+Sc7 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Sc
+Sc8 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Sc

@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Au1F4K1   [BCT,BCT2,tI24] (STD_PRIM doi:
+data_Au1F4K1
+_pd_phase_name Au1F4K1
+_cell_length_a  7.2718718116
+_cell_length_b  7.2718718116
+_cell_length_c  7.2718718116
+_cell_angle_alpha  130.2486885265
+_cell_angle_beta  130.2486885265
+_cell_angle_gamma  73.0095072186
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Au1 1.0000000000 0.0000000000 0.5000000000 0.5000000000  Biso 1.0 Au
+Au2 1.0000000000 0.5000000000 0.0000000000 0.5000000000  Biso 1.0 Au
+F3 1.0000000000 0.9558034179 0.7792041205 0.5000000000  Biso 1.0 F
+F4 1.0000000000 0.2792041205 0.4558034179 0.5000000000  Biso 1.0 F
+F5 1.0000000000 0.7792041205 0.2792041205 0.8234007025  Biso 1.0 F
+F6 1.0000000000 0.4558034179 0.9558034179 0.1765992975  Biso 1.0 F
+F7 1.0000000000 0.5441965821 0.0441965821 0.8234007025  Biso 1.0 F
+F8 1.0000000000 0.2207958795 0.7207958795 0.1765992975  Biso 1.0 F
+F9 1.0000000000 0.7207958795 0.5441965821 0.5000000000  Biso 1.0 F
+F10 1.0000000000 0.0441965821 0.2207958795 0.5000000000  Biso 1.0 F
+K11 1.0000000000 0.2500000000 0.2500000000 0.0000000000  Biso 1.0 K
+K12 1.0000000000 0.7500000000 0.7500000000 0.0000000000  Biso 1.0 K

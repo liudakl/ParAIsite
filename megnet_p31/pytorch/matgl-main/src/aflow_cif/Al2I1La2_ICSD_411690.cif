@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# Al2I1La2   [HEX,HEX,hP10] (STD_PRIM doi:
+data_Al2I1La2
+_pd_phase_name Al2I1La2
+_cell_length_a  4.4014094097
+_cell_length_b  4.4014094097
+_cell_length_c  17.8785117923
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Al1 1.0000000000 0.3333365524 0.6666731047 0.0057669162  Biso 1.0 Al
+Al2 1.0000000000 0.6666634476 0.3333268953 0.5057669162  Biso 1.0 Al
+Al3 1.0000000000 0.6666634476 0.3333268953 0.9942330838  Biso 1.0 Al
+Al4 1.0000000000 0.3333365524 0.6666731047 0.4942330838  Biso 1.0 Al
+I5 1.0000000000 0.6666836195 0.3333672389 0.2500000000  Biso 1.0 I
+I6 1.0000000000 0.3333163805 0.6666327611 0.7500000000  Biso 1.0 I
+La7 1.0000000000 0.0000000000 0.0000000000 0.1186216623  Biso 1.0 La
+La8 1.0000000000 0.0000000000 0.0000000000 0.6186216623  Biso 1.0 La
+La9 1.0000000000 0.0000000000 0.0000000000 0.8813783377  Biso 1.0 La
+La10 1.0000000000 0.0000000000 0.0000000000 0.3813783377  Biso 1.0 La

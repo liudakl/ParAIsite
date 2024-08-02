@@ -1,0 +1,32 @@
+# AFLOW.org Repositories
+# B4V3   [ORCI,ORCI,oI14] (STD_PRIM doi:10
+data_B4V3
+_pd_phase_name B4V3
+_cell_length_a  6.9783841429
+_cell_length_b  6.9783841429
+_cell_length_c  6.9783841429
+_cell_angle_alpha  155.2190370924
+_cell_angle_beta  154.5495568765
+_cell_angle_gamma  35.8185780925
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+B1 1.0000000000 0.3639425913 0.3639425913 0.0000000000  Biso 1.0 B
+B2 1.0000000000 0.6360574087 0.6360574087 0.0000000000  Biso 1.0 B
+B3 1.0000000000 0.4345405474 0.9345405474 0.5000000000  Biso 1.0 B
+B4 1.0000000000 0.5654594526 0.0654594526 0.5000000000  Biso 1.0 B
+V5 1.0000000000 0.0000000000 0.5000000000 0.5000000000  Biso 1.0 V
+V6 1.0000000000 0.1873654600 0.1873654600 0.0000000000  Biso 1.0 V
+V7 1.0000000000 0.8126345400 0.8126345400 0.0000000000  Biso 1.0 V

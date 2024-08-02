@@ -1,0 +1,34 @@
+# AFLOW.org Repositories
+# Cu1Ge6Ho2   [ORCC,ORCC,oS18] (STD_PRIM d
+data_Cu1Ge6Ho2
+_pd_phase_name Cu1Ge6Ho2
+_cell_length_a  10.8676385364
+_cell_length_b  10.8676385364
+_cell_length_c  4.0848354792
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  158.6309425719
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cu1 1.0000000000 0.2239455032 0.7760544968 0.5000000000  Biso 1.0 Cu
+Ge2 1.0000000000 0.2851164884 0.7148835116 0.0000000000  Biso 1.0 Ge
+Ge3 1.0000000000 0.4018385680 0.5981614320 0.0000000000  Biso 1.0 Ge
+Ge4 1.0000000000 0.5427047069 0.4572952931 0.5000000000  Biso 1.0 Ge
+Ge5 1.0000000000 0.1154498829 0.8845501171 0.5000000000  Biso 1.0 Ge
+Ge6 1.0000000000 0.9026768171 0.0973231829 0.5000000000  Biso 1.0 Ge
+Ge7 1.0000000000 0.7855827613 0.2144172387 0.5000000000  Biso 1.0 Ge
+Ho8 1.0000000000 0.0045561207 0.9954438793 0.0000000000  Biso 1.0 Ho
+Ho9 1.0000000000 0.6691291516 0.3308708484 0.0000000000  Biso 1.0 Ho

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# S2Sc1Tl1   [HEX,HEX,hP8] (STD_PRIM doi:1
+data_S2Sc1Tl1
+_pd_phase_name S2Sc1Tl1
+_cell_length_a  3.8474849648
+_cell_length_b  3.8474849648
+_cell_length_c  15.0441432070
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+S1 1.0000000000 0.6666763823 0.3333527647 0.5950725249  Biso 1.0 S
+S2 1.0000000000 0.3333236177 0.6666472353 0.0950725249  Biso 1.0 S
+S3 1.0000000000 0.3333236177 0.6666472353 0.4049274751  Biso 1.0 S
+S4 1.0000000000 0.6666763823 0.3333527647 0.9049274751  Biso 1.0 S
+Sc5 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Sc
+Sc6 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Sc
+Tl7 1.0000000000 0.6666834100 0.3333668199 0.2500000000  Biso 1.0 Tl
+Tl8 1.0000000000 0.3333165900 0.6666331801 0.7500000000  Biso 1.0 Tl

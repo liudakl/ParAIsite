@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# Be4N4Sr2   [BCT,BCT2,tI20] (STD_PRIM doi
+data_Be4N4Sr2
+_pd_phase_name Be4N4Sr2
+_cell_length_a  5.5033868857
+_cell_length_b  5.5033868857
+_cell_length_c  5.5033868857
+_cell_angle_alpha  118.5891593232
+_cell_angle_beta  118.5891593232
+_cell_angle_gamma  92.4615272016
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Be1 1.0000000000 0.1270535315 0.6270535315 0.7541070629  Biso 1.0 Be
+Be2 1.0000000000 0.8729464685 0.3729464685 0.2458929371  Biso 1.0 Be
+Be3 1.0000000000 0.6270535315 0.8729464685 0.5000000000  Biso 1.0 Be
+Be4 1.0000000000 0.3729464685 0.1270535315 0.5000000000  Biso 1.0 Be
+N5 1.0000000000 0.6679429698 0.1679429698 0.8358859396  Biso 1.0 N
+N6 1.0000000000 0.3320570302 0.8320570302 0.1641140604  Biso 1.0 N
+N7 1.0000000000 0.1679429698 0.3320570302 0.5000000000  Biso 1.0 N
+N8 1.0000000000 0.8320570302 0.6679429698 0.5000000000  Biso 1.0 N
+Sr9 1.0000000000 0.2500000000 0.2500000000 0.0000000000  Biso 1.0 Sr
+Sr10 1.0000000000 0.7500000000 0.7500000000 0.0000000000  Biso 1.0 Sr

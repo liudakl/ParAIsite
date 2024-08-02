@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Gd1O4V1   [BCT,BCT1,tI24] (STD_PRIM doi:
+data_Gd1O4V1
+_pd_phase_name Gd1O4V1
+_cell_length_a  6.0773790438
+_cell_length_b  6.0773790438
+_cell_length_c  6.0773790438
+_cell_angle_alpha  106.1230549490
+_cell_angle_beta  106.1230549490
+_cell_angle_gamma  116.3975918899
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Gd1 1.0000000000 0.8750000000 0.1250000000 0.7500000000  Biso 1.0 Gd
+Gd2 1.0000000000 0.1250000000 0.8750000000 0.2500000000  Biso 1.0 Gd
+O3 1.0000000000 0.2684554166 0.2012052308 0.0672501857  Biso 1.0 O
+O4 1.0000000000 0.6339550451 0.2012052308 0.4327498143  Biso 1.0 O
+O5 1.0000000000 0.2012052308 0.6339550451 0.9327498143  Biso 1.0 O
+O6 1.0000000000 0.2012052308 0.2684554166 0.5672501857  Biso 1.0 O
+O7 1.0000000000 0.3660449549 0.7987947692 0.5672501857  Biso 1.0 O
+O8 1.0000000000 0.7315445834 0.7987947692 0.9327498143  Biso 1.0 O
+O9 1.0000000000 0.7987947692 0.3660449549 0.0672501857  Biso 1.0 O
+O10 1.0000000000 0.7987947692 0.7315445834 0.4327498143  Biso 1.0 O
+V11 1.0000000000 0.6250000000 0.3750000000 0.2500000000  Biso 1.0 V
+V12 1.0000000000 0.3750000000 0.6250000000 0.7500000000  Biso 1.0 V

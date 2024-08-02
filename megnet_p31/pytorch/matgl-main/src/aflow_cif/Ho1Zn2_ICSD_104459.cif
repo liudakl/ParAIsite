@@ -1,0 +1,31 @@
+# AFLOW.org Repositories
+# Ho1Zn2   [ORCI,ORCI,oI12] (STD_PRIM doi:
+data_Ho1Zn2
+_pd_phase_name Ho1Zn2
+_cell_length_a  5.6188181503
+_cell_length_b  5.6188181503
+_cell_length_c  5.6188181503
+_cell_angle_alpha  133.2135834186
+_cell_angle_beta  102.2769875750
+_cell_angle_gamma  95.8913374690
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ho1 1.0000000000 0.7219325203 0.4719325203 0.2500000000  Biso 1.0 Ho
+Ho2 1.0000000000 0.2780674797 0.5280674797 0.7500000000  Biso 1.0 Ho
+Zn3 1.0000000000 0.8751971110 0.8340554262 0.0411416848  Biso 1.0 Zn
+Zn4 1.0000000000 0.2929137414 0.8340554262 0.4588583152  Biso 1.0 Zn
+Zn5 1.0000000000 0.7070862586 0.1659445738 0.5411416848  Biso 1.0 Zn
+Zn6 1.0000000000 0.1248028890 0.1659445738 0.9588583152  Biso 1.0 Zn

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Li3N1   [HEX,HEX,hP8] (STD_PRIM doi:10.1
+data_Li3N1
+_pd_phase_name Li3N1
+_cell_length_a  3.5625262465
+_cell_length_b  3.5625262465
+_cell_length_c  6.3540302948
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Li1 1.0000000000 0.0000000000 0.0000000000 0.2500000000  Biso 1.0 Li
+Li2 1.0000000000 0.0000000000 0.0000000000 0.7500000000  Biso 1.0 Li
+Li3 1.0000000000 0.6666845557 0.3333691114 0.5770554837  Biso 1.0 Li
+Li4 1.0000000000 0.3333154443 0.6666308886 0.0770554837  Biso 1.0 Li
+Li5 1.0000000000 0.3333154443 0.6666308886 0.4229445163  Biso 1.0 Li
+Li6 1.0000000000 0.6666845557 0.3333691114 0.9229445163  Biso 1.0 Li
+N7 1.0000000000 0.6666894932 0.3333789863 0.2500000000  Biso 1.0 N
+N8 1.0000000000 0.3333105068 0.6666210137 0.7500000000  Biso 1.0 N

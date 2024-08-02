@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Mn2Sc1   [HEX,HEX,hP12] (STD_PRIM doi:10
+data_Mn2Sc1
+_pd_phase_name Mn2Sc1
+_cell_length_a  5.7121846773
+_cell_length_b  5.7121846773
+_cell_length_c  9.0950754312
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Mn1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Mn
+Mn2 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Mn
+Mn3 1.0000000000 0.8301890219 0.1708027360 0.2500000000  Biso 1.0 Mn
+Mn4 1.0000000000 0.8301890219 0.6593862858 0.2500000000  Biso 1.0 Mn
+Mn5 1.0000000000 0.3413771572 0.1706885786 0.2500000000  Biso 1.0 Mn
+Mn6 1.0000000000 0.1698109781 0.8291972640 0.7500000000  Biso 1.0 Mn
+Mn7 1.0000000000 0.1698109781 0.3406137142 0.7500000000  Biso 1.0 Mn
+Mn8 1.0000000000 0.6586228428 0.8293114214 0.7500000000  Biso 1.0 Mn
+Sc9 1.0000000000 0.3331714996 0.6665857498 0.0616716647  Biso 1.0 Sc
+Sc10 1.0000000000 0.6668285004 0.3334142502 0.5616716647  Biso 1.0 Sc
+Sc11 1.0000000000 0.6668285004 0.3334142502 0.9383283353  Biso 1.0 Sc
+Sc12 1.0000000000 0.3331714996 0.6665857498 0.4383283353  Biso 1.0 Sc

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Ag1Er1S2   [BCT,BCT2,tI16] (STD_PRIM doi
+data_Ag1Er1S2
+_pd_phase_name Ag1Er1S2
+_cell_length_a  7.1153652267
+_cell_length_b  7.1153652267
+_cell_length_c  7.1153652267
+_cell_angle_alpha  135.2155609282
+_cell_angle_beta  135.2155609282
+_cell_angle_gamma  65.1954504321
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ag1 1.0000000000 0.4691862913 0.4691862913 0.0000000000  Biso 1.0 Ag
+Ag2 1.0000000000 0.7191862913 0.2191862913 0.5000000000  Biso 1.0 Ag
+Er3 1.0000000000 0.0017148830 0.0017148830 0.0000000000  Biso 1.0 Er
+Er4 1.0000000000 0.2517148830 0.7517148830 0.5000000000  Biso 1.0 Er
+S5 1.0000000000 0.2310633070 0.2310633070 0.0000000000  Biso 1.0 S
+S6 1.0000000000 0.4810633070 0.9810633070 0.5000000000  Biso 1.0 S
+S7 1.0000000000 0.7766455187 0.7766455187 0.0000000000  Biso 1.0 S
+S8 1.0000000000 0.0266455187 0.5266455187 0.5000000000  Biso 1.0 S

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# C1Mg1N2   [BCT,BCT2,tI16] (STD_PRIM doi:
+data_C1Mg1N2
+_pd_phase_name C1Mg1N2
+_cell_length_a  4.4286129617
+_cell_length_b  4.4286129617
+_cell_length_c  4.4286129617
+_cell_angle_alpha  119.0197500143
+_cell_angle_beta  119.0197500143
+_cell_angle_gamma  91.7063973421
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+C1 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 C
+C2 1.0000000000 0.7500000000 0.2500000000 0.5000000000  Biso 1.0 C
+Mg3 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Mg
+Mg4 1.0000000000 0.2500000000 0.7500000000 0.5000000000  Biso 1.0 Mg
+N5 1.0000000000 0.7720433394 0.3750000000 0.8970433394  Biso 1.0 N
+N6 1.0000000000 0.4779566606 0.8750000000 0.1029566606  Biso 1.0 N
+N7 1.0000000000 0.6250000000 0.5220433394 0.3970433394  Biso 1.0 N
+N8 1.0000000000 0.1250000000 0.2279566606 0.6029566606  Biso 1.0 N

@@ -1,0 +1,32 @@
+# AFLOW.org Repositories
+# Al2Cd1Te4   [BCT,BCT2,tI14] (STD_PRIM do
+data_Al2Cd1Te4
+_pd_phase_name Al2Cd1Te4
+_cell_length_a  7.4270267301
+_cell_length_b  7.4270267301
+_cell_length_c  7.4270267301
+_cell_angle_alpha  129.9162106931
+_cell_angle_beta  129.9162106931
+_cell_angle_gamma  73.5407511798
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Al1 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Al
+Al2 1.0000000000 0.2500000000 0.7500000000 0.5000000000  Biso 1.0 Al
+Cd3 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Cd
+Te4 1.0000000000 0.4108333928 0.8803643495 0.0158583285  Biso 1.0 Te
+Te5 1.0000000000 0.8645060210 0.3949750643 0.9841416715  Biso 1.0 Te
+Te6 1.0000000000 0.1196356505 0.1354939790 0.5304690433  Biso 1.0 Te
+Te7 1.0000000000 0.6050249357 0.5891666072 0.4695309567  Biso 1.0 Te

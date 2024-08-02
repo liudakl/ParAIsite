@@ -1,0 +1,34 @@
+# AFLOW.org Repositories
+# Cu1Mg1Y1 #189 - (Cu1Mg1Y1_ICSD_163695) -
+data_Cu1Mg1Y1
+_pd_phase_name Cu1Mg1Y1
+_cell_length_a  7.4649411459
+_cell_length_b  7.4649411459
+_cell_length_c  4.0252234197
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cu1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Cu
+Cu2 1.0000000000 0.6666710328 0.3333443855 0.5000000000  Biso 1.0 Cu
+Cu3 1.0000000000 0.3333266473 0.6666556145 0.5000000000  Biso 1.0 Cu
+Mg4 1.0000000000 0.0000000000 0.7574833174 0.5000000000  Biso 1.0 Mg
+Mg5 1.0000000000 0.2425166826 0.2425166826 0.5000000000  Biso 1.0 Mg
+Mg6 1.0000000000 0.7574842177 0.0000000000 0.5000000000  Biso 1.0 Mg
+Y7 1.0000000000 0.0000000000 0.4138537012 0.0000000000  Biso 1.0 Y
+Y8 1.0000000000 0.5861462988 0.5861462988 0.0000000000  Biso 1.0 Y
+Y9 1.0000000000 0.4138542434 0.0000000000 0.0000000000  Biso 1.0 Y

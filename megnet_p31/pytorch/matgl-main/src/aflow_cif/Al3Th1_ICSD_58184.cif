@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Al3Th1   [HEX,HEX,hP8] (STD_PRIM doi:10.
+data_Al3Th1
+_pd_phase_name Al3Th1
+_cell_length_a  6.5899703101
+_cell_length_b  6.5899703101
+_cell_length_c  4.6434463629
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Al1 1.0000000000 0.7230312862 0.8615263722 0.2500000000  Biso 1.0 Al
+Al2 1.0000000000 0.1384950860 0.8615263722 0.2500000000  Biso 1.0 Al
+Al3 1.0000000000 0.1384744227 0.2769488453 0.2500000000  Biso 1.0 Al
+Al4 1.0000000000 0.2769687138 0.1384736278 0.7500000000  Biso 1.0 Al
+Al5 1.0000000000 0.8615049140 0.1384736278 0.7500000000  Biso 1.0 Al
+Al6 1.0000000000 0.8615255773 0.7230511547 0.7500000000  Biso 1.0 Al
+Th7 1.0000000000 0.6666764625 0.3333529251 0.2500000000  Biso 1.0 Th
+Th8 1.0000000000 0.3333235375 0.6666470749 0.7500000000  Biso 1.0 Th

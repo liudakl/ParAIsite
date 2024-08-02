@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Mg2N3P1   [ORCC,ORCC,oS24] (STD_PRIM doi
+data_Mg2N3P1
+_pd_phase_name Mg2N3P1
+_cell_length_a  5.6599725114
+_cell_length_b  5.6599725114
+_cell_length_c  4.7567167636
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  119.5490870242
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Mg1 1.0000000000 0.9966961164 0.6705805040 0.9633678309  Biso 1.0 Mg
+Mg2 1.0000000000 0.0033038836 0.3294194960 0.4633678309  Biso 1.0 Mg
+Mg3 1.0000000000 0.3294194960 0.0033038836 0.4633678309  Biso 1.0 Mg
+Mg4 1.0000000000 0.6705805040 0.9966961164 0.9633678309  Biso 1.0 Mg
+N5 1.0000000000 0.9437910374 0.6628084795 0.4124099016  Biso 1.0 N
+N6 1.0000000000 0.0562089626 0.3371915205 0.9124099016  Biso 1.0 N
+N7 1.0000000000 0.3371915205 0.0562089626 0.9124099016  Biso 1.0 N
+N8 1.0000000000 0.6628084795 0.9437910374 0.4124099016  Biso 1.0 N
+N9 1.0000000000 0.3910520022 0.3910520022 0.3368066641  Biso 1.0 N
+N10 1.0000000000 0.6089479978 0.6089479978 0.8368066641  Biso 1.0 N
+P11 1.0000000000 0.3381277190 0.3381277190 0.9836378709  Biso 1.0 P
+P12 1.0000000000 0.6618722810 0.6618722810 0.4836378709  Biso 1.0 P

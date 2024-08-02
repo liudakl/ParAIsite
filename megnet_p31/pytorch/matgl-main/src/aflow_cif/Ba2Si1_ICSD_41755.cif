@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Ba2Si1   [ORC,ORC,oP12] (STD_PRIM doi:10
+data_Ba2Si1
+_pd_phase_name Ba2Si1
+_cell_length_a  5.4234076065
+_cell_length_b  8.5076164802
+_cell_length_c  10.2007278169
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ba1 1.0000000000 0.2500000000 0.8553674722 0.9165870085  Biso 1.0 Ba
+Ba2 1.0000000000 0.7500000000 0.6446325278 0.4165870085  Biso 1.0 Ba
+Ba3 1.0000000000 0.7500000000 0.1446325278 0.0834129915  Biso 1.0 Ba
+Ba4 1.0000000000 0.2500000000 0.3553674722 0.5834129915  Biso 1.0 Ba
+Ba5 1.0000000000 0.2500000000 0.9806259891 0.3306877152  Biso 1.0 Ba
+Ba6 1.0000000000 0.7500000000 0.5193740109 0.8306877152  Biso 1.0 Ba
+Ba7 1.0000000000 0.7500000000 0.0193740109 0.6693122848  Biso 1.0 Ba
+Ba8 1.0000000000 0.2500000000 0.4806259891 0.1693122848  Biso 1.0 Ba
+Si9 1.0000000000 0.2500000000 0.2517471393 0.8989728863  Biso 1.0 Si
+Si10 1.0000000000 0.7500000000 0.2482528607 0.3989728863  Biso 1.0 Si
+Si11 1.0000000000 0.7500000000 0.7482528607 0.1010271137  Biso 1.0 Si
+Si12 1.0000000000 0.2500000000 0.7517471393 0.6010271137  Biso 1.0 Si

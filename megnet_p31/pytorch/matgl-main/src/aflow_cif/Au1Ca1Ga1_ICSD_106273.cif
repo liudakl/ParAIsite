@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Au1Ca1Ga1   [ORC,ORC,oP12] (STD_PRIM doi
+data_Au1Ca1Ga1
+_pd_phase_name Au1Ca1Ga1
+_cell_length_a  4.5938695678
+_cell_length_b  7.3320849851
+_cell_length_c  7.7801311649
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Au1 1.0000000000 0.2500000000 0.2940346506 0.5940703582  Biso 1.0 Au
+Au2 1.0000000000 0.7500000000 0.2059653494 0.0940703582  Biso 1.0 Au
+Au3 1.0000000000 0.7500000000 0.7059653494 0.4059296418  Biso 1.0 Au
+Au4 1.0000000000 0.2500000000 0.7940346506 0.9059296418  Biso 1.0 Au
+Ca5 1.0000000000 0.2500000000 0.0068769696 0.3006620655  Biso 1.0 Ca
+Ca6 1.0000000000 0.7500000000 0.4931230304 0.8006620655  Biso 1.0 Ca
+Ca7 1.0000000000 0.7500000000 0.9931230304 0.6993379345  Biso 1.0 Ca
+Ca8 1.0000000000 0.2500000000 0.5068769696 0.1993379345  Biso 1.0 Ca
+Ga9 1.0000000000 0.2500000000 0.1803270069 0.9203907771  Biso 1.0 Ga
+Ga10 1.0000000000 0.7500000000 0.3196729931 0.4203907771  Biso 1.0 Ga
+Ga11 1.0000000000 0.7500000000 0.8196729931 0.0796092229  Biso 1.0 Ga
+Ga12 1.0000000000 0.2500000000 0.6803270069 0.5796092229  Biso 1.0 Ga

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Cs1N3   [BCT,BCT2,tI16] (STD_PRIM doi:10
+data_Cs1N3
+_pd_phase_name Cs1N3
+_cell_length_a  6.2699603028
+_cell_length_b  6.2699603028
+_cell_length_c  6.2699603028
+_cell_angle_alpha  115.4514551799
+_cell_angle_beta  115.4514551799
+_cell_angle_gamma  98.0772185729
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cs1 1.0000000000 0.7500000000 0.7500000000 0.0000000000  Biso 1.0 Cs
+Cs2 1.0000000000 0.2500000000 0.2500000000 0.0000000000  Biso 1.0 Cs
+N3 1.0000000000 0.6256169164 0.8743830836 0.5000000000  Biso 1.0 N
+N4 1.0000000000 0.3743830836 0.1256169164 0.5000000000  Biso 1.0 N
+N5 1.0000000000 0.1256169164 0.6256169164 0.7512338327  Biso 1.0 N
+N6 1.0000000000 0.8743830836 0.3743830836 0.2487661673  Biso 1.0 N
+N7 1.0000000000 0.5000000000 0.0000000000 0.5000000000  Biso 1.0 N
+N8 1.0000000000 0.0000000000 0.5000000000 0.5000000000  Biso 1.0 N

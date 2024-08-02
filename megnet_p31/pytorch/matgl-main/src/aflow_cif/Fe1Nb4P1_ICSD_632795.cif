@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Fe1Nb4P1   [TET,TET,tP12] (STD_PRIM doi:
+data_Fe1Nb4P1
+_pd_phase_name Fe1Nb4P1
+_cell_length_a  6.0941913264
+_cell_length_b  6.0941913264
+_cell_length_c  5.1912435404
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Fe1 1.0000000000 0.0000000000 0.0000000000 0.2500000000  Biso 1.0 Fe
+Fe2 1.0000000000 0.0000000000 0.0000000000 0.7500000000  Biso 1.0 Fe
+Nb3 1.0000000000 0.1592758079 0.6698073408 0.0000000000  Biso 1.0 Nb
+Nb4 1.0000000000 0.8407241921 0.3301926592 0.0000000000  Biso 1.0 Nb
+Nb5 1.0000000000 0.3301926592 0.1592758079 0.0000000000  Biso 1.0 Nb
+Nb6 1.0000000000 0.6698073408 0.8407241921 0.0000000000  Biso 1.0 Nb
+Nb7 1.0000000000 0.8407241921 0.6698073408 0.5000000000  Biso 1.0 Nb
+Nb8 1.0000000000 0.1592758079 0.3301926592 0.5000000000  Biso 1.0 Nb
+Nb9 1.0000000000 0.6698073408 0.1592758079 0.5000000000  Biso 1.0 Nb
+Nb10 1.0000000000 0.3301926592 0.8407241921 0.5000000000  Biso 1.0 Nb
+P11 1.0000000000 0.5000000000 0.5000000000 0.2500000000  Biso 1.0 P
+P12 1.0000000000 0.5000000000 0.5000000000 0.7500000000  Biso 1.0 P

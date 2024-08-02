@@ -1,0 +1,32 @@
+# AFLOW.org Repositories
+# F6S1   [BCC,BCC,cI14] (STD_PRIM doi:10.1
+data_F6S1
+_pd_phase_name F6S1
+_cell_length_a  5.2455294922
+_cell_length_b  5.2455294922
+_cell_length_c  5.2455294922
+_cell_angle_alpha  109.4712206345
+_cell_angle_beta  109.4712206345
+_cell_angle_gamma  109.4712206345
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+F1 1.0000000000 0.2637678506 0.2637678506 0.0000000000  Biso 1.0 F
+F2 1.0000000000 0.7362321494 0.7362321494 0.0000000000  Biso 1.0 F
+F3 1.0000000000 0.2637678506 0.0000000000 0.2637678506  Biso 1.0 F
+F4 1.0000000000 0.7362321494 0.0000000000 0.7362321494  Biso 1.0 F
+F5 1.0000000000 0.0000000000 0.7362321494 0.7362321494  Biso 1.0 F
+F6 1.0000000000 0.0000000000 0.2637678506 0.2637678506  Biso 1.0 F
+S7 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 S

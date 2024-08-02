@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Pd1Tb1 #62 - (Pd1Tb1_ICSD_648983) - Pd1T
+data_Pd1Tb1
+_pd_phase_name Pd1Tb1
+_cell_length_a  4.6104396580
+_cell_length_b  5.5661696840
+_cell_length_c  6.9871795741
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Pd1 1.0000000000 0.7500000000 0.3440010256 0.0423437612  Biso 1.0 Pd
+Pd2 1.0000000000 0.2500000000 0.8440010256 0.4576562388  Biso 1.0 Pd
+Pd3 1.0000000000 0.2500000000 0.6559989744 0.9576562388  Biso 1.0 Pd
+Pd4 1.0000000000 0.7500000000 0.1559989744 0.5423437612  Biso 1.0 Pd
+Tb5 1.0000000000 0.7500000000 0.8549369537 0.1836461399  Biso 1.0 Tb
+Tb6 1.0000000000 0.2500000000 0.3549369537 0.3163538601  Biso 1.0 Tb
+Tb7 1.0000000000 0.2500000000 0.1450630463 0.8163538601  Biso 1.0 Tb
+Tb8 1.0000000000 0.7500000000 0.6450630463 0.6836461399  Biso 1.0 Tb

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Cu1La1 #62 - (Cu1La1_ICSD_628213) - Cu1L
+data_Cu1La1
+_pd_phase_name Cu1La1
+_cell_length_a  4.6378893440
+_cell_length_b  5.7870207690
+_cell_length_c  7.6089409942
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cu1 1.0000000000 0.7500000000 0.3886936237 0.0343250282  Biso 1.0 Cu
+Cu2 1.0000000000 0.2500000000 0.8886936237 0.4656749718  Biso 1.0 Cu
+Cu3 1.0000000000 0.2500000000 0.6113063763 0.9656749718  Biso 1.0 Cu
+Cu4 1.0000000000 0.7500000000 0.1113063763 0.5343250282  Biso 1.0 Cu
+La5 1.0000000000 0.7500000000 0.8833379119 0.1778086458  Biso 1.0 La
+La6 1.0000000000 0.2500000000 0.3833379119 0.3221913542  Biso 1.0 La
+La7 1.0000000000 0.2500000000 0.1166620881 0.8221913542  Biso 1.0 La
+La8 1.0000000000 0.7500000000 0.6166620881 0.6778086458  Biso 1.0 La

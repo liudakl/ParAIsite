@@ -1,0 +1,34 @@
+# AFLOW.org Repositories
+# Ce1Ga1Ni1   [HEX,HEX,hP9] (STD_PRIM doi:
+data_Ce1Ga1Ni1
+_pd_phase_name Ce1Ga1Ni1
+_cell_length_a  6.8955730811
+_cell_length_b  6.8955730811
+_cell_length_c  3.9566756909
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ce1 1.0000000000 0.0000000000 0.4201246638 0.5000000000  Biso 1.0 Ce
+Ce2 1.0000000000 0.5798753362 0.5798753362 0.5000000000  Biso 1.0 Ce
+Ce3 1.0000000000 0.4201179592 0.0000000000 0.5000000000  Biso 1.0 Ce
+Ga4 1.0000000000 0.0000000000 0.7634802449 0.0000000000  Biso 1.0 Ga
+Ga5 1.0000000000 0.2365197551 0.2365197551 0.0000000000  Biso 1.0 Ga
+Ga6 1.0000000000 0.7634927554 0.0000000000 0.0000000000  Biso 1.0 Ga
+Ni7 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Ni
+Ni8 1.0000000000 0.6667020580 0.3333807414 0.0000000000  Biso 1.0 Ni
+Ni9 1.0000000000 0.3333213165 0.6666192586 0.0000000000  Biso 1.0 Ni

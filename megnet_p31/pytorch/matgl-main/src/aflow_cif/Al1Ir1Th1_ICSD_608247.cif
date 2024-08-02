@@ -1,0 +1,34 @@
+# AFLOW.org Repositories
+# Al1Ir1Th1   [HEX,HEX,hP9] (STD_PRIM doi:
+data_Al1Ir1Th1
+_pd_phase_name Al1Ir1Th1
+_cell_length_a  7.3455560569
+_cell_length_b  7.3455560569
+_cell_length_c  4.1924683513
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Al1 1.0000000000 0.7723918955 0.7723918955 0.0000000000  Biso 1.0 Al
+Al2 1.0000000000 0.2276092909 0.0000000000 0.0000000000  Biso 1.0 Al
+Al3 1.0000000000 0.0000000000 0.2276095758 0.0000000000  Biso 1.0 Al
+Ir4 1.0000000000 0.3333555897 0.6666760562 0.0000000000  Biso 1.0 Ir
+Ir5 1.0000000000 0.6666444103 0.3333204666 0.0000000000  Biso 1.0 Ir
+Ir6 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Ir
+Th7 1.0000000000 0.4154258166 0.4154258166 0.5000000000  Biso 1.0 Th
+Th8 1.0000000000 0.5845717309 0.0000000000 0.5000000000  Biso 1.0 Th
+Th9 1.0000000000 0.0000000000 0.5845726674 0.5000000000  Biso 1.0 Th

@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# Au1Sn4   [ORCC,ORCC,oS20] (STD_PRIM doi:
+data_Au1Sn4
+_pd_phase_name Au1Sn4
+_cell_length_a  6.9043559298
+_cell_length_b  6.9043559298
+_cell_length_c  6.7149011510
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  121.7005559361
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Au1 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Au
+Au2 1.0000000000 0.5000000000 0.5000000000 0.5000000000  Biso 1.0 Au
+Sn3 1.0000000000 0.5332864798 0.7927898915 0.8308594347  Biso 1.0 Sn
+Sn4 1.0000000000 0.2072101085 0.4667135202 0.1691405653  Biso 1.0 Sn
+Sn5 1.0000000000 0.7072101085 0.9667135202 0.3308594347  Biso 1.0 Sn
+Sn6 1.0000000000 0.0332864798 0.2927898915 0.6691405653  Biso 1.0 Sn
+Sn7 1.0000000000 0.9667135202 0.7072101085 0.6691405653  Biso 1.0 Sn
+Sn8 1.0000000000 0.2927898915 0.0332864798 0.3308594347  Biso 1.0 Sn
+Sn9 1.0000000000 0.7927898915 0.5332864798 0.1691405653  Biso 1.0 Sn
+Sn10 1.0000000000 0.4667135202 0.2072101085 0.8308594347  Biso 1.0 Sn

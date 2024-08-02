@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Ag2S1   [ORC,ORC,oP12] (STD_PRIM doi:10.
+data_Ag2S1
+_pd_phase_name Ag2S1
+_cell_length_a  4.2495378125
+_cell_length_b  6.9655769501
+_cell_length_c  7.7136163174
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ag1 1.0000000000 0.2245707137 0.0270324544 0.6041458205  Biso 1.0 Ag
+Ag2 1.0000000000 0.7754292863 0.4729675456 0.1041458205  Biso 1.0 Ag
+Ag3 1.0000000000 0.7245707137 0.9729675456 0.8958541795  Biso 1.0 Ag
+Ag4 1.0000000000 0.2754292863 0.5270324544 0.3958541795  Biso 1.0 Ag
+Ag5 1.0000000000 0.3712171003 0.1400350498 0.1976318959  Biso 1.0 Ag
+Ag6 1.0000000000 0.6287828997 0.3599649502 0.6976318959  Biso 1.0 Ag
+Ag7 1.0000000000 0.8712171003 0.8599649502 0.3023681041  Biso 1.0 Ag
+Ag8 1.0000000000 0.1287828997 0.6400350498 0.8023681041  Biso 1.0 Ag
+S9 1.0000000000 0.1385441478 0.2521757810 0.8925441957  Biso 1.0 S
+S10 1.0000000000 0.8614558522 0.2478242190 0.3925441957  Biso 1.0 S
+S11 1.0000000000 0.6385441478 0.7478242190 0.6074558043  Biso 1.0 S
+S12 1.0000000000 0.3614558522 0.7521757810 0.1074558043  Biso 1.0 S

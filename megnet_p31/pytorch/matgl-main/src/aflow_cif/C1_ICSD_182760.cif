@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# C1   [MCLC,MCLC1,mS16] (STD_PRIM doi:10.
+data_C1
+_pd_phase_name C1
+_cell_length_a  4.7662742234
+_cell_length_b  4.7662742234
+_cell_length_c  4.1487432635
+_cell_angle_alpha  83.2231888859
+_cell_angle_beta  83.2231888859
+_cell_angle_gamma  30.7169726465
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+C1 1.0000000000 0.9427124082 0.9427124082 0.8795503550  Biso 1.0 C
+C2 1.0000000000 0.0572875918 0.0572875918 0.1204496450  Biso 1.0 C
+C3 1.0000000000 0.4417839844 0.4417839844 0.6536461545  Biso 1.0 C
+C4 1.0000000000 0.5582160156 0.5582160156 0.3463538455  Biso 1.0 C
+C5 1.0000000000 0.7856780917 0.7856780917 0.0592388112  Biso 1.0 C
+C6 1.0000000000 0.2143219083 0.2143219083 0.9407611888  Biso 1.0 C
+C7 1.0000000000 0.2713336526 0.2713336526 0.5853465124  Biso 1.0 C
+C8 1.0000000000 0.7286663474 0.7286663474 0.4146534876  Biso 1.0 C

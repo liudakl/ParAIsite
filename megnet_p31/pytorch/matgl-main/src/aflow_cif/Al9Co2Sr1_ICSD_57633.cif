@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Al9Co2Sr1   [HEX,HEX,hP12] (STD_PRIM doi
+data_Al9Co2Sr1
+_pd_phase_name Al9Co2Sr1
+_cell_length_a  7.8536979480
+_cell_length_b  7.8536979480
+_cell_length_c  3.8779199987
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Al1 1.0000000000 0.0000000000 0.5000000000 0.0000000000  Biso 1.0 Al
+Al2 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Al
+Al3 1.0000000000 0.5000000000 0.0000000000 0.0000000000  Biso 1.0 Al
+Al4 1.0000000000 0.4285112531 0.2142548173 0.5000000000  Biso 1.0 Al
+Al5 1.0000000000 0.7857435642 0.2142548173 0.5000000000  Biso 1.0 Al
+Al6 1.0000000000 0.7857479446 0.5714958892 0.5000000000  Biso 1.0 Al
+Al7 1.0000000000 0.5714887469 0.7857451827 0.5000000000  Biso 1.0 Al
+Al8 1.0000000000 0.2142564358 0.7857451827 0.5000000000  Biso 1.0 Al
+Al9 1.0000000000 0.2142520554 0.4285041108 0.5000000000  Biso 1.0 Al
+Co10 1.0000000000 0.6666666726 0.3333333453 0.0000000000  Biso 1.0 Co
+Co11 1.0000000000 0.3333333274 0.6666666547 0.0000000000  Biso 1.0 Co
+Sr12 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Sr

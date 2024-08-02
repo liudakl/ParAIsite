@@ -1,0 +1,32 @@
+# AFLOW.org Repositories
+# Cl4K2Mg1   [BCT,BCT2,tI14] (STD_PRIM doi
+data_Cl4K2Mg1
+_pd_phase_name Cl4K2Mg1
+_cell_length_a  8.6405841341
+_cell_length_b  8.6405841341
+_cell_length_c  8.6405841341
+_cell_angle_alpha  146.3380625849
+_cell_angle_beta  146.3380625849
+_cell_angle_gamma  48.3448986677
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cl1 1.0000000000 0.5000000000 0.0000000000 0.5000000000  Biso 1.0 Cl
+Cl2 1.0000000000 0.0000000000 0.5000000000 0.5000000000  Biso 1.0 Cl
+Cl3 1.0000000000 0.1596592175 0.1596592175 0.0000000000  Biso 1.0 Cl
+Cl4 1.0000000000 0.8403407825 0.8403407825 0.0000000000  Biso 1.0 Cl
+K5 1.0000000000 0.3572105632 0.3572105632 0.0000000000  Biso 1.0 K
+K6 1.0000000000 0.6427894368 0.6427894368 0.0000000000  Biso 1.0 K
+Mg7 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Mg

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# As2Ge1Zn1   [BCT,BCT2,tI16] (STD_PRIM do
+data_As2Ge1Zn1
+_pd_phase_name As2Ge1Zn1
+_cell_length_a  6.9700997620
+_cell_length_b  6.9700997620
+_cell_length_c  6.9700997620
+_cell_angle_alpha  131.3387533658
+_cell_angle_beta  131.3387533658
+_cell_angle_gamma  71.2754206899
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+As1 1.0000000000 0.8761138022 0.3750000000 0.0011138022  Biso 1.0 As
+As2 1.0000000000 0.3738861978 0.8750000000 0.9988861978  Biso 1.0 As
+As3 1.0000000000 0.6250000000 0.6261138022 0.5011138022  Biso 1.0 As
+As4 1.0000000000 0.1250000000 0.1238861978 0.4988861978  Biso 1.0 As
+Ge5 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Ge
+Ge6 1.0000000000 0.7500000000 0.2500000000 0.5000000000  Biso 1.0 Ge
+Zn7 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Zn
+Zn8 1.0000000000 0.2500000000 0.7500000000 0.5000000000  Biso 1.0 Zn

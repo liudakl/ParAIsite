@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# Cl4U1   [BCT,BCT1,tI20] (STD_PRIM doi:10
+data_Cl4U1
+_pd_phase_name Cl4U1
+_cell_length_a  7.1118663155
+_cell_length_b  7.1118663155
+_cell_length_c  7.1118663155
+_cell_angle_alpha  107.2639208524
+_cell_angle_beta  107.2639208524
+_cell_angle_gamma  113.9821988534
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cl1 1.0000000000 0.9309521135 0.6201660470 0.6892139335  Biso 1.0 Cl
+Cl2 1.0000000000 0.9309521135 0.2417381800 0.3107860665  Biso 1.0 Cl
+Cl3 1.0000000000 0.8701660470 0.6809521135 0.1892139335  Biso 1.0 Cl
+Cl4 1.0000000000 0.4917381800 0.6809521135 0.8107860665  Biso 1.0 Cl
+Cl5 1.0000000000 0.3190478865 0.5082618200 0.1892139335  Biso 1.0 Cl
+Cl6 1.0000000000 0.3190478865 0.1298339530 0.8107860665  Biso 1.0 Cl
+Cl7 1.0000000000 0.3798339530 0.0690478865 0.3107860665  Biso 1.0 Cl
+Cl8 1.0000000000 0.7582618200 0.0690478865 0.6892139335  Biso 1.0 Cl
+U9 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 U
+U10 1.0000000000 0.2500000000 0.7500000000 0.5000000000  Biso 1.0 U

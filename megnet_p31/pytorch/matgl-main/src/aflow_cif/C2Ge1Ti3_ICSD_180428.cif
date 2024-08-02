@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# C2Ge1Ti3   [HEX,HEX,hP12] (STD_PRIM doi:
+data_C2Ge1Ti3
+_pd_phase_name C2Ge1Ti3
+_cell_length_a  3.1449342147
+_cell_length_b  3.1449342147
+_cell_length_c  18.0647512430
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+C1 1.0000000000 0.3333309988 0.6666654994 0.5720127267  Biso 1.0 C
+C2 1.0000000000 0.6666690012 0.3333345006 0.0720127267  Biso 1.0 C
+C3 1.0000000000 0.6666690012 0.3333345006 0.4279872733  Biso 1.0 C
+C4 1.0000000000 0.3333309988 0.6666654994 0.9279872733  Biso 1.0 C
+Ge5 1.0000000000 0.0000000000 0.0000000000 0.2500000000  Biso 1.0 Ge
+Ge6 1.0000000000 0.0000000000 0.0000000000 0.7500000000  Biso 1.0 Ge
+Ti7 1.0000000000 0.3333456420 0.6666728210 0.1337554844  Biso 1.0 Ti
+Ti8 1.0000000000 0.6666543580 0.3333271790 0.6337554844  Biso 1.0 Ti
+Ti9 1.0000000000 0.6666543580 0.3333271790 0.8662445156  Biso 1.0 Ti
+Ti10 1.0000000000 0.3333456420 0.6666728210 0.3662445156  Biso 1.0 Ti
+Ti11 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Ti
+Ti12 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Ti

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Au1O2Sc1   [HEX,HEX,hP8] (STD_PRIM doi:1
+data_Au1O2Sc1
+_pd_phase_name Au1O2Sc1
+_cell_length_a  3.3148690098
+_cell_length_b  3.3148690098
+_cell_length_c  12.3177247250
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Au1 1.0000000000 0.6666884201 0.3333768402 0.2500000000  Biso 1.0 Au
+Au2 1.0000000000 0.3333115799 0.6666231598 0.7500000000  Biso 1.0 Au
+O3 1.0000000000 0.6666721181 0.3333442361 0.0819338432  Biso 1.0 O
+O4 1.0000000000 0.3333278819 0.6666557639 0.5819338432  Biso 1.0 O
+O5 1.0000000000 0.3333278819 0.6666557639 0.9180661568  Biso 1.0 O
+O6 1.0000000000 0.6666721181 0.3333442361 0.4180661568  Biso 1.0 O
+Sc7 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Sc
+Sc8 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Sc

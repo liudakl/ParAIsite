@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# B1N1 #14.1 - (B1N1_ICSD_162883) - B1N1 [
+data_B1N1
+_pd_phase_name B1N1
+_cell_length_a  4.9229334725
+_cell_length_b  4.3269366588
+_cell_length_c  4.2530324348
+_cell_angle_alpha  70.0210865103
+_cell_angle_beta  55.6939671641
+_cell_angle_gamma  54.2849463256
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+B1 1.0000000000 0.5251401791 0.0249672318 0.7249182493  Biso 1.0 B
+B2 1.0000000000 0.2249743398 0.7249182493 0.0249672318  Biso 1.0 B
+B3 1.0000000000 0.4748598209 0.9750327682 0.2750817507  Biso 1.0 B
+B4 1.0000000000 0.7750256602 0.2750817507 0.9750327682  Biso 1.0 B
+N5 1.0000000000 0.1975824075 0.0521427116 0.6976011256  Biso 1.0 N
+N6 1.0000000000 0.5526737553 0.6976011256 0.0521427116  Biso 1.0 N
+N7 1.0000000000 0.8024175925 0.9478572884 0.3023988744  Biso 1.0 N
+N8 1.0000000000 0.4473262447 0.3023988744 0.9478572884  Biso 1.0 N

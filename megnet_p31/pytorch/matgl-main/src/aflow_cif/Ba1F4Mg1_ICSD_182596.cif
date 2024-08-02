@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Ba1F4Mg1   [ORCC,ORCC,oS24] (STD_PRIM do
+data_Ba1F4Mg1
+_pd_phase_name Ba1F4Mg1
+_cell_length_a  7.7417284860
+_cell_length_b  7.7417284860
+_cell_length_c  5.9499848032
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  148.8602429902
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ba1 1.0000000000 0.1511188587 0.8488811413 0.5519907844  Biso 1.0 Ba
+Ba2 1.0000000000 0.8488811413 0.1511188587 0.0519907844  Biso 1.0 Ba
+F3 1.0000000000 0.6605782501 0.3394217499 0.2766477619  Biso 1.0 F
+F4 1.0000000000 0.3394217499 0.6605782501 0.7766477619  Biso 1.0 F
+F5 1.0000000000 0.6955012676 0.3044987324 0.8215626443  Biso 1.0 F
+F6 1.0000000000 0.3044987324 0.6955012676 0.3215626443  Biso 1.0 F
+F7 1.0000000000 0.5280340085 0.4719659915 0.6904296050  Biso 1.0 F
+F8 1.0000000000 0.4719659915 0.5280340085 0.1904296050  Biso 1.0 F
+F9 1.0000000000 0.0775727836 0.9224272164 0.9928755627  Biso 1.0 F
+F10 1.0000000000 0.9224272164 0.0775727836 0.4928755627  Biso 1.0 F
+Mg11 1.0000000000 0.5831746691 0.4168253309 0.0082936418  Biso 1.0 Mg
+Mg12 1.0000000000 0.4168253309 0.5831746691 0.5082936418  Biso 1.0 Mg

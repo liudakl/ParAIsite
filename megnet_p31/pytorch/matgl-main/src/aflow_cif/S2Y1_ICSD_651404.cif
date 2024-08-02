@@ -1,0 +1,31 @@
+# AFLOW.org Repositories
+# S2Y1 #129.2 - (S2Y1_ICSD_651404) - S2Y1 
+data_S2Y1
+_pd_phase_name S2Y1
+_cell_length_a  3.8691469855
+_cell_length_b  3.8691469855
+_cell_length_c  7.9820550974
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+S1 1.0000000000 0.7500000000 0.2500000000 0.0000000000  Biso 1.0 S
+S2 1.0000000000 0.2500000000 0.7500000000 0.0000000000  Biso 1.0 S
+S3 1.0000000000 0.2500000000 0.2500000000 0.6315284576  Biso 1.0 S
+S4 1.0000000000 0.7500000000 0.7500000000 0.3684715424  Biso 1.0 S
+Y5 1.0000000000 0.2500000000 0.2500000000 0.2735655657  Biso 1.0 Y
+Y6 1.0000000000 0.7500000000 0.7500000000 0.7264344343  Biso 1.0 Y

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Ga2Ho1Pd1 #63 - (Ga2Ho1Pd1_ICSD_600151) 
+data_Ga2Ho1Pd1
+_pd_phase_name Ga2Ho1Pd1
+_cell_length_a  5.5004472277
+_cell_length_b  5.5004472277
+_cell_length_c  6.6338387525
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  132.5969187382
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ga1 1.0000000000 0.1274696367 0.8725303633 0.9469804618  Biso 1.0 Ga
+Ga2 1.0000000000 0.8725303633 0.1274696367 0.4469804618  Biso 1.0 Ga
+Ga3 1.0000000000 0.1274696367 0.8725303633 0.5530195382  Biso 1.0 Ga
+Ga4 1.0000000000 0.8725303633 0.1274696367 0.0530195382  Biso 1.0 Ga
+Ho5 1.0000000000 0.4121117416 0.5878882584 0.7500000000  Biso 1.0 Ho
+Ho6 1.0000000000 0.5878882584 0.4121117416 0.2500000000  Biso 1.0 Ho
+Pd7 1.0000000000 0.7010979206 0.2989020794 0.7500000000  Biso 1.0 Pd
+Pd8 1.0000000000 0.2989020794 0.7010979206 0.2500000000  Biso 1.0 Pd

@@ -49,9 +49,73 @@ Go to the project directory
   cd https://github.com/liudakl/fine_tuning_papers/tree/main/paper/megnet_p31/pytorch/matgl-main/src
 ```
 
+If you would like to reproduce training, please do: 
+
+```bash
+  python 3.10 ParAIsite_train.py
+```
+Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are. 
+
+If you would like to reproduce training on AFLOW and after additional train on another datasets, please do: 
+
+```bash
+  python 3.10 ParAIsite_double_train.py
+```
+Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are. 
+
+
 ### Which data ParAIsite expects you to have before the execution it? 
 
-- Requires targets and inputs (structure of compounds) in pkl format
+- Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format; For the datasets: AFLOW, L96, MIX and HH143 they are avaible in *structure_scaler* folder. 
+
+## How to test ParAIsite on Data? 
+
+If you would like to test your model on datasets, please do: 
+
+```bash
+  python 3.10 test_model.py
+```
+Please keep in mind that you need to select in the script on which model and on which dataset you would like perform test. 
+
+
+# ParAIsite Training and Testing Results
+
+## Training Results
+| Dataset | Validation Error (Mean ± Std) |
+|---------|-------------------------------|
+| L96     | 0.47 (0.20)                   |
+| HH143   | 0.34 (0.07)                   |
+| MIX     | 0.50 (0.11)                   |
+
+## Testing Results
+
+### Test Trained ParAIsite on L96
+| Tested on | Error (Mean ± Std)                |
+|-----------|-----------------------------------|
+| HH143     | 1.45 (0.47)                       |
+| MIX       | 1.01 (0.24)                       |
+| L96 (validation set) | 0.47 (0.20)            |
+| L96 (full set)       | 0.34 (0.19)            |
+
+### Test Trained ParAIsite on HH143
+| Tested on | Error (Mean ± Std)                |
+|-----------|-----------------------------------|
+| L96       | 0.97 (0.08)                       |
+| MIX       | 0.52 (0.06)                       |
+| HH143 (validation set) | 0.34 (0.07)          |
+| HH143 (full set)       | 0.22 (0.10)          |
+
+### Test Trained ParAIsite on MIX
+| Tested on | Error (Mean ± Std)                |
+|-----------|-----------------------------------|
+| L96       | 0.47 (0.21)                       |
+| HH143     | 0.27 (0.11)                       |
+| MIX (validation set) | 0.50 (0.11)            |
+| MIX (full set)       | 0.35 (0.15)            |
+
+
+
+
 
 
 

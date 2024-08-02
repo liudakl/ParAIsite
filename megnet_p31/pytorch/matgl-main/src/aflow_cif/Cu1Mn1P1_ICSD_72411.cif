@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Cu1Mn1P1   [ORC,ORC,oP12] (STD_PRIM doi:
+data_Cu1Mn1P1
+_pd_phase_name Cu1Mn1P1
+_cell_length_a  3.8212093984
+_cell_length_b  6.4946007970
+_cell_length_c  7.2244755502
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Cu1 1.0000000000 0.2500000000 0.6291397293 0.9386332452  Biso 1.0 Cu
+Cu2 1.0000000000 0.7500000000 0.8708602707 0.4386332452  Biso 1.0 Cu
+Cu3 1.0000000000 0.7500000000 0.3708602707 0.0613667548  Biso 1.0 Cu
+Cu4 1.0000000000 0.2500000000 0.1291397293 0.5613667548  Biso 1.0 Cu
+Mn5 1.0000000000 0.2500000000 0.5355226842 0.3218802388  Biso 1.0 Mn
+Mn6 1.0000000000 0.7500000000 0.9644773158 0.8218802388  Biso 1.0 Mn
+Mn7 1.0000000000 0.7500000000 0.4644773158 0.6781197612  Biso 1.0 Mn
+Mn8 1.0000000000 0.2500000000 0.0355226842 0.1781197612  Biso 1.0 Mn
+P9 1.0000000000 0.2500000000 0.2539008931 0.8760425289  Biso 1.0 P
+P10 1.0000000000 0.7500000000 0.2460991069 0.3760425289  Biso 1.0 P
+P11 1.0000000000 0.7500000000 0.7460991069 0.1239574711  Biso 1.0 P
+P12 1.0000000000 0.2500000000 0.7539008931 0.6239574711  Biso 1.0 P

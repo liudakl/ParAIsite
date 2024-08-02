@@ -1,0 +1,36 @@
+# AFLOW.org Repositories
+# Ca3Ir4Si4   [BCC,BCC,cI22] (STD_PRIM doi
+data_Ca3Ir4Si4
+_pd_phase_name Ca3Ir4Si4
+_cell_length_a  6.4346459866
+_cell_length_b  6.4346459866
+_cell_length_c  6.4346459866
+_cell_angle_alpha  109.4712206345
+_cell_angle_beta  109.4712206345
+_cell_angle_gamma  109.4712206345
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ca1 1.0000000000 0.5000000000 0.0000000000 0.5000000000  Biso 1.0 Ca
+Ca2 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Ca
+Ca3 1.0000000000 0.0000000000 0.5000000000 0.5000000000  Biso 1.0 Ca
+Ir4 1.0000000000 0.7193990787 0.0000000000 0.0000000000  Biso 1.0 Ir
+Ir5 1.0000000000 0.2806009213 0.2806009213 0.2806009213  Biso 1.0 Ir
+Ir6 1.0000000000 0.0000000000 0.7193990787 0.0000000000  Biso 1.0 Ir
+Ir7 1.0000000000 0.0000000000 0.0000000000 0.7193990787  Biso 1.0 Ir
+Si8 1.0000000000 0.3642902033 0.0000000000 0.0000000000  Biso 1.0 Si
+Si9 1.0000000000 0.6357097967 0.6357097967 0.6357097967  Biso 1.0 Si
+Si10 1.0000000000 0.0000000000 0.3642902033 0.0000000000  Biso 1.0 Si
+Si11 1.0000000000 0.0000000000 0.0000000000 0.3642902033  Biso 1.0 Si

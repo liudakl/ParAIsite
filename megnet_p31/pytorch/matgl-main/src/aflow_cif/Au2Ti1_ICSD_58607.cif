@@ -1,0 +1,28 @@
+# AFLOW.org Repositories
+# Au2Ti1   [BCT,BCT2,tI6] (STD_PRIM doi:10
+data_Au2Ti1
+_pd_phase_name Au2Ti1
+_cell_length_a  5.0515770083
+_cell_length_b  5.0515770083
+_cell_length_c  5.0515770083
+_cell_angle_alpha  139.3293204208
+_cell_angle_beta  139.3293204208
+_cell_angle_gamma  58.8730600462
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Au1 1.0000000000 0.8357508863 0.8357508863 0.0000000000  Biso 1.0 Au
+Au2 1.0000000000 0.1642491137 0.1642491137 0.0000000000  Biso 1.0 Au
+Ti3 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Ti

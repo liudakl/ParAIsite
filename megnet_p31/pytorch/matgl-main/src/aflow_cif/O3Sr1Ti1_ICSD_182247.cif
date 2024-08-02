@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# O3Sr1Ti1   [BCT,BCT2,tI20] (STD_PRIM doi
+data_O3Sr1Ti1
+_pd_phase_name O3Sr1Ti1
+_cell_length_a  5.6144123720
+_cell_length_b  5.6144123720
+_cell_length_c  5.6144123720
+_cell_angle_alpha  120.1627463892
+_cell_angle_beta  120.1627463892
+_cell_angle_gamma  89.7183453669
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+O1 1.0000000000 0.7500003484 0.7500003484 0.0000000000  Biso 1.0 O
+O2 1.0000000000 0.2499996516 0.2499996516 0.0000000000  Biso 1.0 O
+O3 1.0000000000 0.7257543343 0.7742462452 0.5000005795  Biso 1.0 O
+O4 1.0000000000 0.2742456657 0.2257537548 0.4999994205  Biso 1.0 O
+O5 1.0000000000 0.2257488076 0.7257494470 0.9514982545  Biso 1.0 O
+O6 1.0000000000 0.7742511924 0.2742505530 0.0485017455  Biso 1.0 O
+Sr7 1.0000000000 0.2499947186 0.7499947186 0.5000000000  Biso 1.0 Sr
+Sr8 1.0000000000 0.7500052814 0.2500052814 0.5000000000  Biso 1.0 Sr
+Ti9 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Ti
+Ti10 1.0000000000 0.5000000000 0.5000000000 0.0000000000  Biso 1.0 Ti

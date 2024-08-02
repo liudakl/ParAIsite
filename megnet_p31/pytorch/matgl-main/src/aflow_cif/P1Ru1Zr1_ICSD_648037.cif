@@ -1,0 +1,34 @@
+# AFLOW.org Repositories
+# P1Ru1Zr1 #189 - (P1Ru1Zr1_ICSD_648037) -
+data_P1Ru1Zr1
+_pd_phase_name P1Ru1Zr1
+_cell_length_a  6.4915767719
+_cell_length_b  6.4915767719
+_cell_length_c  3.8004170740
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+P1 1.0000000000 0.6666661476 0.3333342079 0.0000000000  Biso 1.0 P
+P2 1.0000000000 0.3333319397 0.6666657921 0.0000000000  Biso 1.0 P
+P3 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 P
+Ru4 1.0000000000 0.0000000000 0.7554548788 0.0000000000  Biso 1.0 Ru
+Ru5 1.0000000000 0.2445451212 0.2445451212 0.0000000000  Biso 1.0 Ru
+Ru6 1.0000000000 0.7554481515 0.0000000000 0.0000000000  Biso 1.0 Ru
+Zr7 1.0000000000 0.0000000000 0.4143269729 0.5000000000  Biso 1.0 Zr
+Zr8 1.0000000000 0.5856730271 0.5856730271 0.5000000000  Biso 1.0 Zr
+Zr9 1.0000000000 0.4143351210 0.0000000000 0.5000000000  Biso 1.0 Zr

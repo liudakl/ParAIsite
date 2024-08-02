@@ -1,0 +1,31 @@
+# AFLOW.org Repositories
+# Si2Zr1   [ORCC,ORCC,oS12] (STD_PRIM doi:
+data_Si2Zr1
+_pd_phase_name Si2Zr1
+_cell_length_a  7.6351431633
+_cell_length_b  7.6351431633
+_cell_length_c  3.6802743555
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  151.9180978651
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Si1 1.0000000000 0.5530131351 0.4469868649 0.7500000000  Biso 1.0 Si
+Si2 1.0000000000 0.4469868649 0.5530131351 0.2500000000  Biso 1.0 Si
+Si3 1.0000000000 0.2502714942 0.7497285058 0.7500000000  Biso 1.0 Si
+Si4 1.0000000000 0.7497285058 0.2502714942 0.2500000000  Biso 1.0 Si
+Zr5 1.0000000000 0.8945156484 0.1054843516 0.7500000000  Biso 1.0 Zr
+Zr6 1.0000000000 0.1054843516 0.8945156484 0.2500000000  Biso 1.0 Zr

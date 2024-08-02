@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Hf2P1Sb1   [HEX,HEX,hP8] (STD_PRIM doi:1
+data_Hf2P1Sb1
+_pd_phase_name Hf2P1Sb1
+_cell_length_a  3.8065824998
+_cell_length_b  3.8065824998
+_cell_length_c  13.1997594379
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Hf1 1.0000000000 0.3333077450 0.6666922550 0.1019794966  Biso 1.0 Hf
+Hf2 1.0000000000 0.6666922550 0.3333077450 0.6019794966  Biso 1.0 Hf
+Hf3 1.0000000000 0.6666922550 0.3333077450 0.8980205034  Biso 1.0 Hf
+Hf4 1.0000000000 0.3333077450 0.6666922550 0.3980205034  Biso 1.0 Hf
+P5 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 P
+P6 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 P
+Sb7 1.0000000000 0.3333079311 0.6666920689 0.7500000000  Biso 1.0 Sb
+Sb8 1.0000000000 0.6666920689 0.3333079311 0.2500000000  Biso 1.0 Sb

@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# Sn4Sr1   [ORCC,ORCC,oS20] (STD_PRIM doi:
+data_Sn4Sr1
+_pd_phase_name Sn4Sr1
+_cell_length_a  9.1760347403
+_cell_length_b  9.1760347403
+_cell_length_c  7.2180725882
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  149.8008998071
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Sn1 1.0000000000 0.8047312812 0.1952687188 0.9578133146  Biso 1.0 Sn
+Sn2 1.0000000000 0.1952687188 0.8047312812 0.4578133146  Biso 1.0 Sn
+Sn3 1.0000000000 0.8047312812 0.1952687188 0.5421866854  Biso 1.0 Sn
+Sn4 1.0000000000 0.1952687188 0.8047312812 0.0421866854  Biso 1.0 Sn
+Sn5 1.0000000000 0.4102448145 0.5897551855 0.7500000000  Biso 1.0 Sn
+Sn6 1.0000000000 0.5897551855 0.4102448145 0.2500000000  Biso 1.0 Sn
+Sn7 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Sn
+Sn8 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Sn
+Sr9 1.0000000000 0.6121125405 0.3878874595 0.7500000000  Biso 1.0 Sr
+Sr10 1.0000000000 0.3878874595 0.6121125405 0.2500000000  Biso 1.0 Sr

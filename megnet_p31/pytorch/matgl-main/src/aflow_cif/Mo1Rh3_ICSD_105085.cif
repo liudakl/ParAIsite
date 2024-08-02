@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Mo1Rh3   [HEX,HEX,hP8] (STD_PRIM doi:10.
+data_Mo1Rh3
+_pd_phase_name Mo1Rh3
+_cell_length_a  5.5115357825
+_cell_length_b  5.5115357825
+_cell_length_c  4.3730137197
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Mo1 1.0000000000 0.3333614988 0.6666807494 0.2500000000  Biso 1.0 Mo
+Mo2 1.0000000000 0.6666385012 0.3333192506 0.7500000000  Biso 1.0 Mo
+Rh3 1.0000000000 0.8326002705 0.1674094066 0.2500000000  Biso 1.0 Rh
+Rh4 1.0000000000 0.8326002705 0.6651908639 0.2500000000  Biso 1.0 Rh
+Rh5 1.0000000000 0.3347979006 0.1673989503 0.2500000000  Biso 1.0 Rh
+Rh6 1.0000000000 0.1673997295 0.8325905934 0.7500000000  Biso 1.0 Rh
+Rh7 1.0000000000 0.1673997295 0.3348091361 0.7500000000  Biso 1.0 Rh
+Rh8 1.0000000000 0.6652020994 0.8326010497 0.7500000000  Biso 1.0 Rh

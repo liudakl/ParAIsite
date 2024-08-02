@@ -42,7 +42,7 @@ def restore_model (model_to_test,nRuns):
 
 
 
-dataset_name = 'HH143'    
+dataset_name = 'MIX'    
 model_to_test      = 'MIX'
 
 nRunsmax = 9

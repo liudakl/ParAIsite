@@ -1,0 +1,31 @@
+# AFLOW.org Repositories
+# Ag1Dy1Pb1   [HEX,HEX,hP6] (STD_PRIM doi:
+data_Ag1Dy1Pb1
+_pd_phase_name Ag1Dy1Pb1
+_cell_length_a  4.8328834464
+_cell_length_b  4.8328834464
+_cell_length_c  7.4659673369
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ag1 1.0000000000 0.3333292880 0.6666707120 0.8178953617  Biso 1.0 Ag
+Ag2 1.0000000000 0.6666707120 0.3333292880 0.3178953617  Biso 1.0 Ag
+Dy3 1.0000000000 0.0000000000 0.0000000000 0.0064078452  Biso 1.0 Dy
+Dy4 1.0000000000 0.0000000000 0.0000000000 0.5064078452  Biso 1.0 Dy
+Pb5 1.0000000000 0.3333511653 0.6666488347 0.2271967931  Biso 1.0 Pb
+Pb6 1.0000000000 0.6666488347 0.3333511653 0.7271967931  Biso 1.0 Pb

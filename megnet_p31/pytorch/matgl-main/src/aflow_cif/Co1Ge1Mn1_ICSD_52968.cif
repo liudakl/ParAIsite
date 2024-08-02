@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Co1Ge1Mn1 #62 - (Co1Ge1Mn1_ICSD_52968) -
+data_Co1Ge1Mn1
+_pd_phase_name Co1Ge1Mn1
+_cell_length_a  3.7840854087
+_cell_length_b  5.5699100715
+_cell_length_c  6.8558702625
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Co1 1.0000000000 0.2500000000 0.1532428971 0.4547844528  Biso 1.0 Co
+Co2 1.0000000000 0.7500000000 0.3467571029 0.9547844528  Biso 1.0 Co
+Co3 1.0000000000 0.7500000000 0.8467571029 0.5452155472  Biso 1.0 Co
+Co4 1.0000000000 0.2500000000 0.6532428971 0.0452155472  Biso 1.0 Co
+Ge5 1.0000000000 0.2500000000 0.7472461102 0.3707055420  Biso 1.0 Ge
+Ge6 1.0000000000 0.7500000000 0.7527538898 0.8707055420  Biso 1.0 Ge
+Ge7 1.0000000000 0.7500000000 0.2527538898 0.6292944580  Biso 1.0 Ge
+Ge8 1.0000000000 0.2500000000 0.2472461102 0.1292944580  Biso 1.0 Ge
+Mn9 1.0000000000 0.2500000000 0.0303643888 0.8165910800  Biso 1.0 Mn
+Mn10 1.0000000000 0.7500000000 0.4696356112 0.3165910800  Biso 1.0 Mn
+Mn11 1.0000000000 0.7500000000 0.9696356112 0.1834089200  Biso 1.0 Mn
+Mn12 1.0000000000 0.2500000000 0.5303643888 0.6834089200  Biso 1.0 Mn

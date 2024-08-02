@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Dy1Ga4Ni1   [ORCC,ORCC,oS24] (STD_PRIM d
+data_Dy1Ga4Ni1
+_pd_phase_name Dy1Ga4Ni1
+_cell_length_a  7.8950441526
+_cell_length_b  7.8950441526
+_cell_length_c  6.5427735830
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  150.0600599722
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Dy1 1.0000000000 0.3821263640 0.6178736360 0.7500000000  Biso 1.0 Dy
+Dy2 1.0000000000 0.6178736360 0.3821263640 0.2500000000  Biso 1.0 Dy
+Ga3 1.0000000000 0.0000000000 0.0000000000 0.0000000000  Biso 1.0 Ga
+Ga4 1.0000000000 0.0000000000 0.0000000000 0.5000000000  Biso 1.0 Ga
+Ga5 1.0000000000 0.5723267101 0.4276732899 0.7500000000  Biso 1.0 Ga
+Ga6 1.0000000000 0.4276732899 0.5723267101 0.2500000000  Biso 1.0 Ga
+Ga7 1.0000000000 0.1859458739 0.8140541261 0.9489117926  Biso 1.0 Ga
+Ga8 1.0000000000 0.8140541261 0.1859458739 0.4489117926  Biso 1.0 Ga
+Ga9 1.0000000000 0.1859458739 0.8140541261 0.5510882074  Biso 1.0 Ga
+Ga10 1.0000000000 0.8140541261 0.1859458739 0.0510882074  Biso 1.0 Ga
+Ni11 1.0000000000 0.7248160149 0.2751839851 0.7500000000  Biso 1.0 Ni
+Ni12 1.0000000000 0.2751839851 0.7248160149 0.2500000000  Biso 1.0 Ni

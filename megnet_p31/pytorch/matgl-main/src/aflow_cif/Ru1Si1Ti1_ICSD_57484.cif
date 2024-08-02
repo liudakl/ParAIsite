@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Ru1Si1Ti1   [ORC,ORC,oP12] (STD_PRIM doi
+data_Ru1Si1Ti1
+_pd_phase_name Ru1Si1Ti1
+_cell_length_a  4.0070534713
+_cell_length_b  6.2193287143
+_cell_length_c  7.1524670246
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ru1 1.0000000000 0.2500000000 0.1629608594 0.4428799071  Biso 1.0 Ru
+Ru2 1.0000000000 0.7500000000 0.3370391406 0.9428799071  Biso 1.0 Ru
+Ru3 1.0000000000 0.7500000000 0.8370391406 0.5571200929  Biso 1.0 Ru
+Ru4 1.0000000000 0.2500000000 0.6629608594 0.0571200929  Biso 1.0 Ru
+Si5 1.0000000000 0.2500000000 0.7804417064 0.3813441638  Biso 1.0 Si
+Si6 1.0000000000 0.7500000000 0.7195582936 0.8813441638  Biso 1.0 Si
+Si7 1.0000000000 0.7500000000 0.2195582936 0.6186558362  Biso 1.0 Si
+Si8 1.0000000000 0.2500000000 0.2804417064 0.1186558362  Biso 1.0 Si
+Ti9 1.0000000000 0.2500000000 0.0081168736 0.8077111767  Biso 1.0 Ti
+Ti10 1.0000000000 0.7500000000 0.4918831264 0.3077111767  Biso 1.0 Ti
+Ti11 1.0000000000 0.7500000000 0.9918831264 0.1922888233  Biso 1.0 Ti
+Ti12 1.0000000000 0.2500000000 0.5081168736 0.6922888233  Biso 1.0 Ti

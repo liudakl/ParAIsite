@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Au1La2   [ORC,ORC,oP12] (STD_PRIM doi:10
+data_Au1La2
+_pd_phase_name Au1La2
+_cell_length_a  5.2015084481
+_cell_length_b  7.5655759310
+_cell_length_c  9.6009005035
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Au1 1.0000000000 0.2500000000 0.2587818351 0.8999009541  Biso 1.0 Au
+Au2 1.0000000000 0.7500000000 0.2412181649 0.3999009541  Biso 1.0 Au
+Au3 1.0000000000 0.7500000000 0.7412181649 0.1000990459  Biso 1.0 Au
+Au4 1.0000000000 0.2500000000 0.7587818351 0.6000990459  Biso 1.0 Au
+La5 1.0000000000 0.2500000000 0.8525530015 0.9140626210  Biso 1.0 La
+La6 1.0000000000 0.7500000000 0.6474469985 0.4140626210  Biso 1.0 La
+La7 1.0000000000 0.7500000000 0.1474469985 0.0859373790  Biso 1.0 La
+La8 1.0000000000 0.2500000000 0.3525530015 0.5859373790  Biso 1.0 La
+La9 1.0000000000 0.2500000000 0.4902131664 0.1747530673  Biso 1.0 La
+La10 1.0000000000 0.7500000000 0.0097868336 0.6747530673  Biso 1.0 La
+La11 1.0000000000 0.7500000000 0.5097868336 0.8252469327  Biso 1.0 La
+La12 1.0000000000 0.2500000000 0.9902131664 0.3252469327  Biso 1.0 La

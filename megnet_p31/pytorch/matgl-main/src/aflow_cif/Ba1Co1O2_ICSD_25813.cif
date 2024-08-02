@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# Ba1Co1O2   [HEX,HEX,hP12] (STD_PRIM doi:
+data_Ba1Co1O2
+_pd_phase_name Ba1Co1O2
+_cell_length_a  5.9750640464
+_cell_length_b  5.9750640464
+_cell_length_c  6.8285444020
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Ba1 1.0000000000 0.3467333244 0.3467333244 0.8333201126  Biso 1.0 Ba
+Ba2 1.0000000000 0.6532689380 0.0000000000 0.1666516576  Biso 1.0 Ba
+Ba3 1.0000000000 0.0000000000 0.6532690649 0.4999867559  Biso 1.0 Ba
+Co4 1.0000000000 0.4175968453 0.4175968453 0.3333370108  Biso 1.0 Co
+Co5 1.0000000000 0.5824052435 0.0000000000 0.6666359054  Biso 1.0 Co
+Co6 1.0000000000 0.0000000000 0.5824143131 0.0000000000  Biso 1.0 Co
+O7 1.0000000000 0.7003906831 0.5754644933 0.1247078914  Biso 1.0 O
+O8 1.0000000000 0.4245432083 0.1249266930 0.4580514526  Biso 1.0 O
+O9 1.0000000000 0.8750722327 0.2996150352 0.7913568925  Biso 1.0 O
+O10 1.0000000000 0.2996059026 0.8750685648 0.8752650590  Biso 1.0 O
+O11 1.0000000000 0.5754551660 0.7003808699 0.5419199606  Biso 1.0 O
+O12 1.0000000000 0.1249258619 0.4245383061 0.2086151601  Biso 1.0 O

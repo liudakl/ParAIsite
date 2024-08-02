@@ -1,0 +1,29 @@
+# AFLOW.org Repositories
+# O1Zn1   [HEX,HEX,hP4] (STD_PRIM doi:10.1
+data_O1Zn1
+_pd_phase_name O1Zn1
+_cell_length_a  3.1980418232
+_cell_length_b  3.1980418232
+_cell_length_c  5.1302571555
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  120.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+O1 1.0000000000 0.3333198564 0.6666801436 0.3816684752  Biso 1.0 O
+O2 1.0000000000 0.6666801436 0.3333198564 0.8816684752  Biso 1.0 O
+Zn3 1.0000000000 0.3333202693 0.6666797307 0.0000000000  Biso 1.0 Zn
+Zn4 1.0000000000 0.6666797307 0.3333202693 0.5003315248  Biso 1.0 Zn

@@ -1,0 +1,37 @@
+# AFLOW.org Repositories
+# As1Ba1Pt1   [CUB,CUB,cP12] (STD_PRIM doi
+data_As1Ba1Pt1
+_pd_phase_name As1Ba1Pt1
+_cell_length_a  6.7962932490
+_cell_length_b  6.7962932490
+_cell_length_c  6.7962932490
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  90.0000000000
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+As1 1.0000000000 0.1706863648 0.1706863648 0.8293136352  Biso 1.0 As
+As2 1.0000000000 0.3293136352 0.8293136352 0.3293136352  Biso 1.0 As
+As3 1.0000000000 0.8293136352 0.6706863648 0.6706863648  Biso 1.0 As
+As4 1.0000000000 0.6706863648 0.3293136352 0.1706863648  Biso 1.0 As
+Ba5 1.0000000000 0.8880250073 0.8880250073 0.1119749927  Biso 1.0 Ba
+Ba6 1.0000000000 0.6119749927 0.1119749927 0.6119749927  Biso 1.0 Ba
+Ba7 1.0000000000 0.1119749927 0.3880250073 0.3880250073  Biso 1.0 Ba
+Ba8 1.0000000000 0.3880250073 0.6119749927 0.8880250073  Biso 1.0 Ba
+Pt9 1.0000000000 0.5960357552 0.5960357552 0.4039642448  Biso 1.0 Pt
+Pt10 1.0000000000 0.9039642448 0.4039642448 0.9039642448  Biso 1.0 Pt
+Pt11 1.0000000000 0.4039642448 0.0960357552 0.0960357552  Biso 1.0 Pt
+Pt12 1.0000000000 0.0960357552 0.9039642448 0.5960357552  Biso 1.0 Pt

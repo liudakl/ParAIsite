@@ -1,0 +1,35 @@
+# AFLOW.org Repositories
+# Na2Pd1Se2   [ORCC,ORCC,oS20] (STD_PRIM d
+data_Na2Pd1Se2
+_pd_phase_name Na2Pd1Se2
+_cell_length_a  5.7037098318
+_cell_length_b  5.7037098318
+_cell_length_c  11.4306622679
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  141.7204105445
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Na1 1.0000000000 0.5641848558 0.4358151442 0.8722591644  Biso 1.0 Na
+Na2 1.0000000000 0.4358151442 0.5641848558 0.3722591644  Biso 1.0 Na
+Na3 1.0000000000 0.1746352142 0.8253647858 0.5947845429  Biso 1.0 Na
+Na4 1.0000000000 0.8253647858 0.1746352142 0.0947845429  Biso 1.0 Na
+Pd5 1.0000000000 0.8649320030 0.1350679970 0.7508021579  Biso 1.0 Pd
+Pd6 1.0000000000 0.1350679970 0.8649320030 0.2508021579  Biso 1.0 Pd
+Se7 1.0000000000 0.2785802956 0.7214197044 0.8730080920  Biso 1.0 Se
+Se8 1.0000000000 0.7214197044 0.2785802956 0.3730080920  Biso 1.0 Se
+Se9 1.0000000000 0.4523402196 0.5476597804 0.6311460428  Biso 1.0 Se
+Se10 1.0000000000 0.5476597804 0.4523402196 0.1311460428  Biso 1.0 Se

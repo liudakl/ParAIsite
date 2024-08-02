@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# Be1Pd3   [ORCC,ORCC,oS16] (STD_PRIM doi:
+data_Be1Pd3
+_pd_phase_name Be1Pd3
+_cell_length_a  4.9728665058
+_cell_length_b  4.9728665058
+_cell_length_c  7.7063629002
+_cell_angle_alpha  90.0000000000
+_cell_angle_beta  90.0000000000
+_cell_angle_gamma  145.9792182064
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+Be1 1.0000000000 0.7414077665 0.2585922335 0.7500000000  Biso 1.0 Be
+Be2 1.0000000000 0.2585922335 0.7414077665 0.2500000000  Biso 1.0 Be
+Pd3 1.0000000000 0.4257526353 0.5742473647 0.7500000000  Biso 1.0 Pd
+Pd4 1.0000000000 0.5742473647 0.4257526353 0.2500000000  Biso 1.0 Pd
+Pd5 1.0000000000 0.1362443426 0.8637556574 0.9363945679  Biso 1.0 Pd
+Pd6 1.0000000000 0.8637556574 0.1362443426 0.4363945679  Biso 1.0 Pd
+Pd7 1.0000000000 0.1362443426 0.8637556574 0.5636054321  Biso 1.0 Pd
+Pd8 1.0000000000 0.8637556574 0.1362443426 0.0636054321  Biso 1.0 Pd

@@ -1,0 +1,33 @@
+# AFLOW.org Repositories
+# N3Rb1   [BCT,BCT2,tI16] (STD_PRIM doi:10
+data_N3Rb1
+_pd_phase_name N3Rb1
+_cell_length_a  5.9447605200
+_cell_length_b  5.9447605200
+_cell_length_c  5.9447605200
+_cell_angle_alpha  114.6099932574
+_cell_angle_beta  114.6099932574
+_cell_angle_gamma  99.6204849400
+_symmetry_space_group_name_H-M  'P1'
+_symmetry_Int_Tables_Number  1
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+  1  x,y,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+N1 1.0000000000 0.8690552164 0.3690552164 0.2381104328  Biso 1.0 N
+N2 1.0000000000 0.1309447836 0.6309447836 0.7618895672  Biso 1.0 N
+N3 1.0000000000 0.6309447836 0.8690552164 0.5000000000  Biso 1.0 N
+N4 1.0000000000 0.3690552164 0.1309447836 0.5000000000  Biso 1.0 N
+N5 1.0000000000 0.0000000000 0.5000000000 0.5000000000  Biso 1.0 N
+N6 1.0000000000 0.5000000000 0.0000000000 0.5000000000  Biso 1.0 N
+Rb7 1.0000000000 0.7500000000 0.7500000000 0.0000000000  Biso 1.0 Rb
+Rb8 1.0000000000 0.2500000000 0.2500000000 0.0000000000  Biso 1.0 Rb
