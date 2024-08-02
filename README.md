@@ -132,7 +132,7 @@ Please keep in mind that you need to select in the script on which model and on 
 
 
 
-# ParAIsite (with additional training on AFLOW) Training and Testing Results:
+# ParAIsite  trained on AFLOW + datasets Training and Testing Results:
 
 ## Training Results
 | Dataset | Validation Error (Mean ± Std) |
