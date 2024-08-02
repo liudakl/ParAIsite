@@ -78,23 +78,18 @@ If you would like to test your model on datasets, please do:
 Please keep in mind that you need to select in the script on which model and on which dataset you would like perform test. 
 
 
-# ParAIsite Training and Testing Results
+# ParAIsite (without additional training on AFLOW) Training and Testing Results:
 
-<table>
-  <tr>
-    <td>
-
-### Training Results
+## Training Results
 | Dataset | Validation Error (Mean ± Std) |
 |---------|-------------------------------|
 | L96     | 0.47 (0.20)                   |
 | HH143   | 0.34 (0.07)                   |
 | MIX     | 0.50 (0.11)                   |
 
-    </td>
-    <td>
+## Testing Results
 
-### Test Trained ParAIsite on L96
+### Test on L96
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | HH143     | 1.45 (0.47)                       |
@@ -102,7 +97,7 @@ Please keep in mind that you need to select in the script on which model and on 
 | L96 (validation set) | 0.47 (0.20)            |
 | L96 (full set)       | 0.34 (0.19)            |
 
-### Test Trained ParAIsite on HH143
+### Test  on HH143
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | L96       | 0.97 (0.08)                       |
@@ -110,7 +105,7 @@ Please keep in mind that you need to select in the script on which model and on 
 | HH143 (validation set) | 0.34 (0.07)          |
 | HH143 (full set)       | 0.22 (0.10)          |
 
-### Test Trained ParAIsite on MIX
+### Test  on MIX
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | L96       | 0.47 (0.21)                       |
@@ -118,9 +113,41 @@ Please keep in mind that you need to select in the script on which model and on 
 | MIX (validation set) | 0.50 (0.11)            |
 | MIX (full set)       | 0.35 (0.15)            |
 
-    </td>
-  </tr>
-</table>
+
+# ParAIsite (with additional training on AFLOW) Training and Testing Results:
+
+## Training Results
+| Dataset | Validation Error (Mean ± Std) |
+|---------|-------------------------------|
+| L96     |   0.29 (0.10)                |
+| HH143   |   0.61 (0.15)                 |
+| MIX     |   0.42 (0.06)                 |
+
+## Testing Results
+
+### Test  on L96
+| Tested on | Error (Mean ± Std)                |
+|-----------|-----------------------------------|
+| HH143     |                       |
+| MIX       |                        |
+| L96 (validation set) |             |
+| L96 (full set)       |             |
+
+### Test  on HH143
+| Tested on | Error (Mean ± Std)                |
+|-----------|-----------------------------------|
+| L96       |                       |
+| MIX       |                       |
+| HH143 (validation set) |           |
+| HH143 (full set)       |           |
+
+### Test  on MIX
+| Tested on | Error (Mean ± Std)                |
+|-----------|-----------------------------------|
+| L96       |                       |
+| HH143     |                        |
+| MIX (validation set) |             |
+| MIX (full set)       |             |
 
 
 
