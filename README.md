@@ -80,14 +80,19 @@ Please keep in mind that you need to select in the script on which model and on 
 
 # ParAIsite Training and Testing Results
 
-## Training Results
+<table>
+  <tr>
+    <td>
+
+### Training Results
 | Dataset | Validation Error (Mean ± Std) |
 |---------|-------------------------------|
 | L96     | 0.47 (0.20)                   |
 | HH143   | 0.34 (0.07)                   |
 | MIX     | 0.50 (0.11)                   |
 
-## Testing Results
+    </td>
+    <td>
 
 ### Test Trained ParAIsite on L96
 | Tested on | Error (Mean ± Std)                |
@@ -113,6 +118,9 @@ Please keep in mind that you need to select in the script on which model and on 
 | MIX (validation set) | 0.50 (0.11)            |
 | MIX (full set)       | 0.35 (0.15)            |
 
+    </td>
+  </tr>
+</table>
 
 
 
