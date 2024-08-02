@@ -130,18 +130,18 @@ Please keep in mind that you need to select in the script on which model and on 
 |-----------|-----------------------------------|
 | HH143     | 3.02 (0.58)                  |
 | MIX       |   1.91 (0.34)                     |
-| L96 (full set)        0.23 (0.08)               |
+| L96 (full set)  |      0.23 (0.08)               |
 
 ### Test  on HH143
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | L96       |      0.78 (0.04)                 |
 | MIX       |         0.45 (0.06)              |
-| HH143 (full set)       0.23 (0.10)          |
+| HH143 (full set)    |   0.23 (0.10)          |
 
 ### Test  on MIX
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | L96       |          0.33 (0.17)             |
 | HH143     |           0.24 (0.10)             |
-| MIX (full set)       0.27 (0.13)             |
+| MIX (full set)  |     0.27 (0.13)             |
