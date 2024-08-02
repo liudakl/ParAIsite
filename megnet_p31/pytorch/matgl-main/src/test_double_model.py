@@ -30,13 +30,13 @@ def restore_model (model_to_test,nRuns):
     model_megned_changed.load_state_dict(megnet_loaded.state_dict(),strict=False)
     mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1)
     new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp)
-    checkpoint_path = 'best_models/sample-%s_%s.ckpt'%(model_to_test,nRuns)
+    checkpoint_path = 'best_models/double_train_AFLOW_on_%s_%s.ckpt'%(model_to_test,nRuns)
     
     checkpoint = torch.load(checkpoint_path)
     lit_module_loaded = ModelLightningModule(model=new_model,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
     lit_module_loaded.load_state_dict(checkpoint['state_dict'])
     model_best = lit_module_loaded.model
-    with open('best_models/val_idx_%s_%s.pkl'%(model_to_test,nRuns), 'rb') as f:
+    with open('best_models/val_idx_%s_%s.pkl'%(dataset_name,nRuns), 'rb') as f:
         val_idx = pickle.load(f)
     
     return model_best,val_idx
@@ -51,14 +51,15 @@ nRunsmax = 9
 SetToUse, structure, scaler = return_dataset_test (dataset_name,model_to_test)
 
 
-print("Test DataSet %s on %s pre-trained models on %s"%(dataset_name,nRunsmax,model_to_test))
+print('We test %s dataset on trained M0+AFLOW on %s'%(dataset_name,model_to_test))
+
     
 mapes_all = []
 for nRuns in range (1,nRunsmax+1):
 
     new_model,val_idx = restore_model(model_to_test,nRuns)    
     new_model.train(False)
-    mape_run =  mape_run_model (SetToUse, new_model, scaler, structure, val_idx, full_set=False)    
+    mape_run =  mape_run_model (SetToUse, new_model, scaler, structure, val_idx, full_set=True)    
     mapes_all.append(mape_run)
     print("for model %s mape is %0.3f ;"%(nRuns,mape_run))
 

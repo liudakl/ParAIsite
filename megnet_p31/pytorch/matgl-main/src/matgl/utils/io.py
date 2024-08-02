@@ -198,6 +198,7 @@ def load_model(path: Path, **kwargs):
         Returns: model_object if include_json is false. (model_object, dict) if include_json is True.
     """
     path = Path(path)
+    
 
     fpaths = _get_file_paths(path, **kwargs)
 
