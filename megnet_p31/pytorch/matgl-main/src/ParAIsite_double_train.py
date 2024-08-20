@@ -37,7 +37,7 @@ warnings.simplefilter("ignore")
 
 # Setup dataset: 
     
-dataset_name = 'HH143'
+dataset_name = 'L96'
 
 SetToUse, structure = return_dataset_train (dataset_name)
 thermal_conduct = SetToUse.TC.to_list()
@@ -75,7 +75,7 @@ except FileNotFoundError:
 
 for nRuns in range (1,maxRuns+1):
     best_mape = np.inf
-    checkpoint_callback = ModelCheckpoint(monitor='val_Total_Loss',dirpath='best_models/',filename='double_train_AFLOW_on_%s_%s'%(dataset_name,nRuns))
+    checkpoint_callback = ModelCheckpoint(monitor='val_Total_Loss',dirpath='best_models/',filename='{epoch:02d}double_train_AFLOW_on_%s_%s'%(dataset_name,nRuns))
 
     train_data, val_data = split_dataset(
     mp_dataset,
@@ -93,7 +93,7 @@ for nRuns in range (1,maxRuns+1):
     num_workers=0,
 )
 
-    with open('best_models/val_idx_%s_%s.pkl'%(dataset_name,nRuns), 'wb') as f:
+    with open('best_models/double_val_idx_%s_%s.pkl'%(dataset_name,nRuns), 'wb') as f:
         pickle.dump(val_data.indices, f)
     
     megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
