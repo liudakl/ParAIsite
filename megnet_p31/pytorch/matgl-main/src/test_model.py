@@ -24,8 +24,8 @@ def restore_model (model_to_test,nRuns,double_traine,set_weights):
     NN2 = 350
     NN3 = 350
     NN4 = 0
-    #megnet_loaded = matgl.load_model("/Users/liudmylaklochko/Desktop/FineTuningRemote/fine_tuning_papers/megnet_p31/pytorch/matgl-main/pretrained_models/MEGNet-MP-2018.6.1-Eform")
-    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
+    megnet_loaded = matgl.load_model("/Users/liudmylaklochko/Desktop/FineTuningRemote/fine_tuning_papers/megnet_p31/pytorch/matgl-main/pretrained_models/MEGNet-MP-2018.6.1-Eform")
+    #megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
     model_megned_changed =  create_changed_megned_model() 
     model_megned_changed.load_state_dict(megnet_loaded.state_dict(),strict=False)
     mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1)
@@ -58,7 +58,7 @@ double_traine = False
 set_weights   = False
 full_set      = True
  
-model_to_test = 'HH143'
+model_to_test = 'MIX'
 dataset_name  = 'AFLOW'    
 
 
