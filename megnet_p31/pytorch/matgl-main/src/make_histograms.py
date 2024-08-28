@@ -48,7 +48,20 @@ plt.show()
 
 
 
+train_df = pd.DataFrame({
+    'Feature1': [0.5, 0.7, 0.9, 0.4],
+    'Feature2': [0.2, 0.3, 0.8, 0.6],
+    'Feature3': [0.1, 0.4, 0.3, 0.2]
+}, index=['Sample1', 'Sample2', 'Sample3', 'Sample4'])
 
+validation_df = pd.DataFrame({
+    'Feature1': [0.6, 0.8, 0.85, 0.45],
+    'Feature2': [0.25, 0.35, 0.75, 0.55],
+    'Feature3': [0.15, 0.45, 0.35, 0.25]
+}, index=['Sample1', 'Sample2', 'Sample3', 'Sample4'])
+
+# Compute a comparison metric, e.g., absolute differences between corresponding values
+comparison_df = abs(train_df - validation_df)
 
 
 

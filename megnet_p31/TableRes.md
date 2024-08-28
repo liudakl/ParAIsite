@@ -10,41 +10,40 @@
 | MIX     | 0.48 (0.11)                   |
 | AFLOW     |  0.71 (0.34)              |
 
-## Testing Results
+## Validation Results
 
 ### Test on L96
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| HH143     |                        |
-| MIX       |                        |
-| L96 (validation set) |            |
-| L96 (full set)       |             |
+| HH143     |    1.50 (0.79)                    |
+| MIX       |    1.03 (0.45)                    |
+| L96       |  0.33 (0.23)            		|
+| AFLOW     |    7.73 (3.47)           			|
 
 ### Test  on HH143
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       |                     |
-| MIX       |                        |
-| HH143 (validation set) |          |
-| HH143 (full set)       |           |
+| L96       | 0.95 (0.09)                      |
+| MIX       | 0.55 (0.04)                        |
+| HH143        |   0.28 (0.08)         |
+| AFLOW       |              	|
 
 ### Test  on MIX
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       |                        |
-| HH143     |                        |
-| MIX (validation set) |             |
-| MIX (full set)       |             |
+| L96       | 0.50 (0.24)                       |
+| HH143     |  0.25 (0.11)                      |
+| MIX       |   0.35 (0.16)          |
+| AFLOW       |              |
 
 ### Test  on AFLOW
 
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       |                      |
-| HH143     |                        |
-| MIX     |                 |
-| AFLOW (validation set)       |   )           |
-| AFLOW (full set)       |   )           |
+| L96       | 0.90 (0.11)                     |
+| HH143     |  0.69 (0.19)                      |
+| MIX     |    0.77 (0.16)              |
+| AFLOW        |     0.64 (0.42)         |
 
 
 # (step II) ParAIsite with MEGNET weitghts:
@@ -57,31 +56,28 @@
 | MIX     | 0.50 (0.11)                   |
 | AFLOW     |   0.49 (0.02)               |
 
-## Testing Results
+## Validation Results
 
 ### Test on L96
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | HH143     | 1.45 (0.47)                       |
 | MIX       | 1.01 (0.24)                       |
-| L96 (validation set) | 0.47 (0.20)            |
-| L96 (full set)       | 0.34 (0.19)            |
+| L96       | 0.34 (0.19)            |
 
 ### Test  on HH143
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | L96       | 0.97 (0.08)                       |
 | MIX       | 0.52 (0.06)                       |
-| HH143 (validation set) | 0.34 (0.07)          |
-| HH143 (full set)       | 0.22 (0.10)          |
+| HH143        | 0.22 (0.10)          |
 
 ### Test  on MIX
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | L96       | 0.47 (0.21)                       |
 | HH143     | 0.27 (0.11)                       |
-| MIX (validation set) | 0.50 (0.11)            |
-| MIX (full set)       | 0.35 (0.15)            |
+| MIX       | 0.35 (0.15)            |
 
 ### Test  on AFLOW
 
@@ -90,7 +86,7 @@
 | L96       |    0.82 (0.02)                   |
 | HH143     |       0.55 (0.04)                 |
 | MIX     |   0.66 (0.03)                |
-| AFLOW (full set)       |   0.34 (0.05)           |
+| AFLOW       |   0.34 (0.05)           |
 
 
 
@@ -103,25 +99,25 @@
 | HH143   |   0.61 (0.15)                 |
 | MIX     |   0.42 (0.06)                 |
 
-## Testing Results
+## Validation Results
 
 ### Test  on L96
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | HH143     | 3.02 (0.58)                  |
 | MIX       |   1.91 (0.34)                     |
-| L96 (full set)  |      0.23 (0.08)               |
+| L96  |      0.23 (0.08)               |
 
 ### Test  on HH143
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | L96       |      0.78 (0.04)                 |
 | MIX       |         0.45 (0.06)              |
-| HH143 (full set)    |   0.23 (0.10)          |
+| HH143   |   0.23 (0.10)          |
 
 ### Test  on MIX
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | L96       |          0.33 (0.17)             |
 | HH143     |           0.24 (0.10)             |
-| MIX (full set)  |     0.27 (0.13)             |
+| MIX  |     0.27 (0.13)             |
