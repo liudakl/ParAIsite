@@ -37,7 +37,7 @@ warnings.simplefilter("ignore")
 
 # Setup dataset: 
     
-dataset_name = 'L96'
+dataset_name = 'HH143'
 
 SetToUse, structure = return_dataset_train (dataset_name)
 thermal_conduct = SetToUse.TC.to_list()
@@ -64,18 +64,19 @@ NN2 = 350
 NN3 = 350
 NN4 = 0
 
+'''
 try:
     for nRuns in range (1,maxRuns+1): 
         shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 except FileNotFoundError:
     pass
-        
+'''        
     
 
 
 for nRuns in range (1,maxRuns+1):
     best_mape = np.inf
-    checkpoint_callback = ModelCheckpoint(monitor='val_Total_Loss',dirpath='best_models/',filename='{epoch:02d}double_train_AFLOW_on_%s_%s'%(dataset_name,nRuns))
+    checkpoint_callback = ModelCheckpoint(monitor='val_Total_Loss',dirpath='best_models/',filename='double_train_AFLOW_on_%s_%s'%(dataset_name,nRuns))
 
     train_data, val_data = split_dataset(
     mp_dataset,
@@ -93,7 +94,7 @@ for nRuns in range (1,maxRuns+1):
     num_workers=0,
 )
 
-    with open('best_models/double_val_idx_%s_%s.pkl'%(dataset_name,nRuns), 'wb') as f:
+    with open('best_models/double_val_idx_AFLOW_on_%s_%s.pkl'%(dataset_name,nRuns), 'wb') as f:
         pickle.dump(val_data.indices, f)
     
     megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
@@ -105,14 +106,16 @@ for nRuns in range (1,maxRuns+1):
     
     
     checkpoint_path = 'best_models/sample-AFLOW_%s.ckpt'%(nRuns)
-    checkpoint = torch.load(checkpoint_path)
-    lit_module_loaded = ModelLightningModule(model=new_model,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
-    lit_module_loaded.load_state_dict(checkpoint['state_dict'])
+    #checkpoint = torch.load(checkpoint_path)
+    #lit_module_loaded = ModelLightningModule(model=new_model,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
+    #lit_module_loaded.load_state_dict(checkpoint['state_dict'])
+    lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model)
+    
 
 ############   Training  Part   ############
 
 
-    logger = CSVLogger("logs", name="MEGNet_training_%s"%(nRuns),version=0)
+    logger = CSVLogger("logs", name="MEGNet_m1_best_model_double_training_%s_%s"%(dataset_name,nRuns),version=0)
     trainer = pl.Trainer(max_epochs=maxEpochs, accelerator="cpu", logger=logger,callbacks=[checkpoint_callback])
     trainer.fit(model=lit_module_loaded, train_dataloaders=train_loader, val_dataloaders=val_loader)
 
@@ -122,7 +125,7 @@ for nRuns in range (1,maxRuns+1):
 
 
 
-    metrics = pd.read_csv("logs/MEGNet_training_%s/version_0/metrics.csv"%(nRuns))
+    metrics = pd.read_csv("logs/MEGNet_m1_best_model_double_training_%s_%s/version_0/metrics.csv"%(dataset_name,nRuns))
 
     x1 = metrics["train_Total_Loss"].dropna().reset_index().drop(columns='index')
     x2 = metrics["val_Total_Loss"].dropna().reset_index().drop(columns='index')   
@@ -151,8 +154,8 @@ for nRuns in range (1,maxRuns+1):
         except FileNotFoundError:
             pass
 
-for nRuns in range (1,maxRuns+1): 
-    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
+#for nRuns in range (1,maxRuns+1): 
+#    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 try:
     
     os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s"%(dataset_name))

@@ -62,7 +62,7 @@ maxEpochs = 300
 NN1 = 450
 NN2 = 350
 NN3 = 350
-NN4 = 350
+NN4 = 0
 
 
     
@@ -70,7 +70,7 @@ NN4 = 350
 
 for nRuns in range (1,maxRuns+1):
     best_mape = np.inf
-    checkpoint_callback = ModelCheckpoint(monitor='val_Total_Loss',dirpath='best_models/',filename='sample2.0-%s_%s'%(dataset_name,nRuns))
+    checkpoint_callback = ModelCheckpoint(monitor='val_Total_Loss',dirpath='best_models/',filename='sample-%s_%s'%(dataset_name,nRuns))
 
     train_data, val_data = split_dataset(
     mp_dataset,
@@ -101,7 +101,7 @@ for nRuns in range (1,maxRuns+1):
 ############   Training  Part   ############
 
 
-    logger = CSVLogger("logs", name="MEGNet_training_%s"%(nRuns),version=0)
+    logger = CSVLogger("logs", name="MEGNet_m1_training_%s_%s"%(dataset_name,nRuns),version=0)
     trainer = pl.Trainer(max_epochs=maxEpochs, accelerator="cpu", logger=logger,callbacks=[checkpoint_callback])
     trainer.fit(model=lit_module, train_dataloaders=train_loader, val_dataloaders=val_loader)
 
@@ -111,7 +111,7 @@ for nRuns in range (1,maxRuns+1):
 
 
 
-    metrics = pd.read_csv("logs/MEGNet_training_%s/version_0/metrics.csv"%(nRuns))
+    metrics = pd.read_csv("logs/MEGNet_m1_training_%s_%s/version_0/metrics.csv"%(dataset_name,nRuns))
 
     x1 = metrics["train_Total_Loss"].dropna().reset_index().drop(columns='index')
     x2 = metrics["val_Total_Loss"].dropna().reset_index().drop(columns='index')   
@@ -132,8 +132,8 @@ for nRuns in range (1,maxRuns+1):
         except FileNotFoundError:
             pass
 
-for nRuns in range (1,maxRuns+1): 
-    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
+#for nRuns in range (1,maxRuns+1): 
+#    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 try:
     
     os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s"%(dataset_name))

@@ -9,65 +9,95 @@ Created on Tue Aug 20 14:23:11 2024
 import pandas as pd
 import matplotlib.pyplot as plt
 from cmcrameri import cm
-
+import seaborn as sns
 
 # Data for training
-train_data = {
-    'Dataset': ['L96', 'HH143', 'MIX'],
-    'Validation Error (Mean)': [0.47, 0.34, 0.50],
-    'Validation Error (Std)': [0.20, 0.07, 0.11]
-}
 
-# Data for testing L96
-test_l96 = {
-    'Tested on': ['HH143', 'MIX', 'L96 (validation set)', 'L96 (full set)'],
-    'Error (Mean)': [1.45, 1.01, 0.47, 0.34],
-    'Error (Std)': [0.47, 0.24, 0.20, 0.19]
-}
-
-# Data for testing HH143
-test_hh143 = {
-    'Tested on': ['L96', 'MIX', 'HH143 (validation set)', 'HH143 (full set)'],
-    'Error (Mean)': [0.97, 0.52, 0.34, 0.22],
-    'Error (Std)': [0.08, 0.06, 0.07, 0.10]
-}
-
-# Data for testing MIX
-test_mix = {
-    'Tested on': ['L96', 'HH143', 'MIX (validation set)', 'MIX (full set)'],
-    'Error (Mean)': [0.47, 0.27, 0.50, 0.35],
-    'Error (Std)': [0.21, 0.11, 0.11, 0.15]
+train_m0_dataset  = {
+    'Dataset': ['L96', 'HH143', 'MIX','AFLOW'],
+    'Validation Error (Mean)': [0.51,0.35,0.48,0.61]
 }
 
 
-train_df = pd.DataFrame(train_data)
-test_l96_df = pd.DataFrame(test_l96)
-test_hh143_df = pd.DataFrame(test_hh143)
-test_mix_df = pd.DataFrame(test_mix)
+train_m1_dataset = {
+    'Dataset': ['L96', 'HH143', 'MIX','AFLOW'],
+    'Validation Error (Mean)': [0.47, 0.34, 0.50,0.49]
+}
 
-train_df['Validation Error (Mean)'].plot(kind='hist', bins=5, alpha=0.7)
-plt.title('Histogram of Validation Error (Mean) - Training')
-plt.xlabel('Validation Error (Mean)')
-plt.ylabel('Frequency')
+
+
+
+
+
+train_m0_df = pd.DataFrame(train_m0_dataset)
+#train_df = train_df.set_index(['Dataset'])
+
+train_m1_df = pd.DataFrame(train_m1_dataset)
+
+corr_matrix = train_m0_df.corrwith(other=train_m1_df, axis=1)
+
+plt.figure(figsize=(10, 6), dpi=1250)
+sns.heatmap(corr_matrix, annot=True,cmap=cm.roma)
+plt.show()
+#import matplotlib.pyplot as mpl
+#import numpy as np
+#m = np.array([[.6, .3, .2], [.8, .4, .9]])
+#mpl.imshow(m, cmap=cm.managua)
+#mpl.colorbar()
+#mpl.show()
+
+
+
+
+
+
+
+'''
+hatches = ['//', '++', 'xx']
+#colors = ['lightcoral', 'forestgreen', 'steelblue']
+colors = ['lawngreen','lawngreen','lawngreen']
+plt.figure(figsize=(10, 6), dpi=350)
+bars = plt.bar(train_df['Dataset'], train_df['Validation Error (Mean)'],  color=colors, edgecolor='darkslategrey', alpha=0.7)
+
+for bar, hatch in zip(bars, hatches):
+    bar.set_hatch(hatch)
+    bar.set_edgecolor('black') 
+
+
+
+legend_labels = ['MEGNET']
+handles = [plt.Line2D([0], [0], color=color, lw=4, label=label) for color, label in zip(colors, legend_labels)]
+plt.legend(handles=handles, title='Pre-trained on', fontsize=12, title_fontsize=14, loc='center',bbox_to_anchor=(0.5,0.90))
+
+
+colors = ['papayawhip','papayawhip','papayawhip']
+
+bars = plt.bar(test_aflow_df['Dataset'], test_aflow_df['Validation Error (Mean)'],  color=colors, edgecolor='darkslategrey', alpha=0.7)
+
+for bar, hatch in zip(bars, hatches):
+    bar.set_hatch(hatch)
+    bar.set_edgecolor('black') 
+
+
+
+legend_labels = ['AFLOW']
+handles = [plt.Line2D([0], [0], color=color, lw=4, label=label) for color, label in zip(colors, legend_labels)]
+plt.legend(handles=handles, title='Pre-trained on', fontsize=12, title_fontsize=14, loc='center',bbox_to_anchor=(0.5,0.90))
+
+plt.tight_layout(rect=[0, 0, 0.85, 1]) 
+plt.xlabel('Model', fontsize=16)
+plt.ylabel('Mean Average Percentage Error', fontsize=16)
+plt.xticks(rotation=45, ha="right", fontsize=14) 
+plt.yticks(fontsize=14)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.tight_layout() 
+plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/high_quality_plot.pdf', format='pdf', bbox_inches='tight', pad_inches=0.1, transparent=False)
 plt.show()
 
-# Plot histograms for test results on L96
-test_l96_df['Error (Mean)'].plot(kind='hist', bins=5, alpha=0.7)
-plt.title('Histogram of Error (Mean) - Test on L96')
-plt.xlabel('Error (Mean)')
-plt.ylabel('Frequency')
-plt.show()
 
-# Plot histograms for test results on HH143
-test_hh143_df['Error (Mean)'].plot(kind='hist', bins=5, alpha=0.7)
-plt.title('Histogram of Error (Mean) - Test on HH143')
-plt.xlabel('Error (Mean)')
-plt.ylabel('Frequency')
-plt.show()
+'''
 
-# Plot histograms for test results on MIX
-test_mix_df['Error (Mean)'].plot(kind='hist', bins=5, alpha=0.7)
-plt.title('Histogram of Error (Mean) - Test on MIX')
-plt.xlabel('Error (Mean)')
-plt.ylabel('Frequency')
-plt.show()
+
+
+
+

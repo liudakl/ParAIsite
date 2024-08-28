@@ -7,7 +7,6 @@ Created on Mon Jul 22 11:56:39 2024
 """
 from __future__ import annotations
 import warnings
-import torch 
 from matgl.utils.training import ModelLightningModule
 import matgl 
 from model_mlp import myMLP
@@ -20,31 +19,40 @@ from custom_functions import return_dataset_test,create_changed_megned_model,map
 warnings.simplefilter("ignore")
 
 
-def restore_model (model_to_test,nRuns):
+def restore_model (model_to_test,nRuns,double_traine):
     NN1 = 450
     NN2 = 350
     NN3 = 350
     NN4 = 0
-    megnet_loaded = matgl.load_model("/Users/liudmylaklochko/Desktop/FineTuningRemote/fine_tuning_papers/megnet_p31/pytorch/matgl-main/pretrained_models/MEGNet-MP-2018.6.1-Eform")
+    #megnet_loaded = matgl.load_model("/Users/liudmylaklochko/Desktop/FineTuningRemote/fine_tuning_papers/megnet_p31/pytorch/matgl-main/pretrained_models/MEGNet-MP-2018.6.1-Eform")
+    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
     model_megned_changed =  create_changed_megned_model() 
     model_megned_changed.load_state_dict(megnet_loaded.state_dict(),strict=False)
     mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1)
-    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp)
-    checkpoint_path = 'best_models/sample-%s_%s.ckpt'%(model_to_test,nRuns)
+    new_model_restore = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp)
     
-    checkpoint = torch.load(checkpoint_path)
-    lit_module_loaded = ModelLightningModule(model=new_model,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
-    lit_module_loaded.load_state_dict(checkpoint['state_dict'])
+    checkpoint_path = 'best_models/double_train_AFLOW_on_%s_%s-v3.ckpt'%(model_to_test,nRuns)
+    #checkpoint = torch.load(checkpoint_path)
+    #lit_module_loaded = ModelLightningModule(model=new_model_restore,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
+    #lit_module_loaded.load_state_dict(checkpoint['state_dict'])
+    lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model_restore)
+    
     model_best = lit_module_loaded.model
-    with open('best_models/val_idx_%s_%s.pkl'%(model_to_test,nRuns), 'rb') as f:
+    
+    
+    
+    with open('best_models/double_val_idx_AFLOW_on_%s_%s.pkl'%(model_to_test,nRuns), 'rb') as f:
         val_idx = pickle.load(f)
+    
+    return model_best,val_idx
+    
     
     return model_best,val_idx
 
 
 
-dataset_name = 'AFLOW'    
-model_to_test      = 'AFLOW'
+dataset_name = 'L96'    
+model_to_test      = 'L96'
 
 nRunsmax = 9
 
@@ -56,7 +64,7 @@ print("Test DataSet %s on %s pre-trained models on %s"%(dataset_name,nRunsmax,mo
 mapes_all = []
 for nRuns in range (1,nRunsmax+1):
 
-    new_model,val_idx = restore_model(model_to_test,nRuns)    
+    new_model,val_idx = restore_model(model_to_test,nRuns,double_traine=True)    
     new_model.train(False)
     mape_run =  mape_run_model (SetToUse, new_model, scaler, structure, val_idx, full_set=True)    
     mapes_all.append(mape_run)
