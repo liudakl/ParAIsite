@@ -14,7 +14,7 @@ import numpy as np
 import pickle 
 from matgl.models import combined_models
 from custom_functions import return_dataset_test,create_changed_megned_model,mape_run_model
-
+import torch 
 
 warnings.simplefilter("ignore")
 
@@ -32,22 +32,26 @@ def restore_model (model_to_test,nRuns,double_traine,set_weights):
     new_model_restore = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp)
     if set_weights == True: 
          checkpoint_path = 'best_models/sample-%s_%s.ckpt'%(model_to_test,nRuns)
-         with open('best_models/val_idx_%s_%s.pkl'%(model_to_test,nRuns), 'rb') as f:
-             val_idx = pickle.load(f)
-    elif double_traine == True:
-         checkpoint_path = 'best_models/double_train_AFLOW_on_%s_%s-v3.ckpt'%(model_to_test,nRuns)
-         with open('best_models/double_val_idx_AFLOW_on_%s_%s.pkl'%(model_to_test,nRuns), 'rb') as f:
-             val_idx = pickle.load(f)
+         if double_traine == True:
+             checkpoint_path = 'best_models/double_train_AFLOW_on_%s_%s.ckpt'%(model_to_test,nRuns)
     else:
         checkpoint_path = 'best_models/no_weights-%s_%s.ckpt'%(model_to_test,nRuns)
-        with open('best_models/val_idx_%s_%s.pkl'%(model_to_test,nRuns), 'rb') as f:
-            val_idx = pickle.load(f)
     lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model_restore)
     
     model_best = lit_module_loaded.model
     
     
+    if dataset_name == 'MIX':
+        with open('best_models/val_idx_%s_%s.pkl'%('L96',nRuns), 'rb') as f:
+            val_idx_1 = pickle.load(f)
+        with open('best_models/val_idx_%s_%s.pkl'%('HH143',nRuns), 'rb') as f:
+            val_idx_2 = pickle.load(f)
+        val_idx =   np.concatenate((val_idx_1, val_idx_2))
+    else: 
+        with open('best_models/val_idx_%s_%s.pkl'%(dataset_name,nRuns), 'rb') as f:
+            val_idx = pickle.load(f)
     
+     
     
     
     return model_best,val_idx
@@ -56,10 +60,10 @@ def restore_model (model_to_test,nRuns,double_traine,set_weights):
 
 double_traine = False
 set_weights   = False
-full_set      = True
+full_set      = False
  
-model_to_test = 'MIX'
-dataset_name  = 'AFLOW'    
+model_to_test = 'L96'
+dataset_name  = 'HH143'    
 
 
 nRunsmax = 9
@@ -69,7 +73,7 @@ SetToUse, structure, scaler = return_dataset_test (dataset_name,model_to_test)
 if   set_weights   == True :
         print("Test DataSet %s on %s pre-trained models on %s with MEGNET weights "%(dataset_name,nRunsmax,model_to_test))
 elif double_traine == True:
-        print("Test DataSet %s on %s pre-trained models on %s"%(dataset_name,nRunsmax,model_to_test))
+        print("Test DataSet %s on %s pre-trained models AFLOW and after on %s"%(dataset_name,nRunsmax,model_to_test))
 else: 
         print("Test DataSet %s on %s pre-trained models on %s WITHOUT MEGNET weights "%(dataset_name,nRunsmax,model_to_test))
     

@@ -6,111 +6,39 @@ Created on Tue Aug 20 14:23:11 2024
 @author: lklochko
 """
 
-import pandas as pd
 import matplotlib.pyplot as plt
 from cmcrameri import cm
+import numpy as np
 import seaborn as sns
+import pandas as pd
+# Data from the table
 
-# Data for training
 
-train_m0_dataset  = {
-    'Dataset': ['L96', 'HH143', 'MIX','AFLOW'],
-    'Validation Error (Mean)': [0.51,0.35,0.48,0.61]
+data = {
+    ('L96_nw'): [0.46, 2.24, 1.53, 2.45],
+    ('HH143_nw'): [0.53, 0.37, 0.44, 0.50],
+    ('MIX_nw'): [0.70, 0.73, 0.72, 1.03],
+    ('AFLOW_I'): [0.49, 1.28, 0.96, 0.51],
+    ('L96_w'): [0.52, 1.83, 1.30, 2.44],
+    ('HH143_w'): [0.51, 0.37, 0.43, 0.50],
+    ('MIX_w'): [0.63, 0.76, 0.71, 1.16],
+    ('AFLOW_w'): [0.42, 1.17, 0.88, 0.51],
+    ('L96_dt'): [0.29, 1.21, 0.85, 0.61],
+    ('HH143_dt'): [0.58, 0.65, 0.63, 0.63],
+    ('MIX_dt'): [0.34, 0.71, 0.56, 0.72]
 }
 
+# Convert the data to a DataFrame
+df = pd.DataFrame(data, index=['L96', 'HH143', 'MIX', 'AFLOW'])
 
-train_m1_dataset = {
-    'Dataset': ['L96', 'HH143', 'MIX','AFLOW'],
-    'Validation Error (Mean)': [0.47, 0.34, 0.50,0.49]
-}
-
-
-
-
-
-
-train_m0_df = pd.DataFrame(train_m0_dataset)
-#train_df = train_df.set_index(['Dataset'])
-
-train_m1_df = pd.DataFrame(train_m1_dataset)
-
-corr_matrix = train_m0_df.corrwith(other=train_m1_df, axis=1)
-
-plt.figure(figsize=(10, 6), dpi=1250)
-sns.heatmap(corr_matrix, annot=True,cmap=cm.roma)
+# Plotting the heatmap
+plt.figure(figsize=(8, 6),dpi=700)
+sns.heatmap(df.T, annot=True, cmap=cm.vik, fmt='.2f', linewidths=0.5)
+plt.title('Validation Errors Heatmap (Train vs. Test)')
+plt.xlabel('Test on')
+plt.ylabel('Train on')
+plt.xticks(rotation=45)
+plt.yticks(rotation=0)
 plt.show()
-#import matplotlib.pyplot as mpl
-#import numpy as np
-#m = np.array([[.6, .3, .2], [.8, .4, .9]])
-#mpl.imshow(m, cmap=cm.managua)
-#mpl.colorbar()
-#mpl.show()
-
-
-
-train_df = pd.DataFrame({
-    'Feature1': [0.5, 0.7, 0.9, 0.4],
-    'Feature2': [0.2, 0.3, 0.8, 0.6],
-    'Feature3': [0.1, 0.4, 0.3, 0.2]
-}, index=['Sample1', 'Sample2', 'Sample3', 'Sample4'])
-
-validation_df = pd.DataFrame({
-    'Feature1': [0.6, 0.8, 0.85, 0.45],
-    'Feature2': [0.25, 0.35, 0.75, 0.55],
-    'Feature3': [0.15, 0.45, 0.35, 0.25]
-}, index=['Sample1', 'Sample2', 'Sample3', 'Sample4'])
-
-# Compute a comparison metric, e.g., absolute differences between corresponding values
-comparison_df = abs(train_df - validation_df)
-
-
-
-'''
-hatches = ['//', '++', 'xx']
-#colors = ['lightcoral', 'forestgreen', 'steelblue']
-colors = ['lawngreen','lawngreen','lawngreen']
-plt.figure(figsize=(10, 6), dpi=350)
-bars = plt.bar(train_df['Dataset'], train_df['Validation Error (Mean)'],  color=colors, edgecolor='darkslategrey', alpha=0.7)
-
-for bar, hatch in zip(bars, hatches):
-    bar.set_hatch(hatch)
-    bar.set_edgecolor('black') 
-
-
-
-legend_labels = ['MEGNET']
-handles = [plt.Line2D([0], [0], color=color, lw=4, label=label) for color, label in zip(colors, legend_labels)]
-plt.legend(handles=handles, title='Pre-trained on', fontsize=12, title_fontsize=14, loc='center',bbox_to_anchor=(0.5,0.90))
-
-
-colors = ['papayawhip','papayawhip','papayawhip']
-
-bars = plt.bar(test_aflow_df['Dataset'], test_aflow_df['Validation Error (Mean)'],  color=colors, edgecolor='darkslategrey', alpha=0.7)
-
-for bar, hatch in zip(bars, hatches):
-    bar.set_hatch(hatch)
-    bar.set_edgecolor('black') 
-
-
-
-legend_labels = ['AFLOW']
-handles = [plt.Line2D([0], [0], color=color, lw=4, label=label) for color, label in zip(colors, legend_labels)]
-plt.legend(handles=handles, title='Pre-trained on', fontsize=12, title_fontsize=14, loc='center',bbox_to_anchor=(0.5,0.90))
-
-plt.tight_layout(rect=[0, 0, 0.85, 1]) 
-plt.xlabel('Model', fontsize=16)
-plt.ylabel('Mean Average Percentage Error', fontsize=16)
-plt.xticks(rotation=45, ha="right", fontsize=14) 
-plt.yticks(fontsize=14)
-plt.grid(axis='y', linestyle='--', alpha=0.7)
-plt.tight_layout() 
-plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/high_quality_plot.pdf', format='pdf', bbox_inches='tight', pad_inches=0.1, transparent=False)
-plt.show()
-
-
-'''
-
-
-
 
 

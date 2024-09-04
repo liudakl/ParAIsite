@@ -61,6 +61,7 @@ class MatglLightningModuleMixin:
             batch: Data batch.
             batch_idx: Batch index.
         """
+        #print('#########    ',batch)
         results, batch_size = self.step(batch)  # type: ignore
         self.log_dict(  # type: ignore
             {f"val_{key}": val for key, val in results.items()},
@@ -82,9 +83,13 @@ class MatglLightningModuleMixin:
             batch_idx: Batch index.
         """
         
+        #print("#### => We do test")
         
         torch.set_grad_enabled(True)
         results, batch_size = self.step(batch)  # type: ignore
+        #print("#### batch_size = ",batch_size)
+        #print("#### results = ",results)
+        #print("#### batch = ",batch)
         self.log_dict(  # type: ignore
             {f"test_{key}": val for key, val in results.items()},
             batch_size=batch_size,

@@ -8,24 +8,20 @@ This is a temporary script file.
 from __future__ import annotations
 import pandas as pd 
 import os
-import shutil
 import warnings
 import torch 
-
-import matplotlib.pyplot as plt
 import lightning as pl
 
 from dgl.data.utils import split_dataset
 from pytorch_lightning.loggers import CSVLogger
 
-from matgl.ext.pymatgen import Structure2Graph, get_element_list
-from matgl.graph.data import MGLDataset, MGLDataLoader,collate_fn_graph
+from matgl.ext.pymatgen import Structure2Graph
+from matgl.graph.data import MGLDataset, MGLDataLoader,collate_fn_graph,MGLDataLoader_multiple
 from matgl.models import combined_models
 from matgl.utils.training import ModelLightningModule
 import matgl 
 from model_mlp import myMLP
 import numpy as np
-import pickle 
 from lightning.pytorch.callbacks import ModelCheckpoint
 from matgl.config import DEFAULT_ELEMENTS
 
@@ -33,27 +29,135 @@ from custom_functions import return_dataset_train,create_changed_megned_model
 
 
 warnings.simplefilter("ignore")
-
-
-# Setup dataset: 
-    
-dataset_name = 'HH143'
-
-SetToUse, structure = return_dataset_train (dataset_name)
-thermal_conduct = SetToUse.TC.to_list()
 elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
 converter = Structure2Graph(element_types=elem_list, cutoff=4.0)
+
+# Setup dataset to test: 
+  
+dataset_name_test1 = 'HH143'
+res_tes1_HH143 = [] 
+
+SetToUse_test1, structure_test1 = return_dataset_train (dataset_name_test1)
+thermal_conduct = SetToUse_test1.TC.to_list()
+elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
+converter_test = Structure2Graph(element_types=elem_list, cutoff=4.0)
+
+mp_dataset_test1 = MGLDataset(
+    structures=structure_test1,
+    labels={"TC": thermal_conduct},
+    converter=converter_test,
+)
+
+dataset_name_test2 = 'L96'
+res_tes2_L96 = [] 
+
+SetToUse_test2, structure_test2 = return_dataset_train (dataset_name_test2)
+thermal_conduct = SetToUse_test2.TC.to_list()
+elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
+converter_test = Structure2Graph(element_types=elem_list, cutoff=4.0)
+
+mp_dataset_test2 = MGLDataset(
+    structures=structure_test2,
+    labels={"TC": thermal_conduct},
+    converter=converter_test,
+)
+
+res_tes3_MIX = [] 
+
+
+dataset_name_test4 = 'AFLOW'
+res_tes4_AFLOW = [] 
+
+
+SetToUse_test4, structure_test4 = return_dataset_train (dataset_name_test4)
+thermal_conduct = SetToUse_test4.TC.to_list()
+elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
+converter_test = Structure2Graph(element_types=elem_list, cutoff=4.0)
+
+mp_dataset_test4 = MGLDataset(
+    structures=structure_test4,
+    labels={"TC": thermal_conduct},
+    converter=converter_test,
+)
+
+
+try:
+    
+    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+except FileNotFoundError:
+    pass
+
+
+
+
+# ===================================================# 
+ 
+
+# Setup dataset to TRAIN : 
+    
+dataset_name_TRAIN = 'MIX'
+
+
+
+# ===================================================# 
+
+
+if dataset_name_TRAIN == 'MIX':
+    dataset_1 = 'L96'
+    dataset_2 = 'HH143'
+    SetToUse_1, structure_1 = return_dataset_train (dataset_1)
+    thermal_conduct = SetToUse_1.TC.to_list()
+    
+    mp_dataset_1 = MGLDataset(
+        structures=structure_1,
+        labels={"TC": thermal_conduct},
+        converter=converter,
+    )
+    
+    SetToUse_2, structure_2 = return_dataset_train (dataset_2)
+    thermal_conduct = SetToUse_2.TC.to_list()
+    
+    mp_dataset_2 = MGLDataset(
+        structures=structure_2,
+        labels={"TC": thermal_conduct},
+        converter=converter,
+    )
+    
+    try:
+        os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+    except FileNotFoundError:
+        pass
+    
+    SetToUse_mix, structure_mix = return_dataset_train (dataset_name_TRAIN)
+    thermal_conduct = SetToUse_mix.TC.to_list()
+    
+    mp_dataset = MGLDataset(
+        structures=structure_mix,
+        labels={"TC": thermal_conduct},
+        converter=converter,
+    )
+
+
+else:
+    SetToUse, structure = return_dataset_train (dataset_name_TRAIN)
+    thermal_conduct = SetToUse.TC.to_list()
+    
+    mp_dataset = MGLDataset(
+        structures=structure,
+        labels={"TC": thermal_conduct},
+        converter=converter,
+    )
+    
+
+scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler')
+
+
 
 
 
 ######     Model setup    ########
 
-mp_dataset = MGLDataset(
-    structures=structure,
-    labels={"TC": thermal_conduct},
-    converter=converter,
-)
-scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler')
+
 
 
 best_mapes = [] 
@@ -64,38 +168,54 @@ NN2 = 350
 NN3 = 350
 NN4 = 0
 
-'''
-try:
-    for nRuns in range (1,maxRuns+1): 
-        shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
-except FileNotFoundError:
-    pass
-'''        
-    
-
 
 for nRuns in range (1,maxRuns+1):
     best_mape = np.inf
-    checkpoint_callback = ModelCheckpoint(monitor='val_Total_Loss',dirpath='best_models/',filename='double_train_AFLOW_on_%s_%s'%(dataset_name,nRuns))
+    checkpoint_callback = ModelCheckpoint(monitor='val_Total_Loss',dirpath='best_models/',filename='double_train_AFLOW_on_%s_%s'%(dataset_name_TRAIN,nRuns))
 
-    train_data, val_data = split_dataset(
-    mp_dataset,
-    frac_list=[0.8, 0.2],
-    shuffle=True,
-    random_state=nRuns,
-)
+    if dataset_name_TRAIN == 'MIX': 
+        
+        train_data_1, val_data_1 = split_dataset(
+        mp_dataset_1,
+        frac_list=[0.8, 0.2],
+        shuffle=True,
+        random_state=nRuns,
+    )
+   
+        train_data_2, val_data_2 = split_dataset(
+        mp_dataset_2,
+        frac_list=[0.8, 0.2],
+        shuffle=True,
+        random_state=nRuns,
+    )
+
+        train_loader, val_loader = MGLDataLoader_multiple(
+              train_data_1=train_data_1,
+              val_data_1=val_data_1,
+              train_data_2=train_data_2,
+              val_data_2=val_data_2,
+              collate_fn=collate_fn_graph,
+              batch_size=8,
+              num_workers=0,
+          )
+
+    
+    else: 
+        train_data, val_data = split_dataset(
+            mp_dataset,
+            frac_list=[0.8, 0.2],
+            shuffle=True,
+            random_state=nRuns)
+
+        train_loader, val_loader = MGLDataLoader(
+            train_data=train_data,
+            val_data=val_data,
+            collate_fn=collate_fn_graph,
+            batch_size=8,
+            num_workers=0 )
 
 
-    train_loader, val_loader = MGLDataLoader(
-    train_data=train_data,
-    val_data=val_data,
-    collate_fn=collate_fn_graph,
-    batch_size=8,
-    num_workers=0,
-)
 
-    with open('best_models/double_val_idx_AFLOW_on_%s_%s.pkl'%(dataset_name,nRuns), 'wb') as f:
-        pickle.dump(val_data.indices, f)
     
     megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
     model_megned_changed =  create_changed_megned_model() 
@@ -104,8 +224,7 @@ for nRuns in range (1,maxRuns+1):
     new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp)
     
     
-    
-    checkpoint_path = 'best_models/sample-AFLOW_%s.ckpt'%(nRuns)
+    checkpoint_path = 'best_models/sample-AFLOW_%s-v1.ckpt'%(nRuns)
     #checkpoint = torch.load(checkpoint_path)
     #lit_module_loaded = ModelLightningModule(model=new_model,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
     #lit_module_loaded.load_state_dict(checkpoint['state_dict'])
@@ -115,9 +234,82 @@ for nRuns in range (1,maxRuns+1):
 ############   Training  Part   ############
 
 
-    logger = CSVLogger("logs", name="MEGNet_m1_best_model_double_training_%s_%s"%(dataset_name,nRuns),version=0)
+    logger = CSVLogger("logs", name="MEGNet_m1_best_model_double_training_%s_%s"%(dataset_name_TRAIN,nRuns),version=0)
     trainer = pl.Trainer(max_epochs=maxEpochs, accelerator="cpu", logger=logger,callbacks=[checkpoint_callback])
     trainer.fit(model=lit_module_loaded, train_dataloaders=train_loader, val_dataloaders=val_loader)
+#===================================================#
+
+    train_data_test1, val_data_test1 = split_dataset(
+    mp_dataset_test1,
+    frac_list=[0.8, 0.2],
+    shuffle=True,
+    random_state=nRuns,
+)
+
+
+    train_loader_test1, val_loader_test1 = MGLDataLoader(
+    train_data=train_data_test1,
+    val_data=val_data_test1,
+    collate_fn=collate_fn_graph,
+    batch_size=8,
+    num_workers=0,
+)
+
+    train_data_test2, val_data_test2 = split_dataset(
+    mp_dataset_test2,
+    frac_list=[0.8, 0.2],
+    shuffle=True,
+    random_state=nRuns,
+)
+
+
+    train_loader_test2, val_loader_test2 = MGLDataLoader(
+    train_data=train_data_test2,
+    val_data=val_data_test2,
+    collate_fn=collate_fn_graph,
+    batch_size=8,
+    num_workers=0,
+)
+
+
+    train_loader_test3, val_loader_test3 = MGLDataLoader_multiple(
+          train_data_1=train_data_test1,
+          val_data_1=val_data_test1,
+          train_data_2=train_data_test2,
+          val_data_2=val_data_test2,
+          collate_fn=collate_fn_graph,
+          batch_size=8,
+          num_workers=0,
+      )
+
+
+    train_data_test4, val_data_test4 = split_dataset(
+    mp_dataset_test4,
+    frac_list=[0.8, 0.2],
+    shuffle=True,
+    random_state=nRuns,
+)
+
+
+    train_loader_test4, val_loader_test4 = MGLDataLoader(
+    train_data=train_data_test4,
+    val_data=val_data_test4,
+    collate_fn=collate_fn_graph,
+    batch_size=8,
+    num_workers=0,
+)  
+    
+    res_test1 = trainer.test(dataloaders=val_loader_test1)
+    res_test2 = trainer.test(dataloaders=val_loader_test2)
+    res_test3 = trainer.test(dataloaders=val_loader_test3)
+    res_test4 = trainer.test(dataloaders=val_loader_test4)
+    
+    
+    res_tes1_HH143.append(list(res_test1[0].values())[0])
+    res_tes2_L96.append(list(res_test2[0].values())[0])
+    res_tes3_MIX.append(list(res_test3[0].values())[0])
+    res_tes4_AFLOW.append(list(res_test4[0].values())[0])
+
 
 
 
@@ -125,19 +317,12 @@ for nRuns in range (1,maxRuns+1):
 
 
 
-    metrics = pd.read_csv("logs/MEGNet_m1_best_model_double_training_%s_%s/version_0/metrics.csv"%(dataset_name,nRuns))
+    metrics = pd.read_csv("logs/MEGNet_m1_best_model_double_training_%s_%s/version_0/metrics.csv"%(dataset_name_TRAIN,nRuns))
 
     x1 = metrics["train_Total_Loss"].dropna().reset_index().drop(columns='index')
     x2 = metrics["val_Total_Loss"].dropna().reset_index().drop(columns='index')   
     y = range(len(x1))  
-    plt.figure(figsize=(10, 5))
-    plt.plot(y, x1,'-o', label='Train LOSS')
-    plt.plot(y, x2, '-o', label='Validation LOSS')
-    plt.xlabel('Epochs')
-    plt.ylabel('LOSS')
-    plt.title('run = %s'%(nRuns))
-    plt.legend()
-    plt.show()
+    
     min_mape_val = x2.val_Total_Loss.min()
     
     if min_mape_val < best_mape:
@@ -158,7 +343,7 @@ for nRuns in range (1,maxRuns+1):
 #    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 try:
     
-    os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s"%(dataset_name))
+    os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
     os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
 except FileNotFoundError:
     pass
@@ -173,6 +358,17 @@ print("#                             #")
 print("#                             #")
 print("#                             #")
 print("###############################")
+
+df_final  = pd.DataFrame({
+    'Run': range(1, maxRuns + 1),
+    'train_on': '%s'%(dataset_name_TRAIN),
+    'test_HH143': res_tes1_HH143,
+    'test_L96': res_tes2_L96,
+    'test_MIX': res_tes3_MIX,
+    'test_AFLOW': res_tes4_AFLOW
+})
+
+df_final.to_csv('~/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/results_on_train_test/results_double_trained_on_AFLOW_and_%s.csv'%(dataset_name_TRAIN), index=False)
 
 
 

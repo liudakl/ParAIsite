@@ -5,7 +5,9 @@ from __future__ import annotations
 import json
 import os
 from functools import partial
-from typing import TYPE_CHECKING, Callable
+from typing import TYPE_CHECKING, Callable, Optional, Tuple, List
+
+from torch.utils.data import ConcatDataset
 
 import dgl
 import numpy as np
@@ -73,6 +75,10 @@ def collate_fn_pes(batch, include_stress: bool = True, include_line_graph: bool 
     return g, torch.squeeze(lat), state_attr, e, f, s
 
 
+
+
+
+
 def MGLDataLoader(
     train_data: dgl.data.utils.Subset,
     val_data: dgl.data.utils.Subset,
@@ -109,6 +115,56 @@ def MGLDataLoader(
                     
                                       
 
+    train_loader = GraphDataLoader(train_data, shuffle=True, collate_fn=collate_fn, **kwargs)
+    val_loader = GraphDataLoader(val_data, shuffle=False, collate_fn=collate_fn, **kwargs)
+    
+   
+    
+    if test_data is not None:
+        test_loader = GraphDataLoader(test_data, shuffle=False, collate_fn=collate_fn, **kwargs)
+        return train_loader, val_loader, test_loader
+    return train_loader, val_loader
+
+def MGLDataLoader_multiple(
+    train_data_1: dgl.data.utils.Subset,
+    val_data_1: dgl.data.utils.Subset,
+    train_data_2: dgl.data.utils.Subset,
+    val_data_2: dgl.data.utils.Subset,
+    collate_fn: Callable | None = None,
+    test_data: dgl.data.utils.Subset = None,
+    
+    **kwargs,
+) -> tuple[GraphDataLoader, ...]:
+    """Dataloader for MatGL training.
+
+    Args:
+        train_data (dgl.data.utils.Subset): Training dataset.
+        val_data (dgl.data.utils.Subset): Validation dataset.
+        collate_fn (Callable): Collate function.
+        test_data (dgl.data.utils.Subset | None, optional): Test dataset. Defaults to None.
+        **kwargs: Pass-through kwargs to dgl.dataloading.GraphDataLoader. Common ones you may want to set are
+            batch_size, num_workers, use_ddp, pin_memory and generator.
+
+    Returns:
+        tuple[GraphDataLoader, ...]: Train, validation and test data loaders. Test data
+            loader is None if test_data is None.
+    """
+    if collate_fn is None:
+        if "forces" not in train_data.dataset.labels:
+            collate_fn = collate_fn_graph
+        else:
+            if "stresses" not in train_data.dataset.labels:
+                collate_fn = partial(collate_fn_pes, include_stress=False)
+            else:
+                if "magmoms" not in train_data.dataset.labels:
+                    collate_fn = collate_fn_pes
+                else:
+                    collate_fn = partial(collate_fn_pes, include_stress=True, include_magmom=True)
+                      
+    
+    train_data = torch.utils.data.ConcatDataset([train_data_1,train_data_2])
+    val_data   = torch.utils.data.ConcatDataset([val_data_1,val_data_2])
+    
     train_loader = GraphDataLoader(train_data, shuffle=True, collate_fn=collate_fn, **kwargs)
     val_loader = GraphDataLoader(val_data, shuffle=False, collate_fn=collate_fn, **kwargs)
     
@@ -259,7 +315,7 @@ class MGLDataset(DGLDataset):
         self.scaler = normalisation()
         self.labels['TC'] = self.scaler.log10(torch.as_tensor((self.labels['TC'])))
         self.labels['TC'] = self.scaler.fit_transform(torch.as_tensor((self.labels['TC'])))
-            
+           
         torch.save(self.scaler,"/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
         
         for k, v in self.labels.items():
