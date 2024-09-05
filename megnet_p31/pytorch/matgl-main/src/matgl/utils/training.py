@@ -13,8 +13,9 @@ import torchmetrics
 from torch import nn
 
 from matgl.apps.pes import Potential
-
-
+torchseed = 42 
+torch.manual_seed(torchseed)
+torch.cuda.manual_seed(torchseed)
 
 if TYPE_CHECKING:
     import dgl
@@ -307,7 +308,7 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         
         
 
-    def loss_fn(self, loss: nn.Module, labels: torch.Tensor, preds: torch.Tensor):
+    def loss_fn(self, loss: nn.Module, labels: torch.Tensor.to('cuda'), preds: torch.Tensor.to('cuda')):
         """Args:
             loss: Loss function.
             labels: Labels to compute the loss.

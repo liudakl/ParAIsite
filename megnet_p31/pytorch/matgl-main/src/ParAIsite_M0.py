@@ -87,10 +87,9 @@ mp_dataset_test4 = MGLDataset(
 
 try:
     
-    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
 except FileNotFoundError:
     pass
-
 
 
 # ===================================================# 
@@ -98,7 +97,7 @@ except FileNotFoundError:
 
 # Setup dataset to TRAIN : 
     
-dataset_name_TRAIN = 'AFLOW'
+dataset_name_TRAIN = 'MIX'
 
 
 if dataset_name_TRAIN == 'MIX':
@@ -123,7 +122,7 @@ if dataset_name_TRAIN == 'MIX':
     )
     
     try:
-        os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+        os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
     except FileNotFoundError:
         pass
     
@@ -148,7 +147,7 @@ else:
     )
     
 
-scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler')
+scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler')
 
 
 
@@ -166,8 +165,10 @@ NN1 = 450
 NN2 = 350
 NN3 = 350
 NN4 = 0
-
-
+torchseed = 42 
+pl.seed_everything(torchseed, workers=True)
+torch.manual_seed(torchseed)
+torch.cuda.manual_seed(torchseed)
     
 
 
@@ -217,15 +218,15 @@ for nRuns in range (1,maxRuns+1):
             num_workers=0 )
     
     model_megned_changed =  create_changed_megned_model() 
-    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1)
-    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp)
-    lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler)
+    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).cuda()
+    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).cuda()
+    lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler).cuda()
 
 ############   Training  Part   ############
 
 
     logger = CSVLogger("logs", name="MEGNet_training_no_weights_%s_%s"%(dataset_name_TRAIN,nRuns),version=0)
-    trainer = pl.Trainer(max_epochs=maxEpochs, accelerator="cpu", logger=logger,callbacks=[checkpoint_callback])
+    trainer = pl.Trainer(max_epochs=maxEpochs,devices="auto", accelerator="gpu", logger=logger,callbacks=[checkpoint_callback])
     trainer.fit(model=lit_module, train_dataloaders=train_loader, val_dataloaders=val_loader)
 
 # ===================================================# 
@@ -330,8 +331,8 @@ for nRuns in range (1,maxRuns+1):
 #    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 try:
     
-    os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
-    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+    os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
+    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
 except FileNotFoundError:
     pass
 
@@ -356,4 +357,4 @@ df_final  = pd.DataFrame({
     'test_AFLOW': res_tes4_AFLOW
 })
 
-df_final.to_csv('~/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/results_on_train_test/results_M0_trained_on_%s.csv'%(dataset_name_TRAIN), index=False)
+df_final.to_csv('~/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/results_on_train_test/results_M0_trained_on_%s.csv'%(dataset_name_TRAIN), index=False)

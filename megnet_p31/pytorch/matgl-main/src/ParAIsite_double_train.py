@@ -83,7 +83,7 @@ mp_dataset_test4 = MGLDataset(
 
 try:
     
-    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
 except FileNotFoundError:
     pass
 
@@ -124,7 +124,7 @@ if dataset_name_TRAIN == 'MIX':
     )
     
     try:
-        os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+        os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
     except FileNotFoundError:
         pass
     
@@ -149,7 +149,7 @@ else:
     )
     
 
-scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler')
+scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler')
 
 
 
@@ -167,6 +167,12 @@ NN1 = 450
 NN2 = 350
 NN3 = 350
 NN4 = 0
+
+torchseed = 42 
+pl.seed_everything(torchseed, workers=True)
+torch.manual_seed(torchseed)
+torch.cuda.manual_seed(torchseed)
+
 
 
 for nRuns in range (1,maxRuns+1):
@@ -217,25 +223,25 @@ for nRuns in range (1,maxRuns+1):
 
 
     
-    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform")
-    model_megned_changed =  create_changed_megned_model() 
+    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform").cuda()
+    model_megned_changed =  create_changed_megned_model() .cuda()
     model_megned_changed.load_state_dict(megnet_loaded.state_dict(),strict=False)
-    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1)
-    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp)
+    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).cuda()
+    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).cuda()
     
     
     checkpoint_path = 'best_models/sample-AFLOW_%s-v1.ckpt'%(nRuns)
     #checkpoint = torch.load(checkpoint_path)
     #lit_module_loaded = ModelLightningModule(model=new_model,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
     #lit_module_loaded.load_state_dict(checkpoint['state_dict'])
-    lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model)
+    lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model).cuda()
     
 
 ############   Training  Part   ############
 
 
     logger = CSVLogger("logs", name="MEGNet_m1_best_model_double_training_%s_%s"%(dataset_name_TRAIN,nRuns),version=0)
-    trainer = pl.Trainer(max_epochs=maxEpochs, accelerator="cpu", logger=logger,callbacks=[checkpoint_callback])
+    trainer = pl.Trainer(max_epochs=maxEpochs, accelerator="gpu", logger=logger,callbacks=[checkpoint_callback])
     trainer.fit(model=lit_module_loaded, train_dataloaders=train_loader, val_dataloaders=val_loader)
 #===================================================#
 
@@ -343,8 +349,8 @@ for nRuns in range (1,maxRuns+1):
 #    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 try:
     
-    os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
-    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+    os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
+    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
 except FileNotFoundError:
     pass
 
@@ -368,7 +374,7 @@ df_final  = pd.DataFrame({
     'test_AFLOW': res_tes4_AFLOW
 })
 
-df_final.to_csv('~/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/results_on_train_test/results_double_trained_on_AFLOW_and_%s.csv'%(dataset_name_TRAIN), index=False)
+df_final.to_csv('~/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/results_on_train_test/results_double_trained_on_AFLOW_and_%s.csv'%(dataset_name_TRAIN), index=False)
 
 
 

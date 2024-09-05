@@ -20,6 +20,10 @@ from tqdm import trange
 import matgl
 from matgl.graph.compute import compute_pair_vector_and_distance, create_line_graph
 
+torchseed = 42 
+torch.manual_seed(torchseed)
+torch.cuda.manual_seed(torchseed)
+
 if TYPE_CHECKING:
     from matgl.graph.converters import GraphConverter
 
@@ -180,6 +184,7 @@ class normalisation():
     def __init__(self):
         self.mean = None
         self.std = None
+        self.device = 'gpu'
 
     def fit(self, X):
         """
@@ -223,6 +228,7 @@ class normalisation():
     
     def log10(self,data):
         data_log = torch.log10(data +1)
+        data_log = data_log.to('cuda')
         return data_log   
         
 
@@ -314,9 +320,9 @@ class MGLDataset(DGLDataset):
         #torch.save(self.scaler.scaler,"/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler")
         self.scaler = normalisation()
         self.labels['TC'] = self.scaler.log10(torch.as_tensor((self.labels['TC'])))
-        self.labels['TC'] = self.scaler.fit_transform(torch.as_tensor((self.labels['TC'])))
+        self.labels['TC'] = self.scaler.fit_transform(torch.as_tensor((self.labels['TC'])).to('cuda'))
            
-        torch.save(self.scaler,"/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+        torch.save(self.scaler,"/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
         
         for k, v in self.labels.items():
             self.labels[k] = v.tolist() if isinstance(v, np.ndarray) else v
