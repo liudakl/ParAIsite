@@ -5,6 +5,11 @@ models/*.zip
 models/*.7z
 models/*
 
+.DS_Store
+
+*/.DS_Store
+
+*/*/.DS_Store
 
 crabnet/models/* 
 
