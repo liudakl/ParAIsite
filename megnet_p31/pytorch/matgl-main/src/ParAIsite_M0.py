@@ -97,7 +97,7 @@ except FileNotFoundError:
 
 # Setup dataset to TRAIN : 
     
-dataset_name_TRAIN = 'MIX'
+dataset_name_TRAIN = 'AFLOW'
 
 
 if dataset_name_TRAIN == 'MIX':

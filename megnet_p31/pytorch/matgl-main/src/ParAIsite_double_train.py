@@ -230,7 +230,7 @@ for nRuns in range (1,maxRuns+1):
     new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).cuda()
     
     
-    checkpoint_path = 'best_models/sample-AFLOW_%s-v1.ckpt'%(nRuns)
+    checkpoint_path = 'best_models/sample-AFLOW_%s.ckpt'%(nRuns)
     #checkpoint = torch.load(checkpoint_path)
     #lit_module_loaded = ModelLightningModule(model=new_model,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
     #lit_module_loaded.load_state_dict(checkpoint['state_dict'])
