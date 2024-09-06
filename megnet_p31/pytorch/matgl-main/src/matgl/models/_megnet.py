@@ -29,7 +29,9 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__file__)
 
-
+torchseed = 42 
+torch.manual_seed(torchseed)
+torch.cuda.manual_seed(torchseed)
 
 class MEGNet(nn.Module, IOMixIn):
     """DGL implementation of MEGNet."""
@@ -233,9 +235,12 @@ class MEGNet(nn.Module, IOMixIn):
         return self(g=g, state_attr=state_attr).detach()
         
         
+
+device = torch.device('cuda' )
         
         
-class combined_models (nn.Module, IOMixIn): 
+class combined_models (nn.Module, IOMixIn):
+     
     def __init__(self, pretrained_model,myMLP,dim_node_embedding: int = 16,
     dim_edge_embedding: int = 100,
     dim_state_embedding: int = 2,
@@ -264,7 +269,7 @@ class combined_models (nn.Module, IOMixIn):
     def predict_structure(
         self,
         structure,
-        state_attr: torch.Tensor | None = None,
+        state_attr: torch.Tensor.to('cuda') | None = None,
         graph_converter: GraphConverter | None = None,
     ):
         """Convenience method to directly predict property from structure.
@@ -282,14 +287,16 @@ class combined_models (nn.Module, IOMixIn):
 
             graph_converter = Structure2Graph(element_types=self.pretrained.element_types, cutoff=self.pretrained.cutoff)
         g, lat, state_attr_default = graph_converter.get_graph(structure)
-        g.edata["pbc_offshift"] = torch.matmul(g.edata["pbc_offset"], lat[0])
+        g = g.to(device)
+        lat = lat.to(device)
+        g.edata["pbc_offshift"] = torch.matmul(g.edata["pbc_offset"].to('cuda'), lat[0])
         g.ndata["pos"] = g.ndata["frac_coords"] @ lat[0]
         if state_attr is None:
-            state_attr = torch.tensor(state_attr_default)
+            state_attr = torch.tensor(state_attr_default).to('cuda')
         bond_vec, bond_dist = compute_pair_vector_and_distance(g)
-        g.edata["edge_attr"] = self.pretrained.bond_expansion(bond_dist)
+        g.edata["edge_attr"] = self.pretrained.bond_expansion(bond_dist.to('cuda'))
         
-        return self(g=g, state_attr=state_attr).detach()    
+        return self(g=g, state_attr=state_attr).detach().cpu()    
     
 		
     def forward(self, g: dgl.DGLGraph, state_attr: torch.Tensor | None = None, **kwargs):

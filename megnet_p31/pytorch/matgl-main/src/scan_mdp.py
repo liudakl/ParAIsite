@@ -10,14 +10,18 @@ Created on Mon Jul 22 13:02:54 2024
 
 from __future__ import annotations
 import pandas as pd 
+import warnings
 import torch 
-import warnings 
+import lightning as pl
+from matgl.models import combined_models
+from matgl.utils.training import ModelLightningModule
+import matgl 
+from model_mlp import myMLP
+
+from custom_functions import create_changed_megned_model 
 
 warnings.simplefilter("ignore")
 
-
-
-    
 
 def unlog10(data):
         data_unlog10 = 10**(data)-1
@@ -31,33 +35,48 @@ def inverse_transform(scalerY,X):
 
 
 model_for_scan_scan  = 'HH143'
-scalerY = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler.%s'%(model_for_scan_scan))
+scalerY = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s'%(model_for_scan_scan))
 
-df = pd.read_pickle('mpd_ids_srtcuture_table.pkl')
+df = pd.read_pickle('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/mpd_ids_srtcuture_table.pkl')
 
-
+torchseed = 42 
+pl.seed_everything(torchseed, workers=True)
+torch.manual_seed(torchseed)
+torch.cuda.manual_seed(torchseed)
 
 nRunsmax = 9
-idx = 1 
 
+def model_to_scan (model_scan,nRuns):
+    NN1 = 450
+    NN2 = 350
+    NN3 = 350
+    NN4 = 0
+    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform").cuda()
+    model_megned_changed =  create_changed_megned_model() .cuda()
+    model_megned_changed.load_state_dict(megnet_loaded.state_dict(),strict=False)
+    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).cuda()
+    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).cuda()
     
-
-
+    
+    checkpoint_path = 'best_models/double_train_AFLOW_on_%s_%s.ckpt'%(model_scan,nRuns)
+    lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model).cuda()
+    return lit_module_loaded.model
 
 res = {}
 
 for nRuns in range (1,nRunsmax+1):
     y_pred = [] 
     print("###=> le modele numero %s; "%(nRuns))
-    model = torch.load('best_models/model_%s.%s'%(model_for_scan_scan,nRuns))
+    model =  model_to_scan (model_for_scan_scan,nRuns).cuda()
     model.train(False)     
     
     for idx in range(0,len(df)):
-        preds = model.predict_structure(df['structure'].iloc[idx])
-        preds_ivT =  inverse_transform(scalerY,preds)
-        tc_pred = unlog10(preds_ivT).item()
-        y_pred.append(tc_pred)
-    res["res_"+str(nRuns)] = y_pred
+        if len (df['structure'].iloc[idx]) <= 3: 
+            preds = model.predict_structure(df['structure'].iloc[idx])
+            preds_ivT =  inverse_transform(scalerY,preds)
+            tc_pred = unlog10(preds_ivT).item()
+            y_pred.append(tc_pred)
+        res["res_"+str(nRuns)] = y_pred
 
 
 resdf = pd.DataFrame(res)
