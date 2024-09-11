@@ -32,7 +32,7 @@ data = {
 df = pd.DataFrame(data, index=['L96', 'HH143', 'MIX', 'AFLOW'])
 
 # Create the heatmap
-plt.figure(figsize=(12, 8), dpi=700)
+plt.figure(figsize=(10, 8), dpi=700)
 ax = sns.heatmap(df.T, annot=True, cmap=cm.vik, fmt='.2f', linewidths=3,cbar_kws={'shrink': 1})
 ax.collections[0].colorbar.set_label("MAPE",fontsize=20)
 plt.ylabel('Train on', fontsize=20)
