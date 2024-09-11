@@ -12,7 +12,6 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 # Data from the table
-import re
 
 # Data from the table
 data = {
@@ -41,8 +40,8 @@ plt.xlabel('Train on', fontsize=20)
 plt.xticks(rotation=45, fontsize=15)
 plt.yticks(rotation=0, fontsize=15)
 plt.show()
+plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/heatmap_results.eps', format='eps')
 
-'''
 cmap = cm.batlow  # Choose a color map, e.g., 'coolwarm'
 
 
@@ -86,4 +85,4 @@ plt.xticks(fontsize=15)
 
 plt.xlabel('MAPE',fontsize=15)
 plt.show()
-'''
+plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/mape_mlp_test.eps', format='eps')
