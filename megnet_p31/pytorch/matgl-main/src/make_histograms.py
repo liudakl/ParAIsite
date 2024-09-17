@@ -43,14 +43,14 @@ df_L96 = pd.DataFrame(data_L96, index=['L96'])
 
 # Create the heatmap
 plt.figure(figsize=(12, 10), dpi=700)
-ax = sns.heatmap(df.T, annot=True, cmap=cm.vik, fmt='.2f', linewidths=3,cbar_kws={'shrink': 1})
+ax = sns.heatmap(df_L96.T, annot=True, cmap=cm.vik, fmt='.2f', linewidths=3,cbar_kws={'shrink': 1})
 ax.collections[0].colorbar.set_label("MAPE",fontsize=20)
 plt.ylabel('Train on', fontsize=20)
 plt.xlabel('Test on', fontsize=20)
 
 plt.xticks(rotation=45, fontsize=15)
 plt.yticks(rotation=0, fontsize=15)
-plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/heatmap_results.eps', format='eps')
+plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/heatmap_results_L96.png', format='png')
 plt.show()
 
 
