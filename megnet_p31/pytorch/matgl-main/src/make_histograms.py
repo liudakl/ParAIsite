@@ -12,7 +12,7 @@ import seaborn as sns
 import pandas as pd
 # Data from the table
 
-'''
+
 # Data from the table
 data = {
     'L96_1': [0.54, 2.53, 1.74, 2.16],
@@ -30,6 +30,17 @@ data = {
 
 df = pd.DataFrame(data, index=['L96', 'HH143', 'MIX', 'AFLOW'])
 
+data_L96 = {
+    'L96_1': [0.54],
+    'L96_2': [0.51],
+    'L96_3': [0.29],
+
+}
+
+df_L96 = pd.DataFrame(data_L96, index=['L96'])
+
+
+
 # Create the heatmap
 plt.figure(figsize=(12, 10), dpi=700)
 ax = sns.heatmap(df.T, annot=True, cmap=cm.vik, fmt='.2f', linewidths=3,cbar_kws={'shrink': 1})
@@ -43,7 +54,7 @@ plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pyto
 plt.show()
 
 
-
+'''
 #colors = ['skyblue', 'lightsalmon', 'lightpink', 'lightblue', 'lightyellow', 'lightgrey', 'cyan']
 
 
@@ -88,7 +99,7 @@ plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pyto
 
 plt.show()
 
-'''
+
 
 
 
@@ -139,7 +150,7 @@ plt.title('%s database'%(dataset_name_TRAIN), fontsize=15)
 plt.show()
 
 
-
+'''
 
 
 
