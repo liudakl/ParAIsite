@@ -12,23 +12,23 @@ import seaborn as sns
 import pandas as pd
 # Data from the table
 
-
+'''
 # Data from the table
 data = {
-    'L96_1': [0.54, 2.53, 1.74, 2.16],
-    'HH143_1': [0.51, 0.38, 0.43, 0.48],
+    'Dataset1_1': [0.54, 2.53, 1.74, 2.16],
+    'Dataset2_1': [0.51, 0.38, 0.43, 0.48],
     'MIX_1': [0.69, 0.77, 0.67, 0.97],
     'AFLOW_1': [0.55, 1.18, 0.93, 0.60],  # N/A values
-    'L96_2': [0.51, 3.09, 2.07, 2.32],
-    'HH143_2': [0.55, 0.37, 0.44, 0.52],
+    'Dataset1_2': [0.51, 3.09, 2.07, 2.32],
+    'Dataset2_2': [0.55, 0.37, 0.44, 0.52],
     'MIX_2': [0.66, 0.75, 0.71, 1.10],
     'AFLOW_2': [0.44, 1.27, 0.94, 0.49],
-    'L96_3': [0.29, 1.26, 0.87, 0.57],
-    'HH143_3': [0.55, 0.69, 0.63, 0.62],
+    'Dataset1_3': [0.29, 1.26, 0.87, 0.57],
+    'Dataset2_3': [0.55, 0.69, 0.63, 0.62],
     'MIX_3': [0.37, 0.78, 0.62, 0.59]
 }
 
-df = pd.DataFrame(data, index=['L96', 'HH143', 'MIX', 'AFLOW'])
+df = pd.DataFrame(data, index=['Dataset1', 'Dataset2', 'MIX', 'AFLOW'])
 
 data_L96 = {
     'L96_1': [0.54],
@@ -43,21 +43,21 @@ df_L96 = pd.DataFrame(data_L96, index=['L96'])
 
 # Create the heatmap
 plt.figure(figsize=(12, 10), dpi=700)
-ax = sns.heatmap(df_L96.T, annot=True, cmap=cm.vik, fmt='.2f', linewidths=3,cbar_kws={'shrink': 1})
-ax.collections[0].colorbar.set_label("MAPE",fontsize=20)
-plt.ylabel('Train on', fontsize=20)
-plt.xlabel('Test on', fontsize=20)
+ax = sns.heatmap(df.T, annot=True, cmap=cm.vik, fmt='.2f', linewidths=3,cbar_kws={'shrink': 1})
+ax.collections[0].colorbar.set_label("MAPE",fontsize=15)
+plt.ylabel('Train on', fontsize=15)
+plt.xlabel('Test on', fontsize=15)
 
-plt.xticks(rotation=45, fontsize=15)
-plt.yticks(rotation=0, fontsize=15)
-plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/heatmap_results_L96.png', format='png')
+plt.xticks(rotation=45, fontsize=10)
+plt.yticks(rotation=0, fontsize=10)
+plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/heatmap_results.eps', format='eps')
 plt.show()
 
 
 '''
 #colors = ['skyblue', 'lightsalmon', 'lightpink', 'lightblue', 'lightyellow', 'lightgrey', 'cyan']
 
-
+'''
 df = pd.read_csv('../../../../../paper/reg_results_TC.csv')
 df[['model', 'target']] = df['Unnamed: 0'].str.split(' ', n=1, expand=True)
 df[['mape_mean', 'mape_std']] = df['TC'].str.extract(r'([0-9.]+) \(([^)]+)\)')
@@ -95,7 +95,7 @@ plt.yticks(ticks=range(len(df)), labels=df['model'],fontsize=15)
 plt.xticks(fontsize=15)
 
 plt.xlabel('MAPE',fontsize=15)
-plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/mape_mlp_test.eps', format='eps')
+plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/mape_mlp_test.png', format='png')
 
 plt.show()
 
@@ -143,18 +143,28 @@ plt.xticks(rotation=45, fontsize=15)
 plt.yticks(rotation=0, fontsize=15)
 
 plt.legend(fontsize=15)
-plt.title('%s database'%(dataset_name_TRAIN), fontsize=15)
+if dataset_name_TRAIN == 'L96':
+    name_title = 'Dataset1'
+elif dataset_name_TRAIN == 'HH143':
+    name_title = 'Dataset2'
+    
+plt.title('%s database'%(name_title), fontsize=15)
 
-#plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/loss_all_steps_%s.eps'%(dataset_name_TRAIN), format='eps')
+plt.savefig('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/loss_all_steps_%s.eps'%(dataset_name_TRAIN), format='eps')
 
 plt.show()
 
 
 '''
+from matplotlib.patches import Rectangle
 
+fig = plt.figure()
+plt.xlim(0, 10)
+plt.ylim(0, 12)
 
-
-
+someX, someY = 2, 5
+currentAxis = plt.gca()
+currentAxis.add_patch(Rectangle((someX - .5, someY - .5), 4, 6, facecolor="grey"))
 
 
 
