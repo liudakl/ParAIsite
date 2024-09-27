@@ -156,15 +156,38 @@ plt.show()
 
 
 '''
-from matplotlib.patches import Rectangle
 
-fig = plt.figure()
-plt.xlim(0, 10)
-plt.ylim(0, 12)
+dataset_name_TRAIN = 'L96'
+maxRuns = 9
 
-someX, someY = 2, 5
-currentAxis = plt.gca()
-currentAxis.add_patch(Rectangle((someX - .5, someY - .5), 4, 6, facecolor="grey"))
+y_temp_1  = 0 
+y_temp_2  = 0 
+y_temp_3  = 0 
+
+m = 0 
+plt.figure(figsize=(14, 8),dpi=700)
+for nRuns in range (1,4+1):
+    df = pd.read_csv("logs/MEGNet_training_no_weights_%s_%s/version_0/metrics.csv"%(dataset_name_TRAIN,nRuns))
+    y_temp_1 = df["val_Total_Loss"].dropna().reset_index().drop(columns='index')  
+    x = range(len(y_temp_1))
+    plt.scatter(x, y_temp_1,label='sample %s'%(nRuns),marker='o',s=5)#,color='tomato')
+    min_loss = y_temp_1.min()
+    min_loss_idx = y_temp_1.idxmin().values[0]
+    plt.scatter(min_loss_idx, min_loss, color='red', s=100, facecolors='none', edgecolors='red', label='Min Run %s' % nRuns)
+plt.ylabel('Validation Loss', fontsize=20)
+plt.xlabel('Epochs', fontsize=20)
+
+
+plt.xticks(rotation=45, fontsize=15)
+plt.yticks(rotation=0, fontsize=15)
+
+plt.legend(fontsize=15)
+if dataset_name_TRAIN == 'L96':
+    name_title = 'Dataset1'
+elif dataset_name_TRAIN == 'HH143':
+    name_title = 'Dataset2'
+
+plt.title('%s database'%(name_title), fontsize=15)
 
 
 
