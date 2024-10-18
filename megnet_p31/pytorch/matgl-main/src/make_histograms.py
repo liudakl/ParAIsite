@@ -57,7 +57,7 @@ plt.show()
 '''
 #colors = ['skyblue', 'lightsalmon', 'lightpink', 'lightblue', 'lightyellow', 'lightgrey', 'cyan']
 
-'''
+
 df = pd.read_csv('../../../../../paper/reg_results_TC.csv')
 df[['model', 'target']] = df['Unnamed: 0'].str.split(' ', n=1, expand=True)
 df[['mape_mean', 'mape_std']] = df['TC'].str.extract(r'([0-9.]+) \(([^)]+)\)')
@@ -189,5 +189,50 @@ elif dataset_name_TRAIN == 'HH143':
 
 plt.title('%s database'%(name_title), fontsize=15)
 
+
+'''
+
+
+
+
+dataset_name_TRAIN = 'AFLOW'
+maxRuns = 9
+
+y_temp_1_list = []
+y_temp_2_list = []
+y_temp_3_list = []
+
+for nRuns in range(1, maxRuns + 1):
+    df = pd.read_csv(f"logs/MEGNet_training_no_weights_{dataset_name_TRAIN}_{nRuns}/version_0/metrics.csv")
+    y_temp_1_list.append(df["val_Total_Loss"].dropna().reset_index(drop=True))
+
+    df = pd.read_csv(f"logs/MEGNet_m1_training_{dataset_name_TRAIN}_{nRuns}/version_0/metrics.csv")
+    y_temp_2_list.append(df["val_Total_Loss"].dropna().reset_index(drop=True))
+
+#    df = pd.read_csv(f"logs/MEGNet_m1_best_model_double_training_{dataset_name_TRAIN}_{nRuns}/version_0/metrics.csv")
+#    y_temp_3_list.append(df["val_Total_Loss"].dropna().reset_index(drop=True))
+
+df_y1 = pd.concat(y_temp_1_list, axis=1)
+df_y2 = pd.concat(y_temp_2_list, axis=1)
+#df_y3 = pd.concat(y_temp_3_list, axis=1)
+
+y_v1_mean = df_y1.mean(axis=1)
+y_v2_mean = df_y2.mean(axis=1)
+#y_v3_mean = df_y3.mean(axis=1)
+
+y_v1_std = df_y1.std(axis=1)
+y_v2_std = df_y2.std(axis=1)
+#y_v3_std = df_y3.std(axis=1)
+
+
+idx1 = y_v1_mean.idxmin()
+idx2 = y_v2_mean.idxmin()
+#idx3 = y_v3_mean.idxmin()
+
+
+print('step I for model %s: %s(%s)'%(dataset_name_TRAIN,y_v1_mean.min(), y_v1_std.iloc[y_v1_mean.idxmin()]))
+print('step II for model %s: %s(%s)'%(dataset_name_TRAIN,y_v2_mean.min(), y_v2_std.iloc[y_v2_mean.idxmin()]))
+
+#print('step III for model %s: %s(%s)'%(dataset_name_TRAIN,y_v3_mean.min(), y_v3_std.iloc[y_v3_mean.idxmin()]))
 
 

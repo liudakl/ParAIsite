@@ -97,7 +97,7 @@ except FileNotFoundError:
 
 # Setup dataset to TRAIN : 
     
-dataset_name_TRAIN = 'AFLOW'
+dataset_name_TRAIN = 'L96'
 
 
 if dataset_name_TRAIN == 'MIX':
@@ -159,8 +159,8 @@ scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_
 
 
 best_mapes = [] 
-maxRuns = 9
-maxEpochs = 300
+maxRuns = 12
+maxEpochs = 10
 NN1 = 450
 NN2 = 350
 NN3 = 350
@@ -172,7 +172,7 @@ torch.cuda.manual_seed(torchseed)
     
 
 
-for nRuns in range (1,maxRuns+1):
+for nRuns in range (11,maxRuns+1):
     best_mape = np.inf
     checkpoint_callback = ModelCheckpoint(monitor='val_Total_Loss',dirpath='best_models/',filename='no_weights-%s_%s'%(dataset_name_TRAIN,nRuns))
     
