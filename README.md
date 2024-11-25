@@ -40,13 +40,13 @@ Molecules and Crystals. Chem. Mater. 2019, 31 (9), 3564–3572. https://doi.org/
 Clone the project to your machine:
 
 ```bash
-  git clone https://github.com/liudakl/fine_tuning_papers
+  git clone https://github.com/liudakl/ParAIsite.git 
 ```
 
 Go to the project directory
 
 ```bash
-  cd https://github.com/liudakl/fine_tuning_papers/tree/main/paper/megnet_p31/pytorch/matgl-main/src
+  cd ParAIsite/tree/main/paper/main/src
 ```
 
 If you would like to reproduce training, please do:
@@ -66,17 +66,13 @@ Please keep in mind that you need to select in the script on which dataset you w
 
 ### Which data ParAIsite expects you to have before the execution it?
 
-- Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format; For the datasets: AFLOW, L96, MIX and HH143 they are avaible in *structure_scaler* folder.
+- Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format; 
+- For the datasets: AFLOW, L96, MIX and HH143 they are avaible in *structure_scaler* folder.
 
 ## How to test ParAIsite on Data?
 
-If you would like to test your model on datasets, please do:
-
-```bash
-  python 3.10 test_model.py
-```
-Please keep in mind that you need to select in the script on which model and on which dataset you would like perform test.
-
+Testings ParAIsite on Data are already integrated inside the code for model training/double training. 
+Please keep in mind that you need to change the script with respect on which dataset you would like perform test.
 
 
 ## Summary: Validation Results (Dataset on Train vs Dataset on Validation)
