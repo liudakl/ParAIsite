@@ -67,7 +67,7 @@ Please keep in mind that you need to select in the script on which dataset you w
 ### Which data ParAIsite expects you to have before the execution it?
 
 - Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format; 
-- For the datasets: AFLOW, L96, MIX and HH143 they are avaible in *structure_scaler* folder.
+- For the datasets: AFLOW, Dataset1, Dataset2, and MIX they are avaible in *structure_scaler* folder.
 
 ## How to test ParAIsite on Data?
 
@@ -78,21 +78,21 @@ Please keep in mind that you need to change the script with respect on which dat
 ## Summary: Validation Results (Dataset on Train vs Dataset on Validation)
 
 
-| Train on \ Test on | L96              | HH143            | MIX              | AFLOW           |
+| Train on \ Test on | Dataset1              | Dataset2            | MIX              | AFLOW           |
 |--------------------|------------------|------------------|------------------|-----------------|
 | **Step I: No weights MEGNET** |                |                  |                  |                 |
-| L96                | 0.82 (0.21)      | 2.53 (2.17)      | 1.74 (1.26)      | 2.16 (1.26)     |
-| HH143              | 0.51 (0.09)      | 0.42 (0.07)      | 0.43 (0.05)      | 0.48 (0.05)     |
+| Dataset1                | 0.82 (0.21)      | 2.53 (2.17)      | 1.74 (1.26)      | 2.16 (1.26)     |
+| Dataset2              | 0.51 (0.09)      | 0.42 (0.07)      | 0.43 (0.05)      | 0.48 (0.05)     |
 | MIX                | 0.69 (0.15)      | 0.77 (0.15)      | 0.83 (0.07)      | 0.97 (0.27)     |
 | AFLOW              | 0.55 (0.34)      | 1.18 (0.27)      | 0.93 (0.27)      | 0.62 (0.33)     |
 | **Step II: With weights MEGNET** |            |                  |                  |                 |
-| L96                | 0.76 (0.29)      | 3.09 (2.40)      | 2.07 (1.40)      | 2.32 (1.94)     |
-| HH143              | 0.55 (0.14)      | 0.42 (0.06)      | 0.44 (0.04)      | 0.52 (0.10)     |
+| Dataset1                | 0.76 (0.29)      | 3.09 (2.40)      | 2.07 (1.40)      | 2.32 (1.94)     |
+| Dataset2              | 0.55 (0.14)      | 0.42 (0.06)      | 0.44 (0.04)      | 0.52 (0.10)     |
 | MIX                | 0.66 (0.14)      | 0.75 (0.16)      | 0.81 (0.11)      | 1.10 (0.47)     |
 | AFLOW              | 0.44 (0.14)      | 1.27 (0.48)      | 0.94 (0.30)      | 0.50 (0.03)     |
 | **Step III: Retrained on AFLOW** |    |                  |                  |                 |
-| L96                | 0.34 (0.15)      | 1.26 (0.44)      | 0.87 (0.27)      | 0.57 (0.10)     |
-| HH143              | 0.55 (0.10)      | 0.78 (0.20)      | 0.63 (0.18)      | 0.62 (0.07)     |
+| Dataset1                | 0.34 (0.15)      | 1.26 (0.44)      | 0.87 (0.27)      | 0.57 (0.10)     |
+| Dataset2              | 0.55 (0.10)      | 0.78 (0.20)      | 0.63 (0.18)      | 0.62 (0.07)     |
 | MIX                | 0.37 (0.14)      | 0.78 (0.31)      | 0.69 (0.19)      | 0.59 (0.06)     |
 
 
@@ -103,8 +103,8 @@ Please keep in mind that you need to change the script with respect on which dat
 ## Training Results
 | Dataset | Validation Error (Mean ± Std) |
 |---------|-------------------------------|
-| L96     |  0.54 (0.22)                  |
-| HH143   |  0.38 (0.05)                 |
+| Dataset1     |  0.54 (0.22)                  |
+| Dataset2   |  0.38 (0.05)                 |
 | MIX     |  0.67 (0.10)                  |
 | AFLOW   |  0.60 (0.31)             	  |
 
@@ -113,30 +113,30 @@ Please keep in mind that you need to change the script with respect on which dat
 ### Test on L96
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| HH143     |  2.53 (2.17)                      |
-| MIX       |  1.74 (1.26)             		|
+| Dataset1     |  2.53 (2.17)                      |
+| Dataset2       |  1.74 (1.26)             		|
 | AFLOW     |  2.16 (1.26)            		|
 
 ### Test  on HH143
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       |  0.51 (0.09)                     	|
+| Dataset1       |  0.51 (0.09)                     	|
 | MIX       |  0.43 (0.05)            		|
 | AFLOW     |  0.48 (0.05)        		|
 
 ### Test  on MIX
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       | 0.69 (0.15)             		|
-| HH143     | 0.77 (0.15)              		|
+| Dataset1       | 0.69 (0.15)             		|
+| Dataset2     | 0.77 (0.15)              		|
 | AFLOW     | 0.97 (0.27)      			|
 
 ### Test  on AFLOW
 
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       |  0.55 (0.34)                    	|
-| HH143     |  1.18 (0.27)                    	|
+| Dataset1       |  0.55 (0.34)                    	|
+| Dataset2     |  1.18 (0.27)                    	|
 | MIX       |  0.93 (0.27)        		|
 
 
@@ -146,8 +146,8 @@ Please keep in mind that you need to change the script with respect on which dat
 ## Training Results
 | Dataset | Validation Error (Mean ± Std) |
 |---------|-------------------------------|
-| L96     |  0.51 (0.24)                  |
-| HH143   |  0.37 (0.08)                  |
+| Dataset1     |  0.51 (0.24)                  |
+| Dataset2   |  0.37 (0.08)                  |
 | MIX     |  0.71 (0.12)                  |
 | AFLOW   |  0.49 (0.03)                  |
 
@@ -156,30 +156,30 @@ Please keep in mind that you need to change the script with respect on which dat
 ### Test on L96
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| HH143     | 3.09 (2.40)             		|
+| Dataset2     | 3.09 (2.40)             		|
 | MIX       | 2.07 (1.40)              		|
 | AFLOW     | 2.32 (1.94)    			|
 
 ### Test  on HH143
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       | 0.55 (0.14)              		|
+| Dataset1       | 0.55 (0.14)              		|
 | MIX       | 0.44 (0.04)              		|
 | AFLOW     | 0.52 (0.10)      			|
 
 ### Test  on MIX
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       | 0.66 (0.14)              		|
-| HH143     | 0.75 (0.16)                       |
+| Dataset1       | 0.66 (0.14)              		|
+| Dataset2     | 0.75 (0.16)                       |
 | AFLOW     | 1.10 (0.47)     			|
 
 ### Test  on AFLOW
 
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       |  0.44 (0.14)             		|
-| HH143     |  1.27 (0.48)             		|
+| Dataset1       |  0.44 (0.14)             		|
+| Dataset2     |  1.27 (0.48)             		|
 | MIX       |  0.94 (0.30)            		|
 
 
@@ -190,8 +190,8 @@ Please keep in mind that you need to change the script with respect on which dat
 ## Training Results
 | Dataset | Validation Error (Mean ± Std) |
 |---------|-------------------------------|
-| L96     |  0.29 (0.13)                  |
-| HH143   |  0.69 (0.26)                  |
+| Dataset1     |  0.29 (0.13)                  |
+| Dataset2   |  0.69 (0.26)                  |
 | MIX     |  0.62 (0.20)                  |
 
 ## Validation Results
@@ -199,21 +199,21 @@ Please keep in mind that you need to change the script with respect on which dat
 ### Test  on L96
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| HH143     |  1.26 (0.44)             		|
+| Dataset2     |  1.26 (0.44)             		|
 | MIX       |  0.87 (0.27)            		|
 | AFLOW     |  0.57 (0.10)     			|
 
 ### Test  on HH143
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       |  0.55 (0.10)                     	|
+| Dataset1       |  0.55 (0.10)                     	|
 | MIX       |  0.63 (0.18)                      |
 | AFLOW     |  0.62 (0.07)            		|
 
 ### Test  on MIX
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
-| L96       |  0.37 (0.14)            		|
-| HH143     |  0.78 (0.31)          		|
+| Dataset1       |  0.37 (0.14)            		|
+| Dataset2     |  0.78 (0.31)          		|
 | AFLOW     |  0.59 (0.06)    			|
 
