@@ -46,7 +46,7 @@ Clone the project to your machine:
 Go to the project directory
 
 ```bash
-  cd ParAIsite/tree/main/paper/main/src
+  cd ParAIsite/main/src
 ```
 
 If you would like to reproduce training, please do:
