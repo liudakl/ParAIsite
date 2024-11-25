@@ -161,6 +161,7 @@ dmypy.json
 
 .DS_Store
 megnet_p31/.DS_Store
+megnet_p31/pytorch/matgl-main/src/structures_scalers/mpd*.pkl
 /home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/logs/*
 megnet_p31/pytorch/matgl-main/src/*.json
 megnet_p31/keras/pretrained_models/*
