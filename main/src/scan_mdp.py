@@ -35,9 +35,9 @@ def inverse_transform(scalerY,X):
 
 
 model_for_scan_scan  = 'HH143'
-scalerY = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s'%(model_for_scan_scan))
+scalerY = torch.load('structures_scalers/torch.scaler.%s'%(model_for_scan_scan))
 
-df = pd.read_pickle('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/mpd_ids_srtcuture_table.pkl')
+df = pd.read_pickle('structures_scalers/mpd_ids_srtcuture_table.pkl')
 
 torchseed = 42 
 pl.seed_everything(torchseed, workers=True)

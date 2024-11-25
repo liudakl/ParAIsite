@@ -83,7 +83,7 @@ mp_dataset_test4 = MGLDataset(
 
 try:
     
-    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+    os.remove("structures_scalers/torch.scaler")
 except FileNotFoundError:
     pass
 
@@ -124,7 +124,7 @@ if dataset_name_TRAIN == 'MIX':
     )
     
     try:
-        os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+        os.remove("structures_scalers/torch.scaler")
     except FileNotFoundError:
         pass
     
@@ -149,7 +149,7 @@ else:
     )
     
 
-scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler')
+scaler = torch.load('structures_scalers/torch.scaler')
 
 
 
@@ -349,8 +349,8 @@ for nRuns in range (1,maxRuns+1):
 #    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 try:
     
-    os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
-    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+    os.rename("structures_scalers/torch.scaler", "structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
+    os.remove("structures_scalers/torch.scaler")
 except FileNotFoundError:
     pass
 
@@ -374,7 +374,7 @@ df_final  = pd.DataFrame({
     'test_AFLOW': res_tes4_AFLOW
 })
 
-df_final.to_csv('~/Desktop/ProjPostDoc/GitHub/ParAIsite/megnet_p31/pytorch/matgl-main/src/results_on_train_test/results_double_trained_on_AFLOW_and_%s.csv'%(dataset_name_TRAIN), index=False)
+df_final.to_csv('results_on_train_test/results_double_trained_on_AFLOW_and_%s.csv'%(dataset_name_TRAIN), index=False)
 
 
 

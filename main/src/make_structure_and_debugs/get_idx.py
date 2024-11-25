@@ -47,7 +47,7 @@ mp_dataset = MGLDataset(
     labels={"TC": thermal_conduct},
     converter=converter,
 )
-scaler = torch.load('/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler')
+scaler = torch.load('structures_scalers/torch.scaler')
 
 
 maxRuns = 9
@@ -88,8 +88,8 @@ for nRuns in range (1,maxRuns+1):
 
 try:
     
-    os.rename("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler", "/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler.%s"%(dataset_name))
-    os.remove("/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/structures_scalers/torch.scaler")
+    os.rename("structures_scalers/torch.scaler", "structures_scalers/torch.scaler.%s"%(dataset_name))
+    os.remove("structures_scalers/torch.scaler")
 except FileNotFoundError:
     pass
 
