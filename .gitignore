@@ -160,9 +160,9 @@ dmypy.json
 
 
 .DS_Store
-ParAIsite/src/structures_scalers/mpd*.pkl
-ParAIsite/src/logs/*
-ParAIsite/src/*.json
+main/src/structures_scalers/mpd*.pkl
+main/src/logs/*
+main/src/*.json
 keras/pretrained_models/*
 crabnet* 
 crabnet/*
