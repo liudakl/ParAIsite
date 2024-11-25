@@ -51,11 +51,11 @@ def return_dataset_train (dataset_name):
     with open ('structures_scalers/structures_%s.pkl'%(dataset_name), 'rb') as fp:
         structure = pickle.load(fp)
         
-    if dataset_name == 'L96':
+    if dataset_name == 'Dataset1':
         df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
         df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
         SetToUse = df1[['TC']].copy()
-    elif dataset_name == 'HH143':
+    elif dataset_name == 'Dataset2':
         df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
         df2 = df2.reset_index(drop=True)
         SetToUse = df2[['TC']].copy()
@@ -88,11 +88,11 @@ def return_dataset_test (dataset_name, model_name):
     with open ('structures_scalers/structures_%s.pkl'%(dataset_name), 'rb') as fp:
         structure = pickle.load(fp)
         
-    if dataset_name == 'L96':
+    if dataset_name == 'Dataset1':
         df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
         df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
         SetToUse = df1[['TC']].copy()
-    elif dataset_name == 'HH143':
+    elif dataset_name == 'Dataset2':
         df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
         df2 = df2.reset_index(drop=True)
         SetToUse = df2[['TC']].copy()

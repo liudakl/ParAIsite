@@ -206,7 +206,7 @@ Please keep in mind that you need to select in the script on which dataset you w
 - Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format; 
 - For the datasets: AFLOW, Dataset1, Dataset2, and MIX they are avaible in *structure_scaler* folder.
 
-## How to test ParAIsite on Data?
+## How to test ParAIsite on your Data?
 
 Testings ParAIsite on Data are already integrated inside the code for model training/double training. 
 Please keep in mind that you need to change the script with respect on which dataset you would like perform test.

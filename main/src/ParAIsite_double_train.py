@@ -34,8 +34,8 @@ converter = Structure2Graph(element_types=elem_list, cutoff=4.0)
 
 # Setup dataset to test: 
   
-dataset_name_test1 = 'HH143'
-res_tes1_HH143 = [] 
+dataset_name_test1 = 'Dataset2'
+res_tes1_Dataset2 = [] 
 
 SetToUse_test1, structure_test1 = return_dataset_train (dataset_name_test1)
 thermal_conduct = SetToUse_test1.TC.to_list()
@@ -48,8 +48,8 @@ mp_dataset_test1 = MGLDataset(
     converter=converter_test,
 )
 
-dataset_name_test2 = 'L96'
-res_tes2_L96 = [] 
+dataset_name_test2 = 'Dataset1'
+res_tes2_Dataset1 = [] 
 
 SetToUse_test2, structure_test2 = return_dataset_train (dataset_name_test2)
 thermal_conduct = SetToUse_test2.TC.to_list()
@@ -103,8 +103,8 @@ dataset_name_TRAIN = 'MIX'
 
 
 if dataset_name_TRAIN == 'MIX':
-    dataset_1 = 'L96'
-    dataset_2 = 'HH143'
+    dataset_1 = 'Dataset1'
+    dataset_2 = 'Dataset2'
     SetToUse_1, structure_1 = return_dataset_train (dataset_1)
     thermal_conduct = SetToUse_1.TC.to_list()
     
@@ -311,8 +311,8 @@ for nRuns in range (1,maxRuns+1):
     res_test4 = trainer.test(dataloaders=val_loader_test4)
     
     
-    res_tes1_HH143.append(list(res_test1[0].values())[0])
-    res_tes2_L96.append(list(res_test2[0].values())[0])
+    res_tes1_Dataset2.append(list(res_test1[0].values())[0])
+    res_tes2_Dataset1.append(list(res_test2[0].values())[0])
     res_tes3_MIX.append(list(res_test3[0].values())[0])
     res_tes4_AFLOW.append(list(res_test4[0].values())[0])
 
@@ -368,8 +368,8 @@ print("###############################")
 df_final  = pd.DataFrame({
     'Run': range(1, maxRuns + 1),
     'train_on': '%s'%(dataset_name_TRAIN),
-    'test_HH143': res_tes1_HH143,
-    'test_L96': res_tes2_L96,
+    'test_Dataset2': res_tes1_Dataset2,
+    'test_Dataset1': res_tes2_Dataset1,
     'test_MIX': res_tes3_MIX,
     'test_AFLOW': res_tes4_AFLOW
 })
