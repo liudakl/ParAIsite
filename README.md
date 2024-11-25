@@ -23,59 +23,8 @@ Steps that we followed to achieve the results:
    - Assess model performance
    - Compare with baseline models
 
-## Results
+## Results: Validation Results (Dataset on Train vs Dataset on Validation)
 
-- Improved accuracy in predicting thermal conductivity
-- Demonstrated potential for application in materials science
-
-## References
-
-```txt
-1. Chen, C.; Ye, W.; Zuo, Y.; Zheng, C.; Ong, S. P. Graph Networks as a Universal Machine Learning Framework for
-Molecules and Crystals. Chem. Mater. 2019, 31 (9), 3564–3572. https://doi.org/10.1021/acs.chemmater.9b01294.
-```
-
-## How to run ParAIsite
-
-Clone the project to your machine:
-
-```bash
-  git clone https://github.com/liudakl/ParAIsite.git 
-```
-
-Go to the project directory
-
-```bash
-  cd ParAIsite/main/src
-```
-
-If you would like to reproduce training, please do:
-
-```bash
-  python 3.10 ParAIsite_train.py
-```
-Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
-
-If you would like to reproduce training on AFLOW and after additional train on another datasets, please do:
-
-```bash
-  python 3.10 ParAIsite_double_train.py
-```
-Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
-
-
-### Which data ParAIsite expects you to have before the execution it?
-
-- Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format; 
-- For the datasets: AFLOW, Dataset1, Dataset2, and MIX they are avaible in *structure_scaler* folder.
-
-## How to test ParAIsite on Data?
-
-Testings ParAIsite on Data are already integrated inside the code for model training/double training. 
-Please keep in mind that you need to change the script with respect on which dataset you would like perform test.
-
-
-## Summary: Validation Results (Dataset on Train vs Dataset on Validation)
 
 
 | Train on \ Test on | Dataset1              | Dataset2            | MIX              | AFLOW           |
@@ -216,4 +165,58 @@ Please keep in mind that you need to change the script with respect on which dat
 | Dataset1       |  0.37 (0.14)            		|
 | Dataset2     |  0.78 (0.31)          		|
 | AFLOW     |  0.59 (0.06)    			|
+
+## Conclusions 
+
+- Improved accuracy in predicting thermal conductivity
+- Demonstrated potential for application in materials science
+
+
+## How to run ParAIsite
+
+Clone the project to your machine:
+
+```bash
+  git clone https://github.com/liudakl/ParAIsite.git 
+```
+
+Go to the project directory
+
+```bash
+  cd ParAIsite/main/src
+```
+
+If you would like to reproduce training, please do:
+
+```bash
+  python 3.10 ParAIsite_train.py
+```
+Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
+
+If you would like to reproduce training on AFLOW and after additional train on another datasets, please do:
+
+```bash
+  python 3.10 ParAIsite_double_train.py
+```
+Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
+
+
+### Which data ParAIsite expects you to have before the execution it?
+
+- Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format; 
+- For the datasets: AFLOW, Dataset1, Dataset2, and MIX they are avaible in *structure_scaler* folder.
+
+## How to test ParAIsite on Data?
+
+Testings ParAIsite on Data are already integrated inside the code for model training/double training. 
+Please keep in mind that you need to change the script with respect on which dataset you would like perform test.
+
+
+## References
+
+```txt
+1. Chen, C.; Ye, W.; Zuo, Y.; Zheng, C.; Ong, S. P. Graph Networks as a Universal Machine Learning Framework for
+Molecules and Crystals. Chem. Mater. 2019, 31 (9), 3564–3572. https://doi.org/10.1021/acs.chemmater.9b01294.
+```
+
 
