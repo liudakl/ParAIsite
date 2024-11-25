@@ -160,9 +160,9 @@ dmypy.json
 
 
 .DS_Store
-pytorch/matgl-main/src/structures_scalers/mpd*.pkl
-/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/logs/*
-pytorch/matgl-main/src/*.json
+matgl-main/src/structures_scalers/mpd*.pkl
+matgl-main/src/logs/*
+matgl-main/src/*.json
 keras/pretrained_models/*
 crabnet* 
 crabnet/*
