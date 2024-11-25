@@ -110,14 +110,14 @@ Please keep in mind that you need to change the script with respect on which dat
 
 ## Validation Results
 
-### Test on L96
+### Test on Dataset1
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | Dataset1     |  2.53 (2.17)                      |
 | Dataset2       |  1.74 (1.26)             		|
 | AFLOW     |  2.16 (1.26)            		|
 
-### Test  on HH143
+### Test  on Dataset2
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | Dataset1       |  0.51 (0.09)                     	|
@@ -153,14 +153,14 @@ Please keep in mind that you need to change the script with respect on which dat
 
 ## Validation Results
 
-### Test on L96
+### Test on Dataset1
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | Dataset2     | 3.09 (2.40)             		|
 | MIX       | 2.07 (1.40)              		|
 | AFLOW     | 2.32 (1.94)    			|
 
-### Test  on HH143
+### Test  on Dataset2
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | Dataset1       | 0.55 (0.14)              		|
@@ -196,14 +196,14 @@ Please keep in mind that you need to change the script with respect on which dat
 
 ## Validation Results
 
-### Test  on L96
+### Test  on Dataset1
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | Dataset2     |  1.26 (0.44)             		|
 | MIX       |  0.87 (0.27)            		|
 | AFLOW     |  0.57 (0.10)     			|
 
-### Test  on HH143
+### Test  on Dataset2
 | Tested on | Error (Mean ± Std)                |
 |-----------|-----------------------------------|
 | Dataset1       |  0.55 (0.10)                     	|
