@@ -2,7 +2,7 @@
 
 
 <div align="center">
-<img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/paraisite_3.png?raw=true" alt="Model" width="400" height="400">
+<img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/logo.png?raw=true" alt="Model" width="400" height="400">
 </div>
 
 <div style="text-align: justify;">
