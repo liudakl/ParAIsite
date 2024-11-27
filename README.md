@@ -2,7 +2,7 @@
 
 
 <div align="center">
-<img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/logo.png?raw=true" >
+<img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/logo.png?raw=true">
 </div>
 
 
@@ -23,7 +23,9 @@ Steps that we followed to achieve the results:
    - Assess model performance
    - Compare with baseline models
 
-## Results: Validation Results (Dataset on Train vs Dataset on Validation)
+## Results: 
+
+### Validation Results (Dataset on Train vs Dataset on Validation)
 
 
 
@@ -165,6 +167,11 @@ Steps that we followed to achieve the results:
 | Dataset1       |  0.37 (0.14)            		|
 | Dataset2     |  0.78 (0.31)          		|
 | AFLOW     |  0.59 (0.06)    			|
+
+
+### Scan over Material Project Database: 
+
+To provide concrete validation of the best performing models, we applied them to obtain predictions for stable materials in the Material Project Database. LTC for $(BaSbO_3)_2$ (mp-9127) was then computed through robust ab-initio calculation as it was consistently found by our models to have a relatively low thermal conductivity. **The result of the computation (7.1 W/m*K) was in the same order of magnitude as the predictions from our models (1.23  W/m*K)**. This agreement underscores the model’s ability to capture critical trends in LTC prediction, even for datasets it was not directly trained on.
 
 ## Conclusions 
 
