@@ -196,14 +196,14 @@ Go to the project directory
 If you would like to reproduce training, please do:
 
 ```bash
-  python 3.10 ParAIsite_train.py
+  python3.10 ParAIsite_train.py
 ```
 Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
 
 If you would like to reproduce training on AFLOW and after additional train on another datasets, please do:
 
 ```bash
-  python 3.10 ParAIsite_double_train.py
+  python3.10 ParAIsite_double_train.py
 ```
 Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
 
