@@ -322,7 +322,7 @@ class MGLDataset(DGLDataset):
         self.labels['TC'] = self.scaler.log10(torch.as_tensor((self.labels['TC'])))
         self.labels['TC'] = self.scaler.fit_transform(torch.as_tensor((self.labels['TC'])).to('cuda'))
            
-        torch.save(self.scaler,"structures_scalers/torch.scaler")
+        torch.save(self.scaler,"../../structures_scalers/torch.scaler")
         
         for k, v in self.labels.items():
             self.labels[k] = v.tolist() if isinstance(v, np.ndarray) else v
