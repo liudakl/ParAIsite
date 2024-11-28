@@ -178,7 +178,18 @@ To provide concrete validation of the best performing models, we applied them to
 - Improved accuracy in predicting thermal conductivity
 - Demonstrated potential for application in materials science
 
-
+## How to cite ParAIsite
+```txt
+@misc{klochko2024transferlearningdeeplearningbased,
+      title={Transfer Learning for Deep Learning-based Prediction of Lattice Thermal Conductivity}, 
+      author={L. Klochko and M. d'Aquin and A. Togo and L. Chaput},
+      year={2024},
+      eprint={2411.18259},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2411.18259}, 
+}
+```
 ## How to run ParAIsite
 
 Clone the project to your machine:
@@ -225,5 +236,7 @@ Please keep in mind that you need to change the script with respect on which dat
 1. Chen, C.; Ye, W.; Zuo, Y.; Zheng, C.; Ong, S. P. Graph Networks as a Universal Machine Learning Framework for
 Molecules and Crystals. Chem. Mater. 2019, 31 (9), 3564–3572. https://doi.org/10.1021/acs.chemmater.9b01294.
 ```
+
+
 
 
