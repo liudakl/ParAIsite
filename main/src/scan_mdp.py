@@ -101,4 +101,4 @@ for nRuns in range (1,nRunsmax+1):
 
 print(df_new.loc[df_new["max"]<1.0, ["mpd_id","mean","std","stdp","max","max.std"]].sort_values("stdp"))
 #df_new.to_csv("stable_scan.MDP.model_%s.results.csv"%(model_for_scan_scan))
-df_new.to_csv("testLaurent.model_%s.results.csv"%(model_for_scan_scan))
+df_new.to_csv("results_scan/testLaurent.model_%s.results.csv"%(model_for_scan_scan))

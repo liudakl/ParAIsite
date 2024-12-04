@@ -235,9 +235,9 @@ The only 2 things are required - identification of the material (in our case it 
 After you need to specify the model that will be used in testings, path to your data, and run: 
 
 ```bash
-  python3.10 scan.py
+  python3.10 scan_mdp.py
 ```
-
+Results will appear in the folder "results_scan/". 
 ## References
 
 ```txt
