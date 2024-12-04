@@ -190,7 +190,7 @@ To provide concrete validation of the best performing models, we applied them to
       url={https://arxiv.org/abs/2411.18259}, 
 }
 ```
-## How to run ParAIsite
+## How to use ParAIsite
 
 Clone the project to your machine:
 
@@ -204,7 +204,7 @@ Go to the project directory
   cd ParAIsite/main/src
 ```
 
-If you would like to reproduce training, please do:
+If you would like to **reproduce training**, please do:
 
 ```bash
   python3.10 ParAIsite_train.py
@@ -219,16 +219,24 @@ If you would like to reproduce training on AFLOW and after additional train on a
 Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
 
 
-### Which data ParAIsite expects you to have before the execution it?
+### Which data ParAIsite expects you to have before the training it?
 
 - Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format; 
 - For the datasets: AFLOW, Dataset1, Dataset2, and MIX they are avaible in *structure_scaler* folder.
 
-## How to test ParAIsite on your Data?
+## How to test ParAIsite on your own Validation?
 
 Testings ParAIsite on Data are already integrated inside the code for model training/double training. 
 Please keep in mind that you need to change the script with respect on which dataset you would like perform test.
 
+## How to predict TC with ParAIsite based on your materials?
+
+The only 2 things are required - identification of the material (in our case it is *mpd-id*) and its structure. 
+After you need to specify the model that will be used in testings, path to your data, and run: 
+
+```bash
+  python3.10 scan.py
+```
 
 ## References
 

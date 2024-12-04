@@ -34,7 +34,7 @@ def inverse_transform(scalerY,X):
 
 
 
-model_for_scan_scan  = 'MIX'
+model_for_scan_scan  = 'Dataset1'
 scalerY = torch.load('structures_scalers/torch.scaler.%s'%(model_for_scan_scan))
 
 #df = pd.read_pickle('structures_scalers/mpd_ids_srtcuture_table.pkl')
