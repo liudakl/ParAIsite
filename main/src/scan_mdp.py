@@ -34,7 +34,7 @@ def inverse_transform(scalerY,X):
 
 
 
-model_for_scan_scan  = 'Dataset2'
+model_for_scan_scan  = 'MIX'
 scalerY = torch.load('structures_scalers/torch.scaler.%s'%(model_for_scan_scan))
 
 #df = pd.read_pickle('structures_scalers/mpd_ids_srtcuture_table.pkl')
@@ -100,5 +100,5 @@ for nRuns in range (1,nRunsmax+1):
     df_new["max.std"] = maxd*stdpd
 
 print(df_new.loc[df_new["max"]<1.0, ["mpd_id","mean","std","stdp","max","max.std"]].sort_values("stdp"))
-df_new.to_csv("stable_scan.MDP.model_%s.results.csv"%(model_for_scan_scan))
-
+#df_new.to_csv("stable_scan.MDP.model_%s.results.csv"%(model_for_scan_scan))
+df_new.to_csv("testLaurent.model_%s.results.csv"%(model_for_scan_scan))
