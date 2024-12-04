@@ -37,8 +37,9 @@ def inverse_transform(scalerY,X):
 model_for_scan_scan  = 'Dataset2'
 scalerY = torch.load('structures_scalers/torch.scaler.%s'%(model_for_scan_scan))
 
-df = pd.read_pickle('structures_scalers/mpd_ids_srtcuture_table.pkl')
-
+#df = pd.read_pickle('structures_scalers/mpd_ids_srtcuture_table.pkl')
+loaded_data = pd.read_pickle('structures_scalers/mpd_ids_srtcuture_table_newL.pkl')
+df = loaded_data.dropna().copy()
 torchseed = 42 
 pl.seed_everything(torchseed, workers=True)
 torch.manual_seed(torchseed)
@@ -71,7 +72,8 @@ for nRuns in range (1,nRunsmax+1):
     model.train(False)     
     
     for idx in range(0,len(df)):
-        if len (df['structure'].iloc[idx]) <= 3: 
+        if df['structure'].iloc[idx] != [] :
+        #if len (df['structure'].iloc[idx]) <= 3:            
             preds = model.predict_structure(df['structure'].iloc[idx])
             preds_ivT =  inverse_transform(scalerY,preds)
             tc_pred = unlog10(preds_ivT).item()
