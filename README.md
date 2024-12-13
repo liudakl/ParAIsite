@@ -85,8 +85,24 @@ Please keep in mind that you need to select in the script on which dataset you w
 ### Which data ParAIsite expects you to have before the training it?
 
 - Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format as 2 separated files. They should be named as follows:
-  - in the folder **structures_scalers/structures_NAME_OF_YOUR_DATASET.pkl** (contains list of structures of your data) +  **structures_scalers/NAME_OF_YOUR_DATASET.pkl** (contains list of structures of your targets with respect to structures).
+  - in the folder **structures_scalers/structures_NAME_OF_YOUR_DATASET.pkl** (contains list of structures of your data) +  **structures_scalers/NAME_OF_YOUR_DATASET.pkl** (contains list of targets with respect to structures).
 - For the datasets: AFLOW, Dataset1, Dataset2, and MIX they are avaible in *structure_scaler* folder. 
+
+
+### What if I do not have the data in that format ? 
+
+- If you want to reproduce the results of the paper, no additional work needed. One can follow the steps below. 
+
+- If you want to work with your own data, please prepare them with respect to the requirements from the subsection above. We provide an example of data preparation taken from Material Database Project (MDP):  
+  - Create a *NAME_OF_YOUR_DATASET.csv* list with  material ids (mpd-ids from MDP) ; 
+  - Create a list of targets with respect to their structures and name it *NAME_OF_YOUR_DATASET.pkl*; 
+  - In the file *create_structure.py* indicate your key_api for the possibility to use material project api; 
+  - run :
+```bash
+  python create_structure.py NAME_OF_YOUR_DATASET 1 0 
+```
+Here important to note that first "1" means that you want to run preparation script, and "0" refers to not preparing data for scan.
+At the end of the following steps, one can have in the *structures_scalers* 2 files in pkl format that contains information needed for train. 
  
 ### Run the model 
  
@@ -102,7 +118,7 @@ If you would like to **reproduce training with weights** (step II), please do:
   python ParAIsite_train.py input_config.json
 ```
 
-If you would like to reproduce training on AFLOW and after additional train **(step III)** on another datasets, please do:
+If you would like to reproduce training after additional train on AFLOW **(step III)**, please do:
 
 ```bash
   python ParAIsite_double_train.py input_config.json
