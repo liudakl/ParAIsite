@@ -75,12 +75,24 @@ Clone the project to your machine:
   git clone https://github.com/liudakl/ParAIsite.git 
 ```
 
-Go to the project directory
+Go to the project directory:
 
 ```bash
-  cd ParAIsite/main/src
+  cd ParAIsite
 ```
 Please keep in mind that you need to select in the script on which dataset you would like perform training, the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are. They can be changed in the *"input_config.json"* file. 
+ 
+**Please, install after:** 
+
+```bash
+pip install -r requirements.txt
+
+```
+Go to the directory, from where we do calculations:
+
+```bash
+  cd main/src
+```
  
 ### Which data ParAIsite expects you to have before the training it?
 
