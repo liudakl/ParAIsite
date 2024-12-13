@@ -85,7 +85,7 @@ Please keep in mind that you need to select in the script on which dataset you w
 ### Which data ParAIsite expects you to have before the training it?
 
 - Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format as 2 separated files. They should be named as follows:
- - in the folder **structures_scalers/structures_NAME_OF_YOUR_DATASET.pkl**
+  - in the folder **structures_scalers/structures_NAME_OF_YOUR_DATASET.pkl** (contains list of structures of your data) +  **structures_scalers/NAME_OF_YOUR_DATASET.pkl** (contains list of structures of your targets with respect to structures).
 - For the datasets: AFLOW, Dataset1, Dataset2, and MIX they are avaible in *structure_scaler* folder. 
  
 ### Run the model 
