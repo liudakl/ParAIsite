@@ -114,18 +114,6 @@ def return_dataset_train (dataset_name):
     return   SetToUse, structure
 
 
-def return_dataset_test (dataset_name, model_name):
-    
-   if dataset_name not in ['Dataset1','Dataset2','MIX','AFLOW']:
-       raise ValueError("Data has not been loaded. Chose the dataset first. If you want to create a custom dataset, and test on it, please follow README.")
-       sys.exit(0)
-   else:
-      with open ('structures_scalers/structures_%s.pkl'%(dataset_name), 'rb') as fp:
-          structure = pickle.load(fp)        
-      with open ('structures_scalers/%s.pkl'%(dataset_name), 'rb') as fp:
-           SetToUse = pickle.load(fp)              
-   scalerY = torch.load('structures_scalers/torch.scaler.%s'%(model_name))   
-   return   SetToUse, structure, scalerY
 
 
 def mape_run_model (SetToUse, model, scaler, structure, val_idx, full_set=None):
@@ -159,3 +147,14 @@ def mape_run_model (SetToUse, model, scaler, structure, val_idx, full_set=None):
         y_true = np.array(y_true)        
     mape_run = mean_absolute_percentage_error(y_true,y_pred)
     return mape_run
+
+def welcome():
+    print ()
+    print(" _____                  _____      __       ", "  ,---.")
+    print("|  __ \\           /\\   |_   _|   (_) |      ", " ( @ @ )")
+    print("| |__) |_ _ _ __ /  \\    | |  ___ _| |_ ___ ", "  ).-.(")
+    print("|  ___/ _` | '__/ /\ \\   | | / __| | __/ _ \\", " '/|||\`")
+    print("| |  | (_| | | / ____ \\ _| |_\__ \\ | ||  __/", "   '|`")
+    print("|_|   \\__,_|_|/_/    \\_\\_____|___/_|\\__\\___|")
+
+    print()

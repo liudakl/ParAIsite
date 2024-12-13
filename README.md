@@ -80,26 +80,34 @@ Go to the project directory
 ```bash
   cd ParAIsite/main/src
 ```
-
-If you would like to **reproduce training**, please do:
-
-```bash
-  python3.10 ParAIsite_train.py
-```
-Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
-
-If you would like to reproduce training on AFLOW and after additional train on another datasets, please do:
-
-```bash
-  python3.10 ParAIsite_double_train.py
-```
-Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
-
-
+Please keep in mind that you need to select in the script on which dataset you would like perform training, the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are. They can be changed in the *"input_config.json"* file. 
+ 
 ### Which data ParAIsite expects you to have before the training it?
 
-- Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format; 
-- For the datasets: AFLOW, Dataset1, Dataset2, and MIX they are avaible in *structure_scaler* folder.
+- Requires targets (Thermal Conductivities) and inputs (structure of compounds) in pkl format as 2 separated files. They should be named as follows:
+ -- in the folder **structures_scalers/structures_NAME_OF_YOUR_DATASET.pkl**
+- For the datasets: AFLOW, Dataset1, Dataset2, and MIX they are avaible in *structure_scaler* folder. 
+ 
+### Run the model 
+ 
+If you would like to **reproduce training without weights** (step I), please do:
+
+```bash
+  python ParAIsite_M0.py input_config.json
+```
+
+If you would like to **reproduce training with weights** (step II), please do:
+
+```bash
+  python ParAIsite_train.py input_config.json
+```
+
+If you would like to reproduce training on AFLOW and after additional train **(step III)** on another datasets, please do:
+
+```bash
+  python ParAIsite_double_train.py input_config.json
+```
+Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
 
 ## How to test ParAIsite on your own Validation?
 
@@ -112,7 +120,7 @@ The only 2 things are required - identification of the material (in our case it 
 After you need to specify the model that will be used in testings, path to your data, and run: 
 
 ```bash
-  python3.10 scan_mdp.py
+  python scan_mdp.py
 ```
 Results will appear in the folder "results_scan/". 
 ## References

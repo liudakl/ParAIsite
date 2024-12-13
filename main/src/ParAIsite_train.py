@@ -14,8 +14,16 @@ from model_mlp import myMLP
 import numpy as np
 from lightning.pytorch.callbacks import ModelCheckpoint
 from matgl.config import DEFAULT_ELEMENTS
-from custom_functions import return_dataset_train,create_changed_megned_model, setup_dataset
+from custom_functions import return_dataset_train,create_changed_megned_model, setup_dataset, welcome
 import matgl 
+import sys 
+import json 
+
+welcome()
+
+if len(sys.argv) != 2:
+   print("please provide a config file")
+   sys.exit(-1)
 
 warnings.simplefilter("ignore")
 
@@ -46,21 +54,25 @@ else:
      device = 'cpu'
      accelerator = 'cpu'
 
-best_mapes = [] 
-maxRuns = 1
-maxEpochs = 300
-NN1 = 450
-NN2 = 350
-NN3 = 350
-NN4 = 0
-torchseed = 42 
-learning_rate = 1e-3
-test_data = 0
+with open(sys.argv[1]) as f:
+   params = json.load(f)
 
+maxRuns         = params['Number_of_RUNS']
+maxEpochs       = params['Epochs']
+NN1             = params['Layer1_NN']
+NN2             = params['Layer2_NN']
+NN3             = params['Layer3_NN']
+NN4             = params['Layer4_NN']
+learning_rate   = params['learning_rate']
+test_data       = params['test_on_data']
+
+
+torchseed = 42 
 pl.seed_everything(torchseed, workers=True)
 torch.manual_seed(torchseed)
 torch.cuda.manual_seed(torchseed)
     
+best_mapes = [] 
 
 for nRuns in range (1,maxRuns+1):
     best_mape = np.inf
