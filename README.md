@@ -94,7 +94,7 @@ Please keep in mind that you need to select in the script on which dataset you w
 - If you want to reproduce the results of the paper, no additional work needed. One can follow the steps below. 
 
 - If you want to work with your own data, please prepare them with respect to the requirements from the subsection above. We provide an example of data preparation taken from Material Database Project (MDP):  
-  - Create a *NAME_OF_YOUR_DATASET.csv* list with  material ids (mpd-ids from MDP) ; 
+  - Create a *NAME_OF_YOUR_DATASET.csv* list with  material ids (mpd-ids from MDP) ; Column name should be called "TC". 
   - Create a list of targets with respect to their structures and name it *NAME_OF_YOUR_DATASET.pkl*; 
   - In the file *create_structure.py* indicate your key_api for the possibility to use material project api; 
   - run :
@@ -130,13 +130,23 @@ Please keep in mind that you need to select in the script on which dataset you w
 Testings ParAIsite on Data are already integrated inside the code for model training/double training. 
 Please keep in mind that you need to change the script with respect on which dataset you would like perform test.
 
-## How to predict TC with ParAIsite based on your materials?
+## How to predict TC with already existed models of ParAIsite from our work based on your materials?
 
 The only 2 things are required - identification of the material (in our case it is *mpd-id*) and its structure. 
-After you need to specify the model that will be used in testings, path to your data, and run: 
+
+- If you want to work with your own data, please prepare them with respect to the requirements from the subsection above. We provide an example of data preparation taken from Material Database Project (MDP):  
+  - Create a *NAME_OF_YOUR_DATASET.csv* list with  material ids (mpd-ids from MDP) ; 
+  - In the file *create_structure.py* indicate your key_api for the possibility to use material project api; 
+  - run :
+```bash
+  python create_structure.py NAME_OF_YOUR_DATASET 0 1
+```
+At the end of the following steps, one can have file "structures_scalers/NAME_OF_YOUR_DATASET.pkl" that is ready as the input for scan. 
+
+Next, you need to specify the model that will be used in testings, path to your data, and run: 
 
 ```bash
-  python scan_mdp.py
+  python scan_mdp.py for_scan.josn
 ```
 Results will appear in the folder "results_scan/". 
 ## References

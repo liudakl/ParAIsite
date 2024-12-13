@@ -15,7 +15,7 @@ scan           = int (sys.argv[3])
 
 
 # =============================================================================
-#   HOW TO PREPARE YOUT OWN DATA ? 
+#                    HOW TO PREPARE YOUT OWN DATA ? 
 # =============================================================================
 
 if bool(prepare):
@@ -35,7 +35,7 @@ if bool(prepare):
 
 
 # =============================================================================
-#   EXAMPLE OF CREATING DATA FOR SCAN
+#                    EXAMPLE OF CREATING DATA FOR SCAN
 # =============================================================================
 
 if bool (scan):     
@@ -51,5 +51,5 @@ if bool (scan):
             results['structure'].append(docs[0].structure)
         
     df = pd.DataFrame(results)
-    df.to_pickle('%s_for_scan.pkl'%(data_set_name))
+    df.to_pickle('structures_scalers/%s.pkl'%(data_set_name))
 
