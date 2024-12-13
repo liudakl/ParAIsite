@@ -9,6 +9,62 @@ import pickle
 from sklearn.metrics import mean_absolute_percentage_error
 from matgl.layers import BondExpansion
 from matgl.models import MEGNet_changed
+import sys
+from matgl.config import DEFAULT_ELEMENTS
+from matgl.ext.pymatgen import Structure2Graph
+from matgl.graph.data import MGLDataset, MGLDataLoader,collate_fn_graph, MGLDataLoader_multiple
+import os 
+
+def setup_dataset_to_test(dataset_name_test):
+    elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
+    converter = Structure2Graph(element_types=elem_list, cutoff=4.0)
+    if dataset_name_test == 'MIX':
+        dataset_1 = 'Dataset1'
+        dataset_2 = 'Dataset2'
+        SetToUse_1, structure_1 = return_dataset_train (dataset_1)
+        thermal_conduct = SetToUse_1.TC.to_list()
+        
+        mp_dataset_1 = MGLDataset(
+            structures=structure_1,
+            labels={"TC": thermal_conduct},
+            converter=converter,
+        )
+        
+        SetToUse_2, structure_2 = return_dataset_train (dataset_2)
+        thermal_conduct = SetToUse_2.TC.to_list()
+        
+        mp_dataset_2 = MGLDataset(
+            structures=structure_2,
+            labels={"TC": thermal_conduct},
+            converter=converter,
+        )
+        
+        try:
+            os.remove("structures_scalers/torch.scaler")
+        except FileNotFoundError:
+            pass
+        
+        SetToUse_mix, structure_mix = return_dataset_train (dataset_name_test)
+        thermal_conduct = SetToUse_mix.TC.to_list()
+        
+        mp_dataset = MGLDataset(
+            structures=structure_mix,
+            labels={"TC": thermal_conduct},
+            converter=converter,
+        )
+    
+        return [], mp_dataset, mp_dataset_1, mp_dataset_2
+    else:
+        SetToUse_test, structure_test = return_dataset_train (dataset_name_test)
+        thermal_conduct = SetToUse_test.TC.to_list()
+    
+        mp_dataset_test = MGLDataset(
+        structures=structure_test,
+        labels={"TC": thermal_conduct},
+        converter=converter,
+        )
+        return [],  mp_dataset_test
+    
 
 
 def create_changed_megned_model () :
@@ -45,80 +101,31 @@ def inverse_transform(scalerY,X):
         return X * scalerY.std + scalerY.mean    
     
     
-def return_dataset_train (dataset_name):
-    
-    
-    with open ('structures_scalers/structures_%s.pkl'%(dataset_name), 'rb') as fp:
-        structure = pickle.load(fp)
-        
-    if dataset_name == 'Dataset1':
-        df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
-        df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
-        SetToUse = df1[['TC']].copy()
-    elif dataset_name == 'Dataset2':
-        df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
-        df2 = df2.reset_index(drop=True)
-        SetToUse = df2[['TC']].copy()
-    elif dataset_name == 'MIX':
-        df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
-        df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
-
-        df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
-        df2 = df2.reset_index(drop=True)
-
-        df_1 = df1[['mpd_id','TC']]
-        df_2 = df2[['mpd_id','TC']]
-
-        SetToUse = pd.concat([df_1,df_2], ignore_index=True)
-    elif dataset_name == 'AFLOW':
-        with open('structures_scalers/TC_AFLOW.pkl', 'rb') as fp:
-            thermalCond  = pickle.load(fp)
-            SetToUse = pd.DataFrame(np.array(thermalCond),columns=['TC']) 
-        
+def return_dataset_train (dataset_name):    
+    if dataset_name not in ['Dataset1','Dataset2','MIX','AFLOW']:
+        raise ValueError("Data has not been loaded. Chose the dataset first. If you want to create a custom dataset, please follow README.")
+        sys.exit(0)
     else:
-        raise ValueError("Data has not been loaded. Chose dataset first.")
-
-    
-    
+       with open ('structures_scalers/structures_%s.pkl'%(dataset_name), 'rb') as fp:
+           structure = pickle.load(fp)        
+       with open ('structures_scalers/%s.pkl'%(dataset_name), 'rb') as fp:
+            SetToUse = pickle.load(fp)        
+        
     return   SetToUse, structure
 
 
 def return_dataset_test (dataset_name, model_name):
-        
-    with open ('structures_scalers/structures_%s.pkl'%(dataset_name), 'rb') as fp:
-        structure = pickle.load(fp)
-        
-    if dataset_name == 'Dataset1':
-        df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
-        df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
-        SetToUse = df1[['TC']].copy()
-    elif dataset_name == 'Dataset2':
-        df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
-        df2 = df2.reset_index(drop=True)
-        SetToUse = df2[['TC']].copy()
-    elif dataset_name == 'MIX':
-        df1 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/cif_small_L.csv",index_col=0)
-        df1.rename({'chemsys': 'formula','k_voigt':'kV', 'k_vrh':'kVRH', 'k_reuss':'kR','g_reuss':'gR','g_vrh':'gVRH','g_voigt':'gV'}, axis=1,inplace=True)
-
-        df2 = pd.read_csv("https://gitlab.univ-lorraine.fr/klochko1/mdp/-/raw/main/hh_143.csv", delimiter=';')
-        df2 = df2.reset_index(drop=True)
-
-        df_1 = df1[['mpd_id','TC']]
-        df_2 = df2[['mpd_id','TC']]
-
-        SetToUse = pd.concat([df_1,df_2], ignore_index=True)
-
-    elif dataset_name == 'AFLOW':
-        with open('structures_scalers/TC_AFLOW.pkl', 'rb') as fp:
-            thermalCond  = pickle.load(fp)
-            SetToUse = pd.DataFrame(np.array(thermalCond),columns=['TC']) 
     
-    else:
-        raise ValueError("Data has not been loaded. Chose dataset first.")    
-    scalerY = torch.load('structures_scalers/torch.scaler.%s'%(model_name))
-    
-    
-    return   SetToUse, structure, scalerY
+   if dataset_name not in ['Dataset1','Dataset2','MIX','AFLOW']:
+       raise ValueError("Data has not been loaded. Chose the dataset first. If you want to create a custom dataset, and test on it, please follow README.")
+       sys.exit(0)
+   else:
+      with open ('structures_scalers/structures_%s.pkl'%(dataset_name), 'rb') as fp:
+          structure = pickle.load(fp)        
+      with open ('structures_scalers/%s.pkl'%(dataset_name), 'rb') as fp:
+           SetToUse = pickle.load(fp)              
+   scalerY = torch.load('structures_scalers/torch.scaler.%s'%(model_name))   
+   return   SetToUse, structure, scalerY
 
 
 def mape_run_model (SetToUse, model, scaler, structure, val_idx, full_set=None):

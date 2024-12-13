@@ -1,21 +1,11 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
-
 from __future__ import annotations
 import pandas as pd 
 import os
 import warnings
 import torch 
-
 import lightning as pl
-
 from dgl.data.utils import split_dataset
 from pytorch_lightning.loggers import CSVLogger
-
 from matgl.ext.pymatgen import Structure2Graph
 from matgl.graph.data import MGLDataset, MGLDataLoader,collate_fn_graph, MGLDataLoader_multiple
 from matgl.models import combined_models
@@ -24,150 +14,76 @@ from model_mlp import myMLP
 import numpy as np
 from lightning.pytorch.callbacks import ModelCheckpoint
 from matgl.config import DEFAULT_ELEMENTS
-
-from custom_functions import return_dataset_train,create_changed_megned_model 
+from custom_functions import return_dataset_train,create_changed_megned_model, setup_dataset
 
 
 warnings.simplefilter("ignore")
-elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
-converter = Structure2Graph(element_types=elem_list, cutoff=4.0)
 
 
-# ===================================================# 
 
-# Setup dataset to test: 
-  
+
+
+if torch.cuda.is_available():
+     device = 'cuda'
+     accelerator = 'gpu'
+else: 
+     device = 'cpu'
+     accelerator = 'cpu'
+     
+# =============================================================================
+#                               SETUP DATASET TO TEST
+#   
+# =============================================================================
+
 dataset_name_test1 = 'Dataset2'
-res_tes1_Dataset2 = [] 
-
-SetToUse_test1, structure_test1 = return_dataset_train (dataset_name_test1)
-thermal_conduct = SetToUse_test1.TC.to_list()
-elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
-converter_test = Structure2Graph(element_types=elem_list, cutoff=4.0)
-
-mp_dataset_test1 = MGLDataset(
-    structures=structure_test1,
-    labels={"TC": thermal_conduct},
-    converter=converter_test,
-)
-
 dataset_name_test2 = 'Dataset1'
-res_tes2_Dataset1 = [] 
-
-SetToUse_test2, structure_test2 = return_dataset_train (dataset_name_test2)
-thermal_conduct = SetToUse_test2.TC.to_list()
-elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
-converter_test = Structure2Graph(element_types=elem_list, cutoff=4.0)
-
-mp_dataset_test2 = MGLDataset(
-    structures=structure_test2,
-    labels={"TC": thermal_conduct},
-    converter=converter_test,
-)
-
-
-res_tes3_MIX = [] 
-
-
 dataset_name_test4 = 'AFLOW'
-res_tes4_AFLOW = [] 
 
 
-SetToUse_test4, structure_test4 = return_dataset_train (dataset_name_test4)
-thermal_conduct = SetToUse_test4.TC.to_list()
-elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
-converter_test = Structure2Graph(element_types=elem_list, cutoff=4.0)
 
-mp_dataset_test4 = MGLDataset(
-    structures=structure_test4,
-    labels={"TC": thermal_conduct},
-    converter=converter_test,
-)
+res_tes1_Dataset2,mp_dataset_test1 = setup_dataset(dataset_name_test1) 
+res_tes2_Dataset1,mp_dataset_test2 = setup_dataset(dataset_name_test2) 
+res_tes4_AFLOW, mp_dataset_test4 = setup_dataset(dataset_name_test4) 
 
 
-try:
-    
+try:   
     os.remove("structures_scalers/torch.scaler")
 except FileNotFoundError:
     pass
 
 
-# ===================================================# 
- 
+# =============================================================================
+#                               SETUP DATASET TO TRAIN
+#   
+# =============================================================================    
 
-# Setup dataset to TRAIN : 
-    
+
 dataset_name_TRAIN = 'Dataset1'
 
-
-if dataset_name_TRAIN == 'MIX':
-    dataset_1 = 'Dataset1'
-    dataset_2 = 'Dataset2'
-    SetToUse_1, structure_1 = return_dataset_train (dataset_1)
-    thermal_conduct = SetToUse_1.TC.to_list()
-    
-    mp_dataset_1 = MGLDataset(
-        structures=structure_1,
-        labels={"TC": thermal_conduct},
-        converter=converter,
-    )
-    
-    SetToUse_2, structure_2 = return_dataset_train (dataset_2)
-    thermal_conduct = SetToUse_2.TC.to_list()
-    
-    mp_dataset_2 = MGLDataset(
-        structures=structure_2,
-        labels={"TC": thermal_conduct},
-        converter=converter,
-    )
-    
-    try:
-        os.remove("structures_scalers/torch.scaler")
-    except FileNotFoundError:
-        pass
-    
-    SetToUse_mix, structure_mix = return_dataset_train (dataset_name_TRAIN)
-    thermal_conduct = SetToUse_mix.TC.to_list()
-    
-    mp_dataset = MGLDataset(
-        structures=structure_mix,
-        labels={"TC": thermal_conduct},
-        converter=converter,
-    )
+if dataset_name_TRAIN != 'MIX':
+    _, mp_dataset = setup_dataset (dataset_name_TRAIN)   
+    scaler = torch.load('structures_scalers/torch.scaler')
+else: 
+    res_tes3_MIX, mp_dataset,mp_dataset_1, mp_dataset_2  = setup_dataset (dataset_name_TRAIN) 
 
 
-else:
-    SetToUse, structure = return_dataset_train (dataset_name_TRAIN)
-    thermal_conduct = SetToUse.TC.to_list()
-    
-    mp_dataset = MGLDataset(
-        structures=structure,
-        labels={"TC": thermal_conduct},
-        converter=converter,
-    )
-    
-
-scaler = torch.load('structures_scalers/torch.scaler')
-
-
-
-
-
-######     Model setup    ########
-
+# =============================================================================
+#                               SETUP MODEL TO TRAIN 
+#   
+# =============================================================================
 
 
 
 best_mapes = [] 
-maxRuns = 12
+maxRuns = 9
 maxEpochs = 10
 NN1 = 450
 NN2 = 350
 NN3 = 350
 NN4 = 0
 torchseed = 42 
-device = "cuda" if torch.cuda.is_available() else "cpu"
-print("RUNNIN ON", device)
+learning_rate = 1e-3
+
 
 pl.seed_everything(torchseed, workers=True)
 torch.manual_seed(torchseed)
@@ -175,7 +91,7 @@ torch.cuda.manual_seed(torchseed)
     
 
 
-for nRuns in range (11,maxRuns+1):
+for nRuns in range (1,maxRuns+1):
     best_mape = np.inf
     checkpoint_callback = ModelCheckpoint(monitor='val_Total_Loss',dirpath='best_models/',filename='no_weights-%s_%s'%(dataset_name_TRAIN,nRuns))
     
@@ -223,16 +139,26 @@ for nRuns in range (11,maxRuns+1):
     model_megned_changed =  create_changed_megned_model() 
     mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).to(device)
     new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).to(device)
-    lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler).to(device)
+    lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=learning_rate,scaler=scaler).to(device)
 
-############   Training  Part   ############
+
+# =============================================================================
+#               TRAINING OF THE MODEL 
+# =============================================================================
+
 
 
     logger = CSVLogger("logs", name="MEGNet_training_no_weights_%s_%s"%(dataset_name_TRAIN,nRuns),version=0)
-    trainer = pl.Trainer(max_epochs=maxEpochs,devices="auto", accelerator="gpu", logger=logger,callbacks=[checkpoint_callback])
+    trainer = pl.Trainer(max_epochs=maxEpochs,devices="auto", accelerator=accelerator, logger=logger,callbacks=[checkpoint_callback])
     trainer.fit(model=lit_module, train_dataloaders=train_loader, val_dataloaders=val_loader)
 
-# ===================================================# 
+
+
+# =============================================================================
+#               TEST AND VALIDATION OF THE RESULTS
+# =============================================================================
+
+
 
     train_data_test1, val_data_test1 = split_dataset(
     mp_dataset_test1,
@@ -305,9 +231,10 @@ for nRuns in range (11,maxRuns+1):
     res_tes3_MIX.append(list(res_test3[0].values())[0])
     res_tes4_AFLOW.append(list(res_test4[0].values())[0])
 
-#####   MAPE Metrics Results  #######
 
-
+# =============================================================================
+#                           METRICS CHECK UP  
+# =============================================================================
 
     metrics = pd.read_csv("logs/MEGNet_training_no_weights_%s_%s/version_0/metrics.csv"%(dataset_name_TRAIN,nRuns))
 
@@ -318,10 +245,7 @@ for nRuns in range (11,maxRuns+1):
     
     if min_mape_val < best_mape:
         best_mape = min_mape_val
-        best_mapes.append(best_mape)      
-        #torch.save(lit_module.model, "best_models/model_full_lit_%s."%(dataset_name)+str(nRuns)+".pt")
-
-        
+        best_mapes.append(best_mape)            
     
 
     for fn in ("dgl_graph.bin", "lattice.pt", "dgl_line_graph.bin", "state_attr.pt", "labels.json"):
@@ -330,8 +254,7 @@ for nRuns in range (11,maxRuns+1):
         except FileNotFoundError:
             pass
 
-#for nRuns in range (1,maxRuns+1): 
-#    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
+
 try:
     
     os.rename("structures_scalers/torch.scaler", "structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
