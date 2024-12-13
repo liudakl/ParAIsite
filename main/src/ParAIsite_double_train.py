@@ -28,6 +28,7 @@ from matgl.config import DEFAULT_ELEMENTS
 from custom_functions import return_dataset_train,create_changed_megned_model 
 
 
+
 warnings.simplefilter("ignore")
 elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
 converter = Structure2Graph(element_types=elem_list, cutoff=4.0)
@@ -168,6 +169,10 @@ NN2 = 350
 NN3 = 350
 NN4 = 0
 
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print("RUNNIN ON", device)
+
+
 torchseed = 42 
 pl.seed_everything(torchseed, workers=True)
 torch.manual_seed(torchseed)
@@ -223,18 +228,18 @@ for nRuns in range (1,maxRuns+1):
 
 
     
-    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform").cuda()
-    model_megned_changed =  create_changed_megned_model() .cuda()
+    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform").to(device)
+    model_megned_changed =  create_changed_megned_model().to(device)
     model_megned_changed.load_state_dict(megnet_loaded.state_dict(),strict=False)
-    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).cuda()
-    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).cuda()
+    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).to(device)
+    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).to(device)
     
     
     checkpoint_path = 'best_models/sample-AFLOW_%s.ckpt'%(nRuns)
     #checkpoint = torch.load(checkpoint_path)
     #lit_module_loaded = ModelLightningModule(model=new_model,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
     #lit_module_loaded.load_state_dict(checkpoint['state_dict'])
-    lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model).cuda()
+    lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model).to(device)
     
 
 ############   Training  Part   ############

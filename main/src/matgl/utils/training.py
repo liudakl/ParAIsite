@@ -12,6 +12,8 @@ import torch.nn.functional as F
 import torchmetrics
 from torch import nn
 
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
 from matgl.apps.pes import Potential
 torchseed = 42 
 torch.manual_seed(torchseed)
@@ -308,7 +310,7 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         
         
 
-    def loss_fn(self, loss: nn.Module, labels: torch.Tensor.to('cuda'), preds: torch.Tensor.to('cuda')):
+    def loss_fn(self, loss: nn.Module, labels: torch.Tensor.to(device), preds: torch.Tensor.to(device)):
         """Args:
             loss: Loss function.
             labels: Labels to compute the loss.

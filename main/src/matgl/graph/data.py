@@ -20,6 +20,7 @@ from tqdm import trange
 import matgl
 from matgl.graph.compute import compute_pair_vector_and_distance, create_line_graph
 
+device = "cuda" if torch.cuda.is_available() else "cpu"
 torchseed = 42 
 torch.manual_seed(torchseed)
 torch.cuda.manual_seed(torchseed)
@@ -228,7 +229,7 @@ class normalisation():
     
     def log10(self,data):
         data_log = torch.log10(data +1)
-        data_log = data_log.to('cuda')
+        data_log = data_log.to(device)
         return data_log   
         
 
@@ -320,7 +321,7 @@ class MGLDataset(DGLDataset):
         #torch.save(self.scaler.scaler,"/home/lklochko/Desktop/ProjPostDoc/GitHub/fine_tuning_p60/megnet_p31/pytorch/matgl-main/src/torch.scaler")
         self.scaler = normalisation()
         self.labels['TC'] = self.scaler.log10(torch.as_tensor((self.labels['TC'])))
-        self.labels['TC'] = self.scaler.fit_transform(torch.as_tensor((self.labels['TC'])).to('cuda'))
+        self.labels['TC'] = self.scaler.fit_transform(torch.as_tensor((self.labels['TC'])).to(device))
            
         torch.save(self.scaler,"structures_scalers/torch.scaler")
         

@@ -22,6 +22,9 @@ from custom_functions import create_changed_megned_model
 
 warnings.simplefilter("ignore")
 
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print("RUNNIN ON", device)
+
 
 def unlog10(data):
         data_unlog10 = 10**(data)-1
@@ -52,15 +55,15 @@ def model_to_scan (model_scan,nRuns):
     NN2 = 350
     NN3 = 350
     NN4 = 0
-    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform").cuda()
-    model_megned_changed =  create_changed_megned_model() .cuda()
+    megnet_loaded = matgl.load_model("MEGNet-MP-2018.6.1-Eform").to(device)
+    model_megned_changed =  create_changed_megned_model().to(device)
     model_megned_changed.load_state_dict(megnet_loaded.state_dict(),strict=False)
-    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).cuda()
-    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).cuda()
+    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).to(device)
+    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).to(device)
     
     
     checkpoint_path = 'best_models/double_train_AFLOW_on_%s_%s.ckpt'%(model_scan,nRuns)
-    lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model).cuda()
+    lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model).to(device)
     return lit_module_loaded.model
 
 res = {}
@@ -68,7 +71,7 @@ res = {}
 for nRuns in range (1,nRunsmax+1):
     y_pred = [] 
     print("###=> le modele numero %s; "%(nRuns))
-    model =  model_to_scan (model_for_scan_scan,nRuns).cuda()
+    model =  model_to_scan (model_for_scan_scan,nRuns).to(device)
     model.train(False)     
     
     for idx in range(0,len(df)):

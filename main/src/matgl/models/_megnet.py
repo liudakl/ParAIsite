@@ -21,6 +21,7 @@ from matgl.graph.compute import compute_pair_vector_and_distance
 from matgl.layers import MLP, ActivationFunction, BondExpansion, EdgeSet2Set, EmbeddingBlock, MEGNetBlock, MLP_last_layer
 from matgl.utils.io import IOMixIn
 
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 if TYPE_CHECKING:
     import dgl
@@ -235,9 +236,7 @@ class MEGNet(nn.Module, IOMixIn):
         return self(g=g, state_attr=state_attr).detach()
         
         
-
-device = torch.device('cuda' )
-        
+      
         
 class combined_models (nn.Module, IOMixIn):
      
@@ -269,7 +268,7 @@ class combined_models (nn.Module, IOMixIn):
     def predict_structure(
         self,
         structure,
-        state_attr: torch.Tensor.to('cuda') | None = None,
+        state_attr: torch.Tensor.to(device) | None = None,
         graph_converter: GraphConverter | None = None,
     ):
         """Convenience method to directly predict property from structure.
@@ -289,12 +288,12 @@ class combined_models (nn.Module, IOMixIn):
         g, lat, state_attr_default = graph_converter.get_graph(structure)
         g = g.to(device)
         lat = lat.to(device)
-        g.edata["pbc_offshift"] = torch.matmul(g.edata["pbc_offset"].to('cuda'), lat[0])
+        g.edata["pbc_offshift"] = torch.matmul(g.edata["pbc_offset"].to(device), lat[0])
         g.ndata["pos"] = g.ndata["frac_coords"] @ lat[0]
         if state_attr is None:
-            state_attr = torch.tensor(state_attr_default).to('cuda')
+            state_attr = torch.tensor(state_attr_default).to(device)
         bond_vec, bond_dist = compute_pair_vector_and_distance(g)
-        g.edata["edge_attr"] = self.pretrained.bond_expansion(bond_dist.to('cuda'))
+        g.edata["edge_attr"] = self.pretrained.bond_expansion(bond_dist.to(device))
         
         return self(g=g, state_attr=state_attr).detach().cpu()    
     

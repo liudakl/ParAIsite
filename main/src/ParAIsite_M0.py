@@ -166,6 +166,9 @@ NN2 = 350
 NN3 = 350
 NN4 = 0
 torchseed = 42 
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print("RUNNIN ON", device)
+
 pl.seed_everything(torchseed, workers=True)
 torch.manual_seed(torchseed)
 torch.cuda.manual_seed(torchseed)
@@ -218,9 +221,9 @@ for nRuns in range (11,maxRuns+1):
             num_workers=0 )
     
     model_megned_changed =  create_changed_megned_model() 
-    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).cuda()
-    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).cuda()
-    lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler).cuda()
+    mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).to(device)
+    new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).to(device)
+    lit_module = ModelLightningModule(model=new_model,loss='l1_loss',lr=1e-3,scaler=scaler).to(device)
 
 ############   Training  Part   ############
 
