@@ -25,160 +25,53 @@ import numpy as np
 from lightning.pytorch.callbacks import ModelCheckpoint
 from matgl.config import DEFAULT_ELEMENTS
 
-from custom_functions import return_dataset_train,create_changed_megned_model 
+from custom_functions import return_dataset_train,create_changed_megned_model,setup_dataset 
 
 
 
 warnings.simplefilter("ignore")
-elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
-converter = Structure2Graph(element_types=elem_list, cutoff=4.0)
 
-# Setup dataset to test: 
-  
-dataset_name_test1 = 'Dataset2'
-res_tes1_Dataset2 = [] 
-
-SetToUse_test1, structure_test1 = return_dataset_train (dataset_name_test1)
-thermal_conduct = SetToUse_test1.TC.to_list()
-elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
-converter_test = Structure2Graph(element_types=elem_list, cutoff=4.0)
-
-mp_dataset_test1 = MGLDataset(
-    structures=structure_test1,
-    labels={"TC": thermal_conduct},
-    converter=converter_test,
-)
-
-dataset_name_test2 = 'Dataset1'
-res_tes2_Dataset1 = [] 
-
-SetToUse_test2, structure_test2 = return_dataset_train (dataset_name_test2)
-thermal_conduct = SetToUse_test2.TC.to_list()
-elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
-converter_test = Structure2Graph(element_types=elem_list, cutoff=4.0)
-
-mp_dataset_test2 = MGLDataset(
-    structures=structure_test2,
-    labels={"TC": thermal_conduct},
-    converter=converter_test,
-)
-
-res_tes3_MIX = [] 
+# =============================================================================
+#                               SETUP DATASET TO TRAIN
+#   
+# =============================================================================    
 
 
-dataset_name_test4 = 'AFLOW'
-res_tes4_AFLOW = [] 
-
-
-SetToUse_test4, structure_test4 = return_dataset_train (dataset_name_test4)
-thermal_conduct = SetToUse_test4.TC.to_list()
-elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
-converter_test = Structure2Graph(element_types=elem_list, cutoff=4.0)
-
-mp_dataset_test4 = MGLDataset(
-    structures=structure_test4,
-    labels={"TC": thermal_conduct},
-    converter=converter_test,
-)
-
-
-try:
-    
-    os.remove("structures_scalers/torch.scaler")
-except FileNotFoundError:
-    pass
-
-
-
-
-# ===================================================# 
- 
-
-# Setup dataset to TRAIN : 
-    
 dataset_name_TRAIN = 'MIX'
 
-
-
-# ===================================================# 
-
-
-if dataset_name_TRAIN == 'MIX':
-    dataset_1 = 'Dataset1'
-    dataset_2 = 'Dataset2'
-    SetToUse_1, structure_1 = return_dataset_train (dataset_1)
-    thermal_conduct = SetToUse_1.TC.to_list()
-    
-    mp_dataset_1 = MGLDataset(
-        structures=structure_1,
-        labels={"TC": thermal_conduct},
-        converter=converter,
-    )
-    
-    SetToUse_2, structure_2 = return_dataset_train (dataset_2)
-    thermal_conduct = SetToUse_2.TC.to_list()
-    
-    mp_dataset_2 = MGLDataset(
-        structures=structure_2,
-        labels={"TC": thermal_conduct},
-        converter=converter,
-    )
-    
-    try:
-        os.remove("structures_scalers/torch.scaler")
-    except FileNotFoundError:
-        pass
-    
-    SetToUse_mix, structure_mix = return_dataset_train (dataset_name_TRAIN)
-    thermal_conduct = SetToUse_mix.TC.to_list()
-    
-    mp_dataset = MGLDataset(
-        structures=structure_mix,
-        labels={"TC": thermal_conduct},
-        converter=converter,
-    )
-
-
-else:
-    SetToUse, structure = return_dataset_train (dataset_name_TRAIN)
-    thermal_conduct = SetToUse.TC.to_list()
-    
-    mp_dataset = MGLDataset(
-        structures=structure,
-        labels={"TC": thermal_conduct},
-        converter=converter,
-    )
-    
+if dataset_name_TRAIN != 'MIX':
+    _, mp_dataset = setup_dataset (dataset_name_TRAIN)   
+else: 
+    _, mp_dataset,mp_dataset_1, mp_dataset_2  = setup_dataset (dataset_name_TRAIN) 
 
 scaler = torch.load('structures_scalers/torch.scaler')
 
+# =============================================================================
+#                               SETUP MODEL 
+#   
+# =============================================================================
 
-
-
-
-######     Model setup    ########
-
-
-
+if torch.cuda.is_available():
+     device = 'cuda'
+     accelerator = 'gpu'
+else: 
+     device = 'cpu'
+     accelerator = 'cpu'
 
 best_mapes = [] 
-maxRuns = 9
+maxRuns = 1
 maxEpochs = 300
 NN1 = 450
 NN2 = 350
 NN3 = 350
 NN4 = 0
-
-device = "cuda" if torch.cuda.is_available() else "cpu"
-print("RUNNIN ON", device)
-
-
 torchseed = 42 
+learning_rate = 1e-3
+test_data = 0
+
 pl.seed_everything(torchseed, workers=True)
 torch.manual_seed(torchseed)
 torch.cuda.manual_seed(torchseed)
-
-
 
 for nRuns in range (1,maxRuns+1):
     best_mape = np.inf
@@ -234,97 +127,124 @@ for nRuns in range (1,maxRuns+1):
     mod_mlp = myMLP (16,NN1,NN2,NN3,NN4,1).to(device)
     new_model = combined_models(pretrained_model=model_megned_changed,myMLP=mod_mlp).to(device)
     
-    
     checkpoint_path = 'best_models/sample-AFLOW_%s.ckpt'%(nRuns)
-    #checkpoint = torch.load(checkpoint_path)
-    #lit_module_loaded = ModelLightningModule(model=new_model,loss=checkpoint['hyper_parameters']['loss'], lr=checkpoint['hyper_parameters']['lr'], scaler=checkpoint['hyper_parameters']['scaler'])
-    #lit_module_loaded.load_state_dict(checkpoint['state_dict'])
     lit_module_loaded = ModelLightningModule.load_from_checkpoint(checkpoint_path,model=new_model).to(device)
     
 
-############   Training  Part   ############
+# =============================================================================
+#               TRAINING OF THE MODEL 
+# =============================================================================
 
 
     logger = CSVLogger("logs", name="MEGNet_m1_best_model_double_training_%s_%s"%(dataset_name_TRAIN,nRuns),version=0)
-    trainer = pl.Trainer(max_epochs=maxEpochs, accelerator="gpu", logger=logger,callbacks=[checkpoint_callback])
+    trainer = pl.Trainer(max_epochs=maxEpochs, accelerator=accelerator, logger=logger,callbacks=[checkpoint_callback])
     trainer.fit(model=lit_module_loaded, train_dataloaders=train_loader, val_dataloaders=val_loader)
-#===================================================#
 
-    train_data_test1, val_data_test1 = split_dataset(
-    mp_dataset_test1,
-    frac_list=[0.8, 0.2],
-    shuffle=True,
-    random_state=nRuns,
-)
+# =============================================================================
+#               TEST OF THE RESULTS
+# =============================================================================
 
 
-    train_loader_test1, val_loader_test1 = MGLDataLoader(
-    train_data=train_data_test1,
-    val_data=val_data_test1,
-    collate_fn=collate_fn_graph,
-    batch_size=8,
-    num_workers=0,
-)
+    if bool(test_data): 
+        
+        # =============================================================================
+        #                               SETUP DATASET TO TEST
+        #   
+        # =============================================================================
 
-    train_data_test2, val_data_test2 = split_dataset(
-    mp_dataset_test2,
-    frac_list=[0.8, 0.2],
-    shuffle=True,
-    random_state=nRuns,
-)
+        dataset_name_test1 = 'Dataset2'
+        dataset_name_test2 = 'Dataset1'
+        dataset_name_test4 = 'AFLOW'
 
 
-    train_loader_test2, val_loader_test2 = MGLDataLoader(
-    train_data=train_data_test2,
-    val_data=val_data_test2,
-    collate_fn=collate_fn_graph,
-    batch_size=8,
-    num_workers=0,
-)
 
+        res_tes1_Dataset2,mp_dataset_test1 = setup_dataset(dataset_name_test1) 
+        res_tes2_Dataset1,mp_dataset_test2 = setup_dataset(dataset_name_test2) 
+        res_tes4_AFLOW, mp_dataset_test4 = setup_dataset(dataset_name_test4) 
+        res_tes3_MIX = []
 
-    train_loader_test3, val_loader_test3 = MGLDataLoader_multiple(
-          train_data_1=train_data_test1,
-          val_data_1=val_data_test1,
-          train_data_2=train_data_test2,
-          val_data_2=val_data_test2,
-          collate_fn=collate_fn_graph,
-          batch_size=8,
-          num_workers=0,
-      )
-
-
-    train_data_test4, val_data_test4 = split_dataset(
-    mp_dataset_test4,
-    frac_list=[0.8, 0.2],
-    shuffle=True,
-    random_state=nRuns,
-)
-
-
-    train_loader_test4, val_loader_test4 = MGLDataLoader(
-    train_data=train_data_test4,
-    val_data=val_data_test4,
-    collate_fn=collate_fn_graph,
-    batch_size=8,
-    num_workers=0,
-)  
+        try:   
+            os.remove("structures_scalers/torch.scaler")
+        except FileNotFoundError:
+            pass
     
-    res_test1 = trainer.test(dataloaders=val_loader_test1)
-    res_test2 = trainer.test(dataloaders=val_loader_test2)
-    res_test3 = trainer.test(dataloaders=val_loader_test3)
-    res_test4 = trainer.test(dataloaders=val_loader_test4)
+        train_data_test1, val_data_test1 = split_dataset(
+        mp_dataset_test1,
+        frac_list=[0.8, 0.2],
+        shuffle=True,
+        random_state=nRuns,
+    )
     
     
-    res_tes1_Dataset2.append(list(res_test1[0].values())[0])
-    res_tes2_Dataset1.append(list(res_test2[0].values())[0])
-    res_tes3_MIX.append(list(res_test3[0].values())[0])
-    res_tes4_AFLOW.append(list(res_test4[0].values())[0])
+        train_loader_test1, val_loader_test1 = MGLDataLoader(
+        train_data=train_data_test1,
+        val_data=val_data_test1,
+        collate_fn=collate_fn_graph,
+        batch_size=8,
+        num_workers=0,
+    )
+    
+        train_data_test2, val_data_test2 = split_dataset(
+        mp_dataset_test2,
+        frac_list=[0.8, 0.2],
+        shuffle=True,
+        random_state=nRuns,
+    )
+    
+    
+        train_loader_test2, val_loader_test2 = MGLDataLoader(
+        train_data=train_data_test2,
+        val_data=val_data_test2,
+        collate_fn=collate_fn_graph,
+        batch_size=8,
+        num_workers=0,
+    )
+    
+    
+        train_loader_test3, val_loader_test3 = MGLDataLoader_multiple(
+              train_data_1=train_data_test1,
+              val_data_1=val_data_test1,
+              train_data_2=train_data_test2,
+              val_data_2=val_data_test2,
+              collate_fn=collate_fn_graph,
+              batch_size=8,
+              num_workers=0,
+          )
+    
+    
+        train_data_test4, val_data_test4 = split_dataset(
+        mp_dataset_test4,
+        frac_list=[0.8, 0.2],
+        shuffle=True,
+        random_state=nRuns,
+    )
+    
+    
+        train_loader_test4, val_loader_test4 = MGLDataLoader(
+        train_data=train_data_test4,
+        val_data=val_data_test4,
+        collate_fn=collate_fn_graph,
+        batch_size=8,
+        num_workers=0,
+    )  
+        
+        res_test1 = trainer.test(dataloaders=val_loader_test1)
+        res_test2 = trainer.test(dataloaders=val_loader_test2)
+        res_test3 = trainer.test(dataloaders=val_loader_test3)
+        res_test4 = trainer.test(dataloaders=val_loader_test4)
+        
+        
+        res_tes1_Dataset2.append(list(res_test1[0].values())[0])
+        res_tes2_Dataset1.append(list(res_test2[0].values())[0])
+        res_tes3_MIX.append(list(res_test3[0].values())[0])
+        res_tes4_AFLOW.append(list(res_test4[0].values())[0])
 
 
 
 
-#####   MAPE Metrics Results  #######
+# =============================================================================
+#                           METRICS CHECK UP  
+# =============================================================================
 
 
 
@@ -338,10 +258,7 @@ for nRuns in range (1,maxRuns+1):
     
     if min_mape_val < best_mape:
         best_mape = min_mape_val
-        best_mapes.append(best_mape)      
-        #torch.save(lit_module.model, "best_models/model_full_lit_%s."%(dataset_name)+str(nRuns)+".pt")
-
-        
+        best_mapes.append(best_mape)             
     
 
     for fn in ("dgl_graph.bin", "lattice.pt", "dgl_line_graph.bin", "state_attr.pt", "labels.json"):
@@ -350,8 +267,6 @@ for nRuns in range (1,maxRuns+1):
         except FileNotFoundError:
             pass
 
-#for nRuns in range (1,maxRuns+1): 
-#    shutil.rmtree("logs/MEGNet_training_%s"%(nRuns))
 try:
     
     os.rename("structures_scalers/torch.scaler", "structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
@@ -370,7 +285,8 @@ print("#                             #")
 print("#                             #")
 print("###############################")
 
-df_final  = pd.DataFrame({
+if bool(test_data):
+    df_final  = pd.DataFrame({
     'Run': range(1, maxRuns + 1),
     'train_on': '%s'%(dataset_name_TRAIN),
     'test_Dataset2': res_tes1_Dataset2,
@@ -379,7 +295,8 @@ df_final  = pd.DataFrame({
     'test_AFLOW': res_tes4_AFLOW
 })
 
-df_final.to_csv('results_on_train_test/results_double_trained_on_AFLOW_and_%s.csv'%(dataset_name_TRAIN), index=False)
+    df_final.to_csv('results_on_train_test/results_double_trained_on_AFLOW_and_%s.csv'%(dataset_name_TRAIN), index=False)
+
 
 
 

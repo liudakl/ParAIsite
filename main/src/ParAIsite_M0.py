@@ -19,39 +19,6 @@ from custom_functions import return_dataset_train,create_changed_megned_model, s
 
 warnings.simplefilter("ignore")
 
-
-
-
-
-if torch.cuda.is_available():
-     device = 'cuda'
-     accelerator = 'gpu'
-else: 
-     device = 'cpu'
-     accelerator = 'cpu'
-     
-# =============================================================================
-#                               SETUP DATASET TO TEST
-#   
-# =============================================================================
-
-dataset_name_test1 = 'Dataset2'
-dataset_name_test2 = 'Dataset1'
-dataset_name_test4 = 'AFLOW'
-
-
-
-res_tes1_Dataset2,mp_dataset_test1 = setup_dataset(dataset_name_test1) 
-res_tes2_Dataset1,mp_dataset_test2 = setup_dataset(dataset_name_test2) 
-res_tes4_AFLOW, mp_dataset_test4 = setup_dataset(dataset_name_test4) 
-
-
-try:   
-    os.remove("structures_scalers/torch.scaler")
-except FileNotFoundError:
-    pass
-
-
 # =============================================================================
 #                               SETUP DATASET TO TRAIN
 #   
@@ -62,17 +29,22 @@ dataset_name_TRAIN = 'Dataset1'
 
 if dataset_name_TRAIN != 'MIX':
     _, mp_dataset = setup_dataset (dataset_name_TRAIN)   
-    scaler = torch.load('structures_scalers/torch.scaler')
 else: 
-    res_tes3_MIX, mp_dataset,mp_dataset_1, mp_dataset_2  = setup_dataset (dataset_name_TRAIN) 
+    _, mp_dataset,mp_dataset_1, mp_dataset_2  = setup_dataset (dataset_name_TRAIN) 
 
+scaler = torch.load('structures_scalers/torch.scaler')
 
 # =============================================================================
-#                               SETUP MODEL TO TRAIN 
+#                               SETUP MODEL 
 #   
 # =============================================================================
 
-
+if torch.cuda.is_available():
+     device = 'cuda'
+     accelerator = 'gpu'
+else: 
+     device = 'cpu'
+     accelerator = 'cpu'
 
 best_mapes = [] 
 maxRuns = 9
@@ -83,13 +55,12 @@ NN3 = 350
 NN4 = 0
 torchseed = 42 
 learning_rate = 1e-3
-
+test_data = 0
 
 pl.seed_everything(torchseed, workers=True)
 torch.manual_seed(torchseed)
 torch.cuda.manual_seed(torchseed)
     
-
 
 for nRuns in range (1,maxRuns+1):
     best_mape = np.inf
@@ -155,81 +126,103 @@ for nRuns in range (1,maxRuns+1):
 
 
 # =============================================================================
-#               TEST AND VALIDATION OF THE RESULTS
+#               TEST OF THE RESULTS
 # =============================================================================
 
 
+    if bool(test_data): 
+        
+        # =============================================================================
+        #                               SETUP DATASET TO TEST
+        #   
+        # =============================================================================
 
-    train_data_test1, val_data_test1 = split_dataset(
-    mp_dataset_test1,
-    frac_list=[0.8, 0.2],
-    shuffle=True,
-    random_state=nRuns,
-)
-
-
-    train_loader_test1, val_loader_test1 = MGLDataLoader(
-    train_data=train_data_test1,
-    val_data=val_data_test1,
-    collate_fn=collate_fn_graph,
-    batch_size=8,
-    num_workers=0,
-)
-
-    train_data_test2, val_data_test2 = split_dataset(
-    mp_dataset_test2,
-    frac_list=[0.8, 0.2],
-    shuffle=True,
-    random_state=nRuns,
-)
+        dataset_name_test1 = 'Dataset2'
+        dataset_name_test2 = 'Dataset1'
+        dataset_name_test4 = 'AFLOW'
 
 
-    train_loader_test2, val_loader_test2 = MGLDataLoader(
-    train_data=train_data_test2,
-    val_data=val_data_test2,
-    collate_fn=collate_fn_graph,
-    batch_size=8,
-    num_workers=0,
-)
 
+        res_tes1_Dataset2,mp_dataset_test1 = setup_dataset(dataset_name_test1) 
+        res_tes2_Dataset1,mp_dataset_test2 = setup_dataset(dataset_name_test2) 
+        res_tes4_AFLOW, mp_dataset_test4 = setup_dataset(dataset_name_test4) 
+        res_tes3_MIX = []
 
-    train_loader_test3, val_loader_test3 = MGLDataLoader_multiple(
-          train_data_1=train_data_test1,
-          val_data_1=val_data_test1,
-          train_data_2=train_data_test2,
-          val_data_2=val_data_test2,
-          collate_fn=collate_fn_graph,
-          batch_size=8,
-          num_workers=0,
-      )
-
-
-    train_data_test4, val_data_test4 = split_dataset(
-    mp_dataset_test4,
-    frac_list=[0.8, 0.2],
-    shuffle=True,
-    random_state=nRuns,
-)
-
-
-    train_loader_test4, val_loader_test4 = MGLDataLoader(
-    train_data=train_data_test4,
-    val_data=val_data_test4,
-    collate_fn=collate_fn_graph,
-    batch_size=8,
-    num_workers=0,
-)  
+        try:   
+            os.remove("structures_scalers/torch.scaler")
+        except FileNotFoundError:
+            pass
     
-    res_test1 = trainer.test(dataloaders=val_loader_test1)
-    res_test2 = trainer.test(dataloaders=val_loader_test2)
-    res_test3 = trainer.test(dataloaders=val_loader_test3)
-    res_test4 = trainer.test(dataloaders=val_loader_test4)
+        train_data_test1, val_data_test1 = split_dataset(
+        mp_dataset_test1,
+        frac_list=[0.8, 0.2],
+        shuffle=True,
+        random_state=nRuns,
+    )
     
     
-    res_tes1_Dataset2.append(list(res_test1[0].values())[0])
-    res_tes2_Dataset1.append(list(res_test2[0].values())[0])
-    res_tes3_MIX.append(list(res_test3[0].values())[0])
-    res_tes4_AFLOW.append(list(res_test4[0].values())[0])
+        train_loader_test1, val_loader_test1 = MGLDataLoader(
+        train_data=train_data_test1,
+        val_data=val_data_test1,
+        collate_fn=collate_fn_graph,
+        batch_size=8,
+        num_workers=0,
+    )
+    
+        train_data_test2, val_data_test2 = split_dataset(
+        mp_dataset_test2,
+        frac_list=[0.8, 0.2],
+        shuffle=True,
+        random_state=nRuns,
+    )
+    
+    
+        train_loader_test2, val_loader_test2 = MGLDataLoader(
+        train_data=train_data_test2,
+        val_data=val_data_test2,
+        collate_fn=collate_fn_graph,
+        batch_size=8,
+        num_workers=0,
+    )
+    
+    
+        train_loader_test3, val_loader_test3 = MGLDataLoader_multiple(
+              train_data_1=train_data_test1,
+              val_data_1=val_data_test1,
+              train_data_2=train_data_test2,
+              val_data_2=val_data_test2,
+              collate_fn=collate_fn_graph,
+              batch_size=8,
+              num_workers=0,
+          )
+    
+    
+        train_data_test4, val_data_test4 = split_dataset(
+        mp_dataset_test4,
+        frac_list=[0.8, 0.2],
+        shuffle=True,
+        random_state=nRuns,
+    )
+    
+    
+        train_loader_test4, val_loader_test4 = MGLDataLoader(
+        train_data=train_data_test4,
+        val_data=val_data_test4,
+        collate_fn=collate_fn_graph,
+        batch_size=8,
+        num_workers=0,
+    )  
+        
+        res_test1 = trainer.test(dataloaders=val_loader_test1)
+        res_test2 = trainer.test(dataloaders=val_loader_test2)
+        res_test3 = trainer.test(dataloaders=val_loader_test3)
+        res_test4 = trainer.test(dataloaders=val_loader_test4)
+        
+        
+        res_tes1_Dataset2.append(list(res_test1[0].values())[0])
+        res_tes2_Dataset1.append(list(res_test2[0].values())[0])
+        res_tes3_MIX.append(list(res_test3[0].values())[0])
+        res_tes4_AFLOW.append(list(res_test4[0].values())[0])
 
 
 # =============================================================================
@@ -274,13 +267,15 @@ print("#                             #")
 print("###############################")
 
 
-df_final  = pd.DataFrame({
-    'Run': range(1, maxRuns + 1),
-    'train_on': '%s'%(dataset_name_TRAIN),
-    'test_Dataset2': res_tes1_Dataset2,
-    'test_Dataset1': res_tes2_Dataset1,
-    'test_MIX': res_tes3_MIX,
-    'test_AFLOW': res_tes4_AFLOW
-})
+if bool(test_data):
+    df_final  = pd.DataFrame({
+        'Run': range(1, maxRuns + 1),
+        'train_on': '%s'%(dataset_name_TRAIN),
+        'test_Dataset2': res_tes1_Dataset2,
+        'test_Dataset1': res_tes2_Dataset1,
+        'test_MIX': res_tes3_MIX,
+        'test_AFLOW': res_tes4_AFLOW
+    })
+    
+    df_final.to_csv('results_on_train_test/results_M0_trained_on_%s.csv'%(dataset_name_TRAIN), index=False)
 
-df_final.to_csv('results_on_train_test/results_M0_trained_on_%s.csv'%(dataset_name_TRAIN), index=False)
