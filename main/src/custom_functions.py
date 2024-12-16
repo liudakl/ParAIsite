@@ -123,7 +123,7 @@ def return_dataset_train (dataset_name):
     return   SetToUse, structure
 
 
-def setup_dataset_to_test(dataset_name_test):
+def setup_dataset(dataset_name_test):
     elem_list = DEFAULT_ELEMENTS  #get_element_list(structure)
     converter = Structure2Graph(element_types=elem_list, cutoff=4.0)
     if dataset_name_test == 'MIX':
