@@ -85,10 +85,10 @@ Please keep in mind that you need to select in the script on which dataset you w
 **Please, install after:** 
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements_cuda.txt or pip install -r requirements_cpu.txt
 
 ```
-Go to the directory, from where we do calculations:
+Depending on your situation. After, go to the directory, from where we do calculations:
 
 ```bash
   cd main/src
@@ -129,12 +129,23 @@ If you would like to **reproduce training with weights** (step II), please do:
 ```bash
   python ParAIsite_train.py input_config.json
 ```
+or 
+
+```bash
+  sudo python ParAIsite_train.py input_config.json
+```
 
 If you would like to reproduce training after additional train on AFLOW **(step III)**, please do:
 
 ```bash
   python ParAIsite_double_train.py input_config.json
 ```
+or 
+
+```bash
+  sudo python ParAIsite_double_train.py input_config.json
+```
+
 Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
 
 ## How to test ParAIsite on your own Validation?
