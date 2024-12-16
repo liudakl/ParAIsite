@@ -82,13 +82,13 @@ Go to the project directory:
 ```
 Please keep in mind that you need to select in the script on which dataset you would like perform training, the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are. They can be changed in the *"input.json"* file. 
  
-**Please, install after:** 
+**Please, install after dependong on your machine configuration:** 
 
 ```bash
 pip install -r requirements_cuda.txt or pip install -r requirements_cpu.txt
 
 ```
-Depending on your situation. After, go to the directory, from where we do calculations:
+After, go to the directory, from where we do calculations:
 
 ```bash
   cd main/src
