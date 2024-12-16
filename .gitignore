@@ -162,7 +162,6 @@ dmypy.json
 .DS_Store
 main/src/structures_scalers/mpd*.pkl
 main/src/logs/*
-main/src/*.json
 keras/pretrained_models/*
 crabnet* 
 crabnet/*

@@ -1,0 +1,10 @@
+{
+  "Layer1_NN": 450, 
+  "Layer2_NN": 350,
+  "Layer3_NN": 350,
+  "Layer4_NN": 0,
+  "learning_rate": 0.001,  
+  "test_data": 0,
+  "Number_of_RUNS": 9,
+  "Epochs": 300
+}
