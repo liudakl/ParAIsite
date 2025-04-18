@@ -25,8 +25,6 @@ Steps that we followed to achieve the results:
 
 ## Results: 
 
-## Results: 
-
 ### Validation Results (Dataset on Train vs Dataset on Validation)
 
 

@@ -50,7 +50,7 @@ class MatglLightningModuleMixin:
         )
         #print(" ##########  In the training step: ",results)
 
-        return {"loss": results['Total_Loss']}  #results['Total_Loss']
+        return results["Total_Loss"]
 
     def on_train_epoch_end(self):
         """Step scheduler every epoch."""
@@ -76,8 +76,8 @@ class MatglLightningModuleMixin:
         )
         
         
-        return  {"loss": results['Total_Loss']}  #results['Total_Loss']
-        
+        return results["Total_Loss"]
+
     def test_step(self, batch: tuple, batch_idx: int):
         """Test step.
 
@@ -217,7 +217,7 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         self.mae = torchmetrics.MeanAbsoluteError()
         self.rmse = torchmetrics.MeanSquaredError(squared=False)
         self.mape = torchmetrics.MeanAbsolutePercentageError()
-        self.r2score = torchmetrics.R2Score()
+        
         self.scaler = scaler 
         
         
@@ -340,10 +340,8 @@ class ModelLightningModule(MatglLightningModuleMixin, pl.LightningModule):
         
                 
         total_loss = loss(labels_orig,preds_orig)
-        mae = self.mae(labels_orig,preds_orig)
-        rmse = self.rmse(preds_orig,labels_orig)
-        r2score = self.r2score(preds_orig,labels_orig)
         
-        return {"Total_Loss": total_loss, "MAE": mae, "RMSE": rmse, "R2": r2score} 
+        
+        return {"Total_Loss": total_loss} 
 
           
