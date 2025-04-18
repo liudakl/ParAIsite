@@ -12,3 +12,4 @@ sympy==1.11.1
 torch==2.2.0
 torchmetrics==1.0.1
 tqdm==4.65.0
+pymatgen==2023.8.10
