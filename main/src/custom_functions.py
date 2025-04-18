@@ -172,7 +172,16 @@ def setup_dataset(dataset_name_test):
         converter=converter,
         )
         return [],  mp_dataset_test
- 
+
+def create_dataset_specific_dataframe(results_list, dataset_name):
+    """
+    Creates a pandas DataFrame from a list of dictionaries, modifying column names
+    to include the dataset name.
+    """
+    df = pd.DataFrame(results_list)
+    df.columns = [f"{col}_{dataset_name}" for col in df.columns]
+    return df
+   
 
 # =============================================================================
 #                               STARTING TEXT

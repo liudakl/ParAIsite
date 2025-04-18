@@ -14,7 +14,7 @@ from model_mlp import myMLP
 import numpy as np
 from lightning.pytorch.callbacks import ModelCheckpoint
 from matgl.config import DEFAULT_ELEMENTS
-from custom_functions import return_dataset_train,create_changed_megned_model, setup_dataset, welcome
+from custom_functions import return_dataset_train,create_changed_megned_model, setup_dataset, welcome, create_dataset_specific_dataframe
 import matgl 
 import sys 
 import json 
@@ -32,8 +32,10 @@ warnings.simplefilter("ignore")
 #   
 # =============================================================================    
 
+with open(sys.argv[1]) as f:
+   params = json.load(f)
 
-dataset_name_TRAIN = 'Dataset1'
+dataset_name_TRAIN = params['dataset_name_TRAIN']
 
 if dataset_name_TRAIN != 'MIX':
     _, mp_dataset = setup_dataset (dataset_name_TRAIN)   
@@ -54,8 +56,6 @@ else:
      device = 'cpu'
      accelerator = 'cpu'
 
-with open(sys.argv[1]) as f:
-   params = json.load(f)
 
 maxRuns         = params['Number_of_RUNS']
 maxEpochs       = params['Epochs']
@@ -65,6 +65,12 @@ NN3             = params['Layer3_NN']
 NN4             = params['Layer4_NN']
 learning_rate   = params['learning_rate']
 test_data       = params['test_on_data']
+
+if bool(test_data):
+    res_tes1_Dataset2 = []
+    res_tes2_Dataset1 = [] 
+    res_tes4_AFLOW    = [] 
+    res_tes3_MIX = []
 
 
 torchseed = 42 
@@ -154,10 +160,9 @@ for nRuns in range (1,maxRuns+1):
 
 
 
-        res_tes1_Dataset2,mp_dataset_test1 = setup_dataset(dataset_name_test1) 
-        res_tes2_Dataset1,mp_dataset_test2 = setup_dataset(dataset_name_test2) 
-        res_tes4_AFLOW, mp_dataset_test4 = setup_dataset(dataset_name_test4) 
-        res_tes3_MIX = []
+        _, mp_dataset_test1 = setup_dataset(dataset_name_test1) 
+        _, mp_dataset_test2 = setup_dataset(dataset_name_test2) 
+        _, mp_dataset_test4 = setup_dataset(dataset_name_test4) 
 
         try:   
             os.remove("structures_scalers/torch.scaler")
@@ -230,11 +235,10 @@ for nRuns in range (1,maxRuns+1):
         res_test4 = trainer.test(dataloaders=val_loader_test4)
         
         
-        res_tes1_Dataset2.append(list(res_test1[0].values())[0])
-        res_tes2_Dataset1.append(list(res_test2[0].values())[0])
-        res_tes3_MIX.append(list(res_test3[0].values())[0])
-        res_tes4_AFLOW.append(list(res_test4[0].values())[0])
-
+        res_tes1_Dataset2.append(list(res_test1)[0])       
+        res_tes2_Dataset1.append(list(res_test2)[0])        
+        res_tes3_MIX.append(list(res_test3)[0])       
+        res_tes4_AFLOW.append(list(res_test4)[0])
 
 
 
@@ -281,14 +285,27 @@ print("###############################")
 
 
 if bool(test_data):
-    df_final  = pd.DataFrame({
+    df_Dataset2 = create_dataset_specific_dataframe(res_tes1_Dataset2, "Dataset2")
+    df_Dataset1 = create_dataset_specific_dataframe(res_tes2_Dataset1, "Dataset1")
+    df_MIX = create_dataset_specific_dataframe(res_tes3_MIX, "MIX")
+    df_AFLOW = create_dataset_specific_dataframe(res_tes4_AFLOW, "AFLOW")
+    
+    df_final = pd.DataFrame({
     'Run': range(1, maxRuns + 1),
-    'train_on': '%s'%(dataset_name_TRAIN),
-    'test_Dataset2': res_tes1_Dataset2,
-    'test_Dataset1': res_tes2_Dataset1,
-    'test_MIX': res_tes3_MIX,
-    'test_AFLOW': res_tes4_AFLOW
-})
+    'train_on': '%s' % (dataset_name_TRAIN)
+    })
+
+    df_final = pd.concat([df_final, df_Dataset2, df_Dataset1, df_MIX, df_AFLOW], axis=1)
+    
+    mean_row = df_final.iloc[:, 2:].mean() #skip Run and train_on
+    std_row = df_final.iloc[:, 2:].std() #skip Run and train_on
+
+    mean_row['Run'] = 'Mean'
+    mean_row['train_on'] = ''
+    std_row['Run'] = 'Std'
+    std_row['train_on'] = ''
+
+    df_final = pd.concat([df_final, pd.DataFrame(mean_row).T, pd.DataFrame(std_row).T], ignore_index=True)
 
     df_final.to_csv('results_on_train_test/results_with_weights_trained_on_%s.csv'%(dataset_name_TRAIN), index=False)
 

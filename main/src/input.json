@@ -6,5 +6,6 @@
   "learning_rate": 0.001,  
   "test_on_data": 0,
   "Number_of_RUNS": 9,
-  "Epochs": 300
+  "Epochs": 300,
+  "dataset_name_TRAIN": "Dataset1" 
 }
