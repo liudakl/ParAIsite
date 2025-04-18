@@ -44,6 +44,12 @@ else:
 
 scaler = torch.load('structures_scalers/torch.scaler')
 
+try:    
+    os.rename("structures_scalers/torch.scaler", "structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
+    os.remove("structures_scalers/torch.scaler")
+except FileNotFoundError:
+    pass
+
 # =============================================================================
 #                               SETUP MODEL 
 #   
@@ -271,9 +277,7 @@ for nRuns in range (1,maxRuns+1):
         except FileNotFoundError:
             pass
 
-try:
-    
-    os.rename("structures_scalers/torch.scaler", "structures_scalers/torch.scaler.%s"%(dataset_name_TRAIN))
+try:    
     os.remove("structures_scalers/torch.scaler")
 except FileNotFoundError:
     pass
