@@ -23,7 +23,7 @@ Steps that we followed to achieve the results:
    - Assess model performance
    - Compare with baseline models
 
-## Results: 
+## 📊 Results: 
 
 ### Validation Results (Dataset on Train vs Dataset on Validation)
 
@@ -52,12 +52,12 @@ Steps that we followed to achieve the results:
 
 To provide concrete validation of the best performing models, we applied them to obtain predictions for stable materials in the Material Project Database. LTC for $(BaSbO_3)_2$ (mp-9127) was then computed through robust ab-initio calculation as it was consistently found by our models to have a relatively low thermal conductivity. **The result of the computation (7.1 W/m*K) was in the same order of magnitude as the predictions from our models (1.23  W/m*K)**. This agreement underscores the model’s ability to capture critical trends in LTC prediction, even for datasets it was not directly trained on.
 
-## Conclusions 
+## 📌 Conclusions 
 
 - Improved accuracy in predicting thermal conductivity
 - Demonstrated potential for application in materials science
 
-## How to cite ParAIsite
+## 📑 How to cite ParAIsite
 ```txt
 @misc{klochko2024transferlearningdeeplearningbased,
       title={Transfer Learning for Deep Learning-based Prediction of Lattice Thermal Conductivity}, 
@@ -69,7 +69,7 @@ To provide concrete validation of the best performing models, we applied them to
       url={https://arxiv.org/abs/2411.18259}, 
 }
 ```
-## How to use ParAIsite
+## 🛠️ How to use ParAIsite
 
 Clone the project to your machine:
 
@@ -150,12 +150,12 @@ or
 
 Please keep in mind that you need to select in the script on which dataset you would like perform training; the best architecture of MLP model, and etc. To be able reproduce the results, please keep the selections as they are.
 
-## How to test ParAIsite on your own Validation?
+## 🧪🔍 How to test ParAIsite on your own Validation?
 
 Testings ParAIsite on Data are already integrated inside the code for model training/double training. 
 Please keep in mind that you need to change the script with respect on which dataset you would like perform test.
 
-## How to predict TC with already existed models of ParAIsite from our work based on your materials?
+## 🤖🔮 How to predict TC with already existed models of ParAIsite from our work based on your materials?
 
 The only 2 things are required - identification of the material (in our case it is *mpd-id*) and its structure. 
 
@@ -174,7 +174,7 @@ Next, you need to specify the model that will be used in testings, path to your 
   python scan_mdp.py for_scan.josn
 ```
 Results will appear in the folder "results_scan/". 
-## References
+## 📚 References
 
 ```txt
 1. Chen, C.; Ye, W.; Zuo, Y.; Zheng, C.; Ong, S. P. Graph Networks as a Universal Machine Learning Framework for
