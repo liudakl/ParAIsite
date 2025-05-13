@@ -171,7 +171,7 @@ At the end of the following steps, one can have file "structures_scalers/NAME_OF
 Next, you need to specify the model that will be used in testings, path to your data, and run: 
 
 ```bash
-  python scan_mdp.py for_scan.josn
+  python scan_mdp.py for_scan.json
 ```
 Results will appear in the folder "results_scan/". 
 ## 📚 References
