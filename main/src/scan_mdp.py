@@ -1,3 +1,4 @@
+#%%
 from __future__ import annotations
 import pandas as pd 
 import warnings
@@ -15,7 +16,10 @@ torch.manual_seed(torchseed)
 torch.cuda.manual_seed(torchseed)
 
 
-with open(sys.argv[1]) as f:
+#with open(sys.argv[1]) as f:
+#   params = json.load(f)
+
+with open('for_scan.json') as f:
    params = json.load(f)
 
 nRunsmax            = params['Number_of_RUNS']
@@ -32,7 +36,7 @@ data_to_test        = params['data_to_test']
 #   
 # =============================================================================  
 
-scalerY = torch.load('structures_scalers/torch.scaler.%s'%(model_for_scan_scan))
+scalerY = torch.load('structures_scalers/torch.scaler.%s'%(model_for_scan_scan),weights_only=False)
 loaded_data = pd.read_pickle('structures_scalers/%s.pkl'%(data_to_test))
 df = loaded_data.dropna().copy()
 
