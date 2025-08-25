@@ -452,12 +452,43 @@ custom_palette = {
     'Dataset2': "#a02c90",  # Green
 }
 
+
+# Calculate basic variance per database 
+
+loaded_data = pd.read_pickle('structures_scalers/%s.pkl'%('AFLOW'))
+df = loaded_data.dropna().copy()
+var_AFLOW_0 = df.TC.var()
+
+loaded_data = pd.read_pickle('structures_scalers/%s.pkl'%('MIX'))
+df = loaded_data.dropna().copy()
+var_MIX_0 = df.TC.var()
+
+
+loaded_data = pd.read_pickle('structures_scalers/%s.pkl'%('Dataset1'))
+df = loaded_data.dropna().copy()
+var_Dataset1_0 = df.TC.var()
+
+loaded_data = pd.read_pickle('structures_scalers/%s.pkl'%('Dataset2'))
+df = loaded_data.dropna().copy()
+var_Dataset2_0 = df.TC.var()
+
+original_variances = {
+    'AFLOW': var_AFLOW_0,
+    'MIX': var_MIX_0,
+    'Dataset1': var_Dataset1_0,
+    'Dataset2': var_Dataset2_0,
+}
 fig, ax = plt.subplots(figsize=(10, 6))
-sns.boxplot(data=df_final_updated[df_final_updated['mean_step']<3.0], x='step', y='variance_step', hue='model', palette=custom_palette)
+
+sns.boxplot(data=df_final_updated, x='step', y='variance_step', hue='model', palette=custom_palette,ax=ax)
+
 plt.yscale('log')
 plt.grid(True)
-plt.title('Variance by Step and Model: TC < 3.0')
+plt.title('Variance by Step and Model: all TC')
+
+plt.tight_layout()
 plt.show()
+
 
 
 # ==========
@@ -465,7 +496,7 @@ plt.show()
 
 plt.figure(figsize=(12, 8))
 sns.scatterplot(
-    data=df_final_updated[df_final_updated['mean_step']<3.0],
+    data=df_final_updated[df_final_updated['mean_step']>100.0],
     x='mean_step',
     y='variance_step',
     hue='model',
@@ -474,8 +505,11 @@ sns.scatterplot(
     s=100,  # size of the points
     alpha=0.7
 )
-plt.xlabel('Predicted Thermal Conductivity (TC)')
+plt.yscale('log')
+plt.xscale('log')
+plt.xlabel('Mean Predicted Thermal Conductivity (TC)')
 plt.ylabel('Variance_step')
+plt.title('Variance by Step and Model: high TC')
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()
 
