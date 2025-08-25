@@ -11,7 +11,7 @@ file_path = 'variances_paraisite.csv'
 
 if os.path.exists(file_path):
     print(f"The file '{file_path}' exists.")
-    df_final_updated = pd.read_csv('variances_paraisite.csv')
+    df_final_updated = pd.read_csv('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/to_update_paper/variances_paraisite.csv')
 
 else:
     nRunsmax = 9 
@@ -445,51 +445,32 @@ else:
 #                                       PLOT 
 # =============================================================================  
 
+custom_palette = {
+    'AFLOW': '#1f77b4',  # Blue
+    'MIX': '#ff7f0e',  # Orange
+    'Dataset1': '#2ca02c',  # Green
+    'Dataset2': "#a02c90",  # Green
+}
+
 fig, ax = plt.subplots(figsize=(10, 6))
-sns.boxplot(data=df_final_updated[df_final_updated['max_step']<3.0], x='step', y='variance_step', hue='model')
+sns.boxplot(data=df_final_updated[df_final_updated['mean_step']<3.0], x='step', y='variance_step', hue='model', palette=custom_palette)
 plt.yscale('log')
 plt.grid(True)
 plt.title('Variance by Step and Model: TC < 3.0')
 plt.show()
 
-# ==========
-
-plt.figure(figsize=(10, 8))
-sns.kdeplot(
-    data=df_final_updated[df_final_updated['max_step']<3.0],
-    x='mean_step',
-    y='variance_step',
-    hue='model',
-    fill=True,      # Fills the contours with color
-    alpha=0.5,      # Makes the clouds semi-transparent
-    palette='rocket',
-    thresh=0.05,    # Sets the minimum density to draw a contour
-    levels=10       # Controls the number of contour lines
-)
-plt.xlabel('predicted TC')
-plt.ylabel('Variance')
-plt.show()
-
-# ==========
-
-
-g = sns.FacetGrid(df_final_updated[df_final_updated['max_step']<10.0], col='model', hue='model', col_wrap=2, sharex=False, sharey=False)
-g.map_dataframe(sns.kdeplot, x='mean_step', y='variance_step', fill=True, levels=5)
-g.set_titles(col_template="{col_name}")
-g.set_axis_labels('Predicted Thermal Conductivity (TC)', 'Variance_step')
-plt.tight_layout()
-plt.show()
 
 # ==========
 
 
 plt.figure(figsize=(12, 8))
 sns.scatterplot(
-    data=df_final_updated[df_final_updated['max_step']<3.0],
+    data=df_final_updated[df_final_updated['mean_step']<3.0],
     x='mean_step',
     y='variance_step',
     hue='model',
     style='step',
+    palette=custom_palette,
     s=100,  # size of the points
     alpha=0.7
 )
