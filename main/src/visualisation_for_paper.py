@@ -480,11 +480,12 @@ original_variances = {
 }
 fig, ax = plt.subplots(figsize=(10, 6))
 
-sns.boxplot(data=df_final_updated, x='step', y='variance_step', hue='model', palette=custom_palette,ax=ax)
+sns.boxplot(data=df_final_updated[df_final_updated['mean_step']>100], x='step', y='stdp_step', hue='model', palette=custom_palette,ax=ax)
 
 plt.yscale('log')
 plt.grid(True)
-plt.title('Variance by Step and Model: all TC')
+plt.title('Variance by Step and Model: TC > 100')
+plt.ylabel(r'$\sigma/mTC$')
 
 plt.tight_layout()
 plt.show()
@@ -496,9 +497,9 @@ plt.show()
 
 plt.figure(figsize=(12, 8))
 sns.scatterplot(
-    data=df_final_updated[df_final_updated['mean_step']>100.0],
+    data=df_final_updated,
     x='mean_step',
-    y='variance_step',
+    y='stdp_step',
     hue='model',
     style='step',
     palette=custom_palette,
@@ -507,9 +508,8 @@ sns.scatterplot(
 )
 plt.yscale('log')
 plt.xscale('log')
-plt.xlabel('Mean Predicted Thermal Conductivity (TC)')
-plt.ylabel('Variance_step')
-plt.title('Variance by Step and Model: high TC')
+plt.xlabel('Mean Predicted Thermal Conductivity (mTC)')
+plt.ylabel(r'$\sigma/mTC$')
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()
 
