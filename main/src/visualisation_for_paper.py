@@ -524,6 +524,7 @@ plt.show()
 
 import seaborn as sns
 from scipy.stats import pearsonr, spearmanr, f_oneway, ttest_ind
+from cmcrameri import cm
 
 mpd_descriptors = pd.read_csv('all_mpd_decr.csv').dropna(axis=1).drop(columns='deprecated')
 data = df_final_updated[['mpd_id','model', 'mean_step', 'variance_step']].sort_values(by='variance_step', ascending=True).head(101)
@@ -537,13 +538,15 @@ df[boolenas] = df[boolenas].astype(int)
 
 numeric_cols = df.select_dtypes(include=np.number).columns
 numeric_features = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
-numeric_features.remove('variance_step')
+
+colum_to_correlate = 'mean_step'
+numeric_features.remove(colum_to_correlate)
 
 corr_results = []
 
 for feature in numeric_features:
-    pearson_corr, pearson_p = pearsonr(df[feature], df['variance_step'])
-    spearman_corr, spearman_p = spearmanr(df[feature], df['variance_step'])
+    pearson_corr, pearson_p = pearsonr(df[feature], df[colum_to_correlate])
+    spearman_corr, spearman_p = spearmanr(df[feature], df[colum_to_correlate])
     corr_results.append({
         'feature': feature,
         'pearson_corr': pearson_corr,
@@ -552,12 +555,16 @@ for feature in numeric_features:
         'spearman_p': spearman_p
     })
 
+# for pearson corr : +1/-1 perfect line relation, 0 nothing 
+# for pearson p : p<0.05 is statistically significant corr, other like a noise 
+
+
 corr_df = pd.DataFrame(corr_results).dropna()
 corr_df = corr_df.sort_values(by='pearson_corr', key=abs, ascending=False)
 print(corr_df)
+corr_df.to_csv('correlation_results_mean_TC.csv')
 
-
-plt.figure(figsize=(12,10))
-sns.heatmap(df[numeric_features + ['variance_step']].corr(), annot=True, cmap='coolwarm')
+plt.figure(figsize=(16,10))
+sns.heatmap(df[numeric_cols].corr(), fmt=".2f", annot=True, cmap=cm.vik)
 plt.show()
 
