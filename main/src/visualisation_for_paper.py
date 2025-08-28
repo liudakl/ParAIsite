@@ -4,7 +4,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import numpy as np 
 import os
 
 file_path = 'variances_paraisite.csv'
@@ -445,6 +445,10 @@ else:
 #                                       PLOT 
 # =============================================================================  
 
+df_final_updated = df_final_updated.replace([np.inf, -np.inf], np.nan)
+df_final_updated = df_final_updated.dropna()
+
+
 custom_palette = {
     'AFLOW': '#1f77b4',  # Blue
     'MIX': '#ff7f0e',  # Orange
@@ -514,6 +518,46 @@ plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()
 
 
-# ========== Collecting info from MPD ====== 
+# =============================================================================  
+#                   Correlation with metrial properties
+# ============================================================================= 
 
+import seaborn as sns
+from scipy.stats import pearsonr, spearmanr, f_oneway, ttest_ind
+
+mpd_descriptors = pd.read_csv('all_mpd_decr.csv').dropna(axis=1).drop(columns='deprecated')
+data = df_final_updated[['mpd_id','model', 'mean_step', 'variance_step']].sort_values(by='variance_step', ascending=True).head(101)
+
+df = pd.merge(mpd_descriptors,data,on='mpd_id')
+
+# deprecated is nan ... 
+
+boolenas = df.select_dtypes(include='bool').columns
+df[boolenas] = df[boolenas].astype(int)
+
+numeric_cols = df.select_dtypes(include=np.number).columns
+numeric_features = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
+numeric_features.remove('variance_step')
+
+corr_results = []
+
+for feature in numeric_features:
+    pearson_corr, pearson_p = pearsonr(df[feature], df['variance_step'])
+    spearman_corr, spearman_p = spearmanr(df[feature], df['variance_step'])
+    corr_results.append({
+        'feature': feature,
+        'pearson_corr': pearson_corr,
+        'pearson_p': pearson_p,
+        'spearman_corr': spearman_corr,
+        'spearman_p': spearman_p
+    })
+
+corr_df = pd.DataFrame(corr_results).dropna()
+corr_df = corr_df.sort_values(by='pearson_corr', key=abs, ascending=False)
+print(corr_df)
+
+
+plt.figure(figsize=(12,10))
+sns.heatmap(df[numeric_features + ['variance_step']].corr(), annot=True, cmap='coolwarm')
+plt.show()
 
