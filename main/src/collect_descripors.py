@@ -2,7 +2,6 @@ from mp_api.client import MPRester
 import pandas as pd 
 
 
-mpdkey = 'EU50H01SryQmbO1G1gvMtY9g2hwXlOvK'
 
 Material_Project_Stable = pd.read_pickle('/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/nopush/structures_scalers/mpd_ids_srtcuture_table.pkl')
 ids  = Material_Project_Stable.mpd_id
