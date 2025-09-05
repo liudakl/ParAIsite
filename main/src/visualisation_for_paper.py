@@ -484,12 +484,12 @@ original_variances = {
 }
 fig, ax = plt.subplots(figsize=(10, 6))
 
-sns.boxplot(data=df_final_updated[df_final_updated['mean_step']>100], x='step', y='stdp_step', hue='model', palette=custom_palette,ax=ax)
+sns.boxplot(data=df_final_updated[df_final_updated.model.isin(['Dataset1', 'AFLOW'])], x='step', y='variance_step', hue='model', palette=custom_palette,ax=ax)
 
 plt.yscale('log')
 plt.grid(True)
 plt.title('Variance by Step and Model: TC > 100')
-plt.ylabel(r'$\sigma/mTC$')
+plt.ylabel(r'$Var$(mTC)')
 
 plt.tight_layout()
 plt.show()
@@ -499,28 +499,31 @@ plt.show()
 # ==========
 
 
-plt.figure(figsize=(12, 8))
 sns.scatterplot(
-    data=df_final_updated,
+    data=df_final_updated[df_final_updated.model.isin(['Dataset1', 'AFLOW'])],
     x='mean_step',
-    y='stdp_step',
+    y='variance_step',
     hue='model',
     style='step',
     palette=custom_palette,
-    s=100,  # size of the points
-    alpha=0.7
+    s=100,
+    alpha=0.7,
+    markers={1: "o", 2: "^", 3: "P"}  # mapping step -> marker
 )
 plt.yscale('log')
 plt.xscale('log')
 plt.xlabel('Mean Predicted Thermal Conductivity (mTC)')
-plt.ylabel(r'$\sigma/mTC$')
+plt.ylabel(r'$Var$(mTC)')
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.savefig("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/to_update_paper/paper_vria_allTC.pdf", format="pdf", dpi=100, bbox_inches="tight")
 plt.show()
 
 
 # =============================================================================  
-#                   Correlation with metrial properties
+#                   Correlation with materials properties
 # ============================================================================= 
+
+# path to save plots : /home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/to_update_paper
 
 import seaborn as sns
 from scipy.stats import pearsonr, spearmanr, f_oneway, ttest_ind
@@ -540,7 +543,7 @@ df_wide = df_wide.reset_index()
 df_wide = df_wide[df_wide.model=='Dataset1']
 
 mpd_descriptors = pd.read_csv('all_mpd_decr.csv').dropna(axis=1).drop(columns='deprecated')
-data = df_wide[['mpd_id','mean_step_1', 'mean_step_2', 'mean_step_3', 'variance_step_1', 'variance_step_2', 'variance_step_3']].sort_values(by='variance_step', ascending=True).head(101)
+data = df_wide[['mpd_id','mean_step_1', 'mean_step_2', 'mean_step_3', 'variance_step_1', 'variance_step_2', 'variance_step_3']].sort_values(by='variance_step_1', ascending=True).head(101)
 
 df = pd.merge(mpd_descriptors,data,on='mpd_id')
 
@@ -552,7 +555,7 @@ df[boolenas] = df[boolenas].astype(int)
 numeric_cols = df.select_dtypes(include=np.number).columns
 numeric_features = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
 
-colum_to_correlate = 'mean_step'
+colum_to_correlate = 'mean_step_1'
 numeric_features.remove(colum_to_correlate)
 
 corr_results = []
@@ -577,7 +580,15 @@ corr_df = corr_df.sort_values(by='pearson_corr', key=abs, ascending=False)
 print(corr_df)
 corr_df.to_csv('correlation_results_mean_TC.csv')
 
+
+## correlation matrix for Dataset1
+df_corr = df[numeric_cols].corr()
+threshold = 0.2 
+target_columns = ['mean_step_1', 'mean_step_2', 'mean_step_3']  
+significant_features = df_corr.index[df_corr[target_columns].abs().max(axis=1) > threshold]
+df_corr_significant = df_corr.loc[significant_features, significant_features]
+
 plt.figure(figsize=(16,10))
-sns.heatmap(df[numeric_cols].corr(), fmt=".2f", annot=True, cmap=cm.vik)
+sns.heatmap(df_corr, fmt=".2f", annot=True, cmap=cm.vikO)
 plt.show()
 
