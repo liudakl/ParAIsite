@@ -526,8 +526,21 @@ import seaborn as sns
 from scipy.stats import pearsonr, spearmanr, f_oneway, ttest_ind
 from cmcrameri import cm
 
+metrics = ["cv_step", "max.std_step", "max_step", 
+           "mean_step", "std_step", "stdp_step", "variance_step"]
+
+df_wide = df_final_updated.pivot_table(
+    index=["mpd_id", "model"], 
+    columns="step", 
+    values=metrics
+)
+
+df_wide.columns = [f"{metric}_{int(step)}" for metric, step in df_wide.columns]
+df_wide = df_wide.reset_index()
+df_wide = df_wide[df_wide.model=='Dataset1']
+
 mpd_descriptors = pd.read_csv('all_mpd_decr.csv').dropna(axis=1).drop(columns='deprecated')
-data = df_final_updated[['mpd_id','model', 'mean_step', 'variance_step']].sort_values(by='variance_step', ascending=True).head(101)
+data = df_wide[['mpd_id','mean_step_1', 'mean_step_2', 'mean_step_3', 'variance_step_1', 'variance_step_2', 'variance_step_3']].sort_values(by='variance_step', ascending=True).head(101)
 
 df = pd.merge(mpd_descriptors,data,on='mpd_id')
 
