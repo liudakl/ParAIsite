@@ -589,6 +589,10 @@ significant_features = df_corr.index[df_corr[target_columns].abs().max(axis=1) >
 df_corr_significant = df_corr.loc[significant_features, significant_features]
 
 plt.figure(figsize=(16,10))
-sns.heatmap(df_corr, fmt=".2f", annot=True, cmap=cm.vikO)
+sns.heatmap(df_corr_significant, fmt=".2f", annot=True, cmap=cm.vikO,xticklabels=True, yticklabels=True)
+plt.xticks(fontsize=14)
+plt.yticks(fontsize=14, rotation=0)
+plt.savefig("/home/lklochko/Desktop/ProjPostDoc/GitHub/ParAIsite/to_update_paper/correlation_matrix_significant.eps", format="eps", dpi=100, bbox_inches="tight")
+
 plt.show()
 
