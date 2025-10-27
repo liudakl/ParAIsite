@@ -42,7 +42,7 @@ We begin by preparing and integrating multiple datasets for model training and e
 ### 🧩 Figure: Model Workflow
 
 <p align="center">
-  <img src="workflow_2.pdf" alt="Model workflow diagram" width="60%">
+  <img src="workflow_2.png" alt="Model workflow diagram" width="60%">
 </p>
 
 **Figure:** *Sketch representing the different models trained for comparison in our methodology. Training datasets are illustrated as cylinders, and the resulting models after training **ParAIsite** are represented as cubes.*
