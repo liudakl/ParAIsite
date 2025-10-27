@@ -16,6 +16,26 @@ Steps that we followed to achieve the results:
 1. **Preprocessing Data**
    - Clean and format datasets (ie. we need structure and compounds to be ready before the execution)
    - Merge datasets from different sources
+  
+  ### Datasets : 
+  
+  **Togo15**  
+  This dataset contains 96 materials used in a previous prediction study [¹](#ref-seko2015) in the rocksalt, zincblende, and wurtzite structures that could be unambiguously identified in the Materials Project Database.  
+  The LTC values are obtained using the **phono3py** software package [²](#ref-phonopy) using the YAML files available through the [PhononDB](https://github.com/atztogo/phonondb) repository.  
+  Obtaining predictions with low deviation from those values is the central motivation for this work.  
+  
+  **AFLOW AGL dataset**  
+  This dataset contains **5,578 materials** obtained from the **AFLOW-LIB** repository [³](#ref-calderon2015) together with their corresponding thermal conductivity, obtained using a quasi-harmonic Debye–Grüneisen model [⁴](#ref-blanco2004, #ref-toher2014).
+  
+  ---
+  
+  ### References
+  <a name="ref-seko2015">¹</a> Seko, A. *et al.* (2015). *Prediction of low-thermal-conductivity compounds with first-principles anharmonic lattice-dynamics calculations and Bayesian optimization.*  
+  <a name="ref-phonopy">²</a> Togo, A. & Tanaka, I. (2015). *First principles phonon calculations in materials science.*  
+  <a name="ref-calderon2015">³</a> Calderon, C. *et al.* (2015). *The AFLOW standard for high-throughput materials science calculations.*  
+  <a name="ref-blanco2004">⁴</a> Blanco, M. A. *et al.* (2004). *Computing thermal properties from ab initio calculations.*  
+  <a name="ref-toher2014">⁴</a> Toher, C. *et al.* (2014). *High-throughput computational screening of thermal conductivity in materials.*
+
 2. **Model Development**
    - Fine-tune pre-trained MEGNET model
    - Develop and test new architectures of our MLP model
