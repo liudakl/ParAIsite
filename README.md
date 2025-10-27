@@ -92,18 +92,6 @@ To provide concrete validation of the best performing models, we applied them to
 - Improved accuracy in predicting thermal conductivity
 - Demonstrated potential for application in materials science
 
-## 📑 How to cite ParAIsite
-```txt
-@misc{klochko2024transferlearningdeeplearningbased,
-      title={Transfer Learning for Deep Learning-based Prediction of Lattice Thermal Conductivity}, 
-      author={L. Klochko and M. d'Aquin and A. Togo and L. Chaput},
-      year={2024},
-      eprint={2411.18259},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2411.18259}, 
-}
-```
 ## 🛠️ How to use ParAIsite
 
 Clone the project to your machine:
@@ -209,6 +197,19 @@ Next, you need to specify the model that will be used in testings, path to your 
   python scan_mdp.py for_scan.json
 ```
 Results will appear in the folder "results_scan/". 
+
+## 📑 How to cite ParAIsite
+```txt
+@misc{klochko2024transferlearningdeeplearningbased,
+      title={Transfer Learning for Deep Learning-based Prediction of Lattice Thermal Conductivity}, 
+      author={L. Klochko and M. d'Aquin and A. Togo and L. Chaput},
+      year={2024},
+      eprint={2411.18259},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2411.18259}, 
+}
+```
 ## 📚 References
 
 ```txt
