@@ -1,4 +1,4 @@
-# ParAIsite: a Fine-Tuned Neural Network model for Predicting Thermal Conductivity
+#Predictive AI Model Employing Two-Stage Transfer Learning (ParAIsite) for Lattice Thermal Conductivity
 
 
 <div align="center">
