@@ -23,10 +23,8 @@ We begin by preparing and integrating multiple datasets for model training and e
   Data from different repositories are combined and harmonized into a unified format suitable for fine-tuning.
 
 ### 📂 Datasets : 
-
-#### **Togo15**: This dataset contains **96 materials** used in a previous prediction study [2](#ref-seko2015) involving **rocksalt**, **zincblende**, and **wurtzite** structures that could be unambiguously identified in the **Materials Project Database**.  The lattice thermal conductivity (LTC) values are obtained using the **phono3py** software package [3](#ref-phonopy), based on YAML files available through the [PhononDB](https://github.com/atztogo/phonondb) repository.  Obtaining predictions with low deviation from these reference values is a central motivation for this work.
-
-#### **AFLOW AGL Dataset** : This dataset contains **5,578 materials** extracted from the **AFLOW-LIB** repository [4](#ref-calderon2015), along with their estimated thermal conductivity computed using a **quasi-harmonic Debye–Grüneisen model** [5](#ref-blanco2004,#ref-toher2014). This dataset serves as a large-scale, lower-fidelity training source for the first stage of transfer learning.
+**Togo15**: This dataset contains **96 materials** used in a previous prediction study [2](#ref-seko2015) involving **rocksalt**, **zincblende**, and **wurtzite** structures that could be unambiguously identified in the **Materials Project Database**.  The lattice thermal conductivity (LTC) values are obtained using the **phono3py** software package [3](#ref-phonopy), based on YAML files available through the [PhononDB](https://github.com/atztogo/phonondb) repository.  Obtaining predictions with low deviation from these reference values is a central motivation for this work.
+**AFLOW AGL Dataset** : This dataset contains **5,578 materials** extracted from the **AFLOW-LIB** repository [4](#ref-calderon2015), along with their estimated thermal conductivity computed using a **quasi-harmonic Debye–Grüneisen model** [5](#ref-blanco2004,#ref-toher2014). This dataset serves as a large-scale, lower-fidelity training source for the first stage of transfer learning.
 
 ---
 
