@@ -8,40 +8,70 @@
 
 In this study, we introduce **ParAIsite**, a deep learning model designed for predicting thermal conductivity of materials. Machine learning promises to accelerate the material discovery by enabling high-throughput prediction of desirable macro-properties from atomic-level descriptors or structures. However, the limited data available about precise values of these properties have been a barrier, leading to predictive models with limited precision or ability to generalize. This is particularly true of lattice thermal conductivity (LTC): existing datasets of precise (ab initio, DFT-based) computed values are limited to a few dozen materials with little variability. Based on such datasets, we study the impact of transfer learning on both the precision and generalizability of a deep learning model (ParAIsite). We start from an existing model (MEGNet[1]) and show that improvements are obtained by fine-tuning a pretrained version of it on a different tasks. Interestingly, we also show that a much greater improvement is obtained when first fine-tuning it on a large datasets of low-quality approximations of LTC (based on the AGL model), and then applying a second phase of fine-tuning with our high-quality, smaller-scale datasets. The promising results obtained pave the way not only towards a greater ability to explore large databases in search of low thermal conductivity materials but also to methods enabling increasingly precise predictions in areas where quality data are rare. 
 
-
 ## 🧪 Methodology
 
-Steps that we followed to achieve the results:
+The following steps outline the process followed to achieve the results presented in this work.
 
-1. **Preprocessing Data**
-   - Clean and format datasets (ie. we need structure and compounds to be ready before the execution)
-   - Merge datasets from different sources
-  
-  ### Datasets : 
-  
-  **Togo15**  
-  This dataset contains 96 materials used in a previous prediction study [¹](#ref-seko2015) in the rocksalt, zincblende, and wurtzite structures that could be unambiguously identified in the Materials Project Database.  
-  The LTC values are obtained using the **phono3py** software package [²](#ref-phonopy) using the YAML files available through the [PhononDB](https://github.com/atztogo/phonondb) repository.  
-  Obtaining predictions with low deviation from those values is the central motivation for this work.  
-  
-  **AFLOW AGL dataset**  
-  This dataset contains **5,578 materials** obtained from the **AFLOW-LIB** repository [³](#ref-calderon2015) together with their corresponding thermal conductivity, obtained using a quasi-harmonic Debye–Grüneisen model [⁴](#ref-blanco2004, #ref-toher2014).
-  
-  ---
-  
-  ### References
-  <a name="ref-seko2015">¹</a> Seko, A. *et al.* (2015). *Prediction of low-thermal-conductivity compounds with first-principles anharmonic lattice-dynamics calculations and Bayesian optimization.*  
-  <a name="ref-phonopy">²</a> Togo, A. & Tanaka, I. (2015). *First principles phonon calculations in materials science.*  
-  <a name="ref-calderon2015">³</a> Calderon, C. *et al.* (2015). *The AFLOW standard for high-throughput materials science calculations.*  
-  <a name="ref-blanco2004">⁴</a> Blanco, M. A. *et al.* (2004). *Computing thermal properties from ab initio calculations.*  
-  <a name="ref-toher2014">⁴</a> Toher, C. *et al.* (2014). *High-throughput computational screening of thermal conductivity in materials.*
+---
 
-2. **Model Development**
-   - Fine-tune pre-trained MEGNET model
-   - Develop and test new architectures of our MLP model
-3. **Evaluation**
-   - Assess model performance
-   - Compare with baseline models
+### 1. **Preprocessing Data**
+
+We begin by preparing and integrating multiple datasets for model training and evaluation.
+
+- **Data Cleaning & Formatting:**  
+  Structures and compound data are standardized to ensure compatibility with downstream models.
+
+- **Merging Datasets:**  
+  Data from different repositories are combined and harmonized into a unified format suitable for fine-tuning.
+
+---
+
+### 📂 Datasets
+
+#### **Togo15**
+
+This dataset contains **96 materials** used in a previous prediction study [¹](#ref-seko2015) involving **rocksalt**, **zincblende**, and **wurtzite** structures that could be unambiguously identified in the **Materials Project Database**.  
+The lattice thermal conductivity (LTC) values are obtained using the **phono3py** software package [²](#ref-phonopy), based on YAML files available through the [PhononDB](https://github.com/atztogo/phonondb) repository.  
+Obtaining predictions with low deviation from these reference values is a central motivation for this work.
+
+#### **AFLOW AGL Dataset**
+
+This dataset contains **5,578 materials** extracted from the **AFLOW-LIB** repository [³](#ref-calderon2015), along with their estimated thermal conductivity computed using a **quasi-harmonic Debye–Grüneisen model** [⁴](#ref-blanco2004, #ref-toher2014).  
+This dataset serves as a large-scale, lower-fidelity training source for the first stage of transfer learning.
+
+---
+
+### 2. **Model Development**
+
+- **Fine-Tuning MEGNet:**  
+  A pre-trained **MEGNet** model is used as the base network. We first fine-tune it on the larger AFLOW AGL dataset to capture general trends.
+
+- **High-Quality Refinement:**  
+  A second fine-tuning stage is then performed using the high-quality Togo15 dataset to improve precision and generalizability.
+
+- **Custom MLP Architectures:**  
+  Additional multilayer perceptron (MLP) models are developed and tested to benchmark performance against the fine-tuned MEGNet.
+
+---
+
+### 3. **Evaluation**
+
+- **Performance Assessment:**  
+  Model accuracy is evaluated using standard regression metrics (MAE, RMSE, R²).
+
+- **Baseline Comparison:**  
+  Results are compared against conventional machine learning models and previously reported methods to assess improvements from the two-stage transfer learning approach.
+
+---
+
+### 📚 References
+
+<a name="ref-seko2015">¹</a> Seko, A. *et al.* (2015). *Prediction of low-thermal-conductivity compounds with first-principles anharmonic lattice-dynamics calculations and Bayesian optimization.*  
+<a name="ref-phonopy">²</a> Togo, A. & Tanaka, I. (2015). *First principles phonon calculations in materials science.*  
+<a name="ref-calderon2015">³</a> Calderon, C. *et al.* (2015). *The AFLOW standard for high-throughput materials science calculations.*  
+<a name="ref-blanco2004">⁴</a> Blanco, M. A. *et al.* (2004). *Computing thermal properties from ab initio calculations.*  
+<a name="ref-toher2014">⁵</a> Toher, C. *et al.* (2014). *High-throughput computational screening of thermal conductivity in materials.*
+
 
 ## 📊 Results: 
 
