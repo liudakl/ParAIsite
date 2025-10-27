@@ -30,13 +30,13 @@ We begin by preparing and integrating multiple datasets for model training and e
 
 #### **Togo15**
 
-This dataset contains **96 materials** used in a previous prediction study [¹](#ref-seko2015) involving **rocksalt**, **zincblende**, and **wurtzite** structures that could be unambiguously identified in the **Materials Project Database**.  
-The lattice thermal conductivity (LTC) values are obtained using the **phono3py** software package [²](#ref-phonopy), based on YAML files available through the [PhononDB](https://github.com/atztogo/phonondb) repository.  
+This dataset contains **96 materials** used in a previous prediction study [2](#ref-seko2015) involving **rocksalt**, **zincblende**, and **wurtzite** structures that could be unambiguously identified in the **Materials Project Database**.  
+The lattice thermal conductivity (LTC) values are obtained using the **phono3py** software package [3](#ref-phonopy), based on YAML files available through the [PhononDB](https://github.com/atztogo/phonondb) repository.  
 Obtaining predictions with low deviation from these reference values is a central motivation for this work.
 
 #### **AFLOW AGL Dataset**
 
-This dataset contains **5,578 materials** extracted from the **AFLOW-LIB** repository [³](#ref-calderon2015), along with their estimated thermal conductivity computed using a **quasi-harmonic Debye–Grüneisen model** [⁴](#ref-blanco2004, #ref-toher2014).  
+This dataset contains **5,578 materials** extracted from the **AFLOW-LIB** repository [4](#ref-calderon2015), along with their estimated thermal conductivity computed using a **quasi-harmonic Debye–Grüneisen model** [5](#ref-blanco2004, #ref-toher2014).  
 This dataset serves as a large-scale, lower-fidelity training source for the first stage of transfer learning.
 
 ---
@@ -63,15 +63,6 @@ This dataset serves as a large-scale, lower-fidelity training source for the fir
   Results are compared against conventional machine learning models and previously reported methods to assess improvements from the two-stage transfer learning approach.
 
 ---
-
-### 📚 References
-
-<a name="ref-seko2015">¹</a> Seko, A. *et al.* (2015). *Prediction of low-thermal-conductivity compounds with first-principles anharmonic lattice-dynamics calculations and Bayesian optimization.*  
-<a name="ref-phonopy">²</a> Togo, A. & Tanaka, I. (2015). *First principles phonon calculations in materials science.*  
-<a name="ref-calderon2015">³</a> Calderon, C. *et al.* (2015). *The AFLOW standard for high-throughput materials science calculations.*  
-<a name="ref-blanco2004">⁴</a> Blanco, M. A. *et al.* (2004). *Computing thermal properties from ab initio calculations.*  
-<a name="ref-toher2014">⁵</a> Toher, C. *et al.* (2014). *High-throughput computational screening of thermal conductivity in materials.*
-
 
 ## 📊 Results: 
 
@@ -228,9 +219,25 @@ Results will appear in the folder "results_scan/".
 
 ```txt
 1. Chen, C.; Ye, W.; Zuo, Y.; Zheng, C.; Ong, S. P. Graph Networks as a Universal Machine Learning Framework for
-Molecules and Crystals. Chem. Mater. 2019, 31 (9), 3564–3572. https://doi.org/10.1021/acs.chemmater.9b01294.
+   Molecules and Crystals. Chem. Mater. 2019, 31 (9), 3564–3572. https://doi.org/10.1021/acs.chemmater.9b01294.
+
+2. Seko, A.; Togo, A.; Hayashi, H.; Tsuda, K.; Chaput, L.; Tanaka, I. Prediction of Low-Thermal-Conductivity Compounds
+   with First-Principles Anharmonic Lattice-Dynamics Calculations and Bayesian Optimization.
+   Phys. Rev. Lett. 2015, 115 (20), 205901. https://doi.org/10.1103/PhysRevLett.115.205901.
+
+3. Togo, A.; Tanaka, I. First Principles Phonon Calculations in Materials Science.
+   Scr. Mater. 2015, 108, 1–5. https://doi.org/10.1016/j.scriptamat.2015.07.021.
+
+4. Calderon, C. E.; Plata, J. J.; Toher, C.; Oses, C.; Levy, O.; Fornari, M.; Nardelli, M. B.; Curtarolo, S.
+   The AFLOW Standard for High-Throughput Materials Science Calculations.
+   Comput. Mater. Sci. 2015, 108, 233–238. https://doi.org/10.1016/j.commatsci.2015.07.019.
+
+5. Blanco, M. A.; Francisco, E.; Luaña, V. GIBBS: Isothermal–Isobaric Thermodynamics of Solids from Energy Curves Using
+   a Quasi-Harmonic Debye Model. Comput. Phys. Commun. 2004, 158 (1), 57–72.
+   https://doi.org/10.1016/j.cpc.2003.12.001.
+
+6. Toher, C.; Plata, J. J.; Levy, O.; de Jong, M.; Asta, M.; Nardelli, M. B.; Curtarolo, S.
+   High-Throughput Computational Screening of Thermal Conductivity, Debye Temperature, and Grüneisen Parameter Using
+   a Quasi-Harmonic Debye Model. Phys. Rev. B 2014, 90 (17), 174107.
+   https://doi.org/10.1103/PhysRevB.90.174107.
 ```
-
-
-
-
