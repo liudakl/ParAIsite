@@ -28,7 +28,7 @@ We begin by preparing and integrating multiple datasets for model training and e
 The lattice thermal conductivity (LTC) values are obtained using the **phono3py** software package [3](#ref-phonopy), based on YAML files available through the [PhononDB](https://github.com/atztogo/phonondb) repository.  
 Obtaining predictions with low deviation from these reference values is a central motivation for this work.
 
-#### **AFLOW AGL Dataset** : This dataset contains **5,578 materials** extracted from the **AFLOW-LIB** repository [4](#ref-calderon2015), along with their estimated thermal conductivity computed using a **quasi-harmonic Debye–Grüneisen model** [5](#ref-blanco2004, #ref-toher2014).  
+#### **AFLOW AGL Dataset** : This dataset contains **5,578 materials** extracted from the **AFLOW-LIB** repository [4](#ref-calderon2015), along with their estimated thermal conductivity computed using a **quasi-harmonic Debye–Grüneisen model** [5](#ref-blanco2004,#ref-toher2014).  
 This dataset serves as a large-scale, lower-fidelity training source for the first stage of transfer learning.
 
 ---
@@ -44,6 +44,18 @@ This dataset serves as a large-scale, lower-fidelity training source for the fir
 - **Custom MLP Architectures:**  
   Additional multilayer perceptron (MLP) models are developed and tested to benchmark performance against the fine-tuned MEGNet.
 
+### 🧩 Figure: Model Workflow
+
+<p align="center">
+  <img src="workflow_2.pdf" alt="Model workflow diagram" width="60%">
+</p>
+
+**Figure:** *Sketch representing the different models trained for comparison in our methodology. Training datasets are illustrated as cylinders, and the resulting models after training **ParAIsite** are represented as cubes.*
+
+Models are labeled from left to right as follows:  
+- **Step 1 (no pre-training):** Random Weights Togo15 (**RWTG15**), Random Weights AFLOW (**RWAF**).  
+- **Step 2 (using pre-trained MEGNet weights on formation energy):** Formation Energy Togo15 (**FETG15**), Formation Energy AFLOW (**FEAF**).  
+- **Step 3 (transfer learning on fine-tuned AFLOW model):** Formation Energy AFLOW Togo15 (**FEAFTG15**), Random Weights AFLOW Togo15 (**RWAFTG15**).
 ---
 
 ### 3. **Evaluation**
@@ -63,23 +75,18 @@ This dataset serves as a large-scale, lower-fidelity training source for the fir
 
 ## Metric: MAPE (Mean Average Percentage Error) 
 
-| Train on \ Test on | Dataset1 | Dataset2 | MIX | AFLOW |
-|--------------------|------------------|------------------|------------------|------------------|
-| **Step I: No weights MEGNET** |  |  |  |  |
-| Dataset1           | 0.55 (0.20) | 2.24 (1.15) | 1.57 (0.64) | 2.28 (1.12) |
-| Dataset2           | 0.50 (0.08) | 0.38 (0.05) | 0.43 (0.05) | 0.48 (0.04) |
-| MIX                | 0.70 (0.15) | 0.75 (0.14) | 0.73 (0.11) | 1.10 (0.56) |
-| AFLOW              | 0.58 (0.33) | 1.13 (0.28) | 0.92 (0.27) | 0.65 (0.33) |
-| **Step II: With weights MEGNET** |  |  |  |  |
-| Dataset1           | 0.53 (0.21) | 3.20 (2.55) | 2.14 (1.50) | 3.27 (3.96) |
-| Dataset2           | 0.50 (0.08) | 0.37 (0.08) | 0.42 (0.05) | 0.49 (0.09) |
-| MIX                | 0.69 (0.15) | 0.73 (0.13) | 0.71 (0.12) | 0.97 (0.20) |
-| AFLOW              | 0.55 (0.38) | 1.18 (0.27) | 0.93 (0.26) | 0.61 (0.34) |
-| **Step III: Retrained on AFLOW** |  |  |  |  |
-| Dataset1 | 0.28 (0.10) | 1.27 (0.39) | 0.88 (0.24) | 0.66 (0.18) |
-| Dataset2 | 0.56 (0.13) | 0.64 (0.21) | 0.61 (0.15) | 0.65 (0.07) |
-| MIX      | 0.34 (0.13) | 0.69 (0.25) | 0.55 (0.17) | 0.65 (0.08) |
-
+| **Model**       | **Togo15** | **AFLOW** |
+|------------------|:----------:|:----------:|
+| **Step 1**       |            |            |
+| RWTG15           | 0.55 (0.20) | 2.28 (1.12) |
+| RWAF             | 0.58 (0.33) | 0.65 (0.33) |
+| **Step 2**       |            |            |
+| FETG15           | 0.53 (0.21) | 3.27 (3.96) |
+| FEAF             | 0.55 (0.38) | 0.61 (0.34) |
+| **Step 3**       |            |            |
+| FEAFTG15         | 0.28 (0.10) | 0.66 (0.18) |
+| **Additional Step** |         |            |
+| RWAFTG15         | 0.43 (0.39) | 0.83 (0.37) |
 
 ### Scan over Material Project Database: 
 
