@@ -2,7 +2,7 @@
 
 
 <div align="center">
-  <img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/logo.png?raw=true" width="200">
+  <img src="https://github.com/liudakl/fine_tuning_papers/blob/main/paper/logo.png?raw=true" width="400">
 </div>
 
 
