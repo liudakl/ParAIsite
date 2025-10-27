@@ -12,8 +12,6 @@ In this study, we introduce **ParAIsite**, a deep learning model designed for pr
 
 The following steps outline the process followed to achieve the results presented in this work.
 
----
-
 ### 1. **Preprocessing Data**
 
 We begin by preparing and integrating multiple datasets for model training and evaluation.
