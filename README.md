@@ -201,14 +201,15 @@ Results will appear in the folder "results_scan/".
 
 ## 📑 How to cite ParAIsite
 ```txt
-@misc{klochko2024transferlearningdeeplearningbased,
-      title={Transfer Learning for Deep Learning-based Prediction of Lattice Thermal Conductivity}, 
-      author={L. Klochko and M. d'Aquin and A. Togo and L. Chaput},
-      year={2024},
-      eprint={2411.18259},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2411.18259}, 
+@article{Klochko2026,
+  title = {Two-stage transfer learning for deep learning-based prediction of lattice thermal conductivity},
+  ISSN = {1463-9084},
+  url = {http://dx.doi.org/10.1039/D5CP04401D},
+  DOI = {10.1039/d5cp04401d},
+  journal = {Physical Chemistry Chemical Physics},
+  publisher = {Royal Society of Chemistry (RSC)},
+  author = {Klochko,  Liudmyla and d’Aquin,  Mathieu},
+  year = {2026}
 }
 ```
 ## 📚 References
